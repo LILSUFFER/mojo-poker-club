@@ -34,16 +34,38 @@ export function ClubMojo() {
   const isRu = language === 'ru';
   const isMobile = useIsMobile();
 
+  const featureIcons = [
+    /* chip 1:1 */
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="3" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="21"/>
+      <line x1="3" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="21" y2="12"/>
+    </svg>,
+    /* rakeback % */
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M19 5 5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/>
+      <path d="M3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9-9-4.03-9-9z" strokeDasharray="4 4"/>
+    </svg>,
+    /* exclusive tables / lock */
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </svg>,
+    /* 24/7 clock */
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/>
+    </svg>,
+  ];
+
   const features = isRu ? [
-    { img: '/images/perk-chip.png', title: 'Фишка 1к1', desc: 'Прямой обмен без комиссии — покупай и продавай фишки по курсу 1 к 1.' },
-    { img: '/images/perk-rakeback.png', title: 'Рейкбек 55%', desc: 'Максимальный рейкбек для членов MOJO 1 — 55% от рейка возвращается тебе.' },
-    { img: '/images/perk-chip-2.png', title: 'Эксклюзивные столы', desc: 'Закрытый клуб с отборными игроками. Комфортная атмосфера и контролируемый состав.' },
-    { img: '/images/perk-rakeback-2.png', title: 'Экшн 24/7', desc: 'Столы работают круглосуточно — раздачи идут в любое время дня и ночи.' },
+    { title: 'Фишка 1к1', desc: 'Прямой обмен без комиссии — покупай и продавай фишки по курсу 1 к 1.' },
+    { title: 'Рейкбек 55%', desc: 'Максимальный рейкбек для членов MOJO 1 — 55% от рейка возвращается тебе.' },
+    { title: 'Эксклюзивные столы', desc: 'Закрытый клуб с отборными игроками. Комфортная атмосфера и контролируемый состав.' },
+    { title: 'Экшн 24/7', desc: 'Столы работают круглосуточно — раздачи идут в любое время дня и ночи.' },
   ] : [
-    { img: '/images/perk-chip.png', title: '1:1 Chip Rate', desc: 'Direct exchange with no commission — buy and sell chips at a 1:1 rate.' },
-    { img: '/images/perk-rakeback.png', title: '55% Rakeback', desc: 'Maximum rakeback for MOJO 1 members — 55% of rake returned to you.' },
-    { img: '/images/perk-chip-2.png', title: 'Exclusive Tables', desc: 'A closed club with hand-picked players. A comfortable atmosphere and controlled roster.' },
-    { img: '/images/perk-rakeback-2.png', title: '24/7 Action', desc: 'Tables run around the clock — hands are dealt at any time of day or night.' },
+    { title: '1:1 Chip Rate', desc: 'Direct exchange with no commission — buy and sell chips at a 1:1 rate.' },
+    { title: '55% Rakeback', desc: 'Maximum rakeback for MOJO 1 members — 55% of rake returned to you.' },
+    { title: 'Exclusive Tables', desc: 'A closed club with hand-picked players. A comfortable atmosphere and controlled roster.' },
+    { title: '24/7 Action', desc: 'Tables run around the clock — hands are dealt at any time of day or night.' },
   ];
 
   return (
@@ -163,27 +185,6 @@ export function ClubMojo() {
             </div>
           </div>
 
-          {/* ── Chip + RB stat cards ── */}
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16, marginBottom: isMobile ? 48 : 72 }}>
-            {[
-              { img: '/images/perk-chip.png', label: isRu ? 'Фишка' : 'Chip', value: '1к1', sub: isRu ? 'Прямой обмен без комиссии' : 'Direct exchange, no fee' },
-              { img: '/images/perk-rakeback.png', label: isRu ? 'Рейкбек' : 'Rakeback', value: '55%', sub: isRu ? 'Максимальный рейкбек MOJO' : 'Maximum MOJO rakeback' },
-            ].map(stat => (
-              <div key={stat.label} style={{
-                display: 'flex', alignItems: 'center', gap: 20,
-                padding: '24px 28px', borderRadius: 8,
-                background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.07)',
-              }}>
-                <img src={stat.img} alt={stat.label} style={{ width: 56, height: 56, objectFit: 'contain', flexShrink: 0 }} />
-                <div>
-                  <p style={{ margin: '0 0 2px', fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>{stat.label}</p>
-                  <p style={{ margin: '0 0 4px', fontSize: 28, fontWeight: 900, color: 'white', lineHeight: 1, letterSpacing: '-0.02em' }}>{stat.value}</p>
-                  <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.4)', lineHeight: 1.4 }}>{stat.sub}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
           {/* ── How to join ── */}
           <JoinNextSteps clubId={CLUB_ID} refCode={REF_CODE} requiresVpn={false} />
 
@@ -200,7 +201,9 @@ export function ClubMojo() {
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
               {features.map((f, i) => (
                 <div key={i} style={{ padding: '24px 26px', borderRadius: 8, background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.06)', display: 'flex', gap: 18, alignItems: 'flex-start' }}>
-                  <img src={f.img} alt={f.title} style={{ width: 48, height: 48, objectFit: 'contain', flexShrink: 0 }} />
+                  <div style={{ width: 44, height: 44, borderRadius: 10, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: 'rgba(255,255,255,0.6)' }}>
+                    {featureIcons[i]}
+                  </div>
                   <div>
                     <h3 style={{ margin: '0 0 8px', fontSize: 15, fontWeight: 700, color: 'white', lineHeight: 1.2 }}>{f.title}</h3>
                     <p style={{ margin: 0, fontSize: 13, lineHeight: 1.65, color: 'rgba(255,255,255,0.5)' }}>{f.desc}</p>

@@ -35,16 +35,38 @@ export function ClubMassiv() {
   const isRu = language === 'ru';
   const isMobile = useIsMobile();
 
+  const featureIcons = [
+    /* chip 1:1 */
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/>
+      <line x1="12" y1="3" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="21"/>
+      <line x1="3" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="21" y2="12"/>
+    </svg>,
+    /* rakeback % */
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M19 5 5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/>
+    </svg>,
+    /* massive pool / users */
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </svg>,
+    /* 24/7 clock */
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/>
+    </svg>,
+  ];
+
   const features = isRu ? [
-    { img: '/images/perk-chip.png', title: 'Фишка 1к1', desc: 'Прямой обмен без комиссии — покупай и продавай фишки по курсу 1 к 1.' },
-    { img: '/images/perk-rakeback.png', title: 'Рейкбек 50%', desc: 'Один из лучших рейкбеков на рынке клубного покера — 50% от рейка возвращается тебе.' },
-    { img: '/images/perk-chip-2.png', title: 'Огромный пул', desc: 'Тысячи игроков со всего мира. Столы запускаются круглосуточно на любых лимитах.' },
-    { img: '/images/perk-rakeback-2.png', title: 'Экшн 24/7', desc: 'Благодаря глобальному пулу игроков Massiv Union никогда не спит — раздачи в любое время.' },
+    { title: 'Фишка 1к1', desc: 'Прямой обмен без комиссии — покупай и продавай фишки по курсу 1 к 1.' },
+    { title: 'Рейкбек 50%', desc: 'Один из лучших рейкбеков на рынке клубного покера — 50% от рейка возвращается тебе.' },
+    { title: 'Огромный пул', desc: 'Тысячи игроков со всего мира. Столы запускаются круглосуточно на любых лимитах.' },
+    { title: 'Экшн 24/7', desc: 'Благодаря глобальному пулу игроков Massiv Union никогда не спит — раздачи в любое время.' },
   ] : [
-    { img: '/images/perk-chip.png', title: '1:1 Chip Rate', desc: 'Direct exchange with no commission — buy and sell chips at a 1:1 rate.' },
-    { img: '/images/perk-rakeback.png', title: '50% Rakeback', desc: 'One of the best rakeback rates in club poker — 50% of rake returned to you.' },
-    { img: '/images/perk-chip-2.png', title: 'Massive Pool', desc: 'Thousands of players from around the world. Tables running around the clock at any stake.' },
-    { img: '/images/perk-rakeback-2.png', title: '24/7 Action', desc: 'Thanks to a global player pool, Massiv Union never sleeps — hands at any time of day.' },
+    { title: '1:1 Chip Rate', desc: 'Direct exchange with no commission — buy and sell chips at a 1:1 rate.' },
+    { title: '50% Rakeback', desc: 'One of the best rakeback rates in club poker — 50% of rake returned to you.' },
+    { title: 'Massive Pool', desc: 'Thousands of players from around the world. Tables running around the clock at any stake.' },
+    { title: '24/7 Action', desc: 'Thanks to a global player pool, Massiv Union never sleeps — hands at any time of day.' },
   ];
 
   return (
@@ -182,27 +204,6 @@ export function ClubMassiv() {
             <VPNSidebar />
           </div>
 
-          {/* ── Chip + RB stat cards ── */}
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16, marginBottom: isMobile ? 48 : 72 }}>
-            {[
-              { img: '/images/perk-chip.png', label: isRu ? 'Фишка' : 'Chip', value: '1к1', sub: isRu ? 'Прямой обмен без комиссии' : 'Direct exchange, no fee' },
-              { img: '/images/perk-rakeback.png', label: isRu ? 'Рейкбек' : 'Rakeback', value: '50%', sub: isRu ? 'Лучший рейкбек на рынке' : 'Best rakeback on the market' },
-            ].map(stat => (
-              <div key={stat.label} style={{
-                display: 'flex', alignItems: 'center', gap: 20,
-                padding: '24px 28px', borderRadius: 8,
-                background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.07)',
-              }}>
-                <img src={stat.img} alt={stat.label} style={{ width: 56, height: 56, objectFit: 'contain', flexShrink: 0 }} />
-                <div>
-                  <p style={{ margin: '0 0 2px', fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>{stat.label}</p>
-                  <p style={{ margin: '0 0 4px', fontSize: 28, fontWeight: 900, color: 'white', lineHeight: 1, letterSpacing: '-0.02em' }}>{stat.value}</p>
-                  <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.4)', lineHeight: 1.4 }}>{stat.sub}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
           {/* ── How to join ── */}
           <JoinNextSteps clubId={CLUB_ID} refCode={REF_CODE} requiresVpn={true} />
 
@@ -219,7 +220,9 @@ export function ClubMassiv() {
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
               {features.map((f, i) => (
                 <div key={i} style={{ padding: '24px 26px', borderRadius: 8, background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.06)', display: 'flex', gap: 18, alignItems: 'flex-start' }}>
-                  <img src={f.img} alt={f.title} style={{ width: 48, height: 48, objectFit: 'contain', flexShrink: 0 }} />
+                  <div style={{ width: 44, height: 44, borderRadius: 10, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: 'rgba(255,255,255,0.6)' }}>
+                    {featureIcons[i]}
+                  </div>
                   <div>
                     <h3 style={{ margin: '0 0 8px', fontSize: 15, fontWeight: 700, color: 'white', lineHeight: 1.2 }}>{f.title}</h3>
                     <p style={{ margin: 0, fontSize: 13, lineHeight: 1.65, color: 'rgba(255,255,255,0.5)' }}>{f.desc}</p>
