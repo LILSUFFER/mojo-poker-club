@@ -3,7 +3,7 @@ import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
 import { Clubs } from '@/components/Clubs';
 import { HowToJoin } from '@/components/HowToJoin';
-import { Games } from '@/components/Games';
+import { Stats } from '@/components/Stats';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 
@@ -16,7 +16,7 @@ export function Home() {
         <About />
         <Clubs />
         <HowToJoin />
-        <Games />
+        <Stats />
         <Contact />
       </main>
       <Footer />

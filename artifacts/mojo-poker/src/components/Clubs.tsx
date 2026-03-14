@@ -1,13 +1,22 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Check } from 'lucide-react';
+import { Check, Copy, CheckCircle2 } from 'lucide-react';
+import { useState } from 'react';
 
 export function Clubs() {
   const { t } = useLanguage();
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  const handleCopy = (id: string) => {
+    navigator.clipboard.writeText(id);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
 
   const clubs = [
     {
       id: 'mojo',
+      clubId: '356323',
       title: t('clubs.mojo.name'),
       desc: t('clubs.mojo.desc'),
       image: `${import.meta.env.BASE_URL}images/mojo-logo.png`,
@@ -20,6 +29,7 @@ export function Clubs() {
     },
     {
       id: 'massiv',
+      clubId: '799798',
       title: t('clubs.massiv.name'),
       desc: t('clubs.massiv.desc'),
       image: `${import.meta.env.BASE_URL}images/massiv-logo.png`,
@@ -59,7 +69,7 @@ export function Clubs() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="relative h-full bg-card rounded-lg p-8 sm:p-10 flex flex-col items-center text-center z-10 border border-white/5 group-hover:border-primary/30 transition-colors duration-500">
-                <div className="w-32 h-32 mb-8 relative">
+                <div className="w-32 h-32 mb-6 relative">
                   <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full group-hover:bg-primary/40 transition-all duration-500"></div>
                   <img 
                     src={club.image} 
@@ -68,7 +78,30 @@ export function Clubs() {
                   />
                 </div>
                 
-                <h4 className="text-2xl font-display text-white mb-4">{club.title}</h4>
+                <h4 className="text-2xl font-display text-white mb-2">{club.title}</h4>
+                
+                {/* Club ID Banner */}
+                <div className="w-full bg-background/80 border border-white/10 rounded-md p-4 mb-6 flex flex-col items-center justify-center gap-2">
+                  <div className="text-sm text-muted-foreground uppercase tracking-widest">Club ID</div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl font-display font-bold text-primary tracking-wider">{club.clubId}</span>
+                    <button 
+                      onClick={() => handleCopy(club.clubId)}
+                      className="p-2 rounded-sm bg-white/5 hover:bg-white/10 text-white transition-colors flex items-center justify-center group/btn"
+                      title="Copy ID"
+                    >
+                      {copiedId === club.clubId ? (
+                        <CheckCircle2 className="w-5 h-5 text-green-500" />
+                      ) : (
+                        <Copy className="w-5 h-5 text-muted-foreground group-hover/btn:text-white" />
+                      )}
+                    </button>
+                  </div>
+                  {copiedId === club.clubId && (
+                    <span className="text-xs text-green-500 font-medium animate-in fade-in zoom-in duration-200">{t('clubs.copied')}</span>
+                  )}
+                </div>
+
                 <p className="text-muted-foreground font-light mb-8 flex-grow">
                   {club.desc}
                 </p>
@@ -83,17 +116,6 @@ export function Clubs() {
                     </div>
                   ))}
                 </div>
-                
-                <a 
-                  href="#contact" 
-                  className={`w-full py-3 rounded-sm font-semibold tracking-wider transition-all duration-300 ${
-                    club.highlight 
-                      ? 'bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_15px_rgba(212,175,55,0.4)]' 
-                      : 'bg-white/5 text-white hover:bg-white/10'
-                  }`}
-                >
-                  {t('hero.cta')}
-                </a>
               </div>
             </motion.div>
           ))}

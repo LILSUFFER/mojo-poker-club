@@ -1,16 +1,14 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Download, UserPlus, MessageCircle, Key, PlayCircle } from 'lucide-react';
+import { Download, Search, MessageCircle } from 'lucide-react';
 
 export function HowToJoin() {
   const { t } = useLanguage();
 
   const steps = [
     { icon: <Download className="w-6 h-6" />, title: t('howToJoin.step1.title'), desc: t('howToJoin.step1.desc') },
-    { icon: <UserPlus className="w-6 h-6" />, title: t('howToJoin.step2.title'), desc: t('howToJoin.step2.desc') },
+    { icon: <Search className="w-6 h-6" />, title: t('howToJoin.step2.title'), desc: t('howToJoin.step2.desc') },
     { icon: <MessageCircle className="w-6 h-6" />, title: t('howToJoin.step3.title'), desc: t('howToJoin.step3.desc') },
-    { icon: <Key className="w-6 h-6" />, title: t('howToJoin.step4.title'), desc: t('howToJoin.step4.desc') },
-    { icon: <PlayCircle className="w-6 h-6" />, title: t('howToJoin.step5.title'), desc: t('howToJoin.step5.desc') },
   ];
 
   return (
@@ -63,6 +61,24 @@ export function HowToJoin() {
               )
             })}
           </div>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-16 text-center"
+          >
+             <a
+              href="https://t.me/Mojo_Adm" 
+              target="_blank" 
+              rel="norenoopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-primary/30 text-white font-bold tracking-wider rounded-sm text-sm hover:bg-primary/10 transition-all duration-300"
+            >
+              <MessageCircle className="w-5 h-5 text-primary" />
+              {t('howToJoin.step3.title')} (@Mojo_Adm)
+            </a>
+          </motion.div>
         </div>
 
       </div>

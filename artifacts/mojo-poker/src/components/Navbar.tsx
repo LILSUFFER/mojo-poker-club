@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, Download } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Link, useLocation } from 'wouter';
 
 export function Navbar() {
   const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,27 +24,28 @@ export function Navbar() {
   };
 
   const navLinks = [
-    { name: t('nav.about'), href: '#about' },
-    { name: t('nav.clubs'), href: '#clubs' },
-    { name: t('nav.howToJoin'), href: '#how-to-join' },
-    { name: t('nav.games'), href: '#games' },
+    { name: t('nav.about'), href: '/#about' },
+    { name: t('nav.clubs'), href: '/#clubs' },
+    { name: t('nav.howToJoin'), href: '/#how-to-join' },
   ];
+
+  const isHome = location === '/';
 
   return (
     <nav
       className={cn(
         'fixed top-0 w-full z-50 transition-all duration-300',
-        isScrolled ? 'bg-background/80 backdrop-blur-lg border-b border-white/5 py-4' : 'bg-transparent py-6'
+        isScrolled || !isHome ? 'bg-background/95 backdrop-blur-lg border-b border-white/5 py-4' : 'bg-transparent py-6'
       )}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group">
           <span className="font-display font-black text-2xl tracking-widest text-white group-hover:text-gradient-gold transition-all duration-300">
             MOJO
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
@@ -61,14 +64,19 @@ export function Navbar() {
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
-            className="flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-white transition-colors"
+            className="flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-white transition-colors uppercase"
           >
             <Globe className="w-4 h-4 text-primary" />
-            {language.toUpperCase()}
+            {language}
           </button>
 
+          <Link href="/download" className="flex items-center gap-2 px-5 py-2.5 rounded-sm bg-primary/10 border border-primary/50 text-primary font-bold text-sm tracking-wide hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+            <Download className="w-4 h-4" />
+            {t('nav.download')}
+          </Link>
+
           <a
-            href="#contact"
+            href={isHome ? "#contact" : "/#contact"}
             className="px-5 py-2.5 rounded-sm bg-gradient-gold text-black font-bold text-sm tracking-wide hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 hover:-translate-y-0.5"
           >
             {t('nav.contact')}
@@ -115,10 +123,20 @@ export function Navbar() {
                 <Globe className="w-5 h-5 text-primary" />
                 {language === 'en' ? 'Switch to Russian (RU)' : 'Switch to English (EN)'}
               </button>
-              <a
-                href="#contact"
+              
+              <Link 
+                href="/download"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-4 px-5 py-3 text-center rounded-sm bg-gradient-gold text-black font-bold tracking-wide"
+                className="mt-2 flex items-center justify-center gap-2 px-5 py-3 text-center rounded-sm bg-primary/10 border border-primary/50 text-primary font-bold tracking-wide"
+              >
+                <Download className="w-5 h-5" />
+                {t('nav.download')}
+              </Link>
+              
+              <a
+                href={isHome ? "#contact" : "/#contact"}
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-2 px-5 py-3 text-center rounded-sm bg-gradient-gold text-black font-bold tracking-wide"
               >
                 {t('nav.contact')}
               </a>

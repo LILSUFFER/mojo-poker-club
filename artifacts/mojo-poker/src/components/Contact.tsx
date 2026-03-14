@@ -29,7 +29,7 @@ export function Contact() {
           </p>
 
           <a
-            href="https://t.me/mojopoker" 
+            href="https://t.me/Mojo_Adm" 
             target="_blank" 
             rel="norenoopener noreferrer"
             className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-gold text-black font-bold tracking-wider rounded-sm text-lg hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all duration-300 hover:-translate-y-1"

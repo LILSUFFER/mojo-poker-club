@@ -6,20 +6,20 @@ export const translations = {
       about: "About",
       clubs: "Our Clubs",
       howToJoin: "How to Join",
-      games: "Games",
+      download: "Download",
       contact: "Contact",
     },
     hero: {
       title: "Next Level",
       titleHighlight: "Poker Club",
-      subtitle: "Join MOJO on the exclusive GGClub network. Premium tables, exceptional service, and the highest stakes.",
+      subtitle: "Join MOJO on the exclusive ClubGG network. Premium tables, exceptional service, and the highest stakes.",
       cta: "Join Now",
-      secondaryCta: "Learn More",
+      secondaryCta: "Message Manager",
     },
     about: {
       title: "About Us",
       subtitle: "The Premier Poker Experience",
-      content1: "MOJO Poker Club is an exclusive community operating within the highly acclaimed GGClub app network. We provide a secure, high-quality, and thrilling environment for poker enthusiasts of all levels.",
+      content1: "MOJO Poker Club is an exclusive community operating within the highly acclaimed ClubGG app network. We provide a secure, high-quality, and thrilling environment for poker enthusiasts of all levels.",
       content2: "Whether you're looking for casual low-stakes games or high-roller VIP tables, our club offers unparalleled action 24/7.",
       stats: {
         players: "Active Players",
@@ -31,55 +31,80 @@ export const translations = {
       title: "Our Clubs",
       subtitle: "Choose Your Arena",
       mojo: {
-        name: "MOJO Poker Club",
+        name: "MOJO 1",
         desc: "Our flagship club offering exclusive tables, daily tournaments, and a tight-knit community of dedicated players.",
         feature1: "Exclusive VIP Tables",
         feature2: "Weekly Freerolls",
         feature3: "Instant Cashouts"
       },
       massiv: {
-        name: "Massiv Poker Union",
+        name: "MOJO 2 Massiv Union 🇺🇸",
         desc: "Access a massive pool of players through our extensive union. Bigger guarantees, more action, zero waiting.",
         feature1: "Massive Player Pool",
         feature2: "High Guarantee MTTs",
         feature3: "24/7 Global Action"
-      }
+      },
+      copied: "Copied!",
+      copyId: "Copy ID"
     },
     howToJoin: {
       title: "How to Join",
       subtitle: "Start Playing in Minutes",
       step1: {
-        title: "Download GGClub",
-        desc: "Available on iOS and Android devices. Download the official app from your app store."
+        title: "Download ClubGG",
+        desc: "Download the ClubGG Poker app from our download page for your device."
       },
       step2: {
-        title: "Register Account",
-        desc: "Create your free account within the GGClub application."
+        title: "Find Our Clubs",
+        desc: "Sign in and find our clubs using the Club IDs provided, or click the direct links."
       },
       step3: {
         title: "Contact Manager",
-        desc: "Message our VIP agent on Telegram to request access."
-      },
-      step4: {
-        title: "Get Club ID",
-        desc: "Receive our exclusive Club ID and referral code from the manager."
-      },
-      step5: {
-        title: "Start Playing",
-        desc: "Join the club, fund your account, and hit the tables!"
+        desc: "Message @Mojo_Adm on Telegram with your in-game nickname and which club you joined to get approval."
       }
     },
-    games: {
-      title: "Available Games",
-      subtitle: "Action for Every Style",
-      holdem: "Texas Hold'em",
-      holdemDesc: "The classic. No Limit tables running 24/7 across all stakes.",
-      omaha: "Omaha (PLO)",
-      omahaDesc: "Action-packed Pot Limit Omaha. PLO4, PLO5, and PLO6 available.",
-      mtt: "Tournaments",
-      mttDesc: "Daily and weekly Multi-Table Tournaments with massive guarantees.",
-      ofc: "Open Face Chinese",
-      ofcDesc: "Test your skill in Pineapple OFC variations."
+    stats: {
+      title: "Club Statistics",
+      subtitle: "By the Numbers",
+      players: "5000+",
+      playersLabel: "Active Players",
+      tables: "200+",
+      tablesLabel: "Daily Tables",
+      support: "24/7",
+      supportLabel: "VIP Support"
+    },
+    download: {
+      title: "Download ClubGG Poker",
+      subtitle: "Choose your platform",
+      android: {
+        title: "Download for Android",
+        badge: "APK file • Direct install",
+        btn: "Download APK",
+        step1: "Click download button",
+        step2: "Allow installation from unknown sources in settings",
+        step3: "Install the APK file",
+        step4: "Open the app"
+      },
+      ios: {
+        title: "Download for iPhone",
+        badge: "App Store • Official",
+        btn: "Open App Store",
+        step1: "Click button",
+        step2: "App Store will open",
+        step3: "Install the app",
+        step4: "Ready to play"
+      },
+      pc: {
+        title: "Download for PC",
+        badge: "Windows • Desktop version",
+        btn: "Download Installer",
+        step1: "Download the installer",
+        step2: "Run the EXE file",
+        step3: "Follow installation instructions",
+        step4: "Log into your account"
+      },
+      joinProcessTitle: "Ready to join?",
+      joinProcessSubtitle: "Follow these steps to start playing"
     },
     contact: {
       title: "Ready to Play?",
@@ -97,20 +122,20 @@ export const translations = {
       about: "О нас",
       clubs: "Наши клубы",
       howToJoin: "Как вступить",
-      games: "Игры",
+      download: "Скачать",
       contact: "Связаться",
     },
     hero: {
       title: "Покерный клуб",
       titleHighlight: "нового уровня",
-      subtitle: "Присоединяйтесь к MOJO в эксклюзивной сети GGClub. Премиум столы, безупречный сервис и самые высокие ставки.",
+      subtitle: "Присоединяйтесь к MOJO в эксклюзивной сети ClubGG. Премиум столы, безупречный сервис и самые высокие ставки.",
       cta: "Вступить сейчас",
-      secondaryCta: "Подробнее",
+      secondaryCta: "Написать менеджеру",
     },
     about: {
       title: "О нас",
       subtitle: "Премиальный покерный опыт",
-      content1: "MOJO Poker Club — это эксклюзивное сообщество, работающее в популярной сети приложений GGClub. Мы обеспечиваем безопасную, качественную и захватывающую среду для любителей покера всех уровней.",
+      content1: "MOJO Poker Club — это эксклюзивное сообщество, работающее в популярной сети приложений ClubGG. Мы обеспечиваем безопасную, качественную и захватывающую среду для любителей покера всех уровней.",
       content2: "Ищете ли вы расслабленную игру на низких лимитах или VIP-столы для хайроллеров, наш клуб предлагает непрерывный экшен 24/7.",
       stats: {
         players: "Активных игроков",
@@ -122,55 +147,80 @@ export const translations = {
       title: "Наши клубы",
       subtitle: "Выберите свою арену",
       mojo: {
-        name: "MOJO Poker Club",
+        name: "MOJO 1",
         desc: "Наш флагманский клуб, предлагающий эксклюзивные столы, ежедневные турниры и сплоченное сообщество преданных игроков.",
         feature1: "Эксклюзивные VIP столы",
         feature2: "Еженедельные фрироллы",
         feature3: "Мгновенные кэшауты"
       },
       massiv: {
-        name: "Massiv Poker Union",
+        name: "MOJO 2 Massiv Union 🇺🇸",
         desc: "Получите доступ к огромному пулу игроков через наш обширный союз. Крупные гарантии, больше экшена, никаких ожиданий.",
         feature1: "Огромный пул игроков",
         feature2: "Турниры с крупной гарантией",
         feature3: "Глобальная игра 24/7"
-      }
+      },
+      copied: "Скопировано!",
+      copyId: "Скопировать ID"
     },
     howToJoin: {
       title: "Как вступить",
       subtitle: "Начните играть за считанные минуты",
       step1: {
-        title: "Скачать GGClub",
-        desc: "Доступно на iOS и Android. Скачайте официальное приложение из вашего магазина."
+        title: "Скачать ClubGG",
+        desc: "Скачайте приложение ClubGG Poker на странице загрузки для вашего устройства."
       },
       step2: {
-        title: "Зарегистрироваться",
-        desc: "Создайте бесплатный аккаунт в приложении GGClub."
+        title: "Найти наши клубы",
+        desc: "Войдите в систему и найдите наши клубы, используя ID клуба, или перейдите по прямым ссылкам."
       },
       step3: {
         title: "Написать менеджеру",
-        desc: "Свяжитесь с нашим VIP-агентом в Telegram для получения доступа."
-      },
-      step4: {
-        title: "Получить ID клуба",
-        desc: "Получите наш эксклюзивный ID клуба и реферальный код от менеджера."
-      },
-      step5: {
-        title: "Начать игру",
-        desc: "Вступайте в клуб, пополняйте счет и садитесь за столы!"
+        desc: "Свяжитесь с @Mojo_Adm в Telegram, укажите свой ник в игре и клуб, в который вы вступили, для получения одобрения."
       }
     },
-    games: {
-      title: "Доступные игры",
-      subtitle: "Экшен для любого стиля",
-      holdem: "Техасский Холдем",
-      holdemDesc: "Классика. Столы No Limit работают 24/7 на всех лимитах.",
-      omaha: "Омаха (PLO)",
-      omahaDesc: "Динамичная Pot Limit Omaha. Доступны PLO4, PLO5 и PLO6.",
-      mtt: "Турниры",
-      mttDesc: "Ежедневные и еженедельные многостоловые турниры с огромными гарантиями.",
-      ofc: "Открытый Китайский",
-      ofcDesc: "Проверьте свои навыки в различных вариациях Ананаса (Pineapple OFC)."
+    stats: {
+      title: "Статистика клуба",
+      subtitle: "В цифрах",
+      players: "5000+",
+      playersLabel: "Активных игроков",
+      tables: "200+",
+      tablesLabel: "Столов ежедневно",
+      support: "24/7",
+      supportLabel: "VIP Поддержка"
+    },
+    download: {
+      title: "Скачать ClubGG Poker",
+      subtitle: "Выберите вашу платформу",
+      android: {
+        title: "Скачать для Android",
+        badge: "APK файл • Прямая установка",
+        btn: "Скачать APK",
+        step1: "Нажмите кнопку скачать",
+        step2: "Разрешите установку из неизвестных источников в настройках",
+        step3: "Установите APK файл",
+        step4: "Откройте приложение"
+      },
+      ios: {
+        title: "Скачать для iPhone",
+        badge: "App Store • Official",
+        btn: "Открыть App Store",
+        step1: "Нажмите кнопку",
+        step2: "Откроется App Store",
+        step3: "Установите приложение",
+        step4: "Готово к игре"
+      },
+      pc: {
+        title: "Скачать для PC",
+        badge: "Windows • Desktop version",
+        btn: "Скачать установщик",
+        step1: "Скачайте установщик",
+        step2: "Запустите EXE файл",
+        step3: "Следуйте инструкциям установки",
+        step4: "Войдите в аккаунт"
+      },
+      joinProcessTitle: "Готовы присоединиться?",
+      joinProcessSubtitle: "Выполните эти шаги, чтобы начать играть"
     },
     contact: {
       title: "Готовы играть?",

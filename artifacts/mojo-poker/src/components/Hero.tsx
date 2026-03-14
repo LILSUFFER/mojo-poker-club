@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
+import { Link } from 'wouter';
 
 export function Hero() {
   const { t } = useLanguage();
@@ -27,7 +28,7 @@ export function Hero() {
           className="mb-6 flex items-center gap-3"
         >
           <div className="h-px w-8 bg-primary"></div>
-          <span className="text-primary font-semibold tracking-[0.2em] uppercase text-sm">GGClub Network</span>
+          <span className="text-primary font-semibold tracking-[0.2em] uppercase text-sm">ClubGG Network</span>
           <div className="h-px w-8 bg-primary"></div>
         </motion.div>
 
@@ -56,20 +57,20 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           className="flex flex-col sm:flex-row gap-4"
         >
-          <a
-            href="#contact"
-            className="group relative px-8 py-4 bg-gradient-gold text-black font-bold tracking-wider rounded-sm overflow-hidden"
-          >
+          <Link href="/download" className="group relative px-8 py-4 bg-gradient-gold text-black font-bold tracking-wider rounded-sm overflow-hidden inline-flex justify-center items-center">
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
             <span className="relative flex items-center justify-center gap-2">
               {t('hero.cta')}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
-          </a>
+          </Link>
           <a
-            href="#about"
-            className="px-8 py-4 border border-white/20 text-white font-bold tracking-wider rounded-sm hover:bg-white/5 transition-colors"
+            href="https://t.me/Mojo_Adm"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-bold tracking-wider rounded-sm hover:bg-white/5 transition-colors"
           >
+            <MessageCircle className="w-5 h-5" />
             {t('hero.secondaryCta')}
           </a>
         </motion.div>
