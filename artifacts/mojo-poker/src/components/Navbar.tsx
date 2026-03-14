@@ -24,8 +24,8 @@ export function Navbar() {
     }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px', height: 60, display: 'flex', alignItems: 'center' }}>
 
-        <div style={{ flex: 1 }}>
-          <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 0, flex: 1 }}>
+          <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, textDecoration: 'none', marginRight: 8 }}>
             <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 24, color: 'white', letterSpacing: '0.06em', lineHeight: 1 }}>MOJO</span>
             <div style={{ width: 1, height: 28, background: 'rgba(255,255,255,0.15)', flexShrink: 0 }} />
             <img
@@ -34,9 +34,8 @@ export function Navbar() {
               style={{ height: 28, width: 'auto', objectFit: 'contain', display: 'block', opacity: 0.85 }}
             />
           </Link>
-        </div>
 
-        <div className="nav-desktop" style={{ alignItems: 'center', gap: 0 }}>
+          <div className="nav-desktop" style={{ alignItems: 'center', gap: 0 }}>
           {navLinks.map(link => (
             <a key={link.label} href={link.href}
               style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, fontWeight: 500, textDecoration: 'none', padding: '6px 14px', borderRadius: 4, transition: 'color 0.15s' }}
@@ -44,9 +43,10 @@ export function Navbar() {
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
             >{link.label}</a>
           ))}
+          </div>
         </div>
 
-        <div className="nav-desktop" style={{ flex: 1, alignItems: 'center', gap: 8, justifyContent: 'flex-end' }}>
+        <div className="nav-desktop" style={{ alignItems: 'center', gap: 8, justifyContent: 'flex-end' }}>
           <button
             onClick={() => setLanguage(language === 'en' ? 'ru' : 'en')}
             style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '5px 10px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 700, letterSpacing: '0.05em', background: 'transparent', cursor: 'pointer', transition: 'all 0.15s' }}
