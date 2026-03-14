@@ -2,6 +2,44 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Wallet, TrendingUp } from 'lucide-react';
 
+function UnionBadge() {
+  return (
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+      {/* Shield shape */}
+      <path d="M32 4 L56 14 L56 36 C56 50 44 60 32 62 C20 60 8 50 8 36 L8 14 Z"
+        fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="1.2" />
+
+      {/* Globe */}
+      <circle cx="32" cy="31" r="13" fill="none" stroke="rgba(255,255,255,0.55)" strokeWidth="1.2" />
+      {/* Latitude lines */}
+      <ellipse cx="32" cy="31" rx="6" ry="13" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="0.9" />
+      <line x1="19" y1="31" x2="45" y2="31" stroke="rgba(255,255,255,0.3)" strokeWidth="0.9" />
+      <line x1="20" y1="25" x2="44" y2="25" stroke="rgba(255,255,255,0.2)" strokeWidth="0.7" />
+      <line x1="20" y1="37" x2="44" y2="37" stroke="rgba(255,255,255,0.2)" strokeWidth="0.7" />
+
+      {/* Left laurel */}
+      <path d="M10 30 Q8 26 11 23 Q9 27 12 28 Q10 24 14 22 Q12 26 15 27 Q13 23 17 22 Q15 26 18 28"
+        fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeLinecap="round" />
+      {/* Right laurel */}
+      <path d="M54 30 Q56 26 53 23 Q55 27 52 28 Q54 24 50 22 Q52 26 49 27 Q51 23 47 22 Q49 26 46 28"
+        fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeLinecap="round" />
+
+      {/* UNION text */}
+      <text x="32" y="52" textAnchor="middle" fill="rgba(255,255,255,0.7)"
+        fontSize="7" fontWeight="700" letterSpacing="1.5" fontFamily="system-ui, sans-serif">
+        UNION
+      </text>
+
+      {/* Stars */}
+      <g fill="rgba(255,255,255,0.35)">
+        <polygon points="26,57 26.4,58.2 27.6,58.2 26.7,58.9 27,60.1 26,59.4 25,60.1 25.3,58.9 24.4,58.2 25.6,58.2" transform="scale(0.6) translate(16,36)"/>
+        <polygon points="26,57 26.4,58.2 27.6,58.2 26.7,58.9 27,60.1 26,59.4 25,60.1 25.3,58.9 24.4,58.2 25.6,58.2" transform="scale(0.6) translate(26,36)"/>
+        <polygon points="26,57 26.4,58.2 27.6,58.2 26.7,58.9 27,60.1 26,59.4 25,60.1 25.3,58.9 24.4,58.2 25.6,58.2" transform="scale(0.6) translate(36,36)"/>
+      </g>
+    </svg>
+  );
+}
+
 const perksData = {
   ru: [
     {
@@ -55,11 +93,7 @@ export function About() {
             /// {t('about.title')}
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 12 }}>
-            <img
-              src="/images/union-badge.png"
-              alt="Massiv Union"
-              style={{ width: 72, height: 72, objectFit: 'contain', mixBlendMode: 'screen', flexShrink: 0 }}
-            />
+            <UnionBadge />
             <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em', margin: 0 }}>
               {isRu ? 'Лучшие условия на рынке' : 'Best Conditions on the Market'}
             </h2>
