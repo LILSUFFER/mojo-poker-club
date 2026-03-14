@@ -22,45 +22,52 @@ const OG_IMAGE = `${BASE_URL}/opengraph.jpg`;
 export default function SEO({ ru, en, canonical, structuredData }: BilingualSEOProps) {
   const { language } = useLanguage();
   const isRu = language === 'ru';
-  const canonicalUrl = `${BASE_URL}${canonical}`;
 
-  // Page <title> follows the user's current UI language (browser tab UX)
+  // Language-specific URLs using ?lang= query param
+  const canonicalRu = `${BASE_URL}${canonical}?lang=ru`;
+  const canonicalEn = `${BASE_URL}${canonical}?lang=en`;
+  const canonicalCurrent = isRu ? canonicalRu : canonicalEn;
+
+  // Page <title> and meta description follow the current UI language
   const uiT = isRu ? ru : en;
   const uiTitle = uiT.title.includes('MOJO') ? uiT.title : `${uiT.title} — MOJO Poker Club`;
 
-  // OG / social preview is always English — crawlers & bots see the page
-  // in its default (server) state; we want a consistent English preview everywhere.
-  const ogTitle = en.title.includes('MOJO') ? en.title : `${en.title} — MOJO Poker Club`;
-  const ogDesc  = en.description;
+  // OG / social preview uses the current language (since the URL now carries ?lang=)
+  const ogT = uiT;
+  const ogTitle = ogT.title.includes('MOJO') ? ogT.title : `${ogT.title} — MOJO Poker Club`;
+  const ogDesc  = ogT.description;
+  const ogLocale = isRu ? 'ru_RU' : 'en_US';
+  const ogLocaleAlt = isRu ? 'en_US' : 'ru_RU';
 
   return (
     <Helmet>
-      {/* html[lang] follows UI language — helps screen readers & browser hints */}
+      {/* html[lang] follows UI language */}
       <html lang={isRu ? 'ru' : 'en'} />
 
-      {/* <title> and meta description follow current UI language */}
+      {/* <title> and meta description in current language */}
       <title>{uiTitle}</title>
       <meta name="description" content={uiT.description} />
       {uiT.keywords && <meta name="keywords" content={uiT.keywords} />}
 
-      {/* Canonical — single URL, no language-specific paths */}
-      <link rel="canonical" href={canonicalUrl} />
+      {/* Canonical points to the current language URL */}
+      <link rel="canonical" href={canonicalCurrent} />
 
-      {/* hreflang: Russian is default UI language, no separate EN URL */}
-      <link rel="alternate" hrefLang="ru" href={canonicalUrl} />
-      <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
+      {/* hreflang for both language versions + default */}
+      <link rel="alternate" hrefLang="ru" href={canonicalRu} />
+      <link rel="alternate" hrefLang="en" href={canonicalEn} />
+      <link rel="alternate" hrefLang="x-default" href={canonicalRu} />
 
-      {/* OG / social preview — always English for consistent link previews */}
+      {/* OG / social preview — follows current language (URL carries ?lang=) */}
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="MOJO Poker Club" />
       <meta property="og:title" content={ogTitle} />
       <meta property="og:description" content={ogDesc} />
-      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:url" content={canonicalCurrent} />
       <meta property="og:image" content={OG_IMAGE} />
-      <meta property="og:locale" content="en_US" />
-      <meta property="og:locale:alternate" content="ru_RU" />
+      <meta property="og:locale" content={ogLocale} />
+      <meta property="og:locale:alternate" content={ogLocaleAlt} />
 
-      {/* Twitter — always English */}
+      {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={ogTitle} />
       <meta name="twitter:description" content={ogDesc} />

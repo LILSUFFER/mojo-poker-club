@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Home } from "@/pages/Home";
 import { Download } from "@/pages/Download";
 import { InstallGuide } from "@/pages/InstallGuide";
@@ -24,10 +25,25 @@ function ScrollToTop() {
   return null;
 }
 
+function LangUrlSync() {
+  const [location] = useLocation();
+  const { language } = useLanguage();
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('lang') !== language) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', language);
+      window.history.replaceState({}, '', url.toString());
+    }
+  }, [location, language]);
+  return null;
+}
+
 function Router() {
   return (
     <>
       <ScrollToTop />
+      <LangUrlSync />
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/download" component={Download} />

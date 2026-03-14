@@ -9,15 +9,44 @@ type LanguageContextType = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  // Default to RU as requested
-  const [language, setLanguage] = useState<Language>('ru');
+function getLangFromUrl(): Language {
+  const params = new URLSearchParams(window.location.search);
+  const lang = params.get('lang');
+  if (lang === 'en' || lang === 'ru') return lang;
+  return 'ru';
+}
 
-  // Simple path dot-notation resolver (e.g., 'hero.title')
+function setLangInUrl(lang: Language) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('lang', lang);
+  window.history.replaceState({}, '', url.toString());
+}
+
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const [language, setLanguageState] = useState<Language>(getLangFromUrl);
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    setLangInUrl(lang);
+  };
+
+  useEffect(() => {
+    // If no ?lang= in URL on first load, add it silently
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has('lang')) {
+      setLangInUrl(language);
+    }
+
+    const handlePop = () => {
+      setLanguageState(getLangFromUrl());
+    };
+    window.addEventListener('popstate', handlePop);
+    return () => window.removeEventListener('popstate', handlePop);
+  }, []);
+
   const t = (path: string): string => {
     const keys = path.split('.');
     let current: any = translations[language];
-    
     for (const key of keys) {
       if (current[key] === undefined) {
         console.warn(`Translation key not found: ${path}`);
@@ -25,7 +54,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       }
       current = current[key];
     }
-    
     return current as string;
   };
 
