@@ -10,8 +10,14 @@ export function Footer() {
       heading: 'Навигация',
       links: [
         { label: 'О нас', href: '/about' },
-        { label: 'Наши клубы', href: '/#clubs' },
         { label: 'Как вступить', href: '/join' },
+      ],
+    },
+    {
+      heading: 'Клубы',
+      links: [
+        { label: 'Massiv Poker Union', href: '/clubs/massiv' },
+        { label: 'MOJO', href: '/clubs/mojo' },
       ],
     },
     {
@@ -19,6 +25,7 @@ export function Footer() {
       links: [
         { label: 'Скачать ClubGG', href: '/download' },
         { label: 'Как установить', href: '/install' },
+        { label: 'Создать аккаунт', href: '/create-account' },
       ],
     },
     {
@@ -34,8 +41,14 @@ export function Footer() {
       heading: 'Navigation',
       links: [
         { label: 'About', href: '/about' },
-        { label: 'Our Clubs', href: '/#clubs' },
         { label: 'How to Join', href: '/join' },
+      ],
+    },
+    {
+      heading: 'Clubs',
+      links: [
+        { label: 'Massiv Poker Union', href: '/clubs/massiv' },
+        { label: 'MOJO', href: '/clubs/mojo' },
       ],
     },
     {
@@ -43,6 +56,7 @@ export function Footer() {
       links: [
         { label: 'Download ClubGG', href: '/download' },
         { label: 'How to Install', href: '/install' },
+        { label: 'Create Account', href: '/create-account' },
       ],
     },
     {
@@ -60,7 +74,7 @@ export function Footer() {
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
 
         {/* Top row: logo + columns */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto auto auto', gap: 48, alignItems: 'start', marginBottom: 48 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto auto auto auto', gap: 40, alignItems: 'start', marginBottom: 48 }}>
 
           {/* Brand */}
           <div>
