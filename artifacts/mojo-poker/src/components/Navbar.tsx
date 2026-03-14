@@ -22,14 +22,16 @@ export function Navbar() {
       background: '#0a0c10',
       borderBottom: '1px solid rgba(255,255,255,0.08)',
     }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px', height: 64, display: 'flex', alignItems: 'center' }}>
 
-        {/* Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 0, textDecoration: 'none', flexShrink: 0 }}>
-          <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 26, color: 'white', letterSpacing: '0.06em', lineHeight: 1 }}>MOJO</span>
-        </Link>
+        {/* Logo — flex: 1 so it takes equal space */}
+        <div style={{ flex: 1 }}>
+          <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
+            <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 26, color: 'white', letterSpacing: '0.06em', lineHeight: 1 }}>MOJO</span>
+          </Link>
+        </div>
 
-        {/* Desktop nav links */}
+        {/* Desktop nav links — centered */}
         <div className="nav-desktop" style={{ alignItems: 'center', gap: 2 }}>
           {navLinks.map(link => (
             <a key={link.label} href={link.href}
@@ -40,8 +42,8 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Desktop actions */}
-        <div className="nav-desktop" style={{ alignItems: 'center', gap: 8 }}>
+        {/* Desktop actions — flex: 1, aligned to the right */}
+        <div className="nav-desktop" style={{ flex: 1, alignItems: 'center', gap: 8, justifyContent: 'flex-end' }}>
           <button
             onClick={() => setLanguage(language === 'en' ? 'ru' : 'en')}
             style={{ padding: '6px 12px', borderRadius: 6, border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.7)', fontSize: 12, fontWeight: 700, letterSpacing: '0.05em', background: 'transparent', cursor: 'pointer', transition: 'all 0.15s' }}
