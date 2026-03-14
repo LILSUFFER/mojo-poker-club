@@ -103,8 +103,8 @@ export function Navbar() {
   const isRu = language === 'ru';
 
   const clubItems: DropItem[] = [
-    { label: 'MOJO: Massiv Poker Union', href: isHome ? '#clubs' : '/#clubs' },
-    { label: 'MOJO', href: isHome ? '#clubs' : '/#clubs' },
+    { label: 'MOJO: Massiv Poker Union', href: '/clubs/massiv' },
+    { label: 'MOJO', href: '/clubs/mojo' },
   ];
 
   const joinItems: DropItem[] = isRu ? [
