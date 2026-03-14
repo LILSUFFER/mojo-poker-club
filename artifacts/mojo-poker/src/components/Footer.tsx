@@ -82,7 +82,7 @@ export function Footer() {
             {/* Brand */}
             <div style={{ marginBottom: 32 }}>
               <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, textDecoration: 'none', marginBottom: 14 }}>
-                <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 28, color: 'hsl(220 5% 62%)', letterSpacing: '0.06em', lineHeight: 1 }}>MOJO</span>
+                <img src="/images/mojo-logo.svg" alt="MOJO Poker Club" style={{ height: 32, width: 'auto', display: 'block' }} />
                 <div style={{ width: 1, height: 36, background: 'rgba(255,255,255,0.12)', flexShrink: 0 }} />
                 <img
                   src="/images/massiv-union-logo-nobg.png"
@@ -138,7 +138,7 @@ export function Footer() {
             {/* Brand */}
             <div>
               <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, textDecoration: 'none', marginBottom: 14 }}>
-                <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 28, color: 'hsl(220 5% 62%)', letterSpacing: '0.06em', lineHeight: 1 }}>MOJO</span>
+                <img src="/images/mojo-logo.svg" alt="MOJO Poker Club" style={{ height: 32, width: 'auto', display: 'block' }} />
                 <div style={{ width: 1, height: 36, background: 'rgba(255,255,255,0.12)', flexShrink: 0 }} />
                 <img
                   src="/images/massiv-union-logo-nobg.png"

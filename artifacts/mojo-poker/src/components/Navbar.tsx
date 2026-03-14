@@ -142,7 +142,7 @@ export function Navbar() {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 0, flex: 1 }}>
           <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, textDecoration: 'none', marginRight: 36 }}>
-            <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 24, color: 'hsl(220 5% 62%)', letterSpacing: '0.06em', lineHeight: 1 }}>MOJO</span>
+            <img src="/images/mojo-logo.svg" alt="MOJO Poker Club" style={{ height: 28, width: 'auto', display: 'block' }} />
             <div style={{ width: 1, height: 32, background: 'rgba(255,255,255,0.12)', flexShrink: 0 }} />
             <img
               src="/images/massiv-union-logo-nobg.png"
