@@ -1,82 +1,104 @@
-import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageHeader } from '@/components/PageHeader';
-import { Link } from 'wouter';
 import { Copy, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
 
+const REFERRAL = '3383-3619';
+
 const CLUBS = [
-  { name: 'MOJO 2: Massiv Poker Union', id: '799798' },
-  { name: 'MOJO 1', id: '356323' },
+  { name: 'MOJO 2: Massiv Poker Union', id: '799798', main: true },
+  { name: 'MOJO 1', id: '356323', main: false },
 ];
+
+function CopyBtn({ value, label, copiedLabel }: { value: string; label: string; copiedLabel: string }) {
+  const [copied, setCopied] = useState(false);
+  const click = () => {
+    navigator.clipboard.writeText(value);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  return (
+    <button onClick={click} style={{
+      display: 'inline-flex', alignItems: 'center', gap: 5,
+      padding: '5px 11px', borderRadius: 4, cursor: 'pointer',
+      border: `1px solid ${copied ? 'rgba(34,197,94,0.35)' : 'rgba(255,255,255,0.12)'}`,
+      background: copied ? 'rgba(34,197,94,0.07)' : 'transparent',
+      color: copied ? '#22c55e' : 'rgba(255,255,255,0.4)',
+      fontSize: 11, fontWeight: 600, transition: 'all 0.15s',
+    }}>
+      {copied ? <><CheckCircle2 size={11} /> {copiedLabel}</> : <><Copy size={11} /> {label}</>}
+    </button>
+  );
+}
 
 export function JoinGuide() {
   const { language } = useLanguage();
   const isRu = language === 'ru';
-  const [copied, setCopied] = useState<string | null>(null);
 
-  const copy = (val: string, key: string) => {
-    navigator.clipboard.writeText(val);
-    setCopied(key);
-    setTimeout(() => setCopied(null), 2000);
-  };
+  interface StepDef {
+    num: number;
+    title: { ru: string; en: string };
+    desc: { ru: string; en: string };
+    img?: string;
+    extra?: 'clubs' | 'referral' | 'telegram';
+    note?: { ru: string; en: string };
+  }
 
-  const steps = isRu ? [
+  const steps: StepDef[] = [
     {
-      n: '01',
-      title: 'Откройте ClubGG',
-      body: 'Запустите приложение ClubGG и войдите в свой аккаунт. Если у вас ещё нет аккаунта — зарегистрируйтесь: потребуется электронная почта и никнейм.',
+      num: 1,
+      title: { ru: 'Откройте раздел «Клубы» в приложении', en: 'Open the "Clubs" section in the app' },
+      desc: {
+        ru: 'Запустите ClubGG и войдите в аккаунт. На главном экране вы увидите строку «Поиск Клуба» вверху — нажмите на неё. Это откроет форму поиска клуба.',
+        en: 'Launch ClubGG and sign in. On the main screen you\'ll see a "Search Club" bar at the top — tap it. This opens the club search form.',
+      },
+      img: '/images/join/step1-search.png',
     },
     {
-      n: '02',
-      title: 'Перейдите в раздел «Клубы»',
-      body: 'В нижнем меню приложения нажмите на иконку «Клубы». Вы увидите список доступных клубов и кнопку поиска.',
+      num: 2,
+      title: { ru: 'Введите ID клуба и ID реферера', en: 'Enter the Club ID and Referrer ID' },
+      desc: {
+        ru: 'Перед вами откроется форма с двумя полями:\n\n• Поле «ID клуба» — введите ID нужного клуба из списка ниже\n• Поле «ID реферера» — обязательно укажите реферальный код MOJO, чтобы нас нашли и одобрили вашу заявку\n\nПосле заполнения обоих полей нажмите «Подтвердить».',
+        en: 'A form with two fields will open:\n\n• "Club ID" field — enter the ID of the desired club from the list below\n• "Referrer ID" field — enter the MOJO referral code so we can find you and approve your request\n\nAfter filling both fields tap "Confirm".',
+      },
+      img: '/images/join/step2-form-empty.png',
+      extra: 'clubs',
     },
     {
-      n: '03',
-      title: 'Введите Club ID',
-      body: 'Нажмите на иконку поиска (лупа) в правом верхнем углу, введите нужный Club ID и нажмите «Найти». Выберите клуб из результатов.',
-      extra: 'club-ids',
+      num: 3,
+      title: { ru: 'Форма заполнена — нажмите «Подтвердить»', en: 'Form filled — tap "Confirm"' },
+      desc: {
+        ru: 'Убедитесь, что оба поля заполнены: Club ID и ID реферера (3383-3619). После этого кнопка «Подтвердить» станет активной — нажмите её.',
+        en: 'Make sure both fields are filled: Club ID and Referrer ID (3383-3619). Once done, the "Confirm" button becomes active — tap it.',
+      },
+      img: '/images/join/step3-form-filled.png',
+      note: {
+        ru: 'Если кнопка «Подтвердить» не активна — проверьте, что оба поля заполнены.',
+        en: 'If the "Confirm" button is not active — check that both fields are filled.',
+      },
     },
     {
-      n: '04',
-      title: 'Нажмите «Запросить вступление»',
-      body: 'На странице клуба нажмите кнопку «Вступить» или «Запросить». Ваша заявка отправится менеджеру клуба на рассмотрение.',
+      num: 4,
+      title: { ru: 'Страница клуба — нажмите «Присоединиться»', en: 'Club page — tap "Join"' },
+      desc: {
+        ru: 'Появится страница клуба MOJO. Вы увидите:\n\n• Название клуба и его ID\n• Количество членов клуба\n• Поле «Информация для проверки» — напишите туда краткое приветствие, например: «Привет! Я [ваш никнейм]»\n\nПосле этого нажмите зелёную кнопку «Присоединиться» внизу экрана.',
+        en: 'The MOJO club page appears. You\'ll see:\n\n• Club name and ID\n• Number of members\n• "Verification info" field — write a short greeting, e.g. "Hi! I\'m [your nickname]"\n\nThen tap the green "Join" button at the bottom of the screen.',
+      },
+      img: '/images/join/step4-join.png',
+      note: {
+        ru: 'Заполните поле «Информация для проверки» — это ускорит одобрение заявки.',
+        en: 'Fill in the "Verification info" field — this speeds up approval.',
+      },
     },
     {
-      n: '05',
-      title: 'Напишите менеджеру в Telegram',
-      body: 'Чтобы заявку одобрили быстро — напишите @Mojo_Adm в Telegram. Укажите свой никнейм в ClubGG и в какой клуб хотите вступить. Обычно одобрение приходит в течение нескольких минут.',
-      extra: 'telegram',
-    },
-  ] : [
-    {
-      n: '01',
-      title: 'Open ClubGG',
-      body: "Launch the ClubGG app and sign in. No account yet? Tap 'Register' and enter your email and nickname.",
-    },
-    {
-      n: '02',
-      title: 'Go to the Clubs section',
-      body: 'Tap the "Clubs" icon in the bottom navigation menu. You will see a list of available clubs and a search button.',
-    },
-    {
-      n: '03',
-      title: 'Enter the Club ID',
-      body: 'Tap the search icon (magnifier) in the top right corner, enter the Club ID and tap "Search". Select the club from the results.',
-      extra: 'club-ids',
-    },
-    {
-      n: '04',
-      title: 'Tap "Request to Join"',
-      body: 'On the club page tap the "Join" or "Request" button. Your application will be sent to the club manager for review.',
-    },
-    {
-      n: '05',
-      title: 'Message the manager on Telegram',
-      body: 'For quick approval — message @Mojo_Adm on Telegram. Share your ClubGG nickname and which club you want to join. Approval usually takes just a few minutes.',
+      num: 5,
+      title: { ru: 'Напишите менеджеру в Telegram', en: 'Message the manager on Telegram' },
+      desc: {
+        ru: 'Заявка отправлена — теперь напишите менеджеру @Mojo_Adm в Telegram. Укажите:\n\n• Ваш никнейм в ClubGG\n• В какой клуб хотите вступить (MOJO 1 или MOJO 2)\n\nОбычно одобрение приходит в течение нескольких минут. Менеджер может задать дополнительные вопросы.',
+        en: 'Request sent — now message manager @Mojo_Adm on Telegram. Include:\n\n• Your ClubGG nickname\n• Which club you want to join (MOJO 1 or MOJO 2)\n\nApproval usually takes just a few minutes. The manager may ask a few questions.',
+      },
       extra: 'telegram',
     },
   ];
@@ -85,103 +107,178 @@ export function JoinGuide() {
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
       <PageHeader
-        label={isRu ? 'Вступление в клуб' : 'Joining the Club'}
+        label={isRu ? 'Вступление в клуб' : 'Join the Club'}
         title={isRu ? 'Как вступить в клуб MOJO' : 'How to Join MOJO Club'}
         subtitle={isRu
-          ? 'Весь процесс занимает около 5 минут. Следуйте шагам ниже и вы уже за столом.'
-          : 'The whole process takes about 5 minutes. Follow the steps below and you\'ll be at the table in no time.'}
+          ? 'Пошаговая инструкция — весь процесс занимает около 3 минут'
+          : 'Step-by-step guide — the whole process takes about 3 minutes'}
         breadcrumbs={[
           { label: isRu ? 'Главная' : 'Home', href: '/' },
           { label: isRu ? 'Как вступить' : 'How to Join' },
         ]}
       />
-      <main style={{ flex: 1, padding: '60px 0 80px' }}>
-        <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 32px' }}>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            {steps.map((step, i) => (
-              <motion.div
-                key={step.n}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07 }}
-                style={{ display: 'flex', gap: 24, paddingBottom: i < steps.length - 1 ? 36 : 0, position: 'relative' }}
-              >
-                {/* Connector line */}
-                {i < steps.length - 1 && (
-                  <div style={{ position: 'absolute', left: 19, top: 44, width: 1, height: 'calc(100% - 8px)', background: 'var(--border-subtle)' }} />
-                )}
+      <main style={{ flex: 1, padding: '80px 0 100px' }}>
+        <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 32px' }}>
 
-                {/* Circle */}
+          {steps.map((step, idx) => (
+            <div key={step.num} style={{ marginBottom: idx < steps.length - 1 ? 80 : 0 }}>
+
+              {/* Step header */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
                 <div style={{
-                  flexShrink: 0, width: 40, height: 40, borderRadius: '50%',
-                  border: '1px solid var(--border-subtle)', background: 'var(--bg-card)',
+                  width: 36, height: 36, borderRadius: '50%',
+                  background: 'hsl(4 80% 45%)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 11, fontWeight: 700, color: 'var(--text-muted)', zIndex: 1,
+                  flexShrink: 0,
+                  fontSize: 13, fontWeight: 800, color: 'white',
                 }}>
-                  {step.n}
+                  {step.num}
+                </div>
+                <h2 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
+                  {isRu ? step.title.ru : step.title.en}
+                </h2>
+              </div>
+
+              {/* Content */}
+              <div style={{ paddingLeft: 52 }}>
+
+                {/* Description with line breaks */}
+                <div style={{ marginBottom: 24 }}>
+                  {(isRu ? step.desc.ru : step.desc.en).split('\n').map((line, i) => (
+                    line === '' ? <div key={i} style={{ height: 8 }} /> :
+                    line.startsWith('•') ? (
+                      <div key={i} style={{ display: 'flex', gap: 10, marginBottom: 6 }}>
+                        <span style={{ color: 'hsl(4 80% 45%)', flexShrink: 0, marginTop: 2 }}>•</span>
+                        <span style={{ fontSize: 15, lineHeight: 1.7, color: 'rgba(255,255,255,0.6)' }}>
+                          {line.slice(2)}
+                        </span>
+                      </div>
+                    ) : (
+                      <p key={i} style={{ margin: '0 0 8px', fontSize: 15, lineHeight: 1.75, color: 'rgba(255,255,255,0.6)' }}>
+                        {line}
+                      </p>
+                    )
+                  ))}
                 </div>
 
-                {/* Content */}
-                <div style={{ paddingTop: 8, flex: 1 }}>
-                  <div style={{ fontSize: 17, fontWeight: 700, color: 'var(--text)', marginBottom: 10 }}>{step.title}</div>
-                  <p style={{ fontSize: 14, color: 'var(--text-faint)', lineHeight: 1.7, margin: 0 }}>{step.body}</p>
-
-                  {/* Extra: Club IDs */}
-                  {step.extra === 'club-ids' && (
-                    <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                {/* Club IDs extra */}
+                {step.extra === 'clubs' && (
+                  <div style={{ marginBottom: 24 }}>
+                    <p style={{ margin: '0 0 10px', fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
+                      {isRu ? 'ID клубов' : 'Club IDs'}
+                    </p>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 16 }}>
                       {CLUBS.map(club => (
                         <div key={club.id} style={{
                           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                          padding: '12px 16px', borderRadius: 6,
-                          background: 'var(--bg-card)', border: '1px solid var(--border-subtle)',
-                          gap: 12,
+                          padding: '14px 18px', borderRadius: 6,
+                          background: club.main ? 'rgba(255,255,255,0.04)' : 'transparent',
+                          border: `1px solid ${club.main ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.06)'}`,
+                          gap: 12, flexWrap: 'wrap',
                         }}>
-                          <span style={{ fontSize: 13, color: 'var(--text-muted)', fontWeight: 500 }}>{club.name}</span>
+                          <div>
+                            <p style={{ margin: '0 0 2px', fontSize: 12, color: 'rgba(255,255,255,0.35)' }}>
+                              {club.main ? (isRu ? 'Рекомендуем' : 'Recommended') : ''}
+                            </p>
+                            <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', fontWeight: 500 }}>{club.name}</span>
+                          </div>
                           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                            <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)', fontVariantNumeric: 'tabular-nums' }}>{club.id}</span>
-                            <button
-                              onClick={() => copy(club.id, club.id)}
-                              style={{
-                                display: 'flex', alignItems: 'center', gap: 5,
-                                padding: '5px 10px', borderRadius: 4, cursor: 'pointer',
-                                border: `1px solid ${copied === club.id ? 'rgba(34,197,94,0.35)' : 'var(--border-subtle)'}`,
-                                background: copied === club.id ? 'rgba(34,197,94,0.07)' : 'transparent',
-                                color: copied === club.id ? '#22c55e' : 'var(--text-faint)',
-                                fontSize: 11, fontWeight: 600,
-                              }}
-                            >
-                              {copied === club.id
-                                ? <><CheckCircle2 size={11} /> {isRu ? 'Скопировано' : 'Copied'}</>
-                                : <><Copy size={11} /> {isRu ? 'Копировать' : 'Copy'}</>}
-                            </button>
+                            <span style={{ fontSize: 18, fontWeight: 800, color: 'white', fontVariantNumeric: 'tabular-nums' }}>{club.id}</span>
+                            <CopyBtn value={club.id} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
                           </div>
                         </div>
                       ))}
                     </div>
-                  )}
 
-                  {/* Extra: Telegram */}
-                  {step.extra === 'telegram' && (
-                    <a
-                      href="https://t.me/Mojo_Adm"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: 16,
-                        fontSize: 13, fontWeight: 600, color: 'var(--text)',
-                        border: '1px solid rgba(255,255,255,0.18)',
-                        borderRadius: 4, padding: '10px 18px', textDecoration: 'none',
-                      }}
-                    >
-                      @Mojo_Adm →
-                    </a>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                    {/* Referral */}
+                    <p style={{ margin: '0 0 10px', fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
+                      {isRu ? 'ID реферера (обязательно)' : 'Referrer ID (required)'}
+                    </p>
+                    <div style={{
+                      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                      padding: '14px 18px', borderRadius: 6,
+                      background: 'rgba(255,255,255,0.04)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      gap: 12,
+                    }}>
+                      <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', fontWeight: 500 }}>
+                        {isRu ? 'Реферальный код MOJO' : 'MOJO Referral Code'}
+                      </span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                        <span style={{ fontSize: 18, fontWeight: 800, color: 'white', fontVariantNumeric: 'tabular-nums' }}>{REFERRAL}</span>
+                        <CopyBtn value={REFERRAL} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Telegram extra */}
+                {step.extra === 'telegram' && (
+                  <a
+                    href="https://t.me/Mojo_Adm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 24,
+                      padding: '13px 22px', borderRadius: 4, textDecoration: 'none',
+                      background: 'rgba(255,255,255,0.04)',
+                      border: '1px solid rgba(255,255,255,0.12)',
+                      color: 'white', fontSize: 14, fontWeight: 600,
+                    }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.08)'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)'; }}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 6.886l-1.872 8.82c-.14.62-.503.77-.995.48l-2.75-2.026-1.328 1.278c-.147.147-.27.27-.553.27l.196-2.79 5.088-4.597c.221-.196-.048-.305-.344-.11l-6.29 3.96-2.713-.85c-.59-.184-.602-.59.123-.872l10.582-4.08c.49-.178.92.108.856.517z" fill="#229ED9"/>
+                    </svg>
+                    @Mojo_Adm
+                  </a>
+                )}
+
+                {/* Note */}
+                {step.note && (
+                  <div style={{
+                    padding: '12px 16px',
+                    borderRadius: 6,
+                    background: 'rgba(255,255,255,0.02)',
+                    border: '1px solid rgba(255,255,255,0.06)',
+                    borderLeft: '3px solid hsl(4 80% 45%)',
+                    marginBottom: 24,
+                    fontSize: 13,
+                    color: 'rgba(255,255,255,0.4)',
+                    lineHeight: 1.6,
+                  }}>
+                    {isRu ? step.note.ru : step.note.en}
+                  </div>
+                )}
+
+                {/* Screenshot */}
+                {step.img && (
+                  <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                    <div style={{
+                      borderRadius: 16,
+                      overflow: 'hidden',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      boxShadow: '0 4px 32px rgba(0,0,0,0.5)',
+                      display: 'inline-block',
+                    }}>
+                      <img
+                        src={step.img}
+                        alt={isRu ? step.title.ru : step.title.en}
+                        style={{ width: 320, height: 'auto', display: 'block' }}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Divider */}
+              {idx < steps.length - 1 && (
+                <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', margin: '80px 0 0' }} />
+              )}
+            </div>
+          ))}
 
         </div>
       </main>
