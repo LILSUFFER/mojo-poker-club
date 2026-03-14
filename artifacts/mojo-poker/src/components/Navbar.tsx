@@ -26,13 +26,15 @@ export function Navbar() {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 0, flex: 1 }}>
           <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, textDecoration: 'none', marginRight: 8 }}>
-            <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 24, color: 'white', letterSpacing: '0.06em', lineHeight: 1 }}>MOJO</span>
-            <div style={{ width: 1, height: 28, background: 'rgba(255,255,255,0.15)', flexShrink: 0 }} />
-            <img
-              src="/images/massiv-union-logo.png"
-              alt="Massiv Union ClubGG"
-              style={{ height: 28, width: 'auto', objectFit: 'contain', display: 'block', opacity: 0.85 }}
-            />
+            <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 24, color: 'hsl(220 5% 62%)', letterSpacing: '0.06em', lineHeight: 1 }}>MOJO</span>
+            <div style={{ width: 1, height: 32, background: 'rgba(255,255,255,0.12)', flexShrink: 0 }} />
+            <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1, gap: 1 }}>
+              <span style={{ fontSize: 13, fontWeight: 800, color: 'hsl(220 5% 58%)', letterSpacing: '-0.01em', fontStyle: 'italic' }}>māssiv</span>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
+                <span style={{ fontSize: 11, fontWeight: 800, color: 'hsl(220 5% 55%)', letterSpacing: '0.12em' }}>UNION</span>
+                <span style={{ fontSize: 8, fontWeight: 700, color: 'hsl(220 5% 45%)', letterSpacing: '0.04em' }}>ClubGG</span>
+              </div>
+            </div>
           </Link>
 
           <div className="nav-desktop" style={{ alignItems: 'center', gap: 0 }}>
