@@ -104,10 +104,6 @@ export function Clubs() {
               {/* Logo area — background matches the logo image */}
               <div style={{ position: 'relative', background: club.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 48px', minHeight: 200 }}>
                 <img src={club.logo} alt={club.name} style={{ width: '100%', maxWidth: 280, height: 'auto', display: 'block', objectFit: 'contain' }} />
-                {/* Club name label */}
-                <div style={{ position: 'absolute', bottom: 14, left: 18, fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: club.logoLabelColor }}>
-                  {club.logoLabel}
-                </div>
                 {club.badge && (
                   <div style={{ position: 'absolute', top: 14, right: 14 }}>
                     <img
@@ -124,6 +120,11 @@ export function Clubs() {
 
               {/* Body */}
               <div style={{ padding: '28px 28px 32px', display: 'flex', flexDirection: 'column', gap: 16, flex: 1 }}>
+
+                {/* Club name heading */}
+                <h3 style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)', letterSpacing: '-0.02em', lineHeight: 1.1, margin: 0 }}>
+                  {club.logoLabel}
+                </h3>
 
                 {/* Stats */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
