@@ -121,7 +121,7 @@ export function About() {
               <img
                 src="/images/massiv-union-logo.png"
                 alt="Massiv Union ClubGG"
-                style={{ width: 280, height: 'auto', display: 'block', mixBlendMode: 'screen' }}
+                style={{ width: 280, height: 'auto', display: 'block', mixBlendMode: 'screen', filter: 'grayscale(1) brightness(0.7)' }}
               />
             </div>
           </div>
