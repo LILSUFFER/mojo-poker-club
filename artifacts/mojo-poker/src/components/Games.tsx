@@ -121,8 +121,8 @@ export function Games() {
               style={{
                 position: 'relative',
                 width: '100%',
-                aspectRatio: '16 / 10',
-                borderRadius: 16,
+                aspectRatio: '16 / 9',
+                borderRadius: 20,
                 overflow: 'hidden',
                 background: '#0d0d0d',
               }}
@@ -137,7 +137,7 @@ export function Games() {
                     inset: 0,
                     width: '100%',
                     height: '100%',
-                    objectFit: 'contain',
+                    objectFit: 'cover',
                     objectPosition: 'center',
                     display: 'block',
                     opacity: i === active ? 1 : 0,
