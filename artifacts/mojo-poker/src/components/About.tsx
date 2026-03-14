@@ -43,13 +43,13 @@ function UnionBadge() {
 const perksData = {
   ru: [
     {
-      img: '/images/perk-chip.png',
+      img: '/images/perk-chip-2.png',
       value: '1к1',
       label: 'Фишка',
       desc: 'Прямой обмен без комиссии',
     },
     {
-      img: '/images/perk-rakeback.png',
+      img: '/images/perk-rakeback-2.png',
       value: '50%',
       label: 'Рейкбек',
       desc: 'Лучший рейкбек на рынке',
@@ -57,13 +57,13 @@ const perksData = {
   ],
   en: [
     {
-      img: '/images/perk-chip.png',
+      img: '/images/perk-chip-2.png',
       value: '1:1',
       label: 'Chip Rate',
       desc: 'Direct exchange, no commission',
     },
     {
-      img: '/images/perk-rakeback.png',
+      img: '/images/perk-rakeback-2.png',
       value: '50%',
       label: 'Rakeback',
       desc: 'Best rakeback on the market',
@@ -177,8 +177,8 @@ export function About() {
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.22)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.10)'; }}
               >
-                <div style={{ flexShrink: 0, width: 240, height: 240, borderRadius: 8, overflow: 'hidden' }}>
-                  <img src={p.img} alt={p.label} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                <div style={{ flexShrink: 0, width: 120, height: 120, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img src={p.img} alt={p.label} style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
                 </div>
                 <div>
                   <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.03em', lineHeight: 1 }}>
