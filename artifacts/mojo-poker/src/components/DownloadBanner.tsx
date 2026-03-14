@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const ANDROID_URL = 'https://clp.gg/v2hVq';
-const IOS_URL     = 'https://clp.gg/6jJ5A';
-const PC_URL      = 'https://clp.gg/GDaqG';
+const GGCLUB_URL = 'https://clubgg.app.link/MsyuYMuWu1b';
 
 function AndroidIcon() {
   return (
@@ -39,19 +37,19 @@ export function DownloadBanner() {
       icon: <AndroidIcon />,
       label: isRu ? 'Скачать APK' : 'Download APK',
       sub: 'Android',
-      href: ANDROID_URL,
+      href: GGCLUB_URL,
     },
     {
       icon: <AppleIcon />,
       label: isRu ? 'App Store' : 'App Store',
       sub: 'iOS / iPadOS',
-      href: IOS_URL,
+      href: GGCLUB_URL,
     },
     {
       icon: <WindowsIcon />,
       label: isRu ? 'Скачать .exe' : 'Download .exe',
       sub: 'Windows / PC',
-      href: PC_URL,
+      href: GGCLUB_URL,
     },
   ];
 
