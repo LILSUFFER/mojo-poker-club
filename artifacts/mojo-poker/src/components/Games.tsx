@@ -121,19 +121,12 @@ export function Games() {
               style={{
                 position: 'relative',
                 width: '100%',
+                aspectRatio: '4 / 3',
                 borderRadius: 20,
                 overflow: 'hidden',
                 background: '#0d0d0d',
               }}
             >
-              {/* Ghost sizer: invisible image that sets natural height */}
-              <img
-                src={games[active].img}
-                alt=""
-                aria-hidden="true"
-                style={{ width: '100%', height: 'auto', display: 'block', visibility: 'hidden' }}
-              />
-              {/* Crossfade images stacked on top */}
               {games.map((g, i) => (
                 <img
                   key={g.tag}
