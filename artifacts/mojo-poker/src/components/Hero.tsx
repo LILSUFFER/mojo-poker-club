@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight, MessageCircle } from 'lucide-react';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 const MAC_ZOOM = 0.92;
 const PHN_ZOOM = 0.52;
 
-// Native device dims (devices.css)
 const MACBOOK_W = 740, MACBOOK_H = 434;
 const IPHONE_W  = 428, IPHONE_H  = 868;
 
@@ -39,25 +39,25 @@ function DeviceIPhone({ src }: { src: string }) {
 
 export function Hero() {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
 
-  // Displayed sizes after zoom
-  const macW = Math.round(MACBOOK_W * MAC_ZOOM); // ~681
-  const phnW = Math.round(IPHONE_W  * PHN_ZOOM); // ~222
-  const phnLeft = Math.round(macW - phnW * 0.80); // overlap iPhone ~80% onto MacBook right
+  const macW = Math.round(MACBOOK_W * MAC_ZOOM);
+  const phnW = Math.round(IPHONE_W  * PHN_ZOOM);
+  const phnLeft = Math.round(macW - phnW * 0.80);
 
   return (
     <section style={{
-      paddingTop: 60,
-      paddingBottom: 80,
+      paddingTop: isMobile ? 40 : 60,
+      paddingBottom: isMobile ? 48 : 80,
       background: 'var(--bg)',
       overflow: 'hidden',
     }}>
       <div style={{
         maxWidth: 1280,
         margin: '0 auto',
-        padding: '0 32px',
+        padding: isMobile ? '0 20px' : '0 32px',
         display: 'grid',
-        gridTemplateColumns: '480px 1fr',
+        gridTemplateColumns: isMobile ? '1fr' : '480px 1fr',
         columnGap: 48,
         alignItems: 'start',
         overflow: 'visible',
@@ -67,8 +67,8 @@ export function Hero() {
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        paddingTop: 120,
-        paddingBottom: 60,
+        paddingTop: isMobile ? 32 : 120,
+        paddingBottom: isMobile ? 32 : 60,
       }}>
         <motion.div
           initial={{ opacity: 0 }}
@@ -85,7 +85,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.06 }}
-          style={{ fontSize: 'clamp(40px, 4vw, 64px)', fontWeight: 700, lineHeight: 1.05, marginBottom: 20, letterSpacing: '-0.03em' }}
+          style={{ fontSize: isMobile ? 36 : 'clamp(40px, 4vw, 64px)', fontWeight: 700, lineHeight: 1.05, marginBottom: 20, letterSpacing: '-0.03em' }}
         >
           <span style={{ color: 'var(--text)', display: 'block' }}>{t('hero.title')}</span>
           <span style={{ color: 'var(--text-muted)', display: 'block' }}>{t('hero.titleHighlight')}</span>
@@ -104,7 +104,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          style={{ display: 'flex', gap: 10, marginBottom: 48, flexWrap: 'wrap' }}
+          style={{ display: 'flex', gap: 10, marginBottom: 40, flexWrap: 'wrap' }}
         >
           <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 22px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.25)', background: 'transparent', color: 'white', fontWeight: 600, fontSize: 14, textDecoration: 'none', transition: 'all 0.15s', whiteSpace: 'nowrap' }}
@@ -126,7 +126,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.38 }}
-          style={{ display: 'flex', gap: 32, paddingTop: 24, borderTop: '1px solid var(--border-subtle)' }}
+          style={{ display: 'flex', gap: isMobile ? 24 : 32, paddingTop: 24, borderTop: '1px solid var(--border-subtle)' }}
         >
           {[['1 000+', t('about.stats.players')], ['100+', t('about.stats.tables')], ['24/7', t('about.stats.support')]].map(([val, label]) => (
             <div key={label}>
@@ -137,40 +137,40 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* ── RIGHT: devices, top-aligned with the text, overflow below fold ── */}
-      <div style={{ position: 'relative', overflow: 'visible', minHeight: 580 }}>
-        {/* MacBook */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: 162,
-            zIndex: 1,
-            filter: 'drop-shadow(0 24px 56px rgba(0,0,0,0.85))',
-          }}
-        >
-          <DeviceMacbook src="/images/game-plo5.png" />
-        </motion.div>
+      {/* ── RIGHT: devices — hidden on mobile ── */}
+      {!isMobile && (
+        <div style={{ position: 'relative', overflow: 'visible', minHeight: 580 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+            style={{
+              position: 'absolute',
+              left: 0,
+              top: 162,
+              zIndex: 1,
+              filter: 'drop-shadow(0 24px 56px rgba(0,0,0,0.85))',
+            }}
+          >
+            <DeviceMacbook src="/images/game-plo5.png" />
+          </motion.div>
 
-        {/* iPhone */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          style={{
-            position: 'absolute',
-            left: phnLeft,
-            top: 110,
-            zIndex: 2,
-            filter: 'drop-shadow(-8px 24px 48px rgba(0,0,0,0.9))',
-          }}
-        >
-          <DeviceIPhone src="/images/phone-nlh.png" />
-        </motion.div>
-      </div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            style={{
+              position: 'absolute',
+              left: phnLeft,
+              top: 110,
+              zIndex: 2,
+              filter: 'drop-shadow(-8px 24px 48px rgba(0,0,0,0.9))',
+            }}
+          >
+            <DeviceIPhone src="/images/phone-nlh.png" />
+          </motion.div>
+        </div>
+      )}
 
       </div>
     </section>

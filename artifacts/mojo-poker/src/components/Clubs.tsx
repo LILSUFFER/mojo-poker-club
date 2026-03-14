@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'wouter';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 const clubs = [
   {
@@ -32,12 +33,13 @@ const clubs = [
 export function Clubs() {
   const { t, language } = useLanguage();
   const isRu = language === 'ru';
+  const isMobile = useIsMobile();
 
   return (
-    <section id="clubs" style={{ padding: '100px 0', background: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)', borderBottom: '1px solid var(--border-subtle)' }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
+    <section id="clubs" style={{ padding: isMobile ? '64px 0' : '100px 0', background: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)', borderBottom: '1px solid var(--border-subtle)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: isMobile ? '0 20px' : '0 32px' }}>
 
-        <div style={{ marginBottom: 56 }}>
+        <div style={{ marginBottom: isMobile ? 36 : 56 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 16 }}>
             /// {t('clubs.title')}
           </div>
@@ -46,7 +48,7 @@ export function Clubs() {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
           {clubs.map((club, i) => (
             <motion.div
               key={club.id}

@@ -5,6 +5,7 @@ import { VPNSidebar } from '@/components/VPNSidebar';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'wouter';
 import SEO from '@/components/SEO';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 interface Step {
   num: number;
@@ -87,6 +88,7 @@ const steps: Step[] = [
 export function CreateAccount() {
   const { language } = useLanguage();
   const isRu = language === 'ru';
+  const isMobile = useIsMobile();
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
@@ -123,11 +125,11 @@ export function CreateAccount() {
         ]}
       />
 
-      <main style={{ flex: 1, padding: '64px 0 100px' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
+      <main style={{ flex: 1, padding: isMobile ? '40px 0 64px' : '64px 0 100px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: isMobile ? '0 20px' : '0 40px' }}>
 
           {/* Two-column layout */}
-          <div style={{ display: 'flex', gap: 64, alignItems: 'flex-start' }}>
+          <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? 40 : 64, alignItems: 'flex-start' }}>
 
             {/* LEFT: step-by-step guide */}
             <div style={{ flex: 1, minWidth: 0 }}>

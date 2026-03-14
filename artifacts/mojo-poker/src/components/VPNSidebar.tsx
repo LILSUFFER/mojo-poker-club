@@ -1,4 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 const VPN_ANDROID = 'https://play.google.com/store/apps/details?id=com.free.vpn.super.hotspot.open';
 const VPN_IOS = 'https://apps.apple.com/app/id1370293473';
@@ -27,6 +28,7 @@ function FlagImg({ code }: { code: string }) {
 export function VPNSidebar() {
   const { language } = useLanguage();
   const isRu = language === 'ru';
+  const isMobile = useIsMobile();
 
   const steps = isRu ? [
     'Подключите VPN и выберите страну из списка',
@@ -42,9 +44,9 @@ export function VPNSidebar() {
 
   return (
     <div style={{
-      position: 'sticky',
+      position: isMobile ? 'static' : 'sticky',
       top: 100,
-      width: 380,
+      width: isMobile ? '100%' : 380,
       flexShrink: 0,
     }}>
       <div style={{

@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Copy, CheckCircle2 } from 'lucide-react';
 import { Link } from 'wouter';
 import SEO from '@/components/SEO';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 const CLUB_ID = '356323';
 const REF_CODE = '3383-3619';
@@ -30,6 +31,7 @@ function CopyBtn({ value, label, copiedLabel }: { value: string; label: string; 
 export function ClubMojo() {
   const { language } = useLanguage();
   const isRu = language === 'ru';
+  const isMobile = useIsMobile();
 
   const features = isRu ? [
     { img: '/images/perk-chip.png', title: 'Фишка 1к1', desc: 'Прямой обмен без комиссии — покупай и продавай фишки по курсу 1 к 1.' },
@@ -80,11 +82,11 @@ export function ClubMojo() {
         ]}
       />
 
-      <main style={{ flex: 1, padding: '72px 0 100px' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 40px' }}>
+      <main style={{ flex: 1, padding: isMobile ? '40px 0 64px' : '72px 0 100px' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 20px' : '0 40px' }}>
 
           {/* ── Top: logo + join info ── */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 56, alignItems: 'start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 24, marginBottom: isMobile ? 36 : 56, alignItems: 'start' }}>
 
             {/* Logo card */}
             <div style={{ borderRadius: 8, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', background: 'var(--bg-card)' }}>
@@ -152,7 +154,7 @@ export function ClubMojo() {
           </div>
 
           {/* ── Chip + RB stat cards ── */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 72 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16, marginBottom: isMobile ? 48 : 72 }}>
             {[
               { img: '/images/perk-chip.png', label: isRu ? 'Фишка' : 'Chip', value: '1к1', sub: isRu ? 'Прямой обмен без комиссии' : 'Direct exchange, no fee' },
               { img: '/images/perk-rakeback.png', label: isRu ? 'Рейкбек' : 'Rakeback', value: '55%', sub: isRu ? 'Максимальный рейкбек MOJO' : 'Maximum MOJO rakeback' },
@@ -182,7 +184,7 @@ export function ClubMojo() {
             <h2 style={{ margin: '0 0 36px', fontSize: 26, fontWeight: 800, color: 'white', lineHeight: 1.2 }}>
               {isRu ? 'Почему MOJO 1?' : 'Why MOJO 1?'}
             </h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
               {features.map((f, i) => (
                 <div key={i} style={{ padding: '24px 26px', borderRadius: 8, background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.06)', display: 'flex', gap: 18, alignItems: 'flex-start' }}>
                   <img src={f.img} alt={f.title} style={{ width: 48, height: 48, objectFit: 'contain', flexShrink: 0 }} />
