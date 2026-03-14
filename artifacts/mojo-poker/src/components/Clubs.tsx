@@ -47,6 +47,18 @@ export function Clubs() {
     },
   ];
 
+  const steps = isRu ? [
+    { n: '01', title: 'Скачать ClubGG', desc: 'Скачайте приложение ClubGG Poker на нашей странице загрузки для вашего устройства.' },
+    { n: '02', title: 'Установить приложение', desc: 'Запустите установщик и следуйте инструкциям на экране.' },
+    { n: '03', title: 'Найти клуб по ID', desc: 'Войдите в приложение, перейдите в раздел «Клубы» и введите ID нужного клуба.' },
+    { n: '04', title: 'Написать менеджеру', desc: 'Напишите @Mojo_Adm в Telegram с вашим никнеймом в игре — вас одобрят быстро.' },
+  ] : [
+    { n: '01', title: 'Download ClubGG', desc: 'Get the ClubGG Poker app from our download page for your device.' },
+    { n: '02', title: 'Install the App', desc: 'Run the installer and follow the on-screen instructions.' },
+    { n: '03', title: 'Find Club by ID', desc: 'Sign in, go to Clubs section, and enter the Club ID you want to join.' },
+    { n: '04', title: 'Message the Manager', desc: 'Contact @Mojo_Adm on Telegram with your in-game nickname for quick approval.' },
+  ];
+
   const CopyButton = ({ val, copyKey, label }: { val: string; copyKey: string; label: string }) => {
     const isCopied = copied === copyKey;
     return (
@@ -81,104 +93,171 @@ export function Clubs() {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-          {clubs.map((club, i) => (
-            <motion.div
-              key={club.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.1 }}
+        {/* Two-column: cards left, how-to-join right */}
+        <div style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: 32, alignItems: 'start' }}>
+
+          {/* ── LEFT: Club cards ── */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            {clubs.map((club, i) => (
+              <motion.div
+                key={club.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.1 }}
+                style={{
+                  border: '1px solid var(--border-subtle)',
+                  background: 'var(--bg-card)',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  borderRadius: 8,
+                  transition: 'border-color 0.2s',
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.15)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)'; }}
+              >
+                {/* Logo area */}
+                <div style={{ position: 'relative', background: club.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px 32px', minHeight: 180 }}>
+                  <img src={club.logo} alt={club.name} style={{ width: '100%', maxWidth: 220, height: 'auto', display: 'block', objectFit: 'contain' }} />
+                  {club.badge && (
+                    <div style={{ position: 'absolute', top: 12, right: 12 }}>
+                      <img src="/images/union-badge-orig.png" alt="Union" style={{ width: 48, height: 48, objectFit: 'contain', borderRadius: 6, display: 'block' }} />
+                    </div>
+                  )}
+                </div>
+
+                <div style={{ height: 1, background: 'var(--border-subtle)' }} />
+
+                {/* Body */}
+                <div style={{ padding: '20px 20px 24px', display: 'flex', flexDirection: 'column', gap: 12, flex: 1 }}>
+
+                  <h3 style={{ fontSize: 16, fontWeight: 700, color: 'var(--text)', letterSpacing: '-0.02em', lineHeight: 1.2, margin: 0 }}>
+                    {club.logoLabel}
+                  </h3>
+
+                  {/* Stats */}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
+                    {[
+                      { icon: '/images/icon-users.png', val: club.members, label: t('clubs.members') },
+                      { icon: '/images/icon-table.png', val: club.tables, label: t('clubs.tables') },
+                    ].map(({ icon, val, label }) => (
+                      <div key={label} style={{ padding: '10px 12px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: 3 }}>
+                        <img src={icon} alt="" style={{ width: 16, height: 16, objectFit: 'contain' }} />
+                        <span style={{ fontSize: 18, fontWeight: 700, color: 'var(--text)', lineHeight: 1 }}>{val}</span>
+                        <span style={{ fontSize: 9, fontWeight: 600, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{label}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Club ID + Ref Code */}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
+                    <div style={{ padding: '10px 12px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)' }}>
+                      <div style={{ fontSize: 9, fontWeight: 700, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 6 }}>Club ID</div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6, flexWrap: 'wrap' }}>
+                        <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--text)', fontVariantNumeric: 'tabular-nums' }}>{club.clubId}</span>
+                        <CopyButton val={club.clubId} copyKey={`id-${club.id}`} label={isRu ? 'Копировать' : 'Copy'} />
+                      </div>
+                    </div>
+                    <div style={{ padding: '10px 12px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)' }}>
+                      <div style={{ fontSize: 9, fontWeight: 700, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 6 }}>
+                        {isRu ? 'Реф. код' : 'Ref Code'}
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6, flexWrap: 'wrap' }}>
+                        <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--text)', fontVariantNumeric: 'tabular-nums' }}>{REF_CODE}</span>
+                        <CopyButton val={REF_CODE} copyKey={`ref-${club.id}`} label={isRu ? 'Копировать' : 'Copy'} />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 'auto' }}>
+                    {club.features.map((f, fi) => (
+                      <div key={fi} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <div style={{ width: 1, height: 12, background: 'var(--border-color)', flexShrink: 0 }} />
+                        <span style={{ fontSize: 12, color: 'var(--text-muted)', fontWeight: 500 }}>{f}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* ── RIGHT: How to Join ── */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            style={{ position: 'sticky', top: 100 }}
+          >
+            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 20 }}>
+              /// {isRu ? 'Как вступить' : 'How to Join'}
+            </div>
+            <h3 style={{ fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 700, color: 'var(--text)', letterSpacing: '-0.025em', lineHeight: 1.15, marginBottom: 32 }}>
+              {isRu ? 'Начните играть\nза считанные минуты' : 'Start Playing\nin Minutes'}
+            </h3>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+              {steps.map((step, i) => (
+                <motion.div
+                  key={step.n}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + i * 0.08 }}
+                  style={{ display: 'flex', gap: 20, paddingBottom: i < steps.length - 1 ? 28 : 0, position: 'relative' }}
+                >
+                  {/* Line connector */}
+                  {i < steps.length - 1 && (
+                    <div style={{ position: 'absolute', left: 19, top: 40, width: 1, height: 'calc(100% - 12px)', background: 'var(--border-subtle)' }} />
+                  )}
+
+                  {/* Number circle */}
+                  <div style={{
+                    flexShrink: 0,
+                    width: 40, height: 40,
+                    borderRadius: '50%',
+                    border: '1px solid var(--border-subtle)',
+                    background: 'var(--bg-card)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: 11, fontWeight: 700, color: 'var(--text-muted)',
+                    letterSpacing: '0.05em',
+                    zIndex: 1,
+                  }}>
+                    {step.n}
+                  </div>
+
+                  {/* Text */}
+                  <div style={{ paddingTop: 8 }}>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)', marginBottom: 6 }}>{step.title}</div>
+                    <div style={{ fontSize: 13, color: 'var(--text-faint)', lineHeight: 1.6 }}>{step.desc}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <a
+              href="https://t.me/Mojo_Adm"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
-                border: '1px solid var(--border-subtle)',
-                background: 'var(--bg-card)',
-                overflow: 'hidden',
-                display: 'flex',
-                flexDirection: 'column',
-                borderRadius: 8,
-                transition: 'border-color 0.2s',
+                display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: 32,
+                fontSize: 13, fontWeight: 600, color: 'var(--text)',
+                border: '1px solid rgba(255,255,255,0.18)',
+                borderRadius: 4, padding: '12px 22px',
+                textDecoration: 'none', transition: 'border-color 0.2s',
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.15)'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)'; }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.35)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.18)'; }}
             >
-              {/* Logo area — background matches the logo image */}
-              <div style={{ position: 'relative', background: club.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 48px', minHeight: 200 }}>
-                <img src={club.logo} alt={club.name} style={{ width: '100%', maxWidth: 280, height: 'auto', display: 'block', objectFit: 'contain' }} />
-                {club.badge && (
-                  <div style={{ position: 'absolute', top: 14, right: 14 }}>
-                    <img
-                      src="/images/union-badge-orig.png"
-                      alt="Union"
-                      style={{ width: 56, height: 56, objectFit: 'contain', borderRadius: 6, display: 'block' }}
-                    />
-                  </div>
-                )}
-              </div>
+              @Mojo_Adm →
+            </a>
+          </motion.div>
 
-              {/* Divider */}
-              <div style={{ height: 1, background: 'var(--border-subtle)' }} />
-
-              {/* Body */}
-              <div style={{ padding: '28px 28px 32px', display: 'flex', flexDirection: 'column', gap: 16, flex: 1 }}>
-
-                {/* Club name heading */}
-                <h3 style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)', letterSpacing: '-0.02em', lineHeight: 1.1, margin: 0 }}>
-                  {club.logoLabel}
-                </h3>
-
-                {/* Stats */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-                  {[
-                    { icon: '/images/icon-users.png', val: club.members, label: t('clubs.members') },
-                    { icon: '/images/icon-table.png', val: club.tables, label: t('clubs.tables') },
-                  ].map(({ icon, val, label }) => (
-                    <div key={label} style={{ padding: '14px 16px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: 4 }}>
-                      <img src={icon} alt="" style={{ width: 20, height: 20, objectFit: 'contain' }} />
-                      <span style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)', lineHeight: 1 }}>{val}</span>
-                      <span style={{ fontSize: 9, fontWeight: 600, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{label}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Club ID + Ref Code side by side */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-                  {/* Club ID */}
-                  <div style={{ padding: '14px 16px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)' }}>
-                    <div style={{ fontSize: 9, fontWeight: 700, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 8 }}>Club ID</div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap' }}>
-                      <span style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)', letterSpacing: '0.04em', fontVariantNumeric: 'tabular-nums' }}>{club.clubId}</span>
-                      <CopyButton val={club.clubId} copyKey={`id-${club.id}`} label={isRu ? 'Копировать' : 'Copy'} />
-                    </div>
-                  </div>
-
-                  {/* Ref Code */}
-                  <div style={{ padding: '14px 16px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)' }}>
-                    <div style={{ fontSize: 9, fontWeight: 700, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 8 }}>
-                      {isRu ? 'Реф. код' : 'Ref Code'}
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap' }}>
-                      <span style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)', letterSpacing: '0.04em', fontVariantNumeric: 'tabular-nums' }}>{REF_CODE}</span>
-                      <CopyButton val={REF_CODE} copyKey={`ref-${club.id}`} label={isRu ? 'Копировать' : 'Copy'} />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Description */}
-                <p style={{ color: 'var(--text-faint)', fontSize: 13, lineHeight: 1.65, margin: 0 }}>{club.desc}</p>
-
-                {/* Features */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 'auto' }}>
-                  {club.features.map((f, fi) => (
-                    <div key={fi} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                      <div style={{ width: 1, height: 14, background: 'var(--border-color)', flexShrink: 0 }} />
-                      <span style={{ fontSize: 13, color: 'var(--text-muted)', fontWeight: 500 }}>{f}</span>
-                    </div>
-                  ))}
-                </div>
-
-              </div>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>
