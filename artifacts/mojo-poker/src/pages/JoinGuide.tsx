@@ -204,35 +204,40 @@ export function JoinGuide() {
                     {/* Referral card */}
                     <div style={{
                       borderRadius: 8,
-                      background: 'rgba(255,255,255,0.02)',
-                      border: '1px solid rgba(255,255,255,0.07)',
+                      background: 'linear-gradient(135deg, rgba(217,155,0,0.1) 0%, rgba(255,255,255,0.02) 100%)',
+                      border: '1px solid rgba(217,155,0,0.4)',
                       overflow: 'hidden',
+                      boxShadow: '0 0 0 3px rgba(217,155,0,0.06)',
                     }}>
+                      {/* Header banner */}
                       <div style={{
-                        padding: '5px 16px',
-                        background: 'rgba(255,255,255,0.06)',
-                        borderBottom: '1px solid rgba(255,255,255,0.06)',
+                        padding: '7px 16px',
+                        background: 'rgba(217,155,0,0.18)',
+                        borderBottom: '1px solid rgba(217,155,0,0.2)',
+                        display: 'flex', alignItems: 'center', gap: 8,
                       }}>
-                        <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase' }}>
-                          {isRu ? '⚠ ID реферера — обязательно' : '⚠ Referrer ID — required'}
+                        <span style={{ fontSize: 13 }}>⚠️</span>
+                        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', color: 'rgb(255,200,60)', textTransform: 'uppercase' }}>
+                          {isRu ? 'Обязательно укажите — привязывает все бонусы к вашему аккаунту' : 'Required — links all bonuses to your account'}
                         </span>
                       </div>
+                      {/* Body */}
                       <div style={{
                         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                         padding: '16px 20px', gap: 16, flexWrap: 'wrap',
                       }}>
                         <div>
-                          <p style={{ margin: '0 0 3px', fontSize: 11, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
-                            {isRu ? 'Реферальный код' : 'Referral code'}
+                          <p style={{ margin: '0 0 3px', fontSize: 11, color: 'rgba(255,200,60,0.5)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+                            {isRu ? 'ID реферера' : 'Referrer ID'}
                           </p>
                           <span style={{ fontSize: 15, color: 'white', fontWeight: 600 }}>MOJO Poker Club</span>
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                           <div style={{ textAlign: 'right' }}>
-                            <p style={{ margin: '0 0 2px', fontSize: 11, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+                            <p style={{ margin: '0 0 2px', fontSize: 11, color: 'rgba(255,200,60,0.5)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
                               {isRu ? 'Код' : 'Code'}
                             </p>
-                            <span style={{ fontSize: 22, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.04em' }}>
+                            <span style={{ fontSize: 24, fontWeight: 900, color: 'rgb(255,210,70)', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.04em' }}>
                               {REFERRAL}
                             </span>
                           </div>
