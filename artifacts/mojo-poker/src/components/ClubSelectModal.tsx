@@ -13,6 +13,7 @@ const clubs = [
     path: '/clubs/massiv',
     logo: '/images/mojo2-logo.png',
     logoBg: '#ffffff',
+    logoFill: false,
     badge: null,
     nameRu: 'MOJO: Massiv Poker Union',
     nameEn: 'MOJO: Massiv Poker Union',
@@ -31,6 +32,7 @@ const clubs = [
     path: '/clubs/mojo',
     logo: '/images/mojo1-logo.png',
     logoBg: '#111',
+    logoFill: true,
     badge: null,
     nameRu: 'MOJO 1',
     nameEn: 'MOJO 1',
@@ -142,8 +144,11 @@ export function ClubSelectModal({ open, onClose, onSelect }: Props) {
               }}
             >
               {/* Logo area */}
-              <div style={{ background: club.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', height: 180, position: 'relative', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                <img src={club.logo} alt={club.nameEn} style={{ width: 120, height: 120, objectFit: 'contain', display: 'block' }} />
+              <div style={{ background: club.logoBg, height: 180, position: 'relative', borderBottom: '1px solid rgba(255,255,255,0.06)', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {club.logoFill
+                  ? <img src={club.logo} alt={club.nameEn} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                  : <img src={club.logo} alt={club.nameEn} style={{ width: 130, height: 130, objectFit: 'contain', display: 'block' }} />
+                }
               </div>
 
               {/* Info */}
