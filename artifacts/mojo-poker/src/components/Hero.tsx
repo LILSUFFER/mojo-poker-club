@@ -67,7 +67,7 @@ export function Hero() {
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        paddingTop: 80,
+        paddingTop: 120,
         paddingBottom: 60,
       }}>
         <motion.div
@@ -147,7 +147,7 @@ export function Hero() {
           style={{
             position: 'absolute',
             left: 0,
-            top: 40,   // slightly below section top so it starts near the heading
+            top: 110,
             zIndex: 1,
             filter: 'drop-shadow(0 24px 56px rgba(0,0,0,0.85))',
           }}
