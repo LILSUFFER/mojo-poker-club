@@ -14,7 +14,7 @@ function DeviceMacbook({ src }: { src: string }) {
     <div className="device device-macbook-pro" style={{ zoom: MAC_ZOOM }}>
       <div className="device-frame">
         <img className="device-screen" src={src} alt="Poker on MacBook"
-          style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'left center', display: 'block' }} />
+          style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'left center', display: 'block', clipPath: 'inset(0 0 7% 0)' }} />
       </div>
       <div className="device-stripe" /><div className="device-header" />
       <div className="device-sensors" /><div className="device-btns" />
@@ -43,7 +43,7 @@ export function Hero() {
   // Displayed sizes after zoom
   const macW = Math.round(MACBOOK_W * MAC_ZOOM); // ~681
   const phnW = Math.round(IPHONE_W  * PHN_ZOOM); // ~222
-  const phnLeft = Math.round(macW - phnW * 0.45); // overlap iPhone ~45% onto MacBook right
+  const phnLeft = Math.round(macW - phnW * 0.80); // overlap iPhone ~80% onto MacBook right
 
   return (
     <section style={{
