@@ -24,7 +24,7 @@ export function Clubs() {
       desc: t('clubs.mojo.desc'),
       features: [t('clubs.mojo.feature1'), t('clubs.mojo.feature2'), t('clubs.mojo.feature3')],
       logo: '/images/mojo1-logo.png',
-      logoBg: '#0d0d0d',
+      logoBg: '#2d2d2d',
       members: '5 000+',
       tables: '200+',
       badge: null,
