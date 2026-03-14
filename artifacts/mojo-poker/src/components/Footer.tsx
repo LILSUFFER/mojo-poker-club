@@ -62,8 +62,14 @@ export function Footer() {
 
           {/* Brand */}
           <div>
-            <Link href="/" style={{ display: 'inline-block', textDecoration: 'none', marginBottom: 12 }}>
-              <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 28, color: 'var(--text)', letterSpacing: '0.06em', lineHeight: 1 }}>MOJO</span>
+            <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, textDecoration: 'none', marginBottom: 14 }}>
+              <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 28, color: 'hsl(220 5% 62%)', letterSpacing: '0.06em', lineHeight: 1 }}>MOJO</span>
+              <div style={{ width: 1, height: 36, background: 'rgba(255,255,255,0.12)', flexShrink: 0 }} />
+              <img
+                src="/images/massiv-union-logo-nobg.png"
+                alt="Massiv Union ClubGG"
+                style={{ height: 44, width: 'auto', objectFit: 'contain', display: 'block' }}
+              />
             </Link>
             <p style={{ fontSize: 13, color: 'var(--text-faint)', lineHeight: 1.6, maxWidth: 220, margin: 0 }}>
               {isRu
