@@ -164,83 +164,106 @@ export function JoinGuide() {
 
                 {/* Club IDs extra */}
                 {step.extra === 'clubs' && (
-                  <div style={{ marginBottom: 24, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  <div style={{ marginBottom: 24 }}>
 
-                    {/* Club cards */}
-                    {CLUBS.map(club => (
-                      <div key={club.id} style={{
+                    {/* ── Clubs section ── */}
+                    <p style={{ margin: '0 0 12px', fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase' }}>
+                      {isRu ? 'Клубы MOJO' : 'MOJO Clubs'}
+                    </p>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 32 }}>
+
+                      {/* Massiv Poker Union */}
+                      <div style={{
                         borderRadius: 8,
-                        background: club.main
-                          ? 'linear-gradient(135deg, rgba(180,30,30,0.12) 0%, rgba(255,255,255,0.03) 100%)'
-                          : 'rgba(255,255,255,0.02)',
-                        border: `1px solid ${club.main ? 'rgba(180,30,30,0.35)' : 'rgba(255,255,255,0.07)'}`,
-                        overflow: 'hidden',
-                      }}>
-                        <div style={{
-                          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                          padding: '16px 20px', gap: 16, flexWrap: 'wrap',
-                        }}>
-                          <div>
-                            <p style={{ margin: '0 0 3px', fontSize: 11, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
-                              {club.main ? 'Massiv Poker Union' : (isRu ? 'Название клуба' : 'Club name')}
-                            </p>
-                            <span style={{ fontSize: 15, color: 'white', fontWeight: 600 }}>{club.name}</span>
-                          </div>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                            <div style={{ textAlign: 'right' }}>
-                              <p style={{ margin: '0 0 2px', fontSize: 11, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
-                                Club ID
-                              </p>
-                              <span style={{ fontSize: 22, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.04em' }}>
-                                {club.id}
-                              </span>
-                            </div>
-                            <CopyBtn value={club.id} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-
-                    {/* Separator */}
-                    <div style={{ height: 20 }} />
-
-                    {/* Referral card */}
-                    <div style={{
-                      borderRadius: 8,
-                      background: 'linear-gradient(135deg, rgba(217,155,0,0.1) 0%, rgba(255,255,255,0.02) 100%)',
-                      border: '1px solid rgba(217,155,0,0.4)',
-                      overflow: 'hidden',
-                      boxShadow: '0 0 0 3px rgba(217,155,0,0.06)',
-                    }}>
-                      {/* Header banner */}
-                      <div style={{
-                        padding: '7px 16px',
-                        background: 'rgba(217,155,0,0.18)',
-                        borderBottom: '1px solid rgba(217,155,0,0.2)',
-                        display: 'flex', alignItems: 'center', gap: 8,
-                      }}>
-                        <span style={{ fontSize: 13 }}>⚠️</span>
-                        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', color: 'rgb(255,200,60)', textTransform: 'uppercase' }}>
-                          {isRu ? 'Обязательно укажите — привязывает все бонусы к вашему аккаунту' : 'Required — links all bonuses to your account'}
-                        </span>
-                      </div>
-                      {/* Body */}
-                      <div style={{
+                        background: 'rgba(255,255,255,0.03)',
+                        border: '1px solid rgba(255,255,255,0.09)',
                         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                        padding: '16px 20px', gap: 16, flexWrap: 'wrap',
+                        padding: '14px 18px', gap: 16, flexWrap: 'wrap',
                       }}>
-                        <div>
-                          <p style={{ margin: '0 0 3px', fontSize: 11, color: 'rgba(255,200,60,0.5)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
-                            {isRu ? 'ID реферера' : 'Referrer ID'}
-                          </p>
-                          <span style={{ fontSize: 15, color: 'white', fontWeight: 600 }}>MOJO Poker Club</span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                          <img src="/images/massiv-union-logo-nobg.png" alt="Massiv Union" style={{ width: 40, height: 40, objectFit: 'contain', flexShrink: 0, opacity: 0.85 }} />
+                          <div>
+                            <p style={{ margin: '0 0 2px', fontSize: 11, color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+                              Massiv Poker Union
+                            </p>
+                            <span style={{ fontSize: 15, color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>MOJO: Massiv Poker Union</span>
+                          </div>
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                           <div style={{ textAlign: 'right' }}>
-                            <p style={{ margin: '0 0 2px', fontSize: 11, color: 'rgba(255,200,60,0.5)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+                            <p style={{ margin: '0 0 2px', fontSize: 10, color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>Club ID</p>
+                            <span style={{ fontSize: 22, fontWeight: 800, color: 'white', fontVariantNumeric: 'tabular-nums' }}>799798</span>
+                          </div>
+                          <CopyBtn value="799798" label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
+                        </div>
+                      </div>
+
+                      {/* MOJO 1 */}
+                      <div style={{
+                        borderRadius: 8,
+                        background: 'rgba(255,255,255,0.03)',
+                        border: '1px solid rgba(255,255,255,0.09)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                        padding: '14px 18px', gap: 16, flexWrap: 'wrap',
+                      }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                          <img src="/images/mojo1-logo.png" alt="MOJO 1" style={{ width: 40, height: 40, objectFit: 'contain', flexShrink: 0, opacity: 0.85 }} />
+                          <div>
+                            <p style={{ margin: '0 0 2px', fontSize: 11, color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+                              {isRu ? 'Покерный клуб' : 'Poker Club'}
+                            </p>
+                            <span style={{ fontSize: 15, color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>MOJO 1</span>
+                          </div>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                          <div style={{ textAlign: 'right' }}>
+                            <p style={{ margin: '0 0 2px', fontSize: 10, color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>Club ID</p>
+                            <span style={{ fontSize: 22, fontWeight: 800, color: 'white', fontVariantNumeric: 'tabular-nums' }}>356323</span>
+                          </div>
+                          <CopyBtn value="356323" label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* ── Referral section ── */}
+                    <p style={{ margin: '0 0 12px', fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase' }}>
+                      {isRu ? 'Реферальный код' : 'Referral Code'}
+                    </p>
+                    <div style={{
+                      borderRadius: 8,
+                      background: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(255,255,255,0.12)',
+                      overflow: 'hidden',
+                    }}>
+                      <div style={{
+                        padding: '8px 18px',
+                        background: 'rgba(255,255,255,0.03)',
+                        borderBottom: '1px solid rgba(255,255,255,0.07)',
+                        display: 'flex', alignItems: 'center', gap: 8,
+                      }}>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                        <span style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.4)' }}>
+                          {isRu ? 'Обязательно укажите — привязывает все бонусы к вашему аккаунту' : 'Required — links all bonuses to your account'}
+                        </span>
+                      </div>
+                      <div style={{
+                        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                        padding: '16px 18px', gap: 16, flexWrap: 'wrap',
+                      }}>
+                        <div>
+                          <p style={{ margin: '0 0 3px', fontSize: 11, color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+                            {isRu ? 'ID реферера' : 'Referrer ID'}
+                          </p>
+                          <span style={{ fontSize: 15, color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>MOJO Poker Club</span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                          <div style={{ textAlign: 'right' }}>
+                            <p style={{ margin: '0 0 2px', fontSize: 10, color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
                               {isRu ? 'Код' : 'Code'}
                             </p>
-                            <span style={{ fontSize: 24, fontWeight: 900, color: 'rgb(255,210,70)', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.04em' }}>
+                            <span style={{ fontSize: 26, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.06em' }}>
                               {REFERRAL}
                             </span>
                           </div>
