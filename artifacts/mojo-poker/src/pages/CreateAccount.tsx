@@ -90,7 +90,7 @@ export function CreateAccount() {
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
       <PageHeader
-        label={isRu ? 'Создание аккаунта' : 'Create Account'}
+        label={isRu ? 'Создание аккаунта GGClub' : 'Create GGClub Account'}
         title={isRu ? 'Как создать аккаунт GGClub' : 'How to Create a GGClub Account'}
         subtitle={isRu
           ? 'Пошаговая инструкция с реальными скриншотами из приложения'
@@ -98,7 +98,7 @@ export function CreateAccount() {
         breadcrumbs={[
           { label: isRu ? 'Главная' : 'Home', href: '/' },
           { label: isRu ? 'Как вступить' : 'How to Join', href: '/join' },
-          { label: isRu ? 'Создание аккаунта' : 'Create Account' },
+          { label: isRu ? 'Создание аккаунта GGClub' : 'Create GGClub Account' },
         ]}
       />
 

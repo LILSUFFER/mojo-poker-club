@@ -109,18 +109,18 @@ export function Navbar() {
 
   const joinItems: DropItem[] = isRu ? [
     { label: 'Скачать GGClub', href: '/download' },
-    { label: 'Создание аккаунта', href: '/create-account' },
+    { label: 'Создание аккаунта GGClub', href: '/create-account' },
     { label: 'Вступление в клуб', href: '/join' },
   ] : [
     { label: 'Download GGClub', href: '/download' },
-    { label: 'Create Account', href: '/create-account' },
+    { label: 'Create GGClub Account', href: '/create-account' },
     { label: 'Join the Club', href: '/join' },
   ];
 
   const mobileLinks = [
     { label: isRu ? 'Наши клубы' : 'Our Clubs', href: isHome ? '#clubs' : '/#clubs' },
     { label: isRu ? 'Скачать GGClub' : 'Download GGClub', href: '/download' },
-    { label: isRu ? 'Создание аккаунта' : 'Create Account', href: '/create-account' },
+    { label: isRu ? 'Создание аккаунта GGClub' : 'Create GGClub Account', href: '/create-account' },
     { label: isRu ? 'Вступление в клуб' : 'Join the Club', href: '/join' },
     { label: isRu ? 'О нас' : 'About', href: isHome ? '#about' : '/#about' },
     { label: isRu ? 'Отзывы' : 'Reviews', href: isHome ? '#reviews' : '/#reviews' },
