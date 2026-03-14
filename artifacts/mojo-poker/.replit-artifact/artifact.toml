@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Mojo Poker Club"
+version = "1.0.0"
+id = "artifacts/mojo-poker"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+localPort = 20529
+name = "web"
+paths = ["/"]
+
+[services.development]
+run = "pnpm --filter @workspace/mojo-poker run dev"
+
+[services.env]
+PORT = "20529"
+BASE_PATH = "/"
+
+[services.production]
+build = ["pnpm", "--filter", "@workspace/mojo-poker", "run", "build"]
+publicDir = "artifacts/mojo-poker/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
