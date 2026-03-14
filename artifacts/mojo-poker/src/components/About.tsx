@@ -54,9 +54,16 @@ export function About() {
           <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 14 }}>
             /// {t('about.title')}
           </div>
-          <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em', marginBottom: 6 }}>
-            {isRu ? 'Лучшие условия на рынке' : 'Best Conditions on the Market'}
-          </h2>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 12 }}>
+            <img
+              src="/images/union-badge.png"
+              alt="Massiv Union"
+              style={{ width: 72, height: 72, objectFit: 'contain', mixBlendMode: 'screen', flexShrink: 0 }}
+            />
+            <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em', margin: 0 }}>
+              {isRu ? 'Лучшие условия на рынке' : 'Best Conditions on the Market'}
+            </h2>
+          </div>
           <p style={{ fontSize: 15, color: 'var(--text-faint)', letterSpacing: '0.01em', marginBottom: 20 }}>
             {isRu ? 'для Massiv Poker Union' : 'for Massiv Poker Union'}
           </p>
