@@ -1,6 +1,7 @@
 import { Link } from 'wouter';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { PageHeader } from '@/components/PageHeader';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const DOWNLOAD_URL = 'https://clubgg.app.link/MsyuYMuWu1b';
@@ -53,18 +54,18 @@ export function Download() {
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
 
-      <main style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '40px 0 40px' }}>
-        <div style={{ maxWidth: 1000, margin: '0 auto', padding: '0 40px', width: '100%' }}>
+      <PageHeader
+        label={isRu ? 'Загрузка' : 'Download'}
+        title={isRu ? 'Скачать ClubGG' : 'Download ClubGG'}
+        subtitle={isRu ? 'Два шага — и вы готовы к игре.' : 'Two steps — and you\'re ready to play.'}
+        breadcrumbs={[
+          { label: isRu ? 'Главная' : 'Home', href: '/' },
+          { label: isRu ? 'Скачать' : 'Download' },
+        ]}
+      />
 
-          {/* Page heading */}
-          <div style={{ marginBottom: 28 }}>
-            <p style={{ margin: '0 0 6px', fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', color: 'var(--text-faint)', textTransform: 'uppercase' }}>
-              /// {isRu ? 'ЗАГРУЗКА' : 'DOWNLOAD'}
-            </p>
-            <h1 style={{ margin: 0, fontSize: 'clamp(24px, 3vw, 34px)', fontWeight: 700, color: 'white', letterSpacing: '-0.025em', fontFamily: 'Space Grotesk, sans-serif' }}>
-              {isRu ? 'Скачать ClubGG' : 'Download ClubGG'}
-            </h1>
-          </div>
+      <main style={{ flex: 1, padding: '56px 0 80px' }}>
+        <div style={{ maxWidth: 1000, margin: '0 auto', padding: '0 40px', width: '100%' }}>
 
           {/* Two blocks side by side */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
