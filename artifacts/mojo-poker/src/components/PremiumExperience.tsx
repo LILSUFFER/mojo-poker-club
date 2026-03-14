@@ -45,7 +45,7 @@ export function PremiumExperience() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.1 }}
-            style={{ display: 'flex', flexDirection: 'column', gap: 4 }}
+            style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
           >
             {features.map((f, i) => (
               <div
