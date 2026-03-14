@@ -156,7 +156,7 @@ export function About() {
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.22)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.10)'; }}
               >
-                <div style={{ flexShrink: 0, width: 120, height: 120, borderRadius: 8, overflow: 'hidden' }}>
+                <div style={{ flexShrink: 0, width: 240, height: 240, borderRadius: 8, overflow: 'hidden' }}>
                   <img src={p.img} alt={p.label} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
                 <div>
