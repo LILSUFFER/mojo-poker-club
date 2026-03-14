@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageHeader } from '@/components/PageHeader';
+import { VPNGuide } from '@/components/VPNGuide';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'wouter';
 
@@ -104,6 +105,8 @@ export function CreateAccount() {
 
       <main style={{ flex: 1, padding: '80px 0 100px' }}>
         <div style={{ maxWidth: 760, margin: '0 auto', padding: '0 32px' }}>
+
+          <VPNGuide />
 
           {steps.map((step, idx) => (
             <div key={step.num} style={{ marginBottom: idx < steps.length - 1 ? 80 : 0 }}>

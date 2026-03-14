@@ -3,6 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageHeader } from '@/components/PageHeader';
+import { VPNGuide } from '@/components/VPNGuide';
 import { Download, MessageCircle, UserPlus, PlayCircle } from 'lucide-react';
 import { Link } from 'wouter';
 
@@ -129,6 +130,8 @@ export function MassivGuide() {
         ]}
       />
       <div style={{ maxWidth: 860, margin: '0 auto', padding: '60px 32px 100px' }}>
+
+        <VPNGuide />
 
         {/* Steps */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 2, marginBottom: 80 }}>
