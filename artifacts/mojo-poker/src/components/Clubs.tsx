@@ -10,6 +10,8 @@ const clubs = [
     logo: '/images/mojo2-logo.png',
     logoBg: '#ffffff',
     label: 'MOJO: Massiv Poker Union',
+    descRu: 'Один из крупнейших покерных союзов в ClubGG — огромный пул игроков и экшн 24/7. Идеально для тех, кто ищет максимальную активность за столами.',
+    descEn: 'One of the largest poker unions on ClubGG — massive player pool and action 24/7. Perfect for those who want maximum table activity.',
     rb: '50%',
     chip: '1к1',
     online: '698+',
@@ -22,6 +24,8 @@ const clubs = [
     logo: '/images/mojo1-logo.png',
     logoBg: '#222222',
     label: 'MOJO 1',
+    descRu: 'Закрытый клуб с отборными игроками и эксклюзивными столами. Высокий рейкбек, строгий отбор участников и комфортная атмосфера для серьёзной игры.',
+    descEn: 'A private club with hand-picked players and exclusive tables. High rakeback, strict vetting and a comfortable atmosphere for serious play.',
     rb: '55%',
     chip: '1к1',
     online: '62+',
@@ -83,6 +87,10 @@ export function Clubs() {
                 <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700, color: 'var(--text)', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
                   {club.label}
                 </h3>
+
+                <p style={{ margin: 0, fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.65 }}>
+                  {isRu ? club.descRu : club.descEn}
+                </p>
 
                 {/* Stats: 2×2 grid */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 8 }}>
