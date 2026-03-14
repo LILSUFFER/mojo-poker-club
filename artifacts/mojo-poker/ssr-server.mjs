@@ -145,7 +145,7 @@ function buildMetaHtml(pathname, lang) {
   <link rel="canonical" href="${canonicalUrl}" />
   <link rel="alternate" hreflang="ru" href="${canonicalRu}" />
   <link rel="alternate" hreflang="en" href="${canonicalEn}" />
-  <link rel="alternate" hreflang="x-default" href="${canonicalRu}" />
+  <link rel="alternate" hreflang="x-default" href="${canonicalEn}" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="MOJO Poker Club" />
   <meta property="og:title" content="${m.title}" />
@@ -199,7 +199,8 @@ async function main() {
   const server = http.createServer(async (req, res) => {
     try {
       const url = new URL(req.url, `http://localhost:${PORT}`);
-      const lang = url.searchParams.get('lang') === 'en' ? 'en' : 'ru';
+      const langParam = url.searchParams.get('lang');
+      const lang = (langParam === 'ru' || langParam === 'en') ? langParam : 'en';
       // Strip BASE_PATH prefix to get the actual route
       let pathname = url.pathname;
       if (BASE_PATH && pathname.startsWith(BASE_PATH)) {

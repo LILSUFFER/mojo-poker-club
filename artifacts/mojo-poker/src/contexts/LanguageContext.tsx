@@ -13,7 +13,7 @@ function getLangFromUrl(): Language {
   const params = new URLSearchParams(window.location.search);
   const lang = params.get('lang');
   if (lang === 'en' || lang === 'ru') return lang;
-  return 'ru';
+  return 'en';
 }
 
 function setLangInUrl(lang: Language) {

@@ -55,7 +55,7 @@ export default function SEO({ ru, en, canonical, structuredData }: BilingualSEOP
       {/* hreflang for both language versions + default */}
       <link rel="alternate" hrefLang="ru" href={canonicalRu} />
       <link rel="alternate" hrefLang="en" href={canonicalEn} />
-      <link rel="alternate" hrefLang="x-default" href={canonicalRu} />
+      <link rel="alternate" hrefLang="x-default" href={canonicalEn} />
 
       {/* OG / social preview — follows current language (URL carries ?lang=) */}
       <meta property="og:type" content="website" />
