@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Wallet, TrendingUp } from 'lucide-react';
 
 function UnionBadge() {
   return (
@@ -43,13 +42,13 @@ function UnionBadge() {
 const perksData = {
   ru: [
     {
-      icon: Wallet,
+      img: '/images/perk-chip.png',
       value: '1к1',
       label: 'Фишка',
       desc: 'Прямой обмен без комиссии',
     },
     {
-      icon: TrendingUp,
+      img: '/images/perk-rakeback.png',
       value: '50%',
       label: 'Рейкбек',
       desc: 'Лучший рейкбек на рынке',
@@ -57,13 +56,13 @@ const perksData = {
   ],
   en: [
     {
-      icon: Wallet,
+      img: '/images/perk-chip.png',
       value: '1:1',
       label: 'Chip Rate',
       desc: 'Direct exchange, no commission',
     },
     {
-      icon: TrendingUp,
+      img: '/images/perk-rakeback.png',
       value: '50%',
       label: 'Rakeback',
       desc: 'Best rakeback on the market',
@@ -136,7 +135,6 @@ export function About() {
           style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12, marginBottom: 80 }}
         >
           {perks.map((p, i) => {
-            const Icon = p.icon;
             return (
               <motion.div
                 key={i}
@@ -151,15 +149,15 @@ export function About() {
                   background: 'var(--bg-card)',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 24,
+                  gap: 28,
                   transition: 'border-color 0.2s',
                   cursor: 'default',
                 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.22)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.10)'; }}
               >
-                <div style={{ flexShrink: 0, width: 48, height: 48, borderRadius: 4, background: 'var(--bg)', border: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>
-                  <Icon size={22} />
+                <div style={{ flexShrink: 0, width: 90, height: 90, borderRadius: 8, overflow: 'hidden' }}>
+                  <img src={p.img} alt={p.label} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
                 <div>
                   <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.03em', lineHeight: 1 }}>
