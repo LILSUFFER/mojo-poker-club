@@ -164,52 +164,94 @@ export function JoinGuide() {
 
                 {/* Club IDs extra */}
                 {step.extra === 'clubs' && (
-                  <div style={{ marginBottom: 24 }}>
-                    <p style={{ margin: '0 0 10px', fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
-                      {isRu ? 'ID клубов' : 'Club IDs'}
-                    </p>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 16 }}>
-                      {CLUBS.map(club => (
-                        <div key={club.id} style={{
+                  <div style={{ marginBottom: 24, display: 'flex', flexDirection: 'column', gap: 10 }}>
+
+                    {/* Club cards */}
+                    {CLUBS.map(club => (
+                      <div key={club.id} style={{
+                        borderRadius: 8,
+                        background: club.main
+                          ? 'linear-gradient(135deg, rgba(180,30,30,0.12) 0%, rgba(255,255,255,0.03) 100%)'
+                          : 'rgba(255,255,255,0.02)',
+                        border: `1px solid ${club.main ? 'rgba(180,30,30,0.35)' : 'rgba(255,255,255,0.07)'}`,
+                        overflow: 'hidden',
+                      }}>
+                        {club.main && (
+                          <div style={{
+                            padding: '5px 16px',
+                            background: 'hsl(4 80% 45%)',
+                            display: 'flex', alignItems: 'center', gap: 6,
+                          }}>
+                            <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.9)', textTransform: 'uppercase' }}>
+                              ★ {isRu ? 'Рекомендуем' : 'Recommended'}
+                            </span>
+                          </div>
+                        )}
+                        <div style={{
                           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                          padding: '14px 18px', borderRadius: 6,
-                          background: club.main ? 'rgba(255,255,255,0.04)' : 'transparent',
-                          border: `1px solid ${club.main ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.06)'}`,
-                          gap: 12, flexWrap: 'wrap',
+                          padding: '16px 20px', gap: 16, flexWrap: 'wrap',
                         }}>
                           <div>
-                            <p style={{ margin: '0 0 2px', fontSize: 12, color: 'rgba(255,255,255,0.35)' }}>
-                              {club.main ? (isRu ? 'Рекомендуем' : 'Recommended') : ''}
+                            <p style={{ margin: '0 0 3px', fontSize: 11, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+                              {isRu ? 'Название клуба' : 'Club name'}
                             </p>
-                            <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', fontWeight: 500 }}>{club.name}</span>
+                            <span style={{ fontSize: 15, color: 'white', fontWeight: 600 }}>{club.name}</span>
                           </div>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                            <span style={{ fontSize: 18, fontWeight: 800, color: 'white', fontVariantNumeric: 'tabular-nums' }}>{club.id}</span>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                            <div style={{ textAlign: 'right' }}>
+                              <p style={{ margin: '0 0 2px', fontSize: 11, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+                                Club ID
+                              </p>
+                              <span style={{ fontSize: 22, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.04em' }}>
+                                {club.id}
+                              </span>
+                            </div>
                             <CopyBtn value={club.id} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
                           </div>
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))}
 
-                    {/* Referral */}
-                    <p style={{ margin: '0 0 10px', fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
-                      {isRu ? 'ID реферера (обязательно)' : 'Referrer ID (required)'}
-                    </p>
+                    {/* Referral card */}
                     <div style={{
-                      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                      padding: '14px 18px', borderRadius: 6,
-                      background: 'rgba(255,255,255,0.04)',
-                      border: '1px solid rgba(255,255,255,0.1)',
-                      gap: 12,
+                      borderRadius: 8,
+                      background: 'rgba(255,255,255,0.02)',
+                      border: '1px solid rgba(255,255,255,0.07)',
+                      overflow: 'hidden',
                     }}>
-                      <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.7)', fontWeight: 500 }}>
-                        {isRu ? 'Реферальный код MOJO' : 'MOJO Referral Code'}
-                      </span>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                        <span style={{ fontSize: 18, fontWeight: 800, color: 'white', fontVariantNumeric: 'tabular-nums' }}>{REFERRAL}</span>
-                        <CopyBtn value={REFERRAL} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
+                      <div style={{
+                        padding: '5px 16px',
+                        background: 'rgba(255,255,255,0.06)',
+                        borderBottom: '1px solid rgba(255,255,255,0.06)',
+                      }}>
+                        <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase' }}>
+                          {isRu ? '⚠ ID реферера — обязательно' : '⚠ Referrer ID — required'}
+                        </span>
+                      </div>
+                      <div style={{
+                        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                        padding: '16px 20px', gap: 16, flexWrap: 'wrap',
+                      }}>
+                        <div>
+                          <p style={{ margin: '0 0 3px', fontSize: 11, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+                            {isRu ? 'Реферальный код' : 'Referral code'}
+                          </p>
+                          <span style={{ fontSize: 15, color: 'white', fontWeight: 600 }}>MOJO Poker Club</span>
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                          <div style={{ textAlign: 'right' }}>
+                            <p style={{ margin: '0 0 2px', fontSize: 11, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
+                              {isRu ? 'Код' : 'Code'}
+                            </p>
+                            <span style={{ fontSize: 22, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.04em' }}>
+                              {REFERRAL}
+                            </span>
+                          </div>
+                          <CopyBtn value={REFERRAL} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
+                        </div>
                       </div>
                     </div>
+
                   </div>
                 )}
 
