@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 
-const MAC_ZOOM = 0.90;
-const PHN_ZOOM = 0.50;
+const MAC_ZOOM = 0.92;
+const PHN_ZOOM = 0.52;
 
-// Native device dims from devices.css
+// Native device dims (devices.css)
 const MACBOOK_W = 740, MACBOOK_H = 434;
 const IPHONE_W  = 428, IPHONE_H  = 868;
 
@@ -40,29 +40,31 @@ function DeviceIPhone({ src }: { src: string }) {
 export function Hero() {
   const { t } = useLanguage();
 
-  // Zoomed sizes
-  const macW = Math.round(MACBOOK_W * MAC_ZOOM); // 666
-  const phnW = Math.round(IPHONE_W  * PHN_ZOOM); // 214
-  const phnLeft = Math.round(macW - phnW * 0.45); // overlap ~45% of phone onto MacBook
+  // Displayed sizes after zoom
+  const macW = Math.round(MACBOOK_W * MAC_ZOOM); // ~681
+  const phnW = Math.round(IPHONE_W  * PHN_ZOOM); // ~222
+  const phnLeft = Math.round(macW - phnW * 0.45); // overlap iPhone ~45% onto MacBook right
 
   return (
     <section style={{
-      height: '100vh',
-      paddingTop: 60,
+      minHeight: '100vh',
+      paddingTop: 60,     // navbar clearance
       background: 'var(--bg)',
       overflow: 'hidden',
+      // Both columns share the same top — no centering
       display: 'grid',
       gridTemplateColumns: '480px 1fr',
       columnGap: 48,
       paddingLeft: 32,
+      alignItems: 'start',
     }}>
 
-      {/* ── LEFT: text, vertically centred ── */}
+      {/* ── LEFT: text column ── */}
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
-        paddingRight: 16,
+        paddingTop: 80,
+        paddingBottom: 60,
       }}>
         <motion.div
           initial={{ opacity: 0 }}
@@ -131,7 +133,7 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* ── RIGHT: devices pinned to bottom of column, bleeding below fold ── */}
+      {/* ── RIGHT: devices, top-aligned with the text, overflow below fold ── */}
       <div style={{ position: 'relative', overflow: 'visible' }}>
         {/* MacBook */}
         <motion.div
@@ -141,7 +143,7 @@ export function Hero() {
           style={{
             position: 'absolute',
             left: 0,
-            bottom: -40,
+            top: 40,   // slightly below section top so it starts near the heading
             zIndex: 1,
             filter: 'drop-shadow(0 24px 56px rgba(0,0,0,0.85))',
           }}
@@ -157,7 +159,7 @@ export function Hero() {
           style={{
             position: 'absolute',
             left: phnLeft,
-            bottom: -40,
+            top: 40,   // same top → level with MacBook
             zIndex: 2,
             filter: 'drop-shadow(-8px 24px 48px rgba(0,0,0,0.9))',
           }}
