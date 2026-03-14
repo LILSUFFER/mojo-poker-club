@@ -8,10 +8,7 @@ export function Footer() {
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
 
         {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
-          <img src="/images/mojo-logo.png" alt="MOJO" style={{ width: 32, height: 32, borderRadius: 5, objectFit: 'cover', opacity: 0.7 }} />
-          <span style={{ fontWeight: 800, fontSize: 16, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.04em' }}>MOJO</span>
-        </div>
+        <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 22, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.06em' }}>MOJO</span>
 
         {/* Center: links */}
         <div style={{ display: 'flex', gap: 24 }}>

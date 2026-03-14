@@ -25,9 +25,8 @@ export function Navbar() {
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
         {/* Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', flexShrink: 0 }}>
-          <img src="/images/mojo-logo.png" alt="MOJO Poker Club" style={{ width: 40, height: 40, borderRadius: 6, objectFit: 'cover' }} />
-          <span style={{ fontWeight: 800, fontSize: 18, color: 'white', letterSpacing: '0.04em' }}>MOJO</span>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 0, textDecoration: 'none', flexShrink: 0 }}>
+          <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 26, color: 'white', letterSpacing: '0.06em', lineHeight: 1 }}>MOJO</span>
         </Link>
 
         {/* Desktop nav links */}
