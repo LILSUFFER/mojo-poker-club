@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Copy, CheckCircle2, Users, Layers } from 'lucide-react';
+import { Copy, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
 
 const REF_CODE = '3383-3619';
@@ -113,11 +113,11 @@ export function Clubs() {
                 {/* Stats */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
                   {[
-                    { Icon: Users, val: club.members, label: t('clubs.members') },
-                    { Icon: Layers, val: club.tables, label: t('clubs.tables') },
-                  ].map(({ Icon, val, label }) => (
+                    { icon: '/images/icon-users.png', val: club.members, label: t('clubs.members') },
+                    { icon: '/images/icon-table.png', val: club.tables, label: t('clubs.tables') },
+                  ].map(({ icon, val, label }) => (
                     <div key={label} style={{ padding: '14px 16px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: 4 }}>
-                      <Icon size={12} style={{ color: 'var(--text-faint)' }} />
+                      <img src={icon} alt="" style={{ width: 20, height: 20, objectFit: 'contain' }} />
                       <span style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)', lineHeight: 1 }}>{val}</span>
                       <span style={{ fontSize: 9, fontWeight: 600, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{label}</span>
                     </div>
