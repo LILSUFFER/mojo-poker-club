@@ -92,20 +92,24 @@ export function About() {
           <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 14 }}>
             /// {t('about.title')}
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 12 }}>
-            <UnionBadge />
-            <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em', margin: 0 }}>
-              {isRu ? 'Лучшие условия на рынке' : 'Best Conditions on the Market'}
-            </h2>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 24 }}>
+            <div style={{ flexShrink: 0, paddingTop: 4 }}>
+              <UnionBadge />
+            </div>
+            <div>
+              <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em', margin: '0 0 10px 0' }}>
+                {isRu ? 'Лучшие условия на рынке' : 'Best Conditions on the Market'}
+              </h2>
+              <p style={{ fontSize: 15, color: 'var(--text-faint)', letterSpacing: '0.01em', marginBottom: 16 }}>
+                {isRu ? 'для Massiv Poker Union' : 'for Massiv Poker Union'}
+              </p>
+              <p style={{ fontSize: 14, color: 'var(--text-faint)', lineHeight: 1.75, maxWidth: 560, margin: 0 }}>
+                {isRu
+                  ? 'Massiv Poker Union — один из самых крупных и популярных покерных союзов клубов. Здесь играет большое количество игроков со всего мира, благодаря чему столы запускаются практически в любое время и на разных лимитах. Союз известен своей активностью, большим пулом игроков и считается одним из лучших мест для игры среди клубных покерных сообществ.'
+                  : 'Massiv Poker Union is one of the largest and most popular poker club unions. Players from around the world keep the tables running at virtually any time and across a wide range of stakes. The union is known for its activity, massive player pool, and is considered one of the best places to play within club poker communities.'}
+              </p>
+            </div>
           </div>
-          <p style={{ fontSize: 15, color: 'var(--text-faint)', letterSpacing: '0.01em', marginBottom: 20 }}>
-            {isRu ? 'для Massiv Poker Union' : 'for Massiv Poker Union'}
-          </p>
-          <p style={{ fontSize: 14, color: 'var(--text-faint)', lineHeight: 1.75, maxWidth: 560 }}>
-            {isRu
-              ? 'Massiv Poker Union — один из самых крупных и популярных покерных союзов клубов. Здесь играет большое количество игроков со всего мира, благодаря чему столы запускаются практически в любое время и на разных лимитах. Союз известен своей активностью, большим пулом игроков и считается одним из лучших мест для игры среди клубных покерных сообществ.'
-              : 'Massiv Poker Union is one of the largest and most popular poker club unions. Players from around the world keep the tables running at virtually any time and across a wide range of stakes. The union is known for its activity, massive player pool, and is considered one of the best places to play within club poker communities.'}
-          </p>
         </motion.div>
 
         {/* ── Perk cards ── */}
