@@ -48,7 +48,7 @@ export function ClubMassiv() {
       <Navbar />
       <PageHeader
         label="Massiv Poker Union"
-        title={isRu ? 'MOJO 2: Massiv Poker Union' : 'MOJO 2: Massiv Poker Union'}
+        title="MOJO: Massiv Poker Union"
         subtitle={isRu
           ? 'Один из крупнейших покерных союзов в ClubGG — огромный пул игроков, экшн 24/7'
           : 'One of the largest poker unions on ClubGG — massive player pool, 24/7 action'}
@@ -86,7 +86,7 @@ export function ClubMassiv() {
                 <p style={{ margin: '0 0 4px', fontSize: 12, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
                   {isRu ? 'Название' : 'Name'}
                 </p>
-                <p style={{ margin: 0, fontSize: 17, fontWeight: 700, color: 'white' }}>MOJO 2: Massiv Poker Union 🇺🇸</p>
+                <p style={{ margin: 0, fontSize: 17, fontWeight: 700, color: 'white' }}>MOJO: Massiv Poker Union</p>
               </div>
             </div>
 
