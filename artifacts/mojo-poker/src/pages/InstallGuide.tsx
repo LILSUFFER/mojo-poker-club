@@ -4,6 +4,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageHeader } from '@/components/PageHeader';
 import { Link } from 'wouter';
+import SEO from '@/components/SEO';
 
 export function InstallGuide() {
   const { language } = useLanguage();
@@ -73,6 +74,19 @@ export function InstallGuide() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
+      <SEO
+        canonical="/install"
+        ru={{
+          title: 'Как установить ClubGG — MOJO Poker Club',
+          description: 'Пошаговая инструкция по установке ClubGG на Android, iPhone и Windows. Установка занимает меньше минуты.',
+          keywords: 'установить ClubGG, ClubGG APK, ClubGG iOS App Store, ClubGG Windows установка',
+        }}
+        en={{
+          title: 'How to Install ClubGG — MOJO Poker Club',
+          description: 'Step-by-step guide to install ClubGG on Android, iPhone and Windows. Installation takes less than a minute.',
+          keywords: 'install ClubGG, ClubGG APK, ClubGG iOS App Store, ClubGG Windows setup',
+        }}
+      />
       <Navbar />
       <PageHeader
         label={isRu ? 'Установка приложения' : 'App Installation'}

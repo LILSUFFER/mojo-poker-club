@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import { PageHeader } from '@/components/PageHeader';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/useIsMobile';
+import SEO from '@/components/SEO';
 
 const CLUBGG_URL = 'https://www.clubgg.com/';
 
@@ -53,6 +54,19 @@ export function Download() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
+      <SEO
+        canonical="/download"
+        ru={{
+          title: 'Скачать ClubGG — MOJO Poker Club',
+          description: 'Скачайте приложение ClubGG для Android, iOS или Windows. Два шага — и вы готовы к игре в клубе MOJO.',
+          keywords: 'скачать ClubGG, ClubGG Android, ClubGG iOS, ClubGG Windows, клубный покер',
+        }}
+        en={{
+          title: 'Download ClubGG — MOJO Poker Club',
+          description: 'Download the ClubGG app for Android, iOS or Windows. Two steps and you are ready to play at MOJO Poker Club.',
+          keywords: 'download ClubGG, ClubGG Android, ClubGG iOS, ClubGG Windows, club poker app',
+        }}
+      />
       <Navbar />
 
       <PageHeader

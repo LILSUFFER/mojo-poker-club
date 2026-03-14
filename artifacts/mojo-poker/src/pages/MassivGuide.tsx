@@ -6,6 +6,7 @@ import { PageHeader } from '@/components/PageHeader';
 import { VPNGuide } from '@/components/VPNGuide';
 import { Download, MessageCircle, UserPlus, PlayCircle } from 'lucide-react';
 import { Link } from 'wouter';
+import SEO from '@/components/SEO';
 
 const steps = {
   ru: [
@@ -117,6 +118,19 @@ export function MassivGuide() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
+      <SEO
+        canonical="/join"
+        ru={{
+          title: 'Как вступить в Massiv Poker Union — MOJO',
+          description: 'Пошаговая инструкция: скачайте ClubGG, создайте аккаунт и вступите в клуб MOJO в Massiv Poker Union. Реферальный код 3383-3619.',
+          keywords: 'Massiv Poker Union вступить, MOJO клуб ClubGG, клубный покер как вступить',
+        }}
+        en={{
+          title: 'How to Join Massiv Poker Union — MOJO',
+          description: 'Step-by-step guide: download ClubGG, create an account and join MOJO club in Massiv Poker Union. Referral code 3383-3619.',
+          keywords: 'Massiv Poker Union join, MOJO club ClubGG, club poker how to join, GGClub referral',
+        }}
+      />
       <Navbar />
       <PageHeader
         label="Massiv Poker Union"
