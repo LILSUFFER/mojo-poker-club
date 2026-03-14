@@ -201,6 +201,9 @@ export function JoinGuide() {
                       </div>
                     ))}
 
+                    {/* Separator */}
+                    <div style={{ height: 20 }} />
+
                     {/* Referral card */}
                     <div style={{
                       borderRadius: 8,
