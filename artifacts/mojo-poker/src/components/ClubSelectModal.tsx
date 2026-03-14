@@ -11,8 +11,8 @@ interface Props {
 const clubs = [
   {
     path: '/clubs/massiv',
-    logo: '/images/massiv-logo.png',
-    logoBg: '#111',
+    logo: '/images/mojo2-logo.png',
+    logoBg: '#ffffff',
     badge: null,
     nameRu: 'MOJO: Massiv Poker Union',
     nameEn: 'MOJO: Massiv Poker Union',
