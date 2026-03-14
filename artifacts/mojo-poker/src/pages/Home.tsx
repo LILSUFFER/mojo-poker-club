@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
+import { PremiumExperience } from '@/components/PremiumExperience';
 import { Clubs } from '@/components/Clubs';
 import { HowToJoin } from '@/components/HowToJoin';
 import { Stats } from '@/components/Stats';
@@ -15,6 +16,7 @@ export function Home() {
       <main className="flex-grow">
         <Hero />
         <About />
+        <PremiumExperience />
         <Clubs />
         <HowToJoin />
         <Stats />
