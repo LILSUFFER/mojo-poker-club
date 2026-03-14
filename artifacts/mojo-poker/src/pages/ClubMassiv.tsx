@@ -8,6 +8,7 @@ import { Copy, CheckCircle2 } from 'lucide-react';
 import { Link } from 'wouter';
 import SEO from '@/components/SEO';
 import { useIsMobile } from '@/hooks/useIsMobile';
+import { JoinNextSteps } from '@/components/JoinNextSteps';
 
 const CLUB_ID = '799798';
 const REF_CODE = '3383-3619';
@@ -147,11 +148,21 @@ export function ClubMassiv() {
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: 2 }}>
                     <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
                   </svg>
-                  <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.55 }}>
-                    {isRu
-                      ? 'Аккаунт нужно создавать через VPN с нужным ГЕО — смотри инструкцию справа'
-                      : 'Account must be created via VPN with correct GEO — see guide on the right'}
-                  </p>
+                  <div>
+                    <p style={{ margin: '0 0 4px', fontSize: 12, color: 'rgba(255,255,255,0.45)', lineHeight: 1.55 }}>
+                      {isRu
+                        ? 'Аккаунт нужно создавать через VPN с нужным ГЕО — смотри инструкцию справа'
+                        : 'Account must be created via VPN with correct GEO — see guide on the right'}
+                    </p>
+                    <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.3)', lineHeight: 1.5 }}>
+                      {isRu ? 'После заявки напишите менеджеру' : 'After applying, contact the manager'}{' '}
+                      <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
+                        style={{ color: 'rgba(37,211,102,0.75)', textDecoration: 'none', fontWeight: 600 }}
+                        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(37,211,102,1)'; }}
+                        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(37,211,102,0.75)'; }}
+                      >@Mojo_Adm</a>
+                    </p>
+                  </div>
                 </div>
                 <Link href="/join" style={{
                   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
@@ -191,6 +202,11 @@ export function ClubMassiv() {
               </div>
             ))}
           </div>
+
+          {/* ── How to join ── */}
+          <JoinNextSteps clubId={CLUB_ID} refCode={REF_CODE} requiresVpn={true} />
+
+          <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', marginBottom: 72 }} />
 
           {/* ── Features ── */}
           <div style={{ marginBottom: 72 }}>

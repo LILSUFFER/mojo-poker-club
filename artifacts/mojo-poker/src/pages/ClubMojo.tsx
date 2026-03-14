@@ -7,6 +7,7 @@ import { Copy, CheckCircle2 } from 'lucide-react';
 import { Link } from 'wouter';
 import SEO from '@/components/SEO';
 import { useIsMobile } from '@/hooks/useIsMobile';
+import { JoinNextSteps } from '@/components/JoinNextSteps';
 
 const CLUB_ID = '356323';
 const REF_CODE = '3383-3619';
@@ -138,10 +139,18 @@ export function ClubMojo() {
               </div>
 
               {/* CTA footer */}
-              <div style={{ padding: '16px 24px 20px', display: 'flex', justifyContent: 'flex-end' }}>
+              <div style={{ padding: '16px 24px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' }}>
+                <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.35)', lineHeight: 1.5 }}>
+                  {isRu ? 'После заявки напишите менеджеру' : 'After applying, contact the manager'}{' '}
+                  <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
+                    style={{ color: 'rgba(37,211,102,0.75)', textDecoration: 'none', fontWeight: 600 }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(37,211,102,1)'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(37,211,102,0.75)'; }}
+                  >@Mojo_Adm</a>
+                </p>
                 <Link href="/join" style={{
-                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-                  padding: '12px 32px', borderRadius: 4, textDecoration: 'none',
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, flexShrink: 0,
+                  padding: '12px 28px', borderRadius: 4, textDecoration: 'none',
                   background: 'hsl(4 80% 45%)', color: 'white',
                   fontSize: 14, fontWeight: 700, transition: 'background 0.15s',
                 }}
@@ -174,6 +183,9 @@ export function ClubMojo() {
               </div>
             ))}
           </div>
+
+          {/* ── How to join ── */}
+          <JoinNextSteps clubId={CLUB_ID} refCode={REF_CODE} requiresVpn={false} />
 
           <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', marginBottom: 72 }} />
 
