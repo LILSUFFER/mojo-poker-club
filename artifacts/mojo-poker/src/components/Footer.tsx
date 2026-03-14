@@ -19,7 +19,6 @@ export function Footer() {
       links: [
         { label: 'Скачать ClubGG', href: '/download' },
         { label: 'Как установить', href: '/install' },
-        { label: 'Аккаунт для Massiv', href: '/massiv-guide' },
       ],
     },
     {
@@ -44,7 +43,6 @@ export function Footer() {
       links: [
         { label: 'Download ClubGG', href: '/download' },
         { label: 'How to Install', href: '/install' },
-        { label: 'Massiv Account Guide', href: '/massiv-guide' },
       ],
     },
     {

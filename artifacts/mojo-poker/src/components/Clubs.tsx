@@ -203,17 +203,6 @@ export function Clubs() {
                             : 'GEO required: account must be created with specific details — otherwise you risk a ban.'}
                         </span>
                       </div>
-                      <Link
-                        href="/massiv-guide"
-                        style={{
-                          fontSize: 11, fontWeight: 700,
-                          color: 'rgba(234,179,8,0.75)',
-                          textDecoration: 'none',
-                          display: 'inline-flex', alignItems: 'center', gap: 4,
-                        }}
-                      >
-                        {isRu ? 'Как правильно создать аккаунт →' : 'How to create account correctly →'}
-                      </Link>
                     </div>
                   )}
 

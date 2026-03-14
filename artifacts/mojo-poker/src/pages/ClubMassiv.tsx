@@ -147,9 +147,6 @@ export function ClubMassiv() {
                   <p style={{ margin: '0 0 6px', fontSize: 12, color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>
                     {isRu ? 'Аккаунт нужно создавать с определёнными данными — иначе блокировка.' : 'Account must be created with specific details — otherwise you risk a ban.'}
                   </p>
-                  <Link href="/massiv-guide" style={{ fontSize: 12, fontWeight: 700, color: 'rgba(234,179,8,0.75)', textDecoration: 'none' }}>
-                    {isRu ? 'Инструкция по созданию аккаунта →' : 'Account creation guide →'}
-                  </Link>
                 </div>
               </div>
 

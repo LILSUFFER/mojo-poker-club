@@ -5,7 +5,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Home } from "@/pages/Home";
 import { Download } from "@/pages/Download";
-import { MassivGuide } from "@/pages/MassivGuide";
 import { InstallGuide } from "@/pages/InstallGuide";
 import { JoinGuide } from "@/pages/JoinGuide";
 import { CreateAccount } from "@/pages/CreateAccount";
@@ -23,7 +22,6 @@ function Router() {
       <Route path="/download" component={Download} />
       <Route path="/install" component={InstallGuide} />
       <Route path="/join" component={JoinGuide} />
-      <Route path="/massiv-guide" component={MassivGuide} />
       <Route path="/create-account" component={CreateAccount} />
       <Route path="/clubs/massiv" component={ClubMassiv} />
       <Route path="/clubs/mojo" component={ClubMojo} />

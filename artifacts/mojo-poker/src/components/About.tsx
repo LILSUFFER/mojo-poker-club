@@ -114,26 +114,6 @@ export function About() {
                     ? 'Massiv Poker Union — один из самых крупных и популярных покерных союзов клубов. Здесь играет большое количество игроков со всего мира, благодаря чему столы запускаются практически в любое время и на разных лимитах. Союз известен своей активностью, большим пулом игроков и считается одним из лучших мест для игры среди клубных покерных сообществ.'
                     : 'Massiv Poker Union is one of the largest and most popular poker club unions. Players from around the world keep the tables running at virtually any time and across a wide range of stakes. The union is known for its activity, massive player pool, and is considered one of the best places to play within club poker communities.'}
                 </p>
-                <Link
-                  href="/massiv-guide"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 8,
-                    fontSize: 13,
-                    fontWeight: 600,
-                    color: 'var(--text)',
-                    border: '1px solid rgba(255,255,255,0.18)',
-                    borderRadius: 4,
-                    padding: '10px 20px',
-                    textDecoration: 'none',
-                    transition: 'border-color 0.2s',
-                  }}
-                  onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.35)'; }}
-                  onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; }}
-                >
-                  {isRu ? 'Как создать аккаунт' : 'How to Create Account'} →
-                </Link>
               </div>
             </div>
             {/* Right: Massiv Union logo */}
