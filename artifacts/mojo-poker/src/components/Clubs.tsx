@@ -25,8 +25,6 @@ export function Clubs() {
       features: [t('clubs.mojo.feature1'), t('clubs.mojo.feature2'), t('clubs.mojo.feature3')],
       logo: '/images/mojo1-logo.png',
       logoBg: '#0d0d0d',
-      cardBg: '#0d0d0d',
-      light: false,
       members: '5 000+',
       tables: '200+',
       badge: null,
@@ -39,8 +37,6 @@ export function Clubs() {
       features: [t('clubs.massiv.feature1'), t('clubs.massiv.feature2'), t('clubs.massiv.feature3')],
       logo: '/images/mojo2-logo.png',
       logoBg: '#ffffff',
-      cardBg: '#ffffff',
-      light: true,
       members: '570+',
       tables: '233+',
       badge: '🇺🇸 Union',
@@ -90,19 +86,19 @@ export function Clubs() {
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.1 }}
               style={{
-                border: `1px solid ${club.light ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.08)'}`,
-                background: club.cardBg,
+                border: '1px solid var(--border-subtle)',
+                background: 'var(--bg-card)',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
                 borderRadius: 8,
                 transition: 'border-color 0.2s',
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = club.light ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.15)'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = club.light ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.08)'; }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.15)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)'; }}
             >
-              {/* Logo area */}
-              <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 48px', minHeight: 200 }}>
+              {/* Logo area — background matches the logo image */}
+              <div style={{ position: 'relative', background: club.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 48px', minHeight: 200 }}>
                 <img src={club.logo} alt={club.name} style={{ width: '100%', maxWidth: 280, height: 'auto', display: 'block', objectFit: 'contain' }} />
                 {club.badge && (
                   <div style={{ position: 'absolute', top: 14, right: 14 }}>
@@ -116,7 +112,7 @@ export function Clubs() {
               </div>
 
               {/* Divider */}
-              <div style={{ height: 1, background: club.light ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.08)', margin: '0 28px' }} />
+              <div style={{ height: 1, background: 'var(--border-subtle)' }} />
 
               {/* Body */}
               <div style={{ padding: '28px 28px 32px', display: 'flex', flexDirection: 'column', gap: 16, flex: 1 }}>
@@ -127,15 +123,10 @@ export function Clubs() {
                     { icon: '/images/icon-users.png', val: club.members, label: t('clubs.members') },
                     { icon: '/images/icon-table.png', val: club.tables, label: t('clubs.tables') },
                   ].map(({ icon, val, label }) => (
-                    <div key={label} style={{
-                      padding: '14px 16px', borderRadius: 6,
-                      background: club.light ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.04)',
-                      border: `1px solid ${club.light ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.08)'}`,
-                      display: 'flex', flexDirection: 'column', gap: 4
-                    }}>
-                      <img src={icon} alt="" style={{ width: 20, height: 20, objectFit: 'contain', filter: club.light ? 'invert(1)' : 'none' }} />
-                      <span style={{ fontSize: 22, fontWeight: 700, color: club.light ? '#111' : 'var(--text)', lineHeight: 1 }}>{val}</span>
-                      <span style={{ fontSize: 9, fontWeight: 600, color: club.light ? '#888' : 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{label}</span>
+                    <div key={label} style={{ padding: '14px 16px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                      <img src={icon} alt="" style={{ width: 20, height: 20, objectFit: 'contain' }} />
+                      <span style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)', lineHeight: 1 }}>{val}</span>
+                      <span style={{ fontSize: 9, fontWeight: 600, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{label}</span>
                     </div>
                   ))}
                 </div>
@@ -143,43 +134,35 @@ export function Clubs() {
                 {/* Club ID + Ref Code side by side */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
                   {/* Club ID */}
-                  <div style={{
-                    padding: '14px 16px', borderRadius: 6,
-                    background: club.light ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.04)',
-                    border: `1px solid ${club.light ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.08)'}`,
-                  }}>
-                    <div style={{ fontSize: 9, fontWeight: 700, color: club.light ? '#888' : 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 8 }}>Club ID</div>
+                  <div style={{ padding: '14px 16px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)' }}>
+                    <div style={{ fontSize: 9, fontWeight: 700, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 8 }}>Club ID</div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap' }}>
-                      <span style={{ fontSize: 22, fontWeight: 700, color: club.light ? '#111' : 'var(--text)', letterSpacing: '0.04em', fontVariantNumeric: 'tabular-nums' }}>{club.clubId}</span>
+                      <span style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)', letterSpacing: '0.04em', fontVariantNumeric: 'tabular-nums' }}>{club.clubId}</span>
                       <CopyButton val={club.clubId} copyKey={`id-${club.id}`} label={isRu ? 'Копировать' : 'Copy'} />
                     </div>
                   </div>
 
                   {/* Ref Code */}
-                  <div style={{
-                    padding: '14px 16px', borderRadius: 6,
-                    background: club.light ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.04)',
-                    border: `1px solid ${club.light ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.08)'}`,
-                  }}>
-                    <div style={{ fontSize: 9, fontWeight: 700, color: club.light ? '#888' : 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 8 }}>
+                  <div style={{ padding: '14px 16px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)' }}>
+                    <div style={{ fontSize: 9, fontWeight: 700, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 8 }}>
                       {isRu ? 'Реф. код' : 'Ref Code'}
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap' }}>
-                      <span style={{ fontSize: 22, fontWeight: 700, color: club.light ? '#111' : 'var(--text)', letterSpacing: '0.04em', fontVariantNumeric: 'tabular-nums' }}>{REF_CODE}</span>
+                      <span style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)', letterSpacing: '0.04em', fontVariantNumeric: 'tabular-nums' }}>{REF_CODE}</span>
                       <CopyButton val={REF_CODE} copyKey={`ref-${club.id}`} label={isRu ? 'Копировать' : 'Copy'} />
                     </div>
                   </div>
                 </div>
 
                 {/* Description */}
-                <p style={{ color: club.light ? '#555' : 'var(--text-faint)', fontSize: 13, lineHeight: 1.65, margin: 0 }}>{club.desc}</p>
+                <p style={{ color: 'var(--text-faint)', fontSize: 13, lineHeight: 1.65, margin: 0 }}>{club.desc}</p>
 
                 {/* Features */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 'auto' }}>
                   {club.features.map((f, fi) => (
                     <div key={fi} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                      <div style={{ width: 1, height: 14, background: club.light ? 'rgba(0,0,0,0.2)' : 'var(--border-color)', flexShrink: 0 }} />
-                      <span style={{ fontSize: 13, color: club.light ? '#444' : 'var(--text-muted)', fontWeight: 500 }}>{f}</span>
+                      <div style={{ width: 1, height: 14, background: 'var(--border-color)', flexShrink: 0 }} />
+                      <span style={{ fontSize: 13, color: 'var(--text-muted)', fontWeight: 500 }}>{f}</span>
                     </div>
                   ))}
                 </div>
