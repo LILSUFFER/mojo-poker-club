@@ -13,7 +13,7 @@ export function Stats() {
 
   return (
     <section style={{ background: '#0d1018', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '72px 0' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 40px' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 1, overflow: 'hidden', borderRadius: 14, border: '1px solid rgba(255,255,255,0.07)' }}>
           {stats.map((stat, i) => {
             const Icon = stat.icon;

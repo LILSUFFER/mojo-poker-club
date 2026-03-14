@@ -21,7 +21,7 @@ export function About() {
 
   return (
     <section id="about" style={{ padding: '100px 0', background: '#0a0c12', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 40px' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 80, alignItems: 'center' }}>
 
           {/* Left */}

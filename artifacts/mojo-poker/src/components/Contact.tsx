@@ -7,7 +7,7 @@ export function Contact() {
 
   return (
     <section id="contact" style={{ padding: '100px 0', background: '#0a0c12', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-      <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 40px', textAlign: 'center' }}>
+      <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 32px', textAlign: 'center' }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

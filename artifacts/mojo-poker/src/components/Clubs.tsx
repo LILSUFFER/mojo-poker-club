@@ -35,7 +35,7 @@ export function Clubs() {
 
   return (
     <section id="clubs" style={{ padding: '100px 0', background: '#0d1018', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 40px' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
 
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 60 }}>

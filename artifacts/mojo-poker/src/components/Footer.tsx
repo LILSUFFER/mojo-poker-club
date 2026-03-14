@@ -5,7 +5,7 @@ export function Footer() {
 
   return (
     <footer style={{ background: '#0a0c12', borderTop: '1px solid rgba(255,255,255,0.06)', padding: '36px 0' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 40px', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
 
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>

@@ -11,7 +11,7 @@ export function Hero() {
     <section style={{ minHeight: '100vh', paddingTop: 64, background: '#0a0c10', overflow: 'hidden', position: 'relative', display: 'flex', alignItems: 'center' }}>
 
       {/* Inner grid: centered max-width container */}
-      <div style={{ width: '100%', maxWidth: 1280, margin: '0 auto', padding: '60px 40px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center', position: 'relative', zIndex: 2 }}>
+      <div style={{ width: '100%', maxWidth: 1280, margin: '0 auto', padding: '60px 32px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center', position: 'relative', zIndex: 2 }}>
 
         {/* Left: text */}
         <div style={{ display: 'flex', flexDirection: 'column' }}>
