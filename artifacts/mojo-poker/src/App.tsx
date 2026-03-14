@@ -1,4 +1,5 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,19 +16,30 @@ import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
 
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [location]);
+  return null;
+}
+
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/download" component={Download} />
-      <Route path="/install" component={InstallGuide} />
-      <Route path="/join" component={JoinGuide} />
-      <Route path="/create-account" component={CreateAccount} />
-      <Route path="/clubs/massiv" component={ClubMassiv} />
-      <Route path="/clubs/mojo" component={ClubMojo} />
-      <Route path="/about" component={AboutPage} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/download" component={Download} />
+        <Route path="/install" component={InstallGuide} />
+        <Route path="/join" component={JoinGuide} />
+        <Route path="/create-account" component={CreateAccount} />
+        <Route path="/clubs/massiv" component={ClubMassiv} />
+        <Route path="/clubs/mojo" component={ClubMojo} />
+        <Route path="/about" component={AboutPage} />
+        <Route component={NotFound} />
+      </Switch>
+    </>
   );
 }
 
