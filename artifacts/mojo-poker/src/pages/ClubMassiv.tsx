@@ -157,7 +157,8 @@ export function ClubMassiv() {
                     <span style={{ fontSize: 26, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.06em', whiteSpace: 'nowrap' }}>{REF_CODE}</span>
                     <CopyBtn value={REF_CODE} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
                   </div>
-                  <p style={{ margin: '6px 0 0', fontSize: 12, color: 'rgba(255,255,255,0.3)', lineHeight: 1.5 }}>
+                  <p style={{ margin: '6px 0 0', fontSize: 12, color: '#f5c518', lineHeight: 1.5, display: 'flex', alignItems: 'center', gap: 5 }}>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
                     {isRu ? 'Привязывает бонусы к аккаунту' : 'Links bonuses to your account'}
                   </p>
                 </div>
