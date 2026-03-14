@@ -7,7 +7,7 @@ const clubs = [
   {
     id: 'massiv',
     href: '/clubs/massiv',
-    logo: '/images/mojo-logo-dark.svg',
+    logo: '/images/mojo-logo-dark-full.svg',
     logoBg: '#ffffff',
     label: 'MOJO: Massiv Poker Union',
     descRu: 'Один из крупнейших покерных союзов в ClubGG — огромный пул игроков и экшн 24/7. Идеально для тех, кто ищет максимальную активность за столами.',
@@ -21,7 +21,7 @@ const clubs = [
   {
     id: 'mojo1',
     href: '/clubs/mojo',
-    logo: '/images/mojo-logo-red.svg',
+    logo: '/images/mojo-logo-red-full.svg',
     logoBg: '#1a1a1a',
     label: 'MOJO',
     descRu: 'Закрытый клуб с отборными игроками и эксклюзивными столами. Высокий рейкбек, строгий отбор участников и комфортная атмосфера для серьёзной игры.',
