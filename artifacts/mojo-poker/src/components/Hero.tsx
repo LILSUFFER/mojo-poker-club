@@ -1,16 +1,27 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight, MessageCircle } from 'lucide-react';
-import { Link } from 'wouter';
+
+const TABS = [
+  { id: 'nlh',  label: 'Холдем', img: '/images/game-nlh.png'  },
+  { id: 'plo4', label: 'PLO4',   img: '/images/game-plo4.png' },
+  { id: 'plo5', label: 'PLO5',   img: '/images/game-plo5.png' },
+  { id: 'mtt',  label: 'MTT',    img: '/images/game-mtt.png'  },
+  { id: 'aof',  label: 'AOF',    img: '/images/game-aof.png'  },
+];
 
 export function Hero() {
   const { t } = useLanguage();
-  const base = import.meta.env.BASE_URL;
+  const [active, setActive] = useState('nlh');
+
+  const current = TABS.find(t => t.id === active)!;
 
   return (
     <section style={{ minHeight: '100vh', paddingTop: 60, background: 'var(--bg)', overflow: 'hidden', position: 'relative', display: 'flex', alignItems: 'center' }}>
-      <div style={{ width: '100%', maxWidth: 1280, margin: '0 auto', padding: '60px 32px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center', position: 'relative', zIndex: 2 }}>
+      <div style={{ width: '100%', maxWidth: 1280, margin: '0 auto', padding: '60px 32px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
 
+        {/* Left: text */}
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           {/* Label */}
           <motion.div
@@ -24,7 +35,7 @@ export function Hero() {
             <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-faint)' }}>Online</span>
           </motion.div>
 
-          {/* Headline — plozilla style: white + muted grey inline */}
+          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -50,17 +61,15 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.15 }}
             style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 48 }}
           >
-            {/* Primary CTA — outlined white */}
             <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 22px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.25)', background: 'transparent', color: 'white', fontWeight: 600, fontSize: 14, textDecoration: 'none', transition: 'all 0.15s', letterSpacing: '-0.01em' }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.55)'; el.style.background = 'rgba(255,255,255,0.05)'; }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 22px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.25)', background: 'transparent', color: 'white', fontWeight: 600, fontSize: 14, textDecoration: 'none', transition: 'all 0.15s' }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.5)'; el.style.background = 'rgba(255,255,255,0.05)'; }}
               onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.25)'; el.style.background = 'transparent'; }}
             >
               {t('hero.cta')} <ArrowRight size={14} />
             </a>
-            {/* Secondary CTA */}
             <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 20px', borderRadius: 4, border: '1px solid var(--border-subtle)', background: 'transparent', color: 'var(--text-muted)', fontWeight: 500, fontSize: 14, textDecoration: 'none', transition: 'all 0.15s', letterSpacing: '-0.01em' }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 20px', borderRadius: 4, border: '1px solid var(--border-subtle)', background: 'transparent', color: 'var(--text-muted)', fontWeight: 500, fontSize: 14, textDecoration: 'none', transition: 'all 0.15s' }}
               onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.15)'; el.style.color = 'var(--text)'; }}
               onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'var(--border-subtle)'; el.style.color = 'var(--text-muted)'; }}
             >
@@ -84,18 +93,65 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right: image — no glow */}
+        {/* Right: game type switcher + image */}
         <motion.div
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          style={{ display: 'flex', flexDirection: 'column', gap: 0 }}
         >
-          <img
-            src={`${base}images/ggclub-hero.png`}
-            alt="GGClub Poker App"
-            style={{ width: '100%', display: 'block', borderRadius: 6 }}
-          />
+          {/* Tab bar */}
+          <div style={{ display: 'flex', gap: 2, marginBottom: 2, background: 'var(--bg-card)', border: '1px solid var(--border-subtle)', borderBottom: 'none', borderRadius: '4px 4px 0 0', padding: '6px 8px' }}>
+            {TABS.map(tab => {
+              const isActive = tab.id === active;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActive(tab.id)}
+                  style={{
+                    padding: '6px 14px',
+                    borderRadius: 3,
+                    border: 'none',
+                    background: isActive ? 'rgba(255,255,255,0.1)' : 'transparent',
+                    color: isActive ? 'var(--text)' : 'var(--text-faint)',
+                    fontSize: 12,
+                    fontWeight: isActive ? 700 : 500,
+                    letterSpacing: '0.04em',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s',
+                    fontFamily: 'Space Grotesk, sans-serif',
+                  }}
+                  onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'; }}
+                  onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.color = 'var(--text-faint)'; }}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Image with crossfade */}
+          <div style={{ position: 'relative', border: '1px solid var(--border-subtle)', borderRadius: '0 0 4px 4px', overflow: 'hidden', aspectRatio: '4/3', background: 'var(--bg-card)' }}>
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={active}
+                src={current.img}
+                alt={current.label}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </AnimatePresence>
+
+            {/* Label overlay bottom-left */}
+            <div style={{ position: 'absolute', bottom: 12, left: 12, padding: '4px 10px', borderRadius: 3, background: 'rgba(0,0,0,0.65)', border: '1px solid rgba(255,255,255,0.1)', fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.8)', letterSpacing: '0.08em', backdropFilter: 'blur(6px)' }}>
+              {current.label}
+            </div>
+          </div>
         </motion.div>
+
       </div>
     </section>
   );
