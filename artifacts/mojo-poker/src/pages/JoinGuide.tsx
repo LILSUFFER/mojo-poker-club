@@ -10,7 +10,7 @@ const REFERRAL = '3383-3619';
 
 const CLUBS = [
   { name: 'MOJO 2: Massiv Poker Union', id: '799798', main: true },
-  { name: 'MOJO 1', id: '356323', main: false },
+  { name: 'MOJO', id: '356323', main: false },
 ];
 
 function CopyBtn({ value, label, copiedLabel }: { value: string; label: string; copiedLabel: string }) {
@@ -97,8 +97,8 @@ export function JoinGuide() {
       num: 5,
       title: { ru: 'Напишите менеджеру в Telegram', en: 'Message the manager on Telegram' },
       desc: {
-        ru: 'Заявка отправлена — теперь напишите менеджеру @Mojo_Adm в Telegram. Укажите:\n\n• Ваш никнейм в ClubGG\n• В какой клуб хотите вступить (MOJO 1 или MOJO 2)\n\nОбычно одобрение приходит в течение нескольких минут. Менеджер может задать дополнительные вопросы.',
-        en: 'Request sent — now message manager @Mojo_Adm on Telegram. Include:\n\n• Your ClubGG nickname\n• Which club you want to join (MOJO 1 or MOJO 2)\n\nApproval usually takes just a few minutes. The manager may ask a few questions.',
+        ru: 'Заявка отправлена — теперь напишите менеджеру @Mojo_Adm в Telegram. Укажите:\n\n• Ваш никнейм в ClubGG\n• В какой клуб хотите вступить (MOJO или Massiv)\n\nОбычно одобрение приходит в течение нескольких минут. Менеджер может задать дополнительные вопросы.',
+        en: 'Request sent — now message manager @Mojo_Adm on Telegram. Include:\n\n• Your ClubGG nickname\n• Which club you want to join (MOJO or Massiv)\n\nApproval usually takes just a few minutes. The manager may ask a few questions.',
       },
       extra: 'telegram',
     },
@@ -110,12 +110,12 @@ export function JoinGuide() {
         canonical="/join"
         ru={{
           title: 'Как вступить в покер клуб GGClub — инструкция MOJO',
-          description: 'Пошаговая инструкция как вступить в MOJO Poker Club на GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO 1 ID 356323. Реферальный код 3383-3619.',
+          description: 'Пошаговая инструкция как вступить в MOJO Poker Club на GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Реферальный код 3383-3619.',
           keywords: 'как вступить в GGClub, ClubGG инструкция, Massiv Poker Union регистрация, MOJO Poker вступить, покер клуб GG Club',
         }}
         en={{
           title: 'How to Join MOJO Poker Club on GGClub — Step by Step Guide',
-          description: 'Step-by-step guide to join MOJO Poker Club on GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO 1 ID 356323. Referral code 3383-3619.',
+          description: 'Step-by-step guide to join MOJO Poker Club on GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Referral code 3383-3619.',
           keywords: 'how to join GGClub, ClubGG guide, Massiv Poker Union sign up, MOJO Poker join, GG Club poker tutorial',
         }}
         structuredData={{
@@ -221,7 +221,7 @@ export function JoinGuide() {
                         </div>
                       </div>
 
-                      {/* MOJO 1 */}
+                      {/* MOJO */}
                       <div style={{
                         borderRadius: 8,
                         background: 'rgba(255,255,255,0.03)',
@@ -231,13 +231,13 @@ export function JoinGuide() {
                       }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                           <div style={{ width: 44, height: 44, borderRadius: 10, background: 'rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                            <img src="/images/mojo1-logo.png" alt="MOJO 1" style={{ width: 36, height: 36, objectFit: 'contain', borderRadius: 8 }} />
+                            <img src="/images/mojo1-logo.png" alt="MOJO" style={{ width: 36, height: 36, objectFit: 'contain', borderRadius: 8 }} />
                           </div>
                           <div>
                             <p style={{ margin: '0 0 2px', fontSize: 11, color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
                               {isRu ? 'Покерный клуб' : 'Poker Club'}
                             </p>
-                            <span style={{ fontSize: 15, color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>MOJO 1</span>
+                            <span style={{ fontSize: 15, color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>MOJO</span>
                           </div>
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>

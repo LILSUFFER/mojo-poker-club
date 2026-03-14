@@ -58,12 +58,12 @@ export function ClubMojo() {
 
   const features = isRu ? [
     { title: 'Фишка 1к1', desc: 'Прямой обмен без комиссии — покупай и продавай фишки по курсу 1 к 1.' },
-    { title: 'Рейкбек 55%', desc: 'Максимальный рейкбек для членов MOJO 1 — 55% от рейка возвращается тебе.' },
+    { title: 'Рейкбек 55%', desc: 'Максимальный рейкбек для членов MOJO — 55% от рейка возвращается тебе.' },
     { title: 'Эксклюзивные столы', desc: 'Закрытый клуб с отборными игроками. Комфортная атмосфера и контролируемый состав.' },
     { title: 'Экшн 24/7', desc: 'Столы работают круглосуточно — раздачи идут в любое время дня и ночи.' },
   ] : [
     { title: '1:1 Chip Rate', desc: 'Direct exchange with no commission — buy and sell chips at a 1:1 rate.' },
-    { title: '55% Rakeback', desc: 'Maximum rakeback for MOJO 1 members — 55% of rake returned to you.' },
+    { title: '55% Rakeback', desc: 'Maximum rakeback for MOJO members — 55% of rake returned to you.' },
     { title: 'Exclusive Tables', desc: 'A closed club with hand-picked players. A comfortable atmosphere and controlled roster.' },
     { title: '24/7 Action', desc: 'Tables run around the clock — hands are dealt at any time of day or night.' },
   ];
@@ -73,20 +73,20 @@ export function ClubMojo() {
       <SEO
         canonical="/clubs/mojo"
         ru={{
-          title: 'MOJO 1 — покер клуб в сети GGClub',
-          description: 'MOJO 1 на GGClub — клуб с высоким рейкбеком 55%, фишками 1к1, 62+ игроков онлайн, 58+ столов. ID клуба 356323. Реферальный код 3383-3619.',
-          keywords: 'MOJO 1 покер, GGClub покер клуб, ClubGG клуб, покер рейкбек 55%, покер онлайн, клубный покер GG',
+          title: 'MOJO — покер клуб в сети GGClub',
+          description: 'MOJO на GGClub — клуб с высоким рейкбеком 55%, фишками 1к1, 62+ игроков онлайн, 58+ столов. ID клуба 356323. Реферальный код 3383-3619.',
+          keywords: 'MOJO покер, GGClub покер клуб, ClubGG клуб, покер рейкбек 55%, покер онлайн, клубный покер GG',
         }}
         en={{
-          title: 'MOJO 1 — GGClub Poker Club',
-          description: 'MOJO 1 on GGClub — high-rakeback poker club. 55% rakeback, 1:1 chips, 62+ players online, 58+ tables. Club ID 356323. Referral code 3383-3619.',
-          keywords: 'MOJO 1 poker, GGClub poker club, ClubGG club, 55% rakeback poker, online poker club',
+          title: 'MOJO — GGClub Poker Club',
+          description: 'MOJO on GGClub — high-rakeback poker club. 55% rakeback, 1:1 chips, 62+ players online, 58+ tables. Club ID 356323. Referral code 3383-3619.',
+          keywords: 'MOJO poker, GGClub poker club, ClubGG club, 55% rakeback poker, online poker club',
         }}
         structuredData={{
           '@context': 'https://schema.org',
           '@type': 'SportsClub',
-          name: 'MOJO 1 Poker Club',
-          description: 'MOJO 1 poker club on GGClub network with 55% rakeback',
+          name: 'MOJO Poker Club',
+          description: 'MOJO poker club on GGClub network with 55% rakeback',
           url: 'https://mojo-poker.com/clubs/mojo',
           identifier: '356323',
         }}
@@ -94,14 +94,14 @@ export function ClubMojo() {
       <Navbar />
       <PageHeader
         label="MOJO"
-        title="MOJO 1"
+        title="MOJO"
         subtitle={isRu
           ? 'Закрытый клуб с отборными игроками, эксклюзивными столами и высоким рейкбеком'
           : 'A closed club with hand-picked players, exclusive tables and top rakeback'}
         breadcrumbs={[
           { label: isRu ? 'Главная' : 'Home', href: '/' },
           { label: isRu ? 'Наши клубы' : 'Our Clubs', href: '/#clubs' },
-          { label: 'MOJO 1' },
+          { label: 'MOJO' },
         ]}
       />
 
@@ -115,13 +115,13 @@ export function ClubMojo() {
               {/* Club header: square logo + name */}
               <div style={{ display: 'flex', alignItems: 'stretch', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                 <div style={{ width: 120, height: 120, flexShrink: 0, background: '#222', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid rgba(255,255,255,0.06)' }}>
-                  <img src="/images/mojo1-logo.png" alt="MOJO 1" style={{ width: 88, height: 88, objectFit: 'contain', display: 'block' }} />
+                  <img src="/images/mojo1-logo.png" alt="MOJO" style={{ width: 88, height: 88, objectFit: 'contain', display: 'block' }} />
                 </div>
                 <div style={{ padding: '28px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                   <p style={{ margin: '0 0 6px', fontSize: 10, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600 }}>
                     {isRu ? 'Название клуба' : 'Club Name'}
                   </p>
-                  <p style={{ margin: '0 0 6px', fontSize: 20, fontWeight: 700, color: 'white', lineHeight: 1.2 }}>MOJO 1</p>
+                  <p style={{ margin: '0 0 6px', fontSize: 20, fontWeight: 700, color: 'white', lineHeight: 1.2 }}>MOJO</p>
                   <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.35)' }}>
                     {isRu ? 'Сеть ClubGG · GGClub' : 'ClubGG · GGClub network'}
                   </p>
@@ -196,7 +196,7 @@ export function ClubMojo() {
               /// {isRu ? 'Преимущества' : 'Features'}
             </p>
             <h2 style={{ margin: '0 0 36px', fontSize: 26, fontWeight: 800, color: 'white', lineHeight: 1.2 }}>
-              {isRu ? 'Почему MOJO 1?' : 'Why MOJO 1?'}
+              {isRu ? 'Почему MOJO?' : 'Why MOJO?'}
             </h2>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
               {features.map((f, i) => (

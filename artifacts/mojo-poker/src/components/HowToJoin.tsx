@@ -57,7 +57,7 @@ export function HowToJoin() {
 
                 {step.extra === 'ids' && (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 2, marginTop: 'auto' }}>
-                    {[['MOJO 1', '356323'], ['MOJO 2 Massiv', '799798']].map(([name, id]) => (
+                    {[['MOJO', '356323'], ['MOJO 2 Massiv', '799798']].map(([name, id]) => (
                       <div key={id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '9px 12px', borderRadius: 4, background: 'var(--bg)', border: '1px solid var(--border-subtle)' }}>
                         <span style={{ fontSize: 12, color: 'var(--text-faint)' }}>{name}</span>
                         <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.04em' }}>{id}</span>

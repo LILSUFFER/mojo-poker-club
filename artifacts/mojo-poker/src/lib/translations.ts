@@ -31,7 +31,7 @@ export const translations = {
       title: "Our Clubs",
       subtitle: "Choose Your Arena",
       mojo: {
-        name: "MOJO 1",
+        name: "MOJO",
         desc: "Our flagship club offering exclusive tables, daily action, and a tight-knit community of dedicated players.",
         feature1: "Exclusive VIP Tables",
         feature2: "Active Tables 24/7",
@@ -149,7 +149,7 @@ export const translations = {
       title: "Наши клубы",
       subtitle: "Выберите свою арену",
       mojo: {
-        name: "MOJO 1",
+        name: "MOJO",
         desc: "Наш флагманский клуб, предлагающий эксклюзивные столы, ежедневный экшен и сплочённое сообщество преданных игроков.",
         feature1: "Эксклюзивные VIP столы",
         feature2: "Активные столы 24/7",

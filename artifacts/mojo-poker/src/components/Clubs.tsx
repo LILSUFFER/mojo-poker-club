@@ -23,7 +23,7 @@ const clubs = [
     href: '/clubs/mojo',
     logo: '/images/mojo1-logo.png',
     logoBg: '#222222',
-    label: 'MOJO 1',
+    label: 'MOJO',
     descRu: 'Закрытый клуб с отборными игроками и эксклюзивными столами. Высокий рейкбек, строгий отбор участников и комфортная атмосфера для серьёзной игры.',
     descEn: 'A private club with hand-picked players and exclusive tables. High rakeback, strict vetting and a comfortable atmosphere for serious play.',
     rb: '55%',

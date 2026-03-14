@@ -243,13 +243,13 @@ export function ClubMassiv() {
             <div style={{ padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                 <div style={{ width: 48, height: 48, borderRadius: 10, background: '#222', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <img src="/images/mojo1-logo.png" alt="MOJO 1" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 8 }} />
+                  <img src="/images/mojo1-logo.png" alt="MOJO" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 8 }} />
                 </div>
                 <div>
                   <p style={{ margin: '0 0 3px', fontSize: 11, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
                     {isRu ? 'Покерный клуб' : 'Poker Club'}
                   </p>
-                  <p style={{ margin: '0 0 2px', fontSize: 16, fontWeight: 700, color: 'white' }}>MOJO 1</p>
+                  <p style={{ margin: '0 0 2px', fontSize: 16, fontWeight: 700, color: 'white' }}>MOJO</p>
                   <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>
                     {isRu ? 'Фишка 1к1 · Рейкбек 55%' : 'Chip 1:1 · Rakeback 55%'}
                   </p>
