@@ -2,12 +2,12 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 
-// Native CSS device dimensions (devices.css)
+const MAC_ZOOM = 0.90;
+const PHN_ZOOM = 0.50;
+
+// Native device dims from devices.css
 const MACBOOK_W = 740, MACBOOK_H = 434;
 const IPHONE_W  = 428, IPHONE_H  = 868;
-
-const MAC_ZOOM = 0.95;   // displayed: 703 × 412 px
-const PHN_ZOOM = 0.52;   // displayed: 223 × 451 px
 
 function DeviceMacbook({ src }: { src: string }) {
   return (
@@ -16,12 +16,9 @@ function DeviceMacbook({ src }: { src: string }) {
         <img className="device-screen" src={src} alt="Poker on MacBook"
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />
       </div>
-      <div className="device-stripe" />
-      <div className="device-header" />
-      <div className="device-sensors" />
-      <div className="device-btns" />
-      <div className="device-power" />
-      <div className="device-home" />
+      <div className="device-stripe" /><div className="device-header" />
+      <div className="device-sensors" /><div className="device-btns" />
+      <div className="device-power" /><div className="device-home" />
     </div>
   );
 }
@@ -33,12 +30,9 @@ function DeviceIPhone({ src }: { src: string }) {
         <img className="device-screen" src={src} alt="Poker on iPhone"
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} />
       </div>
-      <div className="device-stripe" />
-      <div className="device-header" />
-      <div className="device-sensors" />
-      <div className="device-btns" />
-      <div className="device-power" />
-      <div className="device-home" />
+      <div className="device-stripe" /><div className="device-header" />
+      <div className="device-sensors" /><div className="device-btns" />
+      <div className="device-power" /><div className="device-home" />
     </div>
   );
 }
@@ -46,32 +40,29 @@ function DeviceIPhone({ src }: { src: string }) {
 export function Hero() {
   const { t } = useLanguage();
 
-  // Zoomed display sizes
-  const macW = Math.round(MACBOOK_W * MAC_ZOOM); // 703
-  const phnW = Math.round(IPHONE_W  * PHN_ZOOM); // 223
-  // iPhone overlaps ~45% of its width onto the MacBook's right edge
-  const phnLeft = Math.round(macW - phnW * 0.45); // 603
+  // Zoomed sizes
+  const macW = Math.round(MACBOOK_W * MAC_ZOOM); // 666
+  const phnW = Math.round(IPHONE_W  * PHN_ZOOM); // 214
+  const phnLeft = Math.round(macW - phnW * 0.45); // overlap ~45% of phone onto MacBook
 
   return (
     <section style={{
-      minHeight: '100vh',
+      height: '100vh',
       paddingTop: 60,
       background: 'var(--bg)',
       overflow: 'hidden',
-      position: 'relative',
+      display: 'grid',
+      gridTemplateColumns: '480px 1fr',
+      columnGap: 48,
+      paddingLeft: 32,
     }}>
-      {/* ── LEFT column: text centred vertically ── */}
+
+      {/* ── LEFT: text, vertically centred ── */}
       <div style={{
-        position: 'absolute',
-        top: 60,
-        left: 0,
-        bottom: 0,
-        width: '44%',
-        maxWidth: 560,
-        padding: '0 0 0 32px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
+        paddingRight: 16,
       }}>
         <motion.div
           initial={{ opacity: 0 }}
@@ -88,7 +79,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.06 }}
-          style={{ fontSize: 'clamp(42px, 4.5vw, 68px)', fontWeight: 700, lineHeight: 1.05, marginBottom: 20, letterSpacing: '-0.03em' }}
+          style={{ fontSize: 'clamp(40px, 4vw, 64px)', fontWeight: 700, lineHeight: 1.05, marginBottom: 20, letterSpacing: '-0.03em' }}
         >
           <span style={{ color: 'var(--text)', display: 'block' }}>{t('hero.title')}</span>
           <span style={{ color: 'var(--text-muted)', display: 'block' }}>{t('hero.titleHighlight')}</span>
@@ -140,19 +131,9 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* ── RIGHT: Devices anchored to bottom-right, peeking below fold ── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.22 }}
-        style={{
-          position: 'absolute',
-          right: -20,          // bleed slightly off right edge
-          bottom: -30,         // bleed below fold → only trackpad base is cut
-          zIndex: 0,
-        }}
-      >
-        {/* MacBook Pro */}
+      {/* ── RIGHT: devices pinned to bottom of column, bleeding below fold ── */}
+      <div style={{ position: 'relative', overflow: 'visible' }}>
+        {/* MacBook */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -160,7 +141,7 @@ export function Hero() {
           style={{
             position: 'absolute',
             left: 0,
-            bottom: 0,
+            bottom: -40,
             zIndex: 1,
             filter: 'drop-shadow(0 24px 56px rgba(0,0,0,0.85))',
           }}
@@ -168,7 +149,7 @@ export function Hero() {
           <DeviceMacbook src="/images/game-plo5.png" />
         </motion.div>
 
-        {/* iPhone X — overlapping MacBook's right portion */}
+        {/* iPhone */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -176,20 +157,14 @@ export function Hero() {
           style={{
             position: 'absolute',
             left: phnLeft,
-            bottom: 0,
+            bottom: -40,
             zIndex: 2,
             filter: 'drop-shadow(-8px 24px 48px rgba(0,0,0,0.9))',
           }}
         >
           <DeviceIPhone src="/images/phone-nlh.png" />
         </motion.div>
-
-        {/* Spacer to give the absolutely-positioned parent a size */}
-        <div style={{
-          width: phnLeft + phnW + 40,
-          height: Math.round(Math.max(MACBOOK_H * MAC_ZOOM, IPHONE_H * PHN_ZOOM)) + 30,
-        }} />
-      </motion.div>
+      </div>
 
     </section>
   );
