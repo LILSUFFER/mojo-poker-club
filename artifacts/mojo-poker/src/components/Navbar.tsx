@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X, Download, Globe, ChevronDown } from 'lucide-react';
@@ -98,9 +98,15 @@ function DropMenu({ label, items }: { label: string; items: DropItem[] }) {
 export function Navbar() {
   const { language, setLanguage, t } = useLanguage();
   const [open, setOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [location] = useLocation();
   const isHome = location === '/';
   const isRu = language === 'ru';
+
+  const showLang = () => { if (langTimer.current) clearTimeout(langTimer.current); setLangOpen(true); };
+  const hideLang = () => { langTimer.current = setTimeout(() => setLangOpen(false), 120); };
+  useEffect(() => () => { if (langTimer.current) clearTimeout(langTimer.current); }, []);
 
   const clubItems: DropItem[] = [
     { label: 'MOJO: Massiv Poker Union', href: '/clubs/massiv' },
@@ -162,15 +168,37 @@ export function Navbar() {
         </div>
 
         <div className="nav-desktop" style={{ alignItems: 'center', gap: 8, justifyContent: 'flex-end' }}>
-          <button
-            onClick={() => setLanguage(language === 'en' ? 'ru' : 'en')}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '5px 10px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 700, letterSpacing: '0.05em', background: 'transparent', cursor: 'pointer', transition: 'all 0.15s' }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.25)'; (e.currentTarget as HTMLElement).style.color = 'white'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)'; (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
-          >
-            <Globe size={13} />
-            {language === 'en' ? 'RU' : 'EN'}
-          </button>
+          <div style={{ position: 'relative' }} onMouseEnter={showLang} onMouseLeave={hideLang}>
+            <button style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '5px 10px', borderRadius: 4, border: 'none', color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 700, letterSpacing: '0.05em', background: 'transparent', cursor: 'pointer', transition: 'color 0.15s' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'white'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
+            >
+              <Globe size={13} />
+              {language.toUpperCase()}
+              <ChevronDown size={11} style={{ opacity: 0.6, transition: 'transform 0.15s', transform: langOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
+            </button>
+            <AnimatePresence>
+              {langOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.15 }}
+                  style={{ position: 'absolute', top: '100%', right: 0, background: 'var(--bg-card)', border: '1px solid var(--border-subtle)', borderRadius: 6, padding: '6px 0', minWidth: 110, zIndex: 100, boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}
+                >
+                  {[{ code: 'en', label: 'English' }, { code: 'ru', label: 'Русский' }].map(opt => (
+                    <button key={opt.code} onClick={() => { setLanguage(opt.code as 'en' | 'ru'); setLangOpen(false); }}
+                      style={{ display: 'flex', alignItems: 'center', gap: 8, width: '100%', padding: '9px 16px', fontSize: 13, fontWeight: language === opt.code ? 700 : 400, color: language === opt.code ? 'white' : 'rgba(255,255,255,0.55)', background: language === opt.code ? 'rgba(255,255,255,0.06)' : 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left', transition: 'all 0.12s' }}
+                      onMouseEnter={e => { if (language !== opt.code) { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)'; (e.currentTarget as HTMLElement).style.color = 'white'; } }}
+                      onMouseLeave={e => { if (language !== opt.code) { (e.currentTarget as HTMLElement).style.background = 'transparent'; (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.55)'; } }}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           <Link href="/download"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '7px 16px', borderRadius: 4, background: 'hsl(4 80% 45%)', color: 'white', fontSize: 13, fontWeight: 600, textDecoration: 'none', transition: 'background 0.15s' }}
