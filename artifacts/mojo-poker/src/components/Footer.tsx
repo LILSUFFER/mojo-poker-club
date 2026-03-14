@@ -1,7 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export function Footer() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <footer style={{ background: '#0a0c12', borderTop: '1px solid rgba(255,255,255,0.06)', padding: '32px 0' }}>
@@ -36,23 +36,6 @@ export function Footer() {
               {t('footer.disclaimer')}
             </p>
           </div>
-        </div>
-
-        {/* Divider */}
-        <div style={{ height: 1, background: 'rgba(255,255,255,0.05)', marginBottom: 20 }} />
-
-        {/* Powered by ClubGG */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
-          <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)', letterSpacing: '0.04em' }}>
-            {language === 'ru' ? 'Работает на платформе' : 'Powered by'}
-          </span>
-          <a href="https://www.clubgg.com/" target="_blank" rel="noopener noreferrer"
-            style={{ display: 'flex', alignItems: 'center', opacity: 0.45, transition: 'opacity 0.15s' }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = '0.8'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = '0.45'; }}
-          >
-            <img src="/images/clubgg-logo.png" alt="ClubGG" style={{ height: 24, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} />
-          </a>
         </div>
 
       </div>
