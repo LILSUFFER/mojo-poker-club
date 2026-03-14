@@ -147,7 +147,7 @@ export function Navbar() {
 
           <div className="nav-desktop" style={{ alignItems: 'center', gap: 0 }}>
             <DropMenu label={isRu ? 'Наши клубы' : 'Our Clubs'} items={clubItems} />
-            <DropMenu label={isRu ? 'Как вступить' : 'How to Join'} items={joinItems} />
+            <DropMenu label={isRu ? 'Инструкции' : 'Guides'} items={joinItems} />
             <a href={isHome ? '#about' : '/#about'}
               style={linkStyle as React.CSSProperties}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}
