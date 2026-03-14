@@ -103,7 +103,7 @@ export function CreateAccount() {
       />
 
       <main style={{ flex: 1, padding: '64px 0 100px' }}>
-        <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 32px' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 40px' }}>
 
           {/* Two-column layout */}
           <div style={{ display: 'flex', gap: 64, alignItems: 'flex-start' }}>

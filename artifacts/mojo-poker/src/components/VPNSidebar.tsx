@@ -44,7 +44,7 @@ export function VPNSidebar() {
     <div style={{
       position: 'sticky',
       top: 100,
-      width: 300,
+      width: 380,
       flexShrink: 0,
     }}>
       <div style={{
