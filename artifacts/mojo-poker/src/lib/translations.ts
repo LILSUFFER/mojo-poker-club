@@ -68,9 +68,9 @@ export const translations = {
     stats: {
       title: "Club Statistics",
       subtitle: "By the Numbers",
-      players: "5000+",
+      players: "1000+",
       playersLabel: "Active Players",
-      tables: "200+",
+      tables: "100+",
       tablesLabel: "Daily Tables",
       support: "24/7",
       supportLabel: "VIP Support"
@@ -186,9 +186,9 @@ export const translations = {
     stats: {
       title: "Статистика клуба",
       subtitle: "В цифрах",
-      players: "5000+",
+      players: "1000+",
       playersLabel: "Активных игроков",
-      tables: "200+",
+      tables: "100+",
       tablesLabel: "Столов ежедневно",
       support: "24/7",
       supportLabel: "VIP Поддержка"

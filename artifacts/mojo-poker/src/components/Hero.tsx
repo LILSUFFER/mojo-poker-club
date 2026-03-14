@@ -128,7 +128,7 @@ export function Hero() {
           transition={{ delay: 0.38 }}
           style={{ display: 'flex', gap: 32, paddingTop: 24, borderTop: '1px solid var(--border-subtle)' }}
         >
-          {[['5 000+', t('about.stats.players')], ['200+', t('about.stats.tables')], ['24/7', t('about.stats.support')]].map(([val, label]) => (
+          {[['1 000+', t('about.stats.players')], ['100+', t('about.stats.tables')], ['24/7', t('about.stats.support')]].map(([val, label]) => (
             <div key={label}>
               <div style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>{val}</div>
               <div style={{ fontSize: 9, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.12em', marginTop: 5, fontWeight: 700 }}>{label}</div>
