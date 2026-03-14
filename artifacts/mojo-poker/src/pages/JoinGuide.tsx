@@ -176,24 +176,13 @@ export function JoinGuide() {
                         border: `1px solid ${club.main ? 'rgba(180,30,30,0.35)' : 'rgba(255,255,255,0.07)'}`,
                         overflow: 'hidden',
                       }}>
-                        {club.main && (
-                          <div style={{
-                            padding: '5px 16px',
-                            background: 'hsl(4 80% 45%)',
-                            display: 'flex', alignItems: 'center', gap: 6,
-                          }}>
-                            <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.9)', textTransform: 'uppercase' }}>
-                              ★ {isRu ? 'Рекомендуем' : 'Recommended'}
-                            </span>
-                          </div>
-                        )}
                         <div style={{
                           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                           padding: '16px 20px', gap: 16, flexWrap: 'wrap',
                         }}>
                           <div>
                             <p style={{ margin: '0 0 3px', fontSize: 11, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
-                              {isRu ? 'Название клуба' : 'Club name'}
+                              {club.main ? 'Massiv Poker Union' : (isRu ? 'Название клуба' : 'Club name')}
                             </p>
                             <span style={{ fontSize: 15, color: 'white', fontWeight: 600 }}>{club.name}</span>
                           </div>
