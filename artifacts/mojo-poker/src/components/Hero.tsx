@@ -47,8 +47,8 @@ export function Hero() {
 
   return (
     <section style={{
-      minHeight: '100vh',
       paddingTop: 60,
+      paddingBottom: 80,
       background: 'var(--bg)',
       overflow: 'hidden',
     }}>
@@ -138,7 +138,7 @@ export function Hero() {
       </div>
 
       {/* ── RIGHT: devices, top-aligned with the text, overflow below fold ── */}
-      <div style={{ position: 'relative', overflow: 'visible' }}>
+      <div style={{ position: 'relative', overflow: 'visible', minHeight: 580 }}>
         {/* MacBook */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}

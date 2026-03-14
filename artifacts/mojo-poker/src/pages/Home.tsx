@@ -5,6 +5,7 @@ import { Clubs } from '@/components/Clubs';
 import { HowToJoin } from '@/components/HowToJoin';
 import { Stats } from '@/components/Stats';
 import { Contact } from '@/components/Contact';
+import { DownloadBanner } from '@/components/DownloadBanner';
 import { Footer } from '@/components/Footer';
 
 export function Home() {
@@ -18,6 +19,7 @@ export function Home() {
         <HowToJoin />
         <Stats />
         <Contact />
+        <DownloadBanner />
       </main>
       <Footer />
     </div>
