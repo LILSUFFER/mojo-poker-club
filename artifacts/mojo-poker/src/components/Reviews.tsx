@@ -81,13 +81,13 @@ export function Reviews() {
   const isRu = language === 'ru';
 
   return (
-    <section id="reviews" style={{ padding: '100px 32px', background: 'var(--bg)' }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+    <section id="reviews" style={{ padding: '100px 0', background: 'var(--bg)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
         <div style={{ marginBottom: 56 }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', color: 'hsl(220 5% 50%)', textTransform: 'uppercase', marginBottom: 16 }}>
+          <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', color: 'var(--text-faint)', textTransform: 'uppercase', marginBottom: 14 }}>
             /// {isRu ? 'ОТЗЫВЫ' : 'REVIEWS'}
           </p>
-          <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 800, color: 'var(--text-primary)', margin: 0, lineHeight: 1.1 }}>
+          <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, color: 'var(--text)', margin: 0, lineHeight: 1.1, letterSpacing: '-0.025em', fontFamily: 'Space Grotesk, sans-serif' }}>
             {isRu ? 'Что говорят игроки' : 'What Players Say'}
           </h2>
         </div>
