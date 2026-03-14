@@ -85,71 +85,72 @@ export function ClubMojo() {
       <main style={{ flex: 1, padding: isMobile ? '40px 0 64px' : '72px 0 100px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 20px' : '0 40px' }}>
 
-          {/* ── Top: logo + join info ── */}
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 24, marginBottom: isMobile ? 36 : 56, alignItems: 'start' }}>
-
-            {/* Logo card */}
+          {/* ── Top: unified club info card ── */}
+          <div style={{ marginBottom: isMobile ? 36 : 56 }}>
             <div style={{ borderRadius: 8, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', background: 'var(--bg-card)' }}>
-              <div style={{ background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '48px 40px' }}>
-                <img src="/images/mojo1-logo.png" alt="MOJO 1" style={{ width: '100%', maxWidth: 240, height: 'auto', display: 'block', objectFit: 'contain' }} />
-              </div>
-              <div style={{ padding: '18px 22px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                <p style={{ margin: '0 0 3px', fontSize: 10, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600 }}>
-                  {isRu ? 'Название клуба' : 'Club Name'}
-                </p>
-                <p style={{ margin: 0, fontSize: 16, fontWeight: 700, color: 'white' }}>MOJO 1</p>
-              </div>
-            </div>
 
-            {/* Join info */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-
-              {/* Club ID */}
-              <div style={{ borderRadius: 8, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', background: 'var(--bg-card)' }}>
-                <div style={{ padding: '6px 16px', background: 'rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                  <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>Club ID</span>
+              {/* Club header: logo thumb + name */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 0, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <div style={{ background: '#1a1a1a', width: 100, flexShrink: 0, alignSelf: 'stretch', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px 12px' }}>
+                  <img src="/images/mojo1-logo.png" alt="MOJO 1" style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }} />
                 </div>
-                <div style={{ padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
-                  <span style={{ fontSize: 28, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.04em' }}>{CLUB_ID}</span>
-                  <CopyBtn value={CLUB_ID} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
-                </div>
-              </div>
-
-              {/* Referral code — neutral */}
-              <div style={{ borderRadius: 8, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: 'var(--bg-card)' }}>
-                <div style={{ padding: '6px 16px', background: 'rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-                  </svg>
-                  <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase' }}>
-                    {isRu ? 'Реферальный код — обязательно' : 'Referral code — required'}
-                  </span>
-                </div>
-                <div style={{ padding: '12px 20px 8px' }}>
-                  <p style={{ margin: '0 0 8px', fontSize: 11, color: 'rgba(255,255,255,0.35)', lineHeight: 1.5 }}>
-                    {isRu ? 'Привязывает все бонусы к вашему аккаунту' : 'Links all bonuses to your account'}
+                <div style={{ padding: '18px 24px' }}>
+                  <p style={{ margin: '0 0 3px', fontSize: 10, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600 }}>
+                    {isRu ? 'Название клуба' : 'Club Name'}
                   </p>
+                  <p style={{ margin: '0 0 4px', fontSize: 18, fontWeight: 700, color: 'white', lineHeight: 1.2 }}>MOJO 1</p>
+                  <p style={{ margin: 0, fontSize: 11, color: 'rgba(255,255,255,0.3)' }}>
+                    {isRu ? 'Сеть ClubGG · GGClub' : 'ClubGG · GGClub network'}
+                  </p>
+                </div>
+              </div>
+
+              {/* ID + Ref in a 2-col grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+
+                {/* Club ID */}
+                <div style={{ padding: '20px 24px', borderRight: isMobile ? 'none' : '1px solid rgba(255,255,255,0.06)', borderBottom: isMobile ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+                  <p style={{ margin: '0 0 10px', fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>Club ID</p>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
-                    <span style={{ fontSize: 24, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.05em' }}>{REF_CODE}</span>
-                    <CopyBtn value={REF_CODE} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
+                    <span style={{ fontSize: 32, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.03em' }}>{CLUB_ID}</span>
+                    <CopyBtn value={CLUB_ID} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
                   </div>
                 </div>
-                <div style={{ height: 8 }} />
+
+                {/* Referral code */}
+                <div style={{ padding: '20px 24px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
+                      {isRu ? 'Реф. код — обязательно' : 'Ref. code — required'}
+                    </p>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
+                    <span style={{ fontSize: 32, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.04em' }}>{REF_CODE}</span>
+                    <CopyBtn value={REF_CODE} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
+                  </div>
+                  <p style={{ margin: '6px 0 0', fontSize: 11, color: 'rgba(255,255,255,0.3)', lineHeight: 1.5 }}>
+                    {isRu ? 'Привязывает бонусы к аккаунту' : 'Links bonuses to your account'}
+                  </p>
+                </div>
               </div>
 
-              {/* CTA */}
-              <Link href="/join" style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-                padding: '14px 24px', borderRadius: 4, textDecoration: 'none',
-                background: 'hsl(4 80% 45%)', color: 'white',
-                fontSize: 14, fontWeight: 700, marginTop: 4,
-                transition: 'background 0.15s',
-              }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(4 80% 38%)'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(4 80% 45%)'; }}
-              >
-                {isRu ? 'Вступить в клуб →' : 'Join the Club →'}
-              </Link>
+              {/* CTA footer */}
+              <div style={{ padding: '16px 24px 20px', display: 'flex', justifyContent: 'flex-end' }}>
+                <Link href="/join" style={{
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                  padding: '12px 32px', borderRadius: 4, textDecoration: 'none',
+                  background: 'hsl(4 80% 45%)', color: 'white',
+                  fontSize: 14, fontWeight: 700, transition: 'background 0.15s',
+                }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(4 80% 38%)'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(4 80% 45%)'; }}
+                >
+                  {isRu ? 'Вступить в клуб →' : 'Join the Club →'}
+                </Link>
+              </div>
             </div>
           </div>
 
