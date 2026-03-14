@@ -139,9 +139,9 @@ export function About() {
             {/* Right: Massiv Union logo */}
             <div style={{ flexShrink: 0 }}>
               <img
-                src="/images/massiv-union-logo.png"
+                src="/images/massiv-union-logo-nobg.png"
                 alt="Massiv Union ClubGG"
-                style={{ width: 280, height: 'auto', display: 'block', mixBlendMode: 'screen', filter: 'grayscale(1) brightness(0.7)' }}
+                style={{ width: 280, height: 'auto', display: 'block', filter: 'brightness(0) invert(1)', opacity: 0.55 }}
               />
             </div>
           </div>

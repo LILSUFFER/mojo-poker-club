@@ -105,7 +105,7 @@ export function DownloadBanner() {
         >
           {platforms.map(({ icon, label, sub, href }) => (
             <a
-              key={href}
+              key={sub}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
