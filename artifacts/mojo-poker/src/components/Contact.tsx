@@ -21,9 +21,9 @@ export function Contact() {
           </p>
 
           <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '15px 38px', borderRadius: 10, background: 'hsl(25 95% 53%)', color: 'white', fontWeight: 700, fontSize: 17, textDecoration: 'none', transition: 'all 0.15s' }}
-            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(25 95% 44%)'; el.style.transform = 'translateY(-2px)'; }}
-            onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(25 95% 53%)'; el.style.transform = 'translateY(0)'; }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '15px 38px', borderRadius: 10, background: 'hsl(4 80% 45%)', color: 'white', fontWeight: 700, fontSize: 17, textDecoration: 'none', transition: 'all 0.15s' }}
+            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(4 80% 37%)'; el.style.transform = 'translateY(-2px)'; }}
+            onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(4 80% 45%)'; el.style.transform = 'translateY(0)'; }}
           >
             <Send size={18} />
             {t('contact.btn')}
@@ -36,7 +36,7 @@ export function Contact() {
               { icon: <Zap size={14} />, label: t('contact.note').split(' • ')[2] || 'Мгновенные выводы' },
             ].map(({ icon, label }) => (
               <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 7, color: 'rgba(255,255,255,0.3)', fontSize: 13 }}>
-                <span style={{ color: 'hsl(25 95% 53%)' }}>{icon}</span>
+                <span style={{ color: 'hsl(4 80% 45%)' }}>{icon}</span>
                 {label}
               </div>
             ))}

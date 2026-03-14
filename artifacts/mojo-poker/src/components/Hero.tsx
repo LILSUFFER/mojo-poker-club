@@ -20,7 +20,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 28, alignSelf: 'flex-start', padding: '5px 12px 5px 8px', borderRadius: 20, border: '1px solid rgba(249,115,22,0.25)', background: 'rgba(249,115,22,0.06)' }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 28, alignSelf: 'flex-start', padding: '5px 12px 5px 8px', borderRadius: 20, border: '1px solid rgba(204,21,21,0.25)', background: 'rgba(204,21,21,0.06)' }}
           >
             <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#22c55e', display: 'inline-block', boxShadow: '0 0 6px #22c55e' }} />
             <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>ClubGG Network • Online</span>
@@ -34,7 +34,7 @@ export function Hero() {
             style={{ fontSize: 'clamp(38px, 4.5vw, 64px)', fontWeight: 900, lineHeight: 1.08, marginBottom: 20, color: 'white', letterSpacing: '-0.02em' }}
           >
             {t('hero.title')}{' '}
-            <span style={{ color: 'hsl(25 95% 53%)' }}>{t('hero.titleHighlight')}</span>
+            <span style={{ color: 'hsl(4 80% 45%)' }}>{t('hero.titleHighlight')}</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -55,9 +55,9 @@ export function Hero() {
             style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 44 }}
           >
             <Link href="/download"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 26px', borderRadius: 8, background: 'hsl(25 95% 53%)', color: 'white', fontWeight: 700, fontSize: 15, textDecoration: 'none', transition: 'all 0.15s' }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(25 95% 44%)'; el.style.transform = 'translateY(-1px)'; }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(25 95% 53%)'; el.style.transform = 'translateY(0)'; }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 26px', borderRadius: 8, background: 'hsl(4 80% 45%)', color: 'white', fontWeight: 700, fontSize: 15, textDecoration: 'none', transition: 'all 0.15s' }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(4 80% 37%)'; el.style.transform = 'translateY(-1px)'; }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(4 80% 45%)'; el.style.transform = 'translateY(0)'; }}
             >
               {t('hero.cta')} <ArrowRight size={16} />
             </Link>
@@ -85,7 +85,7 @@ export function Hero() {
               { icon: <Zap size={14} />, text: t('contact.note').split(' • ')[2] || 'Мгновенные выводы' },
             ].map(({ icon, text }) => (
               <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 9, color: 'rgba(255,255,255,0.4)', fontSize: 13 }}>
-                <span style={{ color: 'hsl(25 95% 53%)', flexShrink: 0 }}>{icon}</span>
+                <span style={{ color: 'hsl(4 80% 45%)', flexShrink: 0 }}>{icon}</span>
                 {text}
               </div>
             ))}

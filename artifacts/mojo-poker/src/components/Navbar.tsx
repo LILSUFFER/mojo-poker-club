@@ -26,7 +26,7 @@ export function Navbar() {
 
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', flexShrink: 0 }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, borderRadius: 8, background: 'hsl(25 95% 53%)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, borderRadius: 8, background: 'hsl(4 80% 45%)' }}>
             <span style={{ fontWeight: 900, fontSize: 14, color: 'white', letterSpacing: '-0.02em' }}>M</span>
           </div>
           <span style={{ fontWeight: 800, fontSize: 18, color: 'white', letterSpacing: '0.04em' }}>MOJO</span>
@@ -55,18 +55,18 @@ export function Navbar() {
           </button>
 
           <Link href="/download"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '7px 16px', borderRadius: 7, border: '1px solid rgba(249,115,22,0.5)', color: 'hsl(25 95% 60%)', fontSize: 13, fontWeight: 600, textDecoration: 'none', transition: 'all 0.15s' }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(249,115,22,0.1)'; (e.currentTarget as HTMLElement).style.borderColor = 'hsl(25 95% 53%)'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'transparent'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(249,115,22,0.5)'; }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '7px 16px', borderRadius: 7, border: '1px solid rgba(204,21,21,0.5)', color: 'hsl(4 80% 50%)', fontSize: 13, fontWeight: 600, textDecoration: 'none', transition: 'all 0.15s' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(204,21,21,0.1)'; (e.currentTarget as HTMLElement).style.borderColor = 'hsl(4 80% 45%)'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'transparent'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(204,21,21,0.5)'; }}
           >
             <Download size={13} />
             {t('nav.download')}
           </Link>
 
           <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
-            style={{ display: 'inline-flex', alignItems: 'center', padding: '8px 18px', borderRadius: 7, background: 'hsl(25 95% 53%)', color: 'white', fontSize: 13, fontWeight: 700, textDecoration: 'none', transition: 'background 0.15s', whiteSpace: 'nowrap' }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(25 95% 44%)'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(25 95% 53%)'; }}
+            style={{ display: 'inline-flex', alignItems: 'center', padding: '8px 18px', borderRadius: 7, background: 'hsl(4 80% 45%)', color: 'white', fontSize: 13, fontWeight: 700, textDecoration: 'none', transition: 'background 0.15s', whiteSpace: 'nowrap' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(4 80% 37%)'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(4 80% 45%)'; }}
           >
             {t('nav.contact')}
           </a>
@@ -103,11 +103,11 @@ export function Navbar() {
                 {language === 'en' ? '🇷🇺 Русский' : '🇬🇧 English'}
               </button>
               <Link href="/download" onClick={() => setOpen(false)}
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '12px', borderRadius: 8, border: '1px solid rgba(249,115,22,0.5)', color: 'hsl(25 95% 60%)', fontSize: 15, fontWeight: 600, textDecoration: 'none', marginTop: 4 }}>
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '12px', borderRadius: 8, border: '1px solid rgba(204,21,21,0.5)', color: 'hsl(4 80% 50%)', fontSize: 15, fontWeight: 600, textDecoration: 'none', marginTop: 4 }}>
                 <Download size={15} /> {t('nav.download')}
               </Link>
               <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
-                style={{ padding: '13px', borderRadius: 8, background: 'hsl(25 95% 53%)', color: 'white', fontSize: 15, fontWeight: 700, textDecoration: 'none', textAlign: 'center', marginTop: 4 }}>
+                style={{ padding: '13px', borderRadius: 8, background: 'hsl(4 80% 45%)', color: 'white', fontSize: 15, fontWeight: 700, textDecoration: 'none', textAlign: 'center', marginTop: 4 }}>
                 {t('nav.contact')}
               </a>
             </div>

@@ -9,7 +9,7 @@ export function Footer() {
 
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
-          <div style={{ width: 30, height: 30, borderRadius: 7, background: 'hsl(25 95% 53%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ width: 30, height: 30, borderRadius: 7, background: 'hsl(4 80% 45%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <span style={{ fontWeight: 900, fontSize: 13, color: 'white' }}>M</span>
           </div>
           <span style={{ fontWeight: 800, fontSize: 16, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.04em' }}>MOJO</span>

@@ -39,12 +39,12 @@ export function HowToJoin() {
                 <div style={{ position: 'absolute', top: 16, right: 20, fontSize: 64, fontWeight: 900, color: 'rgba(255,255,255,0.03)', lineHeight: 1, userSelect: 'none', pointerEvents: 'none' }}>{step.num}</div>
 
                 {/* Step number pill */}
-                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 28, height: 28, borderRadius: 7, background: 'rgba(249,115,22,0.12)', border: '1px solid rgba(249,115,22,0.2)', fontSize: 12, fontWeight: 800, color: 'hsl(25 95% 60%)', marginBottom: 18 }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 28, height: 28, borderRadius: 7, background: 'rgba(204,21,21,0.12)', border: '1px solid rgba(204,21,21,0.2)', fontSize: 12, fontWeight: 800, color: 'hsl(4 80% 50%)', marginBottom: 18 }}>
                   {i + 1}
                 </div>
 
                 {/* Icon */}
-                <div style={{ width: 50, height: 50, borderRadius: 12, background: 'rgba(249,115,22,0.08)', border: '1px solid rgba(249,115,22,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'hsl(25 95% 55%)', marginBottom: 18 }}>
+                <div style={{ width: 50, height: 50, borderRadius: 12, background: 'rgba(204,21,21,0.08)', border: '1px solid rgba(204,21,21,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'hsl(4 80% 48%)', marginBottom: 18 }}>
                   <Icon size={22} />
                 </div>
 
@@ -57,25 +57,25 @@ export function HowToJoin() {
                     {[['MOJO 1', '356323'], ['MOJO 2 Massiv', '799798']].map(([name, id]) => (
                       <div key={id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '9px 13px', borderRadius: 8, background: '#0a0c12', border: '1px solid rgba(255,255,255,0.05)' }}>
                         <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>{name}</span>
-                        <span style={{ fontSize: 14, fontWeight: 800, color: 'hsl(25 95% 60%)', letterSpacing: '0.04em' }}>{id}</span>
+                        <span style={{ fontSize: 14, fontWeight: 800, color: 'hsl(4 80% 50%)', letterSpacing: '0.04em' }}>{id}</span>
                       </div>
                     ))}
                   </div>
                 )}
                 {step.extra === 'download' && (
                   <Link href="/download"
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 700, color: 'hsl(25 95% 60%)', textDecoration: 'none', marginTop: 'auto' }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'hsl(25 95% 72%)'; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'hsl(25 95% 60%)'; }}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 700, color: 'hsl(4 80% 50%)', textDecoration: 'none', marginTop: 'auto' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'hsl(4 80% 62%)'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'hsl(4 80% 50%)'; }}
                   >
                     {t('nav.download')} <ArrowRight size={13} />
                   </Link>
                 )}
                 {step.extra === 'tg' && (
                   <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 700, color: 'hsl(25 95% 60%)', textDecoration: 'none', marginTop: 'auto' }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'hsl(25 95% 72%)'; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'hsl(25 95% 60%)'; }}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 13, fontWeight: 700, color: 'hsl(4 80% 50%)', textDecoration: 'none', marginTop: 'auto' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'hsl(4 80% 62%)'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'hsl(4 80% 50%)'; }}
                   >
                     @Mojo_Adm <ArrowRight size={13} />
                   </a>
@@ -88,9 +88,9 @@ export function HowToJoin() {
         {/* CTA */}
         <div style={{ textAlign: 'center' }}>
           <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '14px 34px', borderRadius: 10, background: 'hsl(25 95% 53%)', color: 'white', fontWeight: 700, fontSize: 15, textDecoration: 'none', transition: 'all 0.15s' }}
-            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(25 95% 44%)'; el.style.transform = 'translateY(-2px)'; }}
-            onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(25 95% 53%)'; el.style.transform = 'translateY(0)'; }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '14px 34px', borderRadius: 10, background: 'hsl(4 80% 45%)', color: 'white', fontWeight: 700, fontSize: 15, textDecoration: 'none', transition: 'all 0.15s' }}
+            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(4 80% 37%)'; el.style.transform = 'translateY(-2px)'; }}
+            onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(4 80% 45%)'; el.style.transform = 'translateY(0)'; }}
           >
             <MessageCircle size={17} />
             @Mojo_Adm on Telegram

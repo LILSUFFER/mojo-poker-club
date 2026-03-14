@@ -27,7 +27,7 @@ export function Stats() {
                 style={{ textAlign: 'center', padding: '40px 24px', background: '#12151d', position: 'relative' }}
               >
                 {i > 0 && <div style={{ position: 'absolute', top: '20%', left: 0, bottom: '20%', width: 1, background: 'rgba(255,255,255,0.06)' }} />}
-                <div style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(249,115,22,0.09)', border: '1px solid rgba(249,115,22,0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'hsl(25 95% 58%)', margin: '0 auto 16px' }}>
+                <div style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(204,21,21,0.09)', border: '1px solid rgba(204,21,21,0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'hsl(4 80% 48%)', margin: '0 auto 16px' }}>
                   <Icon size={20} />
                 </div>
                 <div style={{ fontSize: 42, fontWeight: 900, color: 'white', lineHeight: 1, letterSpacing: '-0.02em', marginBottom: 10 }}>{stat.value}</div>

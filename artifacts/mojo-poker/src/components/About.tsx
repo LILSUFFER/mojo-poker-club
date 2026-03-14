@@ -56,10 +56,10 @@ export function About() {
               return (
                 <div key={i}
                   style={{ display: 'flex', gap: 18, padding: '22px 24px', borderRadius: 12, background: '#12151d', border: '1px solid rgba(255,255,255,0.06)', transition: 'border-color 0.2s, background 0.2s', cursor: 'default' }}
-                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(249,115,22,0.3)'; el.style.background = '#14172000'; }}
+                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(204,21,21,0.3)'; el.style.background = '#14172000'; }}
                   onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.06)'; el.style.background = '#12151d'; }}
                 >
-                  <div style={{ flexShrink: 0, width: 44, height: 44, borderRadius: 10, background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'hsl(25 95% 60%)' }}>
+                  <div style={{ flexShrink: 0, width: 44, height: 44, borderRadius: 10, background: 'rgba(204,21,21,0.1)', border: '1px solid rgba(204,21,21,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'hsl(4 80% 50%)' }}>
                     <Icon size={20} />
                   </div>
                   <div>
