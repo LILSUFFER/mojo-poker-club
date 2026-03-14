@@ -96,7 +96,11 @@ export function About() {
             {/* Left: badge + text */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 24, flex: '1 1 auto' }}>
               <div style={{ flexShrink: 0, paddingTop: 4 }}>
-                <UnionBadge />
+                <img
+                  src="/images/union-badge-orig.png"
+                  alt="Union"
+                  style={{ width: 72, height: 72, objectFit: 'cover', borderRadius: 10, display: 'block' }}
+                />
               </div>
               <div>
                 <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em', margin: '0 0 10px 0' }}>
