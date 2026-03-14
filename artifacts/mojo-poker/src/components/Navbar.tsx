@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X, Download } from 'lucide-react';
+import { Menu, X, Download, Globe } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
 
 export function Navbar() {
@@ -43,10 +43,11 @@ export function Navbar() {
         <div className="nav-desktop" style={{ flex: 1, alignItems: 'center', gap: 8, justifyContent: 'flex-end' }}>
           <button
             onClick={() => setLanguage(language === 'en' ? 'ru' : 'en')}
-            style={{ padding: '5px 10px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 700, letterSpacing: '0.05em', background: 'transparent', cursor: 'pointer', transition: 'all 0.15s' }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '5px 10px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 700, letterSpacing: '0.05em', background: 'transparent', cursor: 'pointer', transition: 'all 0.15s' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.25)'; (e.currentTarget as HTMLElement).style.color = 'white'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)'; (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
           >
+            <Globe size={13} />
             {language === 'en' ? 'RU' : 'EN'}
           </button>
 
@@ -96,7 +97,8 @@ export function Navbar() {
               <div style={{ height: 1, background: 'rgba(255,255,255,0.07)', margin: '8px 0' }} />
               <button onClick={() => { setLanguage(language === 'en' ? 'ru' : 'en'); setOpen(false); }}
                 style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.5)', fontSize: 14, fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: '8px 12px', textAlign: 'left' }}>
-                {language === 'en' ? '🇷🇺 Русский' : '🇬🇧 English'}
+                <Globe size={15} />
+                {language === 'en' ? 'Русский' : 'English'}
               </button>
               <Link href="/download" onClick={() => setOpen(false)}
                 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '12px', borderRadius: 4, background: 'hsl(4 80% 45%)', color: 'white', fontSize: 15, fontWeight: 600, textDecoration: 'none', marginTop: 4 }}>
