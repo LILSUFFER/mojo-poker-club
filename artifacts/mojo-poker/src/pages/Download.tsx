@@ -1,3 +1,4 @@
+import { Link } from 'wouter';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageHeader } from '@/components/PageHeader';
@@ -158,10 +159,11 @@ export function Download() {
           </div>
 
           {/* Bottom hint */}
-          <p style={{ marginTop: 40, textAlign: 'center', fontSize: 13, color: 'rgba(255,255,255,0.22)', letterSpacing: '0.01em' }}>
-            {isRu
-              ? 'После установки — вступите в клуб MOJO через раздел «Как вступить»'
-              : 'After install — join the MOJO club via the "How to Join" section'}
+          <p style={{ marginTop: 40, textAlign: 'center', fontSize: 13, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.01em' }}>
+            {isRu ? 'После установки — вступите в клуб MOJO через раздел ' : 'After install — join the MOJO club via the '}
+            <Link href="/join" style={{ color: 'hsl(220 5% 62%)', textDecoration: 'underline', textUnderlineOffset: 3, fontWeight: 600 }}>
+              {isRu ? '«Как вступить»' : '"How to Join"'}
+            </Link>
           </p>
         </div>
       </main>
