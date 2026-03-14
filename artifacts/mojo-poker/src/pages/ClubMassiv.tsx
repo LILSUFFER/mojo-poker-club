@@ -118,7 +118,7 @@ export function ClubMassiv() {
               {/* Club header: square logo + name */}
               <div style={{ display: 'flex', alignItems: 'stretch', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                 <div style={{ width: 120, height: 120, flexShrink: 0, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid rgba(255,255,255,0.06)' }}>
-                  <img src="/images/mojo2-logo.png" alt="Massiv Poker Union" style={{ width: 92, height: 92, objectFit: 'contain', display: 'block' }} />
+                  <img src="/images/mojo-logo-dark-full.svg" alt="Massiv Poker Union" style={{ width: 92, height: 92, objectFit: 'contain', display: 'block' }} />
                 </div>
                 <div style={{ padding: '28px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                   <p style={{ margin: '0 0 6px', fontSize: 10, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600 }}>
@@ -244,7 +244,7 @@ export function ClubMassiv() {
             <div style={{ padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                 <div style={{ width: 48, height: 48, borderRadius: 10, background: '#222', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <img src="/images/mojo1-logo.png" alt="MOJO" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 8 }} />
+                  <img src="/images/mojo-logo-red.svg" alt="MOJO" style={{ width: 40, height: 40, objectFit: 'contain' }} />
                 </div>
                 <div>
                   <p style={{ margin: '0 0 3px', fontSize: 11, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>

@@ -203,7 +203,7 @@ export function JoinGuide() {
                       }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                           <div style={{ width: 44, height: 44, borderRadius: 10, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, overflow: 'hidden' }}>
-                            <img src="/images/mojo2-logo.png" alt="MOJO Massiv" style={{ width: 38, height: 38, objectFit: 'contain' }} />
+                            <img src="/images/mojo-logo-dark.svg" alt="MOJO Massiv" style={{ width: 38, height: 38, objectFit: 'contain' }} />
                           </div>
                           <div>
                             <p style={{ margin: '0 0 2px', fontSize: 11, color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
@@ -231,7 +231,7 @@ export function JoinGuide() {
                       }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                           <div style={{ width: 44, height: 44, borderRadius: 10, background: 'rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                            <img src="/images/mojo1-logo.png" alt="MOJO" style={{ width: 36, height: 36, objectFit: 'contain', borderRadius: 8 }} />
+                            <img src="/images/mojo-logo-red.svg" alt="MOJO" style={{ width: 36, height: 36, objectFit: 'contain' }} />
                           </div>
                           <div>
                             <p style={{ margin: '0 0 2px', fontSize: 11, color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
