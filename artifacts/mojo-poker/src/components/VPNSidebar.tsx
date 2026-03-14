@@ -66,7 +66,7 @@ export function VPNSidebar() {
             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
             <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
           </svg>
-          <p style={{ margin: 0, fontSize: 12, fontWeight: 700, color: 'white', lineHeight: 1.3 }}>
+          <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: 'white', lineHeight: 1.3 }}>
             {isRu ? 'Внимание — только для Massiv Union' : 'Attention — Massiv Union only'}
           </p>
         </div>
@@ -82,7 +82,7 @@ export function VPNSidebar() {
             />
             <div>
               <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase' }}>Massiv Poker Union</p>
-              <p style={{ margin: 0, fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.65)', lineHeight: 1.35 }}>
+              <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.7)', lineHeight: 1.35 }}>
                 {isRu ? 'Обязательное условие для регистрации' : 'Required for registration'}
               </p>
             </div>
@@ -96,7 +96,7 @@ export function VPNSidebar() {
             border: '1px solid rgba(220,38,38,0.2)',
             marginBottom: 16,
           }}>
-            <p style={{ margin: 0, fontSize: 12, lineHeight: 1.6, color: 'rgba(255,255,255,0.6)' }}>
+            <p style={{ margin: 0, fontSize: 13, lineHeight: 1.6, color: 'rgba(255,255,255,0.65)' }}>
               {isRu
                 ? 'Если вы не находитесь в одной из стран ниже — аккаунт нужно регистрировать обязательно через VPN. Иначе — блокировка.'
                 : 'If you are not in one of the countries below — you must register your account using VPN. Otherwise — account ban.'}
@@ -123,7 +123,7 @@ export function VPNSidebar() {
                   }}>
                     {i + 1}
                   </div>
-                  <p style={{ margin: 0, fontSize: 12, lineHeight: 1.5, color: 'rgba(255,255,255,0.55)' }}>{s}</p>
+                  <p style={{ margin: 0, fontSize: 13, lineHeight: 1.5, color: 'rgba(255,255,255,0.6)' }}>{s}</p>
                 </div>
               ))}
             </div>
@@ -140,7 +140,7 @@ export function VPNSidebar() {
 
             {/* Option 1: Super VPN */}
             <div style={{ marginBottom: 10 }}>
-              <p style={{ margin: '0 0 5px', fontSize: 10, fontWeight: 600, color: 'rgba(255,255,255,0.35)' }}>Super VPN</p>
+              <p style={{ margin: '0 0 6px', fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.4)' }}>Super VPN</p>
               <div style={{ display: 'flex', gap: 6 }}>
                 {[
                   { href: VPN_ANDROID, label: 'Android' },
@@ -148,9 +148,9 @@ export function VPNSidebar() {
                 ].map(btn => (
                   <a key={btn.label} href={btn.href} target="_blank" rel="noopener noreferrer" style={{
                     flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    padding: '7px 8px', borderRadius: 4, textDecoration: 'none',
+                    padding: '8px 8px', borderRadius: 4, textDecoration: 'none',
                     background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)',
-                    fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.6)',
+                    fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.65)',
                     transition: 'background 0.15s',
                   }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.09)'; }}
@@ -163,9 +163,9 @@ export function VPNSidebar() {
 
             {/* Option 2: AdGuard VPN */}
             <div>
-              <p style={{ margin: '0 0 5px', fontSize: 10, fontWeight: 600, color: 'rgba(255,255,255,0.35)' }}>
+              <p style={{ margin: '0 0 6px', fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.4)', display: 'flex', alignItems: 'center', gap: 6 }}>
                 AdGuard VPN
-                <span style={{ marginLeft: 6, fontSize: 9, fontWeight: 600, color: 'rgba(34,197,94,0.7)', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: 3, padding: '1px 5px' }}>
+                <span style={{ fontSize: 10, fontWeight: 600, color: 'rgba(34,197,94,0.8)', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: 3, padding: '1px 6px' }}>
                   {isRu ? 'рекомендуем' : 'recommended'}
                 </span>
               </p>
@@ -176,9 +176,9 @@ export function VPNSidebar() {
                 ].map(btn => (
                   <a key={btn.label} href={btn.href} target="_blank" rel="noopener noreferrer" style={{
                     flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    padding: '7px 8px', borderRadius: 4, textDecoration: 'none',
+                    padding: '8px 8px', borderRadius: 4, textDecoration: 'none',
                     background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)',
-                    fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.6)',
+                    fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.65)',
                     transition: 'background 0.15s',
                   }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.09)'; }}
@@ -195,12 +195,11 @@ export function VPNSidebar() {
             <p style={{ margin: '0 0 8px', fontSize: 9, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
               {isRu ? 'Страны — VPN не нужен' : 'Countries — no VPN needed'}
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
               {countries.map(c => (
-                <div key={c.code} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <div key={c.code} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                   <FlagImg code={c.code} />
-                  <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.05em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', minWidth: 20 }}>{c.code}</span>
-                  <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>{isRu ? c.ru : c.en}</span>
+                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)' }}>{isRu ? c.ru : c.en}</span>
                 </div>
               ))}
             </div>
