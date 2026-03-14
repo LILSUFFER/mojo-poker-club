@@ -1,17 +1,16 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ShieldCheck, Zap, Globe } from 'lucide-react';
 
 const featuresData = {
   ru: [
-    { icon: ShieldCheck, title: 'Надёжность', desc: 'Клуб с проверенной репутацией и тысячами игроков' },
-    { icon: Zap, title: 'Активная игра', desc: 'Столы с живым трафиком в любое время суток' },
-    { icon: Globe, title: 'Поддержка 24/7', desc: 'Персональный менеджер всегда на связи' },
+    { img: '/images/icon-shield.png',  title: 'Надёжность',     desc: 'Клуб с проверенной репутацией и тысячами игроков' },
+    { img: '/images/icon-bolt.png',    title: 'Активная игра',  desc: 'Столы с живым трафиком в любое время суток' },
+    { img: '/images/icon-support.png', title: 'Поддержка 24/7', desc: 'Персональный менеджер всегда на связи' },
   ],
   en: [
-    { icon: ShieldCheck, title: 'Trusted Club', desc: 'Proven reputation and thousands of active players' },
-    { icon: Zap, title: 'Active Games', desc: 'Live tables with real traffic around the clock' },
-    { icon: Globe, title: '24/7 Support', desc: 'Personal manager always available for you' },
+    { img: '/images/icon-shield.png',  title: 'Trusted Club',  desc: 'Proven reputation and thousands of active players' },
+    { img: '/images/icon-bolt.png',    title: 'Active Games',  desc: 'Live tables with real traffic around the clock' },
+    { img: '/images/icon-support.png', title: '24/7 Support',  desc: 'Personal manager always available for you' },
   ],
 };
 
@@ -46,26 +45,38 @@ export function PremiumExperience() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.1 }}
-            style={{ display: 'flex', flexDirection: 'column', gap: 2 }}
+            style={{ display: 'flex', flexDirection: 'column', gap: 4 }}
           >
-            {features.map((f, i) => {
-              const Icon = f.icon;
-              return (
-                <div key={i}
-                  style={{ display: 'flex', gap: 16, padding: '18px 20px', borderRadius: 4, background: 'var(--bg-card)', border: '1px solid var(--border-subtle)', transition: 'border-color 0.2s', cursor: 'default' }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.15)'; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)'; }}
-                >
-                  <div style={{ flexShrink: 0, width: 40, height: 40, borderRadius: 4, background: 'var(--bg)', border: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>
-                    <Icon size={18} />
-                  </div>
-                  <div>
-                    <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--text)', marginBottom: 4 }}>{f.title}</div>
-                    <div style={{ fontSize: 13, color: 'var(--text-faint)', lineHeight: 1.55 }}>{f.desc}</div>
-                  </div>
+            {features.map((f, i) => (
+              <div
+                key={i}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 20,
+                  padding: '20px 28px',
+                  borderRadius: 4,
+                  background: 'var(--bg-card)',
+                  border: '1px solid var(--border-subtle)',
+                  transition: 'border-color 0.2s',
+                  cursor: 'default',
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.15)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)'; }}
+              >
+                <div style={{ flexShrink: 0, width: 44, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img
+                    src={f.img}
+                    alt={f.title}
+                    style={{ width: 40, height: 40, objectFit: 'contain', display: 'block' }}
+                  />
                 </div>
-              );
-            })}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--text)', marginBottom: 4 }}>{f.title}</div>
+                  <div style={{ fontSize: 13, color: 'var(--text-faint)', lineHeight: 1.55 }}>{f.desc}</div>
+                </div>
+              </div>
+            ))}
           </motion.div>
 
         </div>
