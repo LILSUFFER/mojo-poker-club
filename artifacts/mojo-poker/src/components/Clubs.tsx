@@ -11,6 +11,8 @@ const clubs = [
     label: 'MOJO: Massiv Poker Union',
     rb: '50%',
     chip: '1к1',
+    online: '698+',
+    tables: '255+',
     badge: '/images/union-badge-orig.png',
   },
   {
@@ -21,6 +23,8 @@ const clubs = [
     label: 'MOJO 1',
     rb: '55%',
     chip: '1к1',
+    online: '62+',
+    tables: '58+',
     badge: null,
   },
 ];
@@ -42,7 +46,7 @@ export function Clubs() {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 16, maxWidth: 720 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           {clubs.map((club, i) => (
             <motion.div
               key={club.id}
@@ -78,20 +82,21 @@ export function Clubs() {
                   {club.label}
                 </h3>
 
-                {/* Stats: Chip + RB */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-                  <div style={{ padding: '12px 14px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)' }}>
-                    <div style={{ fontSize: 9, fontWeight: 700, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 5 }}>
-                      {isRu ? 'Фишка' : 'Chip'}
+                {/* Stats: 2×2 grid */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 8 }}>
+                  {[
+                    { label: isRu ? 'Фишка' : 'Chip', val: club.chip },
+                    { label: isRu ? 'Рейкбек' : 'Rakeback', val: club.rb },
+                    { label: isRu ? 'Онлайн' : 'Online', val: club.online },
+                    { label: isRu ? 'Столов' : 'Tables', val: club.tables },
+                  ].map(s => (
+                    <div key={s.label} style={{ padding: '10px 12px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)' }}>
+                      <div style={{ fontSize: 9, fontWeight: 700, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 5, whiteSpace: 'nowrap' }}>
+                        {s.label}
+                      </div>
+                      <div style={{ fontSize: 18, fontWeight: 800, color: 'var(--text)', lineHeight: 1 }}>{s.val}</div>
                     </div>
-                    <div style={{ fontSize: 20, fontWeight: 800, color: 'var(--text)', lineHeight: 1 }}>{club.chip}</div>
-                  </div>
-                  <div style={{ padding: '12px 14px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)' }}>
-                    <div style={{ fontSize: 9, fontWeight: 700, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.14em', marginBottom: 5 }}>
-                      {isRu ? 'Рейкбек' : 'Rakeback'}
-                    </div>
-                    <div style={{ fontSize: 20, fontWeight: 800, color: 'var(--text)', lineHeight: 1 }}>{club.rb}</div>
-                  </div>
+                  ))}
                 </div>
 
                 {/* Button */}
