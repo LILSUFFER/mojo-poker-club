@@ -4,7 +4,6 @@ import { About } from '@/components/About';
 import { PremiumExperience } from '@/components/PremiumExperience';
 import { Games } from '@/components/Games';
 import { Clubs } from '@/components/Clubs';
-import { HowToJoin } from '@/components/HowToJoin';
 import { Stats } from '@/components/Stats';
 import { Contact } from '@/components/Contact';
 import { DownloadBanner } from '@/components/DownloadBanner';
@@ -20,7 +19,6 @@ export function Home() {
         <PremiumExperience />
         <Games />
         <Clubs />
-        <HowToJoin />
         <Stats />
         <Contact />
         <DownloadBanner />
