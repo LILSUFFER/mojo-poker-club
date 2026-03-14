@@ -62,8 +62,9 @@ export function ClubMassiv() {
       <main style={{ flex: 1, padding: '72px 0 100px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 40px' }}>
 
-          {/* ── Top: logo + join info ── */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 56, alignItems: 'start' }}>
+          {/* ── Top: logo + join info + VPN ── */}
+          <div style={{ display: 'flex', gap: 24, marginBottom: 56, alignItems: 'flex-start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, flex: 1, alignItems: 'start' }}>
 
             {/* Logo card */}
             <div style={{ borderRadius: 8, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', background: 'var(--bg-card)' }}>
@@ -147,6 +148,8 @@ export function ClubMassiv() {
               </Link>
             </div>
           </div>
+          <VPNSidebar />
+          </div>
 
           {/* ── Chip + RB stat cards ── */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 72 }}>
@@ -168,43 +171,6 @@ export function ClubMassiv() {
               </div>
             ))}
           </div>
-
-          {/* ── VPN Section ── */}
-          <div style={{ marginBottom: 72 }}>
-            <p style={{ margin: '0 0 8px', fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
-              /// {isRu ? 'Требования ГЕО' : 'GEO Requirements'}
-            </p>
-            <h2 style={{ margin: '0 0 32px', fontSize: 26, fontWeight: 800, color: 'white', lineHeight: 1.2 }}>
-              {isRu ? 'Как создать аккаунт с нужным ГЕО' : 'How to Create Account with Correct GEO'}
-            </h2>
-            <div style={{ display: 'flex', gap: 40, alignItems: 'flex-start' }}>
-              <div style={{ flex: 1 }}>
-                <p style={{ margin: '0 0 24px', fontSize: 15, lineHeight: 1.75, color: 'rgba(255,255,255,0.55)' }}>
-                  {isRu
-                    ? 'Для вступления в Massiv Poker Union аккаунт ClubGG необходимо регистрировать с нужным географическим флагом. Если вы находитесь в допустимой стране — VPN не нужен. В остальных случаях используйте VPN из списка справа.'
-                    : 'To join Massiv Poker Union, your ClubGG account must be registered with the correct geographic flag. If you are in an allowed country — no VPN needed. Otherwise use VPN from the list on the right.'}
-                </p>
-                <Link
-                  href="/create-account"
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', gap: 8,
-                    padding: '12px 22px', borderRadius: 4, textDecoration: 'none',
-                    border: '1px solid rgba(255,255,255,0.18)',
-                    background: 'rgba(255,255,255,0.04)',
-                    color: 'rgba(255,255,255,0.8)', fontSize: 13, fontWeight: 600,
-                    transition: 'background 0.15s, border-color 0.15s',
-                  }}
-                  onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}
-                  onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; }}
-                >
-                  {isRu ? 'Инструкция по созданию аккаунта →' : 'Account Creation Guide →'}
-                </Link>
-              </div>
-              <VPNSidebar />
-            </div>
-          </div>
-
-          <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', marginBottom: 72 }} />
 
           {/* ── Features ── */}
           <div style={{ marginBottom: 72 }}>
