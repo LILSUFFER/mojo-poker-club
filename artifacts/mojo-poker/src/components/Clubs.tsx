@@ -27,8 +27,8 @@ export function Clubs() {
       logoBg: '#ffffff',
       logoLabel: 'MOJO: Massiv Poker Union',
       logoLabelColor: '#111111',
-      members: '570+',
-      tables: '233+',
+      members: '698',
+      tables: '255',
       badge: '🇺🇸 Union',
     },
     {
@@ -41,8 +41,8 @@ export function Clubs() {
       logoBg: '#222222',
       logoLabel: 'MOJO',
       logoLabelColor: 'rgba(255,255,255,0.55)',
-      members: '5 000+',
-      tables: '200+',
+      members: '62',
+      tables: '58',
       badge: null,
     },
   ];

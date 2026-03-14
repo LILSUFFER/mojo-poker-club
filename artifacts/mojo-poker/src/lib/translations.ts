@@ -32,16 +32,16 @@ export const translations = {
       subtitle: "Choose Your Arena",
       mojo: {
         name: "MOJO 1",
-        desc: "Our flagship club offering exclusive tables, daily tournaments, and a tight-knit community of dedicated players.",
+        desc: "Our flagship club offering exclusive tables, daily action, and a tight-knit community of dedicated players.",
         feature1: "Exclusive VIP Tables",
-        feature2: "Weekly Freerolls",
-        feature3: "Active Tables 24/7"
+        feature2: "Active Tables 24/7",
+        feature3: "Tight-knit Community"
       },
       massiv: {
         name: "MOJO 2 Massiv Union 🇺🇸",
-        desc: "Access a massive pool of players through our extensive union. Bigger guarantees, more action, zero waiting.",
+        desc: "Access a massive pool of players through our extensive union. More action, tables at any stake, zero waiting.",
         feature1: "Massive Player Pool",
-        feature2: "High Guarantee MTTs",
+        feature2: "Tables for Any Stake",
         feature3: "24/7 Global Action"
       },
       copied: "Copied!",
@@ -150,16 +150,16 @@ export const translations = {
       subtitle: "Выберите свою арену",
       mojo: {
         name: "MOJO 1",
-        desc: "Наш флагманский клуб, предлагающий эксклюзивные столы, ежедневные турниры и сплоченное сообщество преданных игроков.",
+        desc: "Наш флагманский клуб, предлагающий эксклюзивные столы, ежедневный экшен и сплочённое сообщество преданных игроков.",
         feature1: "Эксклюзивные VIP столы",
-        feature2: "Еженедельные фрироллы",
-        feature3: "Мгновенные кэшауты"
+        feature2: "Активные столы 24/7",
+        feature3: "Сплочённое сообщество"
       },
       massiv: {
         name: "MOJO 2 Massiv Union 🇺🇸",
-        desc: "Получите доступ к огромному пулу игроков через наш обширный союз. Крупные гарантии, больше экшена, никаких ожиданий.",
+        desc: "Получите доступ к огромному пулу игроков через наш обширный союз. Больше экшена, столы на любой лимит, никаких ожиданий.",
         feature1: "Огромный пул игроков",
-        feature2: "Турниры с крупной гарантией",
+        feature2: "Столы на любой лимит",
         feature3: "Глобальная игра 24/7"
       },
       copied: "Скопировано!",
