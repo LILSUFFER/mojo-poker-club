@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
+  <url>
+    <loc>https://mojo-poker.com/?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/?lang=en"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mojo-poker.com/?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/?lang=en"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Clubs -->
+  <url>
+    <loc>https://mojo-poker.com/clubs/massiv?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/clubs/massiv?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/clubs/massiv?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/clubs/massiv?lang=en"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mojo-poker.com/clubs/massiv?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/clubs/massiv?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/clubs/massiv?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/clubs/massiv?lang=en"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mojo-poker.com/clubs/mojo?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/clubs/mojo?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/clubs/mojo?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/clubs/mojo?lang=en"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://mojo-poker.com/clubs/mojo?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/clubs/mojo?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/clubs/mojo?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/clubs/mojo?lang=en"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Guides -->
+  <url>
+    <loc>https://mojo-poker.com/join?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/join?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/join?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/join?lang=en"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mojo-poker.com/join?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/join?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/join?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/join?lang=en"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mojo-poker.com/create-account?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/create-account?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/create-account?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/create-account?lang=en"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mojo-poker.com/create-account?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/create-account?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/create-account?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/create-account?lang=en"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mojo-poker.com/download?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/download?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/download?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/download?lang=en"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mojo-poker.com/download?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/download?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/download?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/download?lang=en"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mojo-poker.com/install?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/install?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/install?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/install?lang=en"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mojo-poker.com/install?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/install?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/install?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/install?lang=en"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://mojo-poker.com/about?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/about?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/about?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/about?lang=en"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mojo-poker.com/about?lang=ru</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojo-poker.com/about?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojo-poker.com/about?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojo-poker.com/about?lang=en"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
