@@ -4,7 +4,6 @@ import { Footer } from '@/components/Footer';
 import { PageHeader } from '@/components/PageHeader';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const DOWNLOAD_URL = 'https://clubgg.app.link/MsyuYMuWu1b';
 const CLUBGG_URL = 'https://www.clubgg.com/';
 
 const devices = [
@@ -154,60 +153,29 @@ export function Download() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, flex: 1, justifyContent: 'center' }}>
                 {devices.map((d) => (
                   <div key={d.id} style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    display: 'flex', alignItems: 'center',
                     padding: '13px 16px', borderRadius: 6,
                     background: 'rgba(255,255,255,0.03)',
                     border: '1px solid rgba(255,255,255,0.07)',
                     gap: 12,
                   }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                      <div style={{
-                        width: 36, height: 36, borderRadius: 6,
-                        background: 'rgba(255,255,255,0.05)',
-                        border: '1px solid rgba(255,255,255,0.08)',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        color: 'rgba(255,255,255,0.55)', flexShrink: 0,
-                      }}>
-                        {d.icon}
-                      </div>
-                      <div>
-                        <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: 'white' }}>
-                          {isRu ? d.labelRu : d.labelEn}
-                        </p>
-                        <p style={{ margin: 0, fontSize: 11, color: 'rgba(255,255,255,0.28)' }}>
-                          {isRu ? d.noteRu : d.noteEn}
-                        </p>
-                      </div>
+                    <div style={{
+                      width: 36, height: 36, borderRadius: 6,
+                      background: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.08)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      color: 'rgba(255,255,255,0.55)', flexShrink: 0,
+                    }}>
+                      {d.icon}
                     </div>
-                    <a
-                      href={DOWNLOAD_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: 'inline-flex', alignItems: 'center', gap: 6,
-                        padding: '8px 14px', borderRadius: 4, textDecoration: 'none',
-                        background: d.id === 'android' ? 'hsl(4 80% 45%)' : 'transparent',
-                        border: d.id === 'android' ? 'none' : '1px solid rgba(255,255,255,0.14)',
-                        color: d.id === 'android' ? 'white' : 'rgba(255,255,255,0.65)',
-                        fontSize: 12, fontWeight: 600, whiteSpace: 'nowrap',
-                        transition: 'all 0.15s',
-                      }}
-                      onMouseEnter={e => {
-                        const el = e.currentTarget as HTMLElement;
-                        if (d.id === 'android') el.style.background = 'hsl(4 80% 38%)';
-                        else { el.style.borderColor = 'rgba(255,255,255,0.32)'; el.style.color = 'white'; }
-                      }}
-                      onMouseLeave={e => {
-                        const el = e.currentTarget as HTMLElement;
-                        if (d.id === 'android') el.style.background = 'hsl(4 80% 45%)';
-                        else { el.style.borderColor = 'rgba(255,255,255,0.14)'; el.style.color = 'rgba(255,255,255,0.65)'; }
-                      }}
-                    >
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-                      </svg>
-                      {isRu ? 'Скачать' : 'Download'}
-                    </a>
+                    <div>
+                      <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: 'white' }}>
+                        {isRu ? d.labelRu : d.labelEn}
+                      </p>
+                      <p style={{ margin: 0, fontSize: 11, color: 'rgba(255,255,255,0.28)' }}>
+                        {isRu ? d.noteRu : d.noteEn}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
