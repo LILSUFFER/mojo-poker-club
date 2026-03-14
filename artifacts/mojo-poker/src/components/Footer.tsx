@@ -4,40 +4,34 @@ export function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer style={{ background: '#0a0c12', borderTop: '1px solid rgba(255,255,255,0.06)', padding: '32px 0' }}>
+    <footer style={{ background: 'var(--bg)', borderTop: '1px solid var(--border-subtle)', padding: '28px 0' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
 
-        {/* Main row */}
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16, marginBottom: 24 }}>
+          <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 20, color: 'var(--text-faint)', letterSpacing: '0.06em' }}>MOJO</span>
 
-          {/* Logo */}
-          <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 22, color: 'rgba(255,255,255,0.35)', letterSpacing: '0.06em' }}>MOJO</span>
-
-          {/* Center: links */}
           <div style={{ display: 'flex', gap: 24 }}>
             {[
               ['#about', t('nav.about')],
               ['#clubs', t('nav.clubs')],
               ['#how-to-join', t('nav.howToJoin')],
             ].map(([href, label]) => (
-              <a key={href} href={href} style={{ fontSize: 13, color: 'rgba(255,255,255,0.3)', textDecoration: 'none', transition: 'color 0.15s' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.7)'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.3)'; }}
+              <a key={href} href={href} style={{ fontSize: 13, color: 'var(--text-faint)', textDecoration: 'none', transition: 'color 0.15s' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-faint)'; }}
               >{label}</a>
             ))}
           </div>
 
-          {/* Right: legal */}
           <div style={{ textAlign: 'right' }}>
-            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.25)' }}>
+            <p style={{ fontSize: 12, color: 'var(--text-faint)' }}>
               © {new Date().getFullYear()} MOJO Poker Club. {t('footer.rights')}
             </p>
-            <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.15)', marginTop: 3 }}>
+            <p style={{ fontSize: 11, color: 'hsl(220 5% 28%)', marginTop: 3 }}>
               {t('footer.disclaimer')}
             </p>
           </div>
         </div>
-
       </div>
     </footer>
   );

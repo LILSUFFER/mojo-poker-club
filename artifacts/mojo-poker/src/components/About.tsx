@@ -20,7 +20,7 @@ export function About() {
   const features = featuresData[language];
 
   return (
-    <section id="about" style={{ padding: '100px 0', background: '#0a0c12', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+    <section id="about" style={{ padding: '100px 0', background: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 80, alignItems: 'center' }}>
 
@@ -35,10 +35,10 @@ export function About() {
             <h2 className="section-title" style={{ marginBottom: 20 }}>
               {t('about.subtitle')}
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, lineHeight: 1.75, marginBottom: 18 }}>
+            <p style={{ color: 'var(--text-muted)', fontSize: 16, lineHeight: 1.75, marginBottom: 18 }}>
               {t('about.content1')}
             </p>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, lineHeight: 1.75 }}>
+            <p style={{ color: 'var(--text-muted)', fontSize: 16, lineHeight: 1.75 }}>
               {t('about.content2')}
             </p>
           </motion.div>
@@ -49,22 +49,22 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.1 }}
-            style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
+            style={{ display: 'flex', flexDirection: 'column', gap: 10 }}
           >
             {features.map((f, i) => {
               const Icon = f.icon;
               return (
                 <div key={i}
-                  style={{ display: 'flex', gap: 18, padding: '22px 24px', borderRadius: 12, background: '#12151d', border: '1px solid rgba(255,255,255,0.06)', transition: 'border-color 0.2s, background 0.2s', cursor: 'default' }}
-                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(204,21,21,0.3)'; el.style.background = '#14172000'; }}
-                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.06)'; el.style.background = '#12151d'; }}
+                  style={{ display: 'flex', gap: 16, padding: '20px 22px', borderRadius: 12, background: 'var(--bg-card)', border: '1px solid var(--border-color)', transition: 'border-color 0.2s', cursor: 'default' }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(204,21,21,0.3)'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-color)'; }}
                 >
-                  <div style={{ flexShrink: 0, width: 44, height: 44, borderRadius: 10, background: 'rgba(204,21,21,0.1)', border: '1px solid rgba(204,21,21,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'hsl(4 80% 50%)' }}>
-                    <Icon size={20} />
+                  <div style={{ flexShrink: 0, width: 42, height: 42, borderRadius: 10, background: 'rgba(204,21,21,0.08)', border: '1px solid rgba(204,21,21,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'hsl(4 80% 52%)' }}>
+                    <Icon size={19} />
                   </div>
                   <div>
-                    <div style={{ fontWeight: 700, fontSize: 15, color: 'white', marginBottom: 5 }}>{f.title}</div>
-                    <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', lineHeight: 1.55 }}>{f.desc}</div>
+                    <div style={{ fontWeight: 600, fontSize: 15, color: 'var(--text)', marginBottom: 5 }}>{f.title}</div>
+                    <div style={{ fontSize: 14, color: 'var(--text-muted)', lineHeight: 1.55 }}>{f.desc}</div>
                   </div>
                 </div>
               );

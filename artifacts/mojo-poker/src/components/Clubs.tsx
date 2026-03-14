@@ -41,7 +41,7 @@ export function Clubs() {
   ];
 
   return (
-    <section id="clubs" style={{ padding: '100px 0', background: '#0d1018', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+    <section id="clubs" style={{ padding: '100px 0', background: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)', borderBottom: '1px solid var(--border-subtle)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
 
         {/* Header */}
@@ -59,7 +59,7 @@ export function Clubs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              style={{ borderRadius: 20, border: '1px solid rgba(255,255,255,0.09)', background: '#12151d', overflow: 'hidden', display: 'flex', flexDirection: 'column', transition: 'border-color 0.25s, box-shadow 0.25s, transform 0.25s', boxShadow: '0 4px 32px rgba(0,0,0,0.35)' }}
+              style={{ borderRadius: 20, border: '1px solid var(--border-color)', background: 'var(--bg-card)', overflow: 'hidden', display: 'flex', flexDirection: 'column', transition: 'border-color 0.25s, box-shadow 0.25s, transform 0.25s', boxShadow: '0 4px 32px rgba(0,0,0,0.35)' }}
               onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(204,21,21,0.4)'; el.style.transform = 'translateY(-4px)'; el.style.boxShadow = '0 8px 48px rgba(204,21,21,0.12)'; }}
               onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.09)'; el.style.transform = 'translateY(0)'; el.style.boxShadow = '0 4px 32px rgba(0,0,0,0.35)'; }}
             >
@@ -78,20 +78,20 @@ export function Clubs() {
 
                 {/* Stats row */}
                 <div style={{ display: 'flex', gap: 12 }}>
-                  <div style={{ flex: 1, padding: '14px 16px', borderRadius: 12, background: '#0a0c12', border: '1px solid rgba(255,255,255,0.06)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-                    <Users size={14} style={{ color: 'rgba(255,255,255,0.3)' }} />
-                    <span style={{ fontSize: 20, fontWeight: 800, color: 'white', lineHeight: 1 }}>{club.members}</span>
-                    <span style={{ fontSize: 10, fontWeight: 600, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{t('clubs.members')}</span>
+                  <div style={{ flex: 1, padding: '14px 16px', borderRadius: 12, background: 'var(--bg)', border: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
+                    <Users size={14} style={{ color: 'var(--text-faint)' }} />
+                    <span style={{ fontSize: 20, fontWeight: 700, color: 'var(--text)', lineHeight: 1 }}>{club.members}</span>
+                    <span style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{t('clubs.members')}</span>
                   </div>
-                  <div style={{ flex: 1, padding: '14px 16px', borderRadius: 12, background: '#0a0c12', border: '1px solid rgba(255,255,255,0.06)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-                    <Layers size={14} style={{ color: 'rgba(255,255,255,0.3)' }} />
-                    <span style={{ fontSize: 20, fontWeight: 800, color: 'white', lineHeight: 1 }}>{club.tables}</span>
-                    <span style={{ fontSize: 10, fontWeight: 600, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{t('clubs.tables')}</span>
+                  <div style={{ flex: 1, padding: '14px 16px', borderRadius: 12, background: 'var(--bg)', border: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
+                    <Layers size={14} style={{ color: 'var(--text-faint)' }} />
+                    <span style={{ fontSize: 20, fontWeight: 700, color: 'var(--text)', lineHeight: 1 }}>{club.tables}</span>
+                    <span style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{t('clubs.tables')}</span>
                   </div>
                 </div>
 
                 {/* Club ID */}
-                <div style={{ padding: '16px 18px', borderRadius: 12, background: '#0a0c12', border: '1px solid rgba(255,255,255,0.06)' }}>
+                <div style={{ padding: '16px 18px', borderRadius: 12, background: 'var(--bg)', border: '1px solid var(--border-subtle)' }}>
                   <div style={{ fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 8 }}>Club ID</div>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
                     <span style={{ fontSize: 28, fontWeight: 900, color: 'hsl(4 80% 48%)', letterSpacing: '0.06em', fontVariantNumeric: 'tabular-nums' }}>{club.clubId}</span>

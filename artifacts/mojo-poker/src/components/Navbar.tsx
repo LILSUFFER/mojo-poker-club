@@ -19,8 +19,8 @@ export function Navbar() {
   return (
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
-      background: '#0a0c10',
-      borderBottom: '1px solid rgba(255,255,255,0.08)',
+      background: 'var(--bg)',
+      borderBottom: '1px solid var(--border-subtle)',
     }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px', height: 64, display: 'flex', alignItems: 'center' }}>
 
@@ -87,7 +87,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            style={{ background: '#0a0c10', borderTop: '1px solid rgba(255,255,255,0.06)', overflow: 'hidden' }}
+            style={{ background: 'var(--bg)', borderTop: '1px solid var(--border-subtle)', overflow: 'hidden' }}
           >
             <div style={{ padding: '16px 24px 24px', display: 'flex', flexDirection: 'column', gap: 4 }}>
               {navLinks.map(link => (
