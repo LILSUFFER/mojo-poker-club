@@ -4,12 +4,24 @@ const VPN_ANDROID = 'https://play.google.com/store/apps/details?id=com.free.vpn.
 const VPN_IOS = 'https://apps.apple.com/app/id1370293473';
 
 const countries = [
-  { flag: '🇺🇸', ru: 'США', en: 'USA' },
-  { flag: '🇩🇪', ru: 'Германия', en: 'Germany' },
-  { flag: '🇫🇷', ru: 'Франция', en: 'France' },
-  { flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', ru: 'Англия', en: 'England' },
-  { flag: '🇬🇧', ru: 'Великобритания', en: 'UK' },
+  { code: 'US', ru: 'США', en: 'USA' },
+  { code: 'DE', ru: 'Германия', en: 'Germany' },
+  { code: 'FR', ru: 'Франция', en: 'France' },
+  { code: 'GB', ru: 'Великобритания', en: 'UK' },
+  { code: 'CA', ru: 'Канада', en: 'Canada' },
 ];
+
+function FlagImg({ code }: { code: string }) {
+  return (
+    <img
+      src={`https://flagcdn.com/20x15/${code.toLowerCase()}.png`}
+      width="20"
+      height="15"
+      alt={code}
+      style={{ display: 'inline-block', verticalAlign: 'middle', borderRadius: 1 }}
+    />
+  );
+}
 
 export function VPNGuide() {
   const { language } = useLanguage();
@@ -31,28 +43,33 @@ export function VPNGuide() {
     { num: 6, text: 'Tap "Register" — you\'ll see the VPN country flag on step one' },
   ];
 
+  const blue = 'hsl(217 91% 60%)';
+  const blueAlpha = (a: number) => `rgba(59,130,246,${a})`;
+
   return (
     <div style={{
       borderRadius: 8,
       overflow: 'hidden',
-      border: '1px solid rgba(234,179,8,0.3)',
-      background: 'linear-gradient(135deg, rgba(234,179,8,0.06) 0%, rgba(255,255,255,0.01) 100%)',
+      border: `1px solid ${blueAlpha(0.28)}`,
+      background: `linear-gradient(135deg, ${blueAlpha(0.06)} 0%, rgba(255,255,255,0.01) 100%)`,
       marginBottom: 72,
     }}>
       {/* Header */}
       <div style={{
         padding: '12px 24px',
-        background: 'rgba(234,179,8,0.1)',
-        borderBottom: '1px solid rgba(234,179,8,0.18)',
+        background: blueAlpha(0.1),
+        borderBottom: `1px solid ${blueAlpha(0.18)}`,
         display: 'flex', alignItems: 'center', gap: 10,
       }}>
-        <span style={{ fontSize: 14 }}>⚠️</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={blue} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
         <div>
-          <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.14em', color: 'rgba(234,179,8,0.6)', textTransform: 'uppercase' }}>
+          <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.14em', color: blueAlpha(0.6), textTransform: 'uppercase' }}>
             {isRu ? 'Только для Massiv Poker Union · ' : 'Massiv Poker Union only · '}
           </span>
-          <span style={{ fontSize: 13, fontWeight: 700, color: 'rgb(255,210,60)' }}>
-            {isRu ? 'Как получить американский флаг 🇺🇸 в профиле' : 'How to get 🇺🇸 US flag in your profile'}
+          <span style={{ fontSize: 13, fontWeight: 700, color: blue }}>
+            {isRu ? 'Как получить зарубежный флаг в профиле' : 'How to get a foreign flag in your profile'}
           </span>
         </div>
       </div>
@@ -61,17 +78,17 @@ export function VPNGuide() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 220px', gap: 0 }}>
 
         {/* Left: steps */}
-        <div style={{ padding: '20px 24px', borderRight: '1px solid rgba(234,179,8,0.12)' }}>
+        <div style={{ padding: '20px 24px', borderRight: `1px solid ${blueAlpha(0.12)}` }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {steps.map((step) => (
               <div key={step.num} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
                 <div style={{
                   flexShrink: 0,
                   width: 22, height: 22, borderRadius: '50%',
-                  background: 'rgba(234,179,8,0.15)',
-                  border: '1px solid rgba(234,179,8,0.3)',
+                  background: blueAlpha(0.15),
+                  border: `1px solid ${blueAlpha(0.3)}`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 10, fontWeight: 800, color: 'rgb(255,200,50)',
+                  fontSize: 10, fontWeight: 800, color: blue,
                   marginTop: 1,
                 }}>
                   {step.num}
@@ -89,7 +106,7 @@ export function VPNGuide() {
 
           {/* VPN links */}
           <div>
-            <p style={{ margin: '0 0 8px', fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(234,179,8,0.5)', textTransform: 'uppercase' }}>
+            <p style={{ margin: '0 0 8px', fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: blueAlpha(0.55), textTransform: 'uppercase' }}>
               {isRu ? 'Скачать VPN' : 'Download VPN'}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -116,13 +133,14 @@ export function VPNGuide() {
 
           {/* Countries */}
           <div>
-            <p style={{ margin: '0 0 8px', fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(234,179,8,0.5)', textTransform: 'uppercase' }}>
+            <p style={{ margin: '0 0 8px', fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: blueAlpha(0.55), textTransform: 'uppercase' }}>
               {isRu ? 'Страны VPN' : 'VPN Countries'}
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
               {countries.map(c => (
-                <div key={c.en} style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>
-                  <span>{c.flag}</span>
+                <div key={c.code} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>
+                  <FlagImg code={c.code} />
+                  <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', color: blueAlpha(0.5), textTransform: 'uppercase', minWidth: 18 }}>{c.code}</span>
                   <span>{isRu ? c.ru : c.en}</span>
                 </div>
               ))}
