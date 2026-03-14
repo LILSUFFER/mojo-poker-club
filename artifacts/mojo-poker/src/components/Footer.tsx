@@ -9,7 +9,7 @@ export function Footer() {
     {
       heading: 'Навигация',
       links: [
-        { label: 'О нас', href: '/#about' },
+        { label: 'О нас', href: '/about' },
         { label: 'Наши клубы', href: '/#clubs' },
         { label: 'Как вступить', href: '/join' },
       ],
@@ -25,14 +25,16 @@ export function Footer() {
     {
       heading: 'Контакты',
       links: [
-        { label: '@Mojo_Adm в Telegram', href: 'https://t.me/Mojo_Adm', external: true },
+        { label: '@Mojo_Adm — менеджер', href: 'https://t.me/Mojo_Adm', external: true },
+        { label: 'Официальный канал', href: 'https://t.me/MOJOPoker', external: true },
+        { label: 'Чат игроков · 1724', href: 'https://t.me/+63QXd66PAuwyNjQ6', external: true },
       ],
     },
   ] : [
     {
       heading: 'Navigation',
       links: [
-        { label: 'About', href: '/#about' },
+        { label: 'About', href: '/about' },
         { label: 'Our Clubs', href: '/#clubs' },
         { label: 'How to Join', href: '/join' },
       ],
@@ -48,7 +50,9 @@ export function Footer() {
     {
       heading: 'Contact',
       links: [
-        { label: '@Mojo_Adm on Telegram', href: 'https://t.me/Mojo_Adm', external: true },
+        { label: '@Mojo_Adm — Manager', href: 'https://t.me/Mojo_Adm', external: true },
+        { label: 'Official Channel', href: 'https://t.me/MOJOPoker', external: true },
+        { label: 'Player Chat · 1724', href: 'https://t.me/+63QXd66PAuwyNjQ6', external: true },
       ],
     },
   ];
