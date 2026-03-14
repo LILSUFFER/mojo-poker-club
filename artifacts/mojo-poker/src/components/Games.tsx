@@ -118,8 +118,8 @@ export function Games() {
               style={{
                 position: 'relative',
                 width: '100%',
-                height: 420,
-                borderRadius: 12,
+                aspectRatio: '16 / 10',
+                borderRadius: 16,
                 overflow: 'hidden',
                 background: '#0d0d0d',
               }}
