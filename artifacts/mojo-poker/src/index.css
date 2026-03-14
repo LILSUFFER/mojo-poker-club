@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&display=swap');
 @import "tailwindcss";
 
 @theme inline {
   --font-sans: 'Inter', sans-serif;
-
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-primary: hsl(var(--primary));
@@ -22,7 +21,6 @@
   --color-card-foreground: hsl(var(--card-foreground));
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
-
   --color-input: hsl(var(--input));
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
@@ -31,95 +29,81 @@
 }
 
 :root {
-  /* PokerOK-style modern dark theme */
-  --background: 220 13% 7%;      /* #0f1117 very dark navy */
-  --foreground: 0 0% 96%;        /* near white */
-
-  --card: 220 13% 11%;           /* slightly lighter */
+  --background: 222 18% 6%;
+  --foreground: 0 0% 96%;
+  --card: 222 16% 10%;
   --card-foreground: 0 0% 96%;
-
-  --popover: 220 13% 11%;
+  --popover: 222 16% 10%;
   --popover-foreground: 0 0% 96%;
-
-  --primary: 25 95% 53%;         /* PokerOK orange #f97316 */
+  --primary: 25 95% 53%;
   --primary-foreground: 0 0% 100%;
-
-  --secondary: 220 13% 16%;
-  --secondary-foreground: 0 0% 85%;
-
-  --muted: 220 13% 16%;
-  --muted-foreground: 220 8% 55%;
-
+  --secondary: 222 14% 14%;
+  --secondary-foreground: 0 0% 80%;
+  --muted: 222 14% 14%;
+  --muted-foreground: 220 8% 50%;
   --accent: 25 95% 53%;
   --accent-foreground: 0 0% 100%;
-
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
-
-  --border: 220 13% 18%;
-  --input: 220 13% 18%;
+  --border: 222 14% 15%;
+  --input: 222 14% 15%;
   --ring: 25 95% 53%;
-
   --radius: 0.5rem;
 }
 
 @layer base {
-  * {
-    border-color: hsl(var(--border));
-  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
-    scroll-behavior: smooth;
+    background: #0a0c12;
+    color: #f5f5f5;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', sans-serif;
-    @apply font-bold text-white;
+    color: #fff;
+    margin: 0;
   }
+  p { margin: 0; }
+  a { text-decoration: none; }
+}
+
+/* Responsive nav */
+.nav-desktop { display: none; }
+.nav-mobile-btn { display: flex; }
+@media (min-width: 768px) {
+  .nav-desktop { display: flex; }
+  .nav-mobile-btn { display: none !important; }
 }
 
 @layer utilities {
-  .text-orange {
-    color: hsl(var(--primary));
-  }
-
-  .bg-orange {
-    background-color: hsl(var(--primary));
-  }
-
-  .glass-panel {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    backdrop-filter: blur(12px);
-  }
-
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold text-white transition-all duration-200;
-    background: hsl(var(--primary));
-  }
-  .btn-primary:hover {
-    background: hsl(25 95% 45%);
-    transform: translateY(-1px);
-  }
-
-  .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold transition-all duration-200;
-    border: 1px solid rgba(255,255,255,0.15);
-    color: white;
-  }
-  .btn-outline:hover {
-    border-color: hsl(var(--primary));
-    color: hsl(var(--primary));
-  }
-
   .section-label {
-    @apply text-xs font-bold uppercase tracking-widest;
-    color: hsl(var(--primary));
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: hsl(25 95% 53%);
+    margin-bottom: 14px;
   }
-
+  .section-title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 900;
+    line-height: 1.12;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
   .card-dark {
-    background: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
-    @apply rounded-xl;
+    background: #12151d;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+  }
+  .card-dark:hover {
+    border-color: rgba(249,115,22,0.25);
   }
 }

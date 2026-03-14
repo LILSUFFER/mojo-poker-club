@@ -9,9 +9,9 @@ const featuresData = {
     { icon: Globe, title: 'Поддержка 24/7', desc: 'Персональный менеджер всегда на связи' },
   ],
   en: [
-    { icon: ShieldCheck, title: 'Security', desc: 'Licensed platform with player fund protection' },
-    { icon: Zap, title: 'Fast payouts', desc: 'Withdrawals processed within hours' },
-    { icon: Globe, title: '24/7 Support', desc: 'Personal manager always available' },
+    { icon: ShieldCheck, title: 'Security', desc: 'Licensed platform with full player fund protection' },
+    { icon: Zap, title: 'Fast Payouts', desc: 'Withdrawals processed within hours, not days' },
+    { icon: Globe, title: '24/7 Support', desc: 'Personal manager always available for you' },
   ],
 };
 
@@ -20,50 +20,51 @@ export function About() {
   const features = featuresData[language];
 
   return (
-    <section id="about" style={{ padding: '96px 0', position: 'relative' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 48, alignItems: 'center' }}>
+    <section id="about" style={{ padding: '100px 0', background: '#0a0c12', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 40px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 80, alignItems: 'center' }}>
+
+          {/* Left */}
           <motion.div
-            initial={{ opacity: 0, x: -24 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.55 }}
           >
-            <div style={{ fontSize: 12, fontWeight: 700, color: 'hsl(25 95% 53%)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 12 }}>
-              {t('about.title')}
-            </div>
-            <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 900, color: 'white', lineHeight: 1.15, marginBottom: 20 }}>
+            <div className="section-label">{t('about.title')}</div>
+            <h2 className="section-title" style={{ marginBottom: 20 }}>
               {t('about.subtitle')}
             </h2>
-            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 16, lineHeight: 1.7, marginBottom: 16 }}>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, lineHeight: 1.75, marginBottom: 18 }}>
               {t('about.content1')}
             </p>
-            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 16, lineHeight: 1.7 }}>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, lineHeight: 1.75 }}>
               {t('about.content2')}
             </p>
           </motion.div>
 
+          {/* Right — feature cards */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            style={{ display: 'flex', flexDirection: 'column', gap: 16 }}
+            transition={{ duration: 0.55, delay: 0.1 }}
+            style={{ display: 'flex', flexDirection: 'column', gap: 12 }}
           >
             {features.map((f, i) => {
               const Icon = f.icon;
               return (
                 <div key={i}
-                  style={{ display: 'flex', gap: 16, padding: '20px 24px', borderRadius: 12, background: 'hsl(220 13% 11%)', border: '1px solid rgba(255,255,255,0.06)', transition: 'border-color 0.2s', cursor: 'default' }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(249,115,22,0.3)'; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.06)'; }}
+                  style={{ display: 'flex', gap: 18, padding: '22px 24px', borderRadius: 12, background: '#12151d', border: '1px solid rgba(255,255,255,0.06)', transition: 'border-color 0.2s, background 0.2s', cursor: 'default' }}
+                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(249,115,22,0.3)'; el.style.background = '#14172000'; }}
+                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.06)'; el.style.background = '#12151d'; }}
                 >
-                  <div style={{ flexShrink: 0, width: 40, height: 40, borderRadius: 8, background: 'rgba(249,115,22,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'hsl(25 95% 53%)' }}>
+                  <div style={{ flexShrink: 0, width: 44, height: 44, borderRadius: 10, background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'hsl(25 95% 60%)' }}>
                     <Icon size={20} />
                   </div>
                   <div>
-                    <div style={{ fontWeight: 700, color: 'white', marginBottom: 4 }}>{f.title}</div>
-                    <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.5 }}>{f.desc}</div>
+                    <div style={{ fontWeight: 700, fontSize: 15, color: 'white', marginBottom: 5 }}>{f.title}</div>
+                    <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', lineHeight: 1.55 }}>{f.desc}</div>
                   </div>
                 </div>
               );

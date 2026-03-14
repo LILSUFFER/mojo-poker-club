@@ -1,41 +1,46 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Send } from 'lucide-react';
+import { Send, ShieldCheck, Zap } from 'lucide-react';
 
 export function Contact() {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" style={{ padding: '96px 0', background: 'hsl(220 13% 9%)' }}>
-      <div style={{ maxWidth: 700, margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
+    <section id="contact" style={{ padding: '100px 0', background: '#0a0c12', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 40px', textAlign: 'center' }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.55 }}
         >
-          <div style={{ fontSize: 12, fontWeight: 700, color: 'hsl(25 95% 53%)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 16 }}>
-            Telegram
-          </div>
-          <h2 style={{ fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 900, color: 'white', marginBottom: 16, lineHeight: 1.15 }}>
-            {t('contact.title')}
-          </h2>
-          <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.5)', marginBottom: 40, lineHeight: 1.6 }}>
+          <div className="section-label">Telegram</div>
+          <h2 className="section-title" style={{ marginBottom: 16 }}>{t('contact.title')}</h2>
+          <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.45)', marginBottom: 40, lineHeight: 1.7, maxWidth: 520, margin: '0 auto 40px' }}>
             {t('contact.subtitle')}
           </p>
 
           <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '16px 40px', borderRadius: 12, background: 'hsl(25 95% 53%)', color: 'white', fontWeight: 700, fontSize: 18, textDecoration: 'none', transition: 'all 0.2s' }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(25 95% 44%)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(25 95% 53%)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '15px 38px', borderRadius: 10, background: 'hsl(25 95% 53%)', color: 'white', fontWeight: 700, fontSize: 17, textDecoration: 'none', transition: 'all 0.15s' }}
+            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(25 95% 44%)'; el.style.transform = 'translateY(-2px)'; }}
+            onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(25 95% 53%)'; el.style.transform = 'translateY(0)'; }}
           >
-            <Send size={20} />
+            <Send size={18} />
             {t('contact.btn')}
           </a>
 
-          <p style={{ marginTop: 24, fontSize: 13, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-            {t('contact.note')}
-          </p>
+          {/* Trust badges */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 32, marginTop: 44, flexWrap: 'wrap' }}>
+            {[
+              { icon: <ShieldCheck size={14} />, label: t('contact.note').split(' • ')[1] || 'Безопасные депозиты' },
+              { icon: <Zap size={14} />, label: t('contact.note').split(' • ')[2] || 'Мгновенные выводы' },
+            ].map(({ icon, label }) => (
+              <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 7, color: 'rgba(255,255,255,0.3)', fontSize: 13 }}>
+                <span style={{ color: 'hsl(25 95% 53%)' }}>{icon}</span>
+                {label}
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
