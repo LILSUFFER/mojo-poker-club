@@ -163,7 +163,7 @@ export function Hero() {
           style={{
             position: 'absolute',
             left: phnLeft,
-            top: 40,   // same top → level with MacBook
+            top: 110,
             zIndex: 2,
             filter: 'drop-shadow(-8px 24px 48px rgba(0,0,0,0.9))',
           }}
