@@ -319,6 +319,58 @@ export function JoinGuide() {
             </div>
           ))}
 
+          {/* Chips info block */}
+          <div style={{
+            marginTop: 72,
+            borderRadius: 8,
+            border: '1px solid rgba(255,255,255,0.08)',
+            background: 'var(--bg-card)',
+            overflow: 'hidden',
+          }}>
+            <div style={{
+              padding: '10px 20px',
+              background: 'rgba(255,255,255,0.03)',
+              borderBottom: '1px solid rgba(255,255,255,0.06)',
+            }}>
+              <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
+                {isRu ? 'После вступления' : 'After joining'}
+              </span>
+            </div>
+            <div style={{ padding: '24px 24px', display: 'flex', alignItems: 'flex-start', gap: 20, flexWrap: 'wrap' }}>
+              <div style={{ fontSize: 32, lineHeight: 1 }}>🎯</div>
+              <div style={{ flex: 1, minWidth: 220 }}>
+                <h3 style={{ margin: '0 0 8px', fontSize: 17, fontWeight: 700, color: 'white', lineHeight: 1.3 }}>
+                  {isRu ? 'Как получить фишки для игры' : 'How to get chips to play'}
+                </h3>
+                <p style={{ margin: '0 0 16px', fontSize: 14, lineHeight: 1.75, color: 'rgba(255,255,255,0.5)' }}>
+                  {isRu
+                    ? 'Напишите менеджеру в Telegram — он расскажет всё про фишки и сориентирует по дальнейшим шагам.'
+                    : 'Message the manager on Telegram — they\'ll explain everything about chips and guide you through the next steps.'}
+                </p>
+                <a
+                  href="https://t.me/Mojo_Adm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 9,
+                    padding: '11px 20px', borderRadius: 4, textDecoration: 'none',
+                    background: 'rgba(255,255,255,0.04)',
+                    border: '1px solid rgba(255,255,255,0.12)',
+                    color: 'white', fontSize: 13, fontWeight: 600,
+                    transition: 'background 0.15s',
+                  }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.08)'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)'; }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 6.886l-1.872 8.82c-.14.62-.503.77-.995.48l-2.75-2.026-1.328 1.278c-.147.147-.27.27-.553.27l.196-2.79 5.088-4.597c.221-.196-.048-.305-.344-.11l-6.29 3.96-2.713-.85c-.59-.184-.602-.59.123-.872l10.582-4.08c.49-.178.92.108.856.517z" fill="#229ED9"/>
+                  </svg>
+                  @Mojo_Adm
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </main>
       <Footer />
