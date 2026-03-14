@@ -147,7 +147,7 @@ export function Hero() {
           style={{
             position: 'absolute',
             left: 0,
-            top: 110,
+            top: 162,
             zIndex: 1,
             filter: 'drop-shadow(0 24px 56px rgba(0,0,0,0.85))',
           }}
