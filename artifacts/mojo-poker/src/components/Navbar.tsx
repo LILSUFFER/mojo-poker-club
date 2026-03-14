@@ -26,9 +26,7 @@ export function Navbar() {
 
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', flexShrink: 0 }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, borderRadius: 8, background: 'hsl(4 80% 45%)' }}>
-            <span style={{ fontWeight: 900, fontSize: 14, color: 'white', letterSpacing: '-0.02em' }}>M</span>
-          </div>
+          <img src="/images/mojo-logo.png" alt="MOJO Poker Club" style={{ width: 40, height: 40, borderRadius: 6, objectFit: 'cover' }} />
           <span style={{ fontWeight: 800, fontSize: 18, color: 'white', letterSpacing: '0.04em' }}>MOJO</span>
         </Link>
 
