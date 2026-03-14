@@ -1,86 +1,87 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Download, Search, MessageCircle } from 'lucide-react';
+import { Download, Search, MessageCircle, ArrowRight } from 'lucide-react';
+import { Link } from 'wouter';
 
 export function HowToJoin() {
   const { t } = useLanguage();
 
   const steps = [
-    { icon: <Download className="w-6 h-6" />, title: t('howToJoin.step1.title'), desc: t('howToJoin.step1.desc') },
-    { icon: <Search className="w-6 h-6" />, title: t('howToJoin.step2.title'), desc: t('howToJoin.step2.desc') },
-    { icon: <MessageCircle className="w-6 h-6" />, title: t('howToJoin.step3.title'), desc: t('howToJoin.step3.desc') },
+    { num: '01', icon: Download, title: t('howToJoin.step1.title'), desc: t('howToJoin.step1.desc') },
+    { num: '02', icon: Search, title: t('howToJoin.step2.title'), desc: t('howToJoin.step2.desc') },
+    { num: '03', icon: MessageCircle, title: t('howToJoin.step3.title'), desc: t('howToJoin.step3.desc') },
   ];
 
   return (
-    <section id="how-to-join" className="py-24 relative">
-      <div className="absolute right-0 top-1/4 w-1/3 h-1/2 bg-primary/5 blur-[120px] pointer-events-none"></div>
-      
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-primary font-semibold tracking-[0.2em] uppercase text-sm mb-2">
+    <section id="how-to-join" style={{ padding: '96px 0' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ textAlign: 'center', marginBottom: 64 }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: 'hsl(25 95% 53%)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 12 }}>
             {t('howToJoin.title')}
-          </h2>
-          <h3 className="text-4xl md:text-5xl font-display text-white">
-            {t('howToJoin.subtitle')}
-          </h3>
-        </div>
-
-        <div className="max-w-4xl mx-auto relative">
-          {/* Vertical Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-white/10 md:-translate-x-1/2 hidden sm:block"></div>
-
-          <div className="space-y-12 relative">
-            {steps.map((step, idx) => {
-              const isEven = idx % 2 === 0;
-              return (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className={`flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-0 ${
-                    isEven ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
-                >
-                  {/* Content Half */}
-                  <div className={`flex-1 sm:w-1/2 ${isEven ? 'md:pr-16 md:text-right' : 'md:pl-16 md:text-left'} ml-16 sm:ml-0`}>
-                    <h4 className="text-xl font-display text-white mb-2">{step.title}</h4>
-                    <p className="text-muted-foreground font-light">{step.desc}</p>
-                  </div>
-
-                  {/* Icon Center */}
-                  <div className="absolute left-0 sm:relative sm:left-auto md:w-16 md:h-16 w-12 h-12 rounded-full bg-card border-2 border-primary flex items-center justify-center text-primary z-10 shadow-[0_0_15px_rgba(212,175,55,0.2)] md:mx-auto shrink-0 mt-1 sm:mt-0">
-                    <span className="md:hidden block">{step.icon}</span>
-                    <span className="hidden md:block scale-125">{step.icon}</span>
-                  </div>
-
-                  {/* Empty Half for layout balance on desktop */}
-                  <div className="hidden md:block flex-1 w-1/2"></div>
-                </motion.div>
-              )
-            })}
           </div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-16 text-center"
-          >
-             <a
-              href="https://t.me/Mojo_Adm" 
-              target="_blank" 
-              rel="norenoopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-primary/30 text-white font-bold tracking-wider rounded-sm text-sm hover:bg-primary/10 transition-all duration-300"
-            >
-              <MessageCircle className="w-5 h-5 text-primary" />
-              {t('howToJoin.step3.title')} (@Mojo_Adm)
-            </a>
-          </motion.div>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 900, color: 'white' }}>
+            {t('howToJoin.subtitle')}
+          </h2>
         </div>
 
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 24, marginBottom: 48 }}>
+          {steps.map((step, i) => {
+            const Icon = step.icon;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
+                style={{ position: 'relative', padding: '32px 28px', borderRadius: 16, background: 'hsl(220 13% 11%)', border: '1px solid rgba(255,255,255,0.07)' }}
+              >
+                <div style={{ position: 'absolute', top: 20, right: 24, fontSize: 48, fontWeight: 900, color: 'rgba(255,255,255,0.04)', lineHeight: 1, fontFamily: 'Inter' }}>{step.num}</div>
+                <div style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(249,115,22,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'hsl(25 95% 53%)', marginBottom: 20 }}>
+                  <Icon size={22} />
+                </div>
+                <h3 style={{ fontSize: 18, fontWeight: 800, color: 'white', marginBottom: 10 }}>{step.title}</h3>
+                <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>{step.desc}</p>
+
+                {i === 1 && (
+                  <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', gap: 6 }}>
+                    {[['MOJO 1', '356323'], ['MOJO 2 Massiv Union 🇺🇸', '799798']].map(([name, id]) => (
+                      <div key={id} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', borderRadius: 8, background: 'rgba(15,17,23,0.6)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                        <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.45)' }}>{name}</span>
+                        <span style={{ fontSize: 13, fontWeight: 700, color: 'hsl(25 95% 53%)' }}>{id}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {i === 2 && (
+                  <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 16, fontSize: 14, fontWeight: 700, color: 'hsl(25 95% 53%)', textDecoration: 'none' }}>
+                    @Mojo_Adm <ArrowRight size={14} />
+                  </a>
+                )}
+
+                {i === 0 && (
+                  <Link href="/download"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 16, fontSize: 14, fontWeight: 700, color: 'hsl(25 95% 53%)', textDecoration: 'none' }}>
+                    {t('nav.download')} <ArrowRight size={14} />
+                  </Link>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <div style={{ textAlign: 'center' }}>
+          <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '14px 32px', borderRadius: 10, background: 'hsl(25 95% 53%)', color: 'white', fontWeight: 700, fontSize: 16, textDecoration: 'none', transition: 'all 0.2s' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(25 95% 44%)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(25 95% 53%)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
+          >
+            <MessageCircle size={18} />
+            @Mojo_Adm
+          </a>
+        </div>
       </div>
     </section>
   );

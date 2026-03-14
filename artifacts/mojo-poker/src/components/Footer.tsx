@@ -4,24 +4,17 @@ export function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-background py-12 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-        
-        <div className="flex items-center gap-2">
-          <span className="font-display font-black text-xl tracking-widest text-white/50">
-            MOJO
-          </span>
-        </div>
-
-        <div className="text-center md:text-right">
-          <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} MOJO Poker Club. {t('footer.rights')}
+    <footer style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '32px 24px' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
+        <span style={{ fontWeight: 900, fontSize: 18, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.3)', fontFamily: 'Inter' }}>MOJO</span>
+        <div style={{ textAlign: 'right' }}>
+          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.3)' }}>
+            © {new Date().getFullYear()} MOJO Poker Club. {t('footer.rights')}
           </p>
-          <p className="text-xs text-white/30 mt-2">
+          <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)', marginTop: 4 }}>
             {t('footer.disclaimer')}
           </p>
         </div>
-
       </div>
     </footer>
   );

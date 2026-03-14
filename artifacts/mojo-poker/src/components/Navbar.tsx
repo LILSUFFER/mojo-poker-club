@@ -1,143 +1,117 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe, Download } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Menu, X, Download, Globe } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
 
 export function Navbar() {
   const { language, setLanguage, t } = useLanguage();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   const [location] = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'ru' : 'en');
-  };
-
-  const navLinks = [
-    { name: t('nav.about'), href: '/#about' },
-    { name: t('nav.clubs'), href: '/#clubs' },
-    { name: t('nav.howToJoin'), href: '/#how-to-join' },
-  ];
 
   const isHome = location === '/';
 
+  const navLinks = [
+    { label: t('nav.about'), href: isHome ? '#about' : '/#about' },
+    { label: t('nav.clubs'), href: isHome ? '#clubs' : '/#clubs' },
+    { label: t('nav.howToJoin'), href: isHome ? '#how-to-join' : '/#how-to-join' },
+  ];
+
   return (
     <nav
-      className={cn(
-        'fixed top-0 w-full z-50 transition-all duration-300',
-        isScrolled || !isHome ? 'bg-background/95 backdrop-blur-lg border-b border-white/5 py-4' : 'bg-transparent py-6'
-      )}
+      style={{
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+        transition: 'background 0.3s, border-color 0.3s',
+        background: scrolled || !isHome ? 'rgba(15,17,23,0.97)' : 'transparent',
+        borderBottom: scrolled || !isHome ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
+        backdropFilter: scrolled || !isHome ? 'blur(16px)' : 'none',
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <span className="font-display font-black text-2xl tracking-widest text-white group-hover:text-gradient-gold transition-all duration-300">
-            MOJO
-          </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px', height: 68, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none' }}>
+          <span style={{ fontFamily: 'Inter', fontWeight: 900, fontSize: 22, letterSpacing: '0.06em', color: 'white' }}>MOJO</span>
+          <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'hsl(25 95% 53%)' }} />
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-white transition-colors uppercase tracking-wider"
-            >
-              {link.name}
-            </a>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 32 }} className="hidden md:flex">
+          {navLinks.map(link => (
+            <a key={link.label} href={link.href}
+              style={{ color: 'rgba(255,255,255,0.65)', fontSize: 14, fontWeight: 500, textDecoration: 'none', transition: 'color 0.2s', letterSpacing: '0.02em' }}
+              onMouseEnter={e => (e.currentTarget.style.color = 'white')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.65)')}
+            >{link.label}</a>
           ))}
-          
-          <div className="w-px h-6 bg-white/10 mx-2"></div>
-          
-          {/* Language Toggle */}
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-white transition-colors uppercase"
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }} className="hidden md:flex">
+          <button onClick={() => setLanguage(language === 'en' ? 'ru' : 'en')}
+            style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'rgba(255,255,255,0.6)', fontSize: 13, fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', transition: 'color 0.2s' }}
+            onMouseEnter={e => (e.currentTarget.style.color = 'white')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.6)')}
           >
-            <Globe className="w-4 h-4 text-primary" />
-            {language}
+            <Globe size={15} />
+            {language.toUpperCase()}
           </button>
 
-          <Link href="/download" className="flex items-center gap-2 px-5 py-2.5 rounded-sm bg-primary/10 border border-primary/50 text-primary font-bold text-sm tracking-wide hover:bg-primary hover:text-primary-foreground transition-all duration-300">
-            <Download className="w-4 h-4" />
+          <Link href="/download"
+            style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '9px 18px', borderRadius: 8, border: '1px solid rgba(249,115,22,0.4)', color: 'hsl(25 95% 53%)', fontSize: 13, fontWeight: 700, textDecoration: 'none', transition: 'all 0.2s' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(249,115,22,0.1)'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
+          >
+            <Download size={14} />
             {t('nav.download')}
           </Link>
 
-          <a
-            href={isHome ? "#contact" : "/#contact"}
-            className="px-5 py-2.5 rounded-sm bg-gradient-gold text-black font-bold text-sm tracking-wide hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 hover:-translate-y-0.5"
+          <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
+            style={{ padding: '9px 20px', borderRadius: 8, background: 'hsl(25 95% 53%)', color: 'white', fontSize: 13, fontWeight: 700, textDecoration: 'none', transition: 'all 0.2s' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(25 95% 45%)'; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(25 95% 53%)'; }}
           >
             {t('nav.contact')}
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-white p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X /> : <Menu />}
+        <button className="md:hidden" onClick={() => setOpen(!open)}
+          style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', padding: 8 }}>
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
-        {mobileMenuOpen && (
+        {open && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-card border-b border-white/10 overflow-hidden"
+            style={{ background: 'rgba(15,17,23,0.99)', borderTop: '1px solid rgba(255,255,255,0.06)', overflow: 'hidden' }}
           >
-            <div className="px-6 py-6 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-lg font-medium text-white/80 hover:text-primary transition-colors"
-                >
-                  {link.name}
+            <div style={{ padding: '20px 24px', display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {navLinks.map(link => (
+                <a key={link.label} href={link.href} onClick={() => setOpen(false)}
+                  style={{ color: 'rgba(255,255,255,0.8)', fontSize: 16, fontWeight: 500, textDecoration: 'none' }}>
+                  {link.label}
                 </a>
               ))}
-              <hr className="border-white/10 my-2" />
-              <button
-                onClick={() => {
-                  toggleLanguage();
-                  setMobileMenuOpen(false);
-                }}
-                className="flex items-center gap-2 text-lg font-medium text-white/80 hover:text-primary transition-colors"
-              >
-                <Globe className="w-5 h-5 text-primary" />
-                {language === 'en' ? 'Switch to Russian (RU)' : 'Switch to English (EN)'}
+              <hr style={{ borderColor: 'rgba(255,255,255,0.08)', margin: '4px 0' }} />
+              <button onClick={() => { setLanguage(language === 'en' ? 'ru' : 'en'); setOpen(false); }}
+                style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.7)', fontSize: 15, fontWeight: 500, background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
+                <Globe size={16} />
+                {language === 'en' ? 'Русский' : 'English'}
               </button>
-              
-              <Link 
-                href="/download"
-                onClick={() => setMobileMenuOpen(false)}
-                className="mt-2 flex items-center justify-center gap-2 px-5 py-3 text-center rounded-sm bg-primary/10 border border-primary/50 text-primary font-bold tracking-wide"
-              >
-                <Download className="w-5 h-5" />
+              <Link href="/download" onClick={() => setOpen(false)}
+                style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '12px 18px', borderRadius: 8, border: '1px solid rgba(249,115,22,0.4)', color: 'hsl(25 95% 53%)', fontSize: 15, fontWeight: 700, textDecoration: 'none', justifyContent: 'center' }}>
+                <Download size={16} />
                 {t('nav.download')}
               </Link>
-              
-              <a
-                href={isHome ? "#contact" : "/#contact"}
-                onClick={() => setMobileMenuOpen(false)}
-                className="mt-2 px-5 py-3 text-center rounded-sm bg-gradient-gold text-black font-bold tracking-wide"
-              >
+              <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
+                style={{ padding: '12px 18px', borderRadius: 8, background: 'hsl(25 95% 53%)', color: 'white', fontSize: 15, fontWeight: 700, textDecoration: 'none', textAlign: 'center' }}>
                 {t('nav.contact')}
               </a>
             </div>
