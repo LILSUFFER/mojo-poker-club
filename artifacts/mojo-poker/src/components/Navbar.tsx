@@ -122,7 +122,7 @@ export function Navbar() {
     { label: isRu ? 'Скачать GGClub' : 'Download GGClub', href: '/download' },
     { label: isRu ? 'Создание аккаунта GGClub' : 'Create GGClub Account', href: '/create-account' },
     { label: isRu ? 'Вступление в клуб' : 'Join the Club', href: '/join' },
-    { label: isRu ? 'О нас' : 'About', href: isHome ? '#about' : '/#about' },
+    { label: isRu ? 'О нас' : 'About', href: '/about' },
     { label: isRu ? 'Отзывы' : 'Reviews', href: isHome ? '#reviews' : '/#reviews' },
   ];
 
@@ -148,11 +148,11 @@ export function Navbar() {
           <div className="nav-desktop" style={{ alignItems: 'center', gap: 0 }}>
             <DropMenu label={isRu ? 'Наши клубы' : 'Our Clubs'} items={clubItems} />
             <DropMenu label={isRu ? 'Инструкции' : 'Guides'} items={joinItems} />
-            <a href={isHome ? '#about' : '/#about'}
+            <Link href="/about"
               style={linkStyle as React.CSSProperties}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
-            >{isRu ? 'О нас' : 'About'}</a>
+            >{isRu ? 'О нас' : 'About'}</Link>
             <a href={isHome ? '#reviews' : '/#reviews'}
               style={linkStyle as React.CSSProperties}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}

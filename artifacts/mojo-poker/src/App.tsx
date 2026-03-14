@@ -11,6 +11,7 @@ import { JoinGuide } from "@/pages/JoinGuide";
 import { CreateAccount } from "@/pages/CreateAccount";
 import { ClubMassiv } from "@/pages/ClubMassiv";
 import { ClubMojo } from "@/pages/ClubMojo";
+import { AboutPage } from "@/pages/AboutPage";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ function Router() {
       <Route path="/create-account" component={CreateAccount} />
       <Route path="/clubs/massiv" component={ClubMassiv} />
       <Route path="/clubs/mojo" component={ClubMojo} />
+      <Route path="/about" component={AboutPage} />
       <Route component={NotFound} />
     </Switch>
   );
