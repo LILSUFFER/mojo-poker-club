@@ -101,8 +101,12 @@ export function Clubs() {
               <div style={{ position: 'relative', background: club.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 48px', minHeight: 200 }}>
                 <img src={club.logo} alt={club.name} style={{ width: '100%', maxWidth: 280, height: 'auto', display: 'block', objectFit: 'contain' }} />
                 {club.badge && (
-                  <div style={{ position: 'absolute', top: 14, right: 14, fontSize: 11, fontWeight: 600, padding: '4px 10px', borderRadius: 4, background: 'rgba(0,0,0,0.75)', color: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(4px)' }}>
-                    {club.badge}
+                  <div style={{ position: 'absolute', top: 14, right: 14 }}>
+                    <img
+                      src="/images/union-badge-orig.png"
+                      alt="Union"
+                      style={{ width: 56, height: 56, objectFit: 'contain', borderRadius: 6, display: 'block' }}
+                    />
                   </div>
                 )}
               </div>
