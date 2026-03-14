@@ -180,15 +180,84 @@ export function Download() {
                 ))}
               </div>
 
-              <p style={{ marginTop: 20, fontSize: 12, color: 'rgba(255,255,255,0.25)', textAlign: 'center' }}>
-                {isRu ? 'После установки → ' : 'After install → '}
-                <Link href="/join" style={{ color: 'hsl(220 5% 55%)', textDecoration: 'underline', textUnderlineOffset: 3, fontWeight: 600 }}>
-                  {isRu ? 'Как вступить в клуб' : 'How to Join'}
-                </Link>
-              </p>
             </div>
 
           </div>
+
+          {/* Next steps */}
+          <div style={{ marginTop: 48 }}>
+            <p style={{ margin: '0 0 20px', fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)' }}>
+              {isRu ? 'Что дальше?' : 'What\'s next?'}
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+
+              <Link href="/create-account" style={{ textDecoration: 'none' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.18)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.08)'; }}
+              >
+                <div style={{
+                  padding: '24px 28px',
+                  borderRadius: 8,
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  background: 'var(--bg-card)',
+                  transition: 'border-color 0.15s',
+                  height: '100%',
+                  boxSizing: 'border-box',
+                }}>
+                  <div style={{ fontSize: 22, marginBottom: 10 }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                    </svg>
+                  </div>
+                  <h3 style={{ margin: '0 0 6px', fontSize: 17, fontWeight: 700, color: 'white', letterSpacing: '-0.02em' }}>
+                    {isRu ? 'Создать аккаунт GGClub' : 'Create a GGClub Account'}
+                  </h3>
+                  <p style={{ margin: '0 0 16px', fontSize: 13, lineHeight: 1.6, color: 'rgba(255,255,255,0.4)' }}>
+                    {isRu
+                      ? 'Пошаговая инструкция по регистрации с реальными скриншотами из приложения.'
+                      : 'Step-by-step registration guide with real screenshots from the app.'}
+                  </p>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.55)' }}>
+                    {isRu ? 'Читать инструкцию →' : 'Read guide →'}
+                  </span>
+                </div>
+              </Link>
+
+              <Link href="/join" style={{ textDecoration: 'none' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(220,38,38,0.5)'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(220,38,38,0.22)'; }}
+              >
+                <div style={{
+                  padding: '24px 28px',
+                  borderRadius: 8,
+                  border: '1px solid rgba(220,38,38,0.22)',
+                  background: 'rgba(220,38,38,0.04)',
+                  transition: 'border-color 0.15s',
+                  height: '100%',
+                  boxSizing: 'border-box',
+                }}>
+                  <div style={{ fontSize: 22, marginBottom: 10 }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="hsl(4 80% 55%)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                  </div>
+                  <h3 style={{ margin: '0 0 6px', fontSize: 17, fontWeight: 700, color: 'white', letterSpacing: '-0.02em' }}>
+                    {isRu ? 'Как вступить в клуб MOJO' : 'How to Join MOJO Club'}
+                  </h3>
+                  <p style={{ margin: '0 0 16px', fontSize: 13, lineHeight: 1.6, color: 'rgba(255,255,255,0.4)' }}>
+                    {isRu
+                      ? 'Реферальный код, поиск клуба в приложении и отправка заявки — всё по шагам.'
+                      : 'Referral code, finding the club in-app, and sending a join request — step by step.'}
+                  </p>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: 'hsl(4 80% 55%)' }}>
+                    {isRu ? 'Вступить в клуб →' : 'Join the club →'}
+                  </span>
+                </div>
+              </Link>
+
+            </div>
+          </div>
+
         </div>
       </main>
 
