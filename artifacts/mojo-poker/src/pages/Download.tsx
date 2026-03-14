@@ -74,12 +74,12 @@ export function Download() {
         ]}
       />
 
-      <main style={{ flex: 1, padding: '72px 32px 100px' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+      <main style={{ flex: 1, padding: '72px 0 100px' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 48px' }}>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gridTemplateColumns: 'repeat(3, 1fr)',
             gap: 20,
           }}>
             {platforms.map(p => (
