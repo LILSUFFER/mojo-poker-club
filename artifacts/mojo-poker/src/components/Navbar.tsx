@@ -25,8 +25,14 @@ export function Navbar() {
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px', height: 60, display: 'flex', alignItems: 'center' }}>
 
         <div style={{ flex: 1 }}>
-          <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
+          <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
             <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 24, color: 'white', letterSpacing: '0.06em', lineHeight: 1 }}>MOJO</span>
+            <div style={{ width: 1, height: 28, background: 'rgba(255,255,255,0.15)', flexShrink: 0 }} />
+            <img
+              src="/images/massiv-union-logo.png"
+              alt="Massiv Union ClubGG"
+              style={{ height: 28, width: 'auto', objectFit: 'contain', display: 'block', opacity: 0.85 }}
+            />
           </Link>
         </div>
 
