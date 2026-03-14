@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { useIsMobile } from '@/hooks/useIsMobile';
+import { useLocation } from 'wouter';
+import { ClubSelectModal } from '@/components/ClubSelectModal';
 
 const MAC_ZOOM = 0.92;
 const PHN_ZOOM = 0.52;
@@ -40,12 +43,15 @@ function DeviceIPhone({ src }: { src: string }) {
 export function Hero() {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [, navigate] = useLocation();
 
   const macW = Math.round(MACBOOK_W * MAC_ZOOM);
   const phnW = Math.round(IPHONE_W  * PHN_ZOOM);
   const phnLeft = Math.round(macW - phnW * 0.80);
 
   return (
+    <>
     <section style={{
       paddingTop: isMobile ? 40 : 60,
       paddingBottom: isMobile ? 48 : 80,
@@ -106,13 +112,14 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           style={{ display: 'flex', gap: 10, marginBottom: 40, flexWrap: 'wrap' }}
         >
-          <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 22px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.25)', background: 'transparent', color: 'white', fontWeight: 600, fontSize: 14, textDecoration: 'none', transition: 'all 0.15s', whiteSpace: 'nowrap' }}
+          <button
+            onClick={() => setModalOpen(true)}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 22px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.25)', background: 'transparent', color: 'white', fontWeight: 600, fontSize: 14, cursor: 'pointer', transition: 'all 0.15s', whiteSpace: 'nowrap' }}
             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.5)'; el.style.background = 'rgba(255,255,255,0.05)'; }}
             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.25)'; el.style.background = 'transparent'; }}
           >
             {t('hero.cta')} <ArrowRight size={14} />
-          </a>
+          </button>
           <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 20px', borderRadius: 4, border: '1px solid var(--border-subtle)', background: 'transparent', color: 'var(--text-muted)', fontWeight: 500, fontSize: 14, textDecoration: 'none', transition: 'all 0.15s', whiteSpace: 'nowrap' }}
             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.15)'; el.style.color = 'var(--text)'; }}
@@ -174,5 +181,12 @@ export function Hero() {
 
       </div>
     </section>
+
+    <ClubSelectModal
+      open={modalOpen}
+      onClose={() => setModalOpen(false)}
+      onSelect={(path) => { setModalOpen(false); navigate(path); }}
+    />
+    </>
   );
 }
