@@ -8,6 +8,7 @@ import { Download } from "@/pages/Download";
 import { MassivGuide } from "@/pages/MassivGuide";
 import { InstallGuide } from "@/pages/InstallGuide";
 import { JoinGuide } from "@/pages/JoinGuide";
+import { CreateAccount } from "@/pages/CreateAccount";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/install" component={InstallGuide} />
       <Route path="/join" component={JoinGuide} />
       <Route path="/massiv-guide" component={MassivGuide} />
+      <Route path="/create-account" component={CreateAccount} />
       <Route component={NotFound} />
     </Switch>
   );
