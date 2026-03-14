@@ -48,16 +48,20 @@ export function Hero() {
   return (
     <section style={{
       minHeight: '100vh',
-      paddingTop: 60,     // navbar clearance
+      paddingTop: 60,
       background: 'var(--bg)',
       overflow: 'hidden',
-      // Both columns share the same top — no centering
-      display: 'grid',
-      gridTemplateColumns: '480px 1fr',
-      columnGap: 48,
-      paddingLeft: 32,
-      alignItems: 'start',
     }}>
+      <div style={{
+        maxWidth: 1280,
+        margin: '0 auto',
+        padding: '0 32px',
+        display: 'grid',
+        gridTemplateColumns: '480px 1fr',
+        columnGap: 48,
+        alignItems: 'start',
+        overflow: 'visible',
+      }}>
 
       {/* ── LEFT: text column ── */}
       <div style={{
@@ -168,6 +172,7 @@ export function Hero() {
         </motion.div>
       </div>
 
+      </div>
     </section>
   );
 }
