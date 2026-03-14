@@ -31,6 +31,7 @@ export function Clubs() {
       members: '698',
       tables: '255',
       badge: '🇺🇸 Union',
+      geoWarning: true,
     },
     {
       id: 'mojo1',
@@ -45,6 +46,7 @@ export function Clubs() {
       members: '62',
       tables: '58',
       badge: null,
+      geoWarning: false,
     },
   ];
 
@@ -180,6 +182,40 @@ export function Clubs() {
                       </div>
                     ))}
                   </div>
+
+                  {/* GEO warning for Massiv */}
+                  {club.geoWarning && (
+                    <div style={{
+                      marginTop: 12,
+                      padding: '10px 12px',
+                      borderRadius: 6,
+                      background: 'rgba(234,179,8,0.06)',
+                      border: '1px solid rgba(234,179,8,0.22)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 6,
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: 7 }}>
+                        <span style={{ fontSize: 13, lineHeight: 1 }}>⚠️</span>
+                        <span style={{ fontSize: 11, fontWeight: 600, color: 'rgba(234,179,8,0.9)', lineHeight: 1.45 }}>
+                          {isRu
+                            ? 'Требуется ГЕО: аккаунт нужно создавать с определёнными данными — иначе блокировка.'
+                            : 'GEO required: account must be created with specific details — otherwise you risk a ban.'}
+                        </span>
+                      </div>
+                      <Link
+                        href="/massiv-guide"
+                        style={{
+                          fontSize: 11, fontWeight: 700,
+                          color: 'rgba(234,179,8,0.75)',
+                          textDecoration: 'none',
+                          display: 'inline-flex', alignItems: 'center', gap: 4,
+                        }}
+                      >
+                        {isRu ? 'Как правильно создать аккаунт →' : 'How to create account correctly →'}
+                      </Link>
+                    </div>
+                  )}
 
                 </div>
               </motion.div>
