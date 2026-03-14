@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import { PageHeader } from '@/components/PageHeader';
 import { Copy, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
+import SEO from '@/components/SEO';
 
 const REFERRAL = '3383-3619';
 
@@ -105,6 +106,26 @@ export function JoinGuide() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
+      <SEO
+        canonical="/join"
+        ru={{
+          title: 'Как вступить в покер клуб GGClub — инструкция MOJO',
+          description: 'Пошаговая инструкция как вступить в MOJO Poker Club на GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO 1 ID 356323. Реферальный код 3383-3619.',
+          keywords: 'как вступить в GGClub, ClubGG инструкция, Massiv Poker Union регистрация, MOJO Poker вступить, покер клуб GG Club',
+        }}
+        en={{
+          title: 'How to Join MOJO Poker Club on GGClub — Step by Step Guide',
+          description: 'Step-by-step guide to join MOJO Poker Club on GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO 1 ID 356323. Referral code 3383-3619.',
+          keywords: 'how to join GGClub, ClubGG guide, Massiv Poker Union sign up, MOJO Poker join, GG Club poker tutorial',
+        }}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'HowTo',
+          name: 'How to Join MOJO Poker Club on GGClub',
+          description: 'Guide to joining MOJO Poker Club on GGClub / Massiv Poker Union',
+          url: 'https://mojo-poker.com/join',
+        }}
+      />
       <Navbar />
       <PageHeader
         label={isRu ? 'Вступление в клуб' : 'Join the Club'}

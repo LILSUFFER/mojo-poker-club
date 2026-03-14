@@ -4,6 +4,7 @@ import { PageHeader } from '@/components/PageHeader';
 import { VPNSidebar } from '@/components/VPNSidebar';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'wouter';
+import SEO from '@/components/SEO';
 
 interface Step {
   num: number;
@@ -89,6 +90,26 @@ export function CreateAccount() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
+      <SEO
+        canonical="/create-account"
+        ru={{
+          title: 'Как создать аккаунт в GGClub (ClubGG) — инструкция',
+          description: 'Пошаговая инструкция по регистрации аккаунта в GGClub для Massiv Poker Union и MOJO 1. Как выбрать нужный флаг ГЕО, использовать VPN и реферальный код.',
+          keywords: 'создать аккаунт GGClub, регистрация ClubGG, GGClub регистрация, Massiv Poker Union аккаунт, VPN для GGClub, покер аккаунт',
+        }}
+        en={{
+          title: 'How to Create a GGClub Account — Registration Guide',
+          description: 'Step-by-step guide to registering a GGClub account for Massiv Poker Union and MOJO 1. How to select the correct GEO flag, use VPN and referral code.',
+          keywords: 'create GGClub account, ClubGG registration, GGClub sign up, Massiv Poker Union account, VPN for GGClub, poker account setup',
+        }}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'HowTo',
+          name: 'How to Create a GGClub Account for MOJO Poker Club',
+          description: 'Registration guide for GGClub to join Massiv Poker Union or MOJO 1',
+          url: 'https://mojo-poker.com/create-account',
+        }}
+      />
       <Navbar />
       <PageHeader
         title={isRu ? 'Как создать аккаунт GGClub' : 'How to Create a GGClub Account'}

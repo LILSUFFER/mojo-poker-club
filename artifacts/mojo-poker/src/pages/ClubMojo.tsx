@@ -5,6 +5,7 @@ import { PageHeader } from '@/components/PageHeader';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Copy, CheckCircle2 } from 'lucide-react';
 import { Link } from 'wouter';
+import SEO from '@/components/SEO';
 
 const CLUB_ID = '356323';
 const REF_CODE = '3383-3619';
@@ -44,6 +45,27 @@ export function ClubMojo() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
+      <SEO
+        canonical="/clubs/mojo"
+        ru={{
+          title: 'MOJO 1 — покер клуб в сети GGClub',
+          description: 'MOJO 1 на GGClub — клуб с высоким рейкбеком 55%, фишками 1к1, 62+ игроков онлайн, 58+ столов. ID клуба 356323. Реферальный код 3383-3619.',
+          keywords: 'MOJO 1 покер, GGClub покер клуб, ClubGG клуб, покер рейкбек 55%, покер онлайн, клубный покер GG',
+        }}
+        en={{
+          title: 'MOJO 1 — GGClub Poker Club',
+          description: 'MOJO 1 on GGClub — high-rakeback poker club. 55% rakeback, 1:1 chips, 62+ players online, 58+ tables. Club ID 356323. Referral code 3383-3619.',
+          keywords: 'MOJO 1 poker, GGClub poker club, ClubGG club, 55% rakeback poker, online poker club',
+        }}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'SportsClub',
+          name: 'MOJO 1 Poker Club',
+          description: 'MOJO 1 poker club on GGClub network with 55% rakeback',
+          url: 'https://mojo-poker.com/clubs/mojo',
+          identifier: '356323',
+        }}
+      />
       <Navbar />
       <PageHeader
         label="MOJO"

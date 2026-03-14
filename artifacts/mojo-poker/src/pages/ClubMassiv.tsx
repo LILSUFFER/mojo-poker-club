@@ -6,6 +6,7 @@ import { VPNSidebar } from '@/components/VPNSidebar';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Copy, CheckCircle2 } from 'lucide-react';
 import { Link } from 'wouter';
+import SEO from '@/components/SEO';
 
 const CLUB_ID = '799798';
 const REF_CODE = '3383-3619';
@@ -45,6 +46,27 @@ export function ClubMassiv() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
+      <SEO
+        canonical="/clubs/massiv"
+        ru={{
+          title: 'MOJO: Massiv Poker Union — покер клуб GGClub',
+          description: 'Massiv Poker Union на GGClub — один из крупнейших покерных союзов. Рейкбек 50%, фишки 1к1, 698+ игроков онлайн, 255+ столов 24/7. ID клуба 799798.',
+          keywords: 'Massiv Poker Union, Massiv Union Poker, GGClub покер, ClubGG покер клуб, покер рейкбек, клубный покер онлайн, MOJO Poker Union',
+        }}
+        en={{
+          title: 'MOJO: Massiv Poker Union — GGClub Poker Club',
+          description: 'Massiv Poker Union on GGClub — one of the biggest poker unions. 50% rakeback, 1:1 chips, 698+ players online, 255+ tables 24/7. Club ID 799798.',
+          keywords: 'Massiv Poker Union, GGClub poker club, ClubGG poker, online poker club, rakeback poker, MOJO Poker',
+        }}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'SportsClub',
+          name: 'MOJO: Massiv Poker Union',
+          description: 'Massiv Poker Union poker club on GGClub network',
+          url: 'https://mojo-poker.com/clubs/massiv',
+          identifier: '799798',
+        }}
+      />
       <Navbar />
       <PageHeader
         label="Massiv Poker Union"

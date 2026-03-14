@@ -2,6 +2,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageHeader } from '@/components/PageHeader';
 import { useLanguage } from '@/contexts/LanguageContext';
+import SEO from '@/components/SEO';
 
 const TG_ICON = (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -15,6 +16,19 @@ export function AboutPage() {
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
+      <SEO
+        canonical="/about"
+        ru={{
+          title: 'О нас — MOJO Poker Club',
+          description: 'MOJO Poker Club — официальный агент в сети GGClub и Massiv Poker Union. Рейкбек, поддержка, выгодные условия для покеристов. Контакт: @Mojo_Adm.',
+          keywords: 'MOJO Poker Club о нас, GGClub агент, Massiv Poker Union агент, покер поддержка, @Mojo_Adm',
+        }}
+        en={{
+          title: 'About Us — MOJO Poker Club',
+          description: 'MOJO Poker Club — official agent on GGClub and Massiv Poker Union network. Rakeback, support, best conditions for poker players. Contact: @Mojo_Adm.',
+          keywords: 'MOJO Poker Club about, GGClub agent, Massiv Poker Union agent, poker support, Telegram Mojo_Adm',
+        }}
+      />
       <Navbar />
       <PageHeader
         label={isRu ? 'О нас' : 'About Us'}
