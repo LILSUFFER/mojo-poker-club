@@ -45,7 +45,9 @@ export const translations = {
         feature3: "24/7 Global Action"
       },
       copied: "Copied!",
-      copyId: "Copy ID"
+      copyId: "Copy ID",
+      members: "Players",
+      tables: "Tables"
     },
     howToJoin: {
       title: "How to Join",
@@ -161,7 +163,9 @@ export const translations = {
         feature3: "Глобальная игра 24/7"
       },
       copied: "Скопировано!",
-      copyId: "Скопировать ID"
+      copyId: "Скопировать ID",
+      members: "Игроки",
+      tables: "Столы"
     },
     howToJoin: {
       title: "Как вступить",
