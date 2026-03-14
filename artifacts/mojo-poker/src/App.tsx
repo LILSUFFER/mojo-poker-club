@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Home } from "@/pages/Home";
 import { Download } from "@/pages/Download";
+import { MassivGuide } from "@/pages/MassivGuide";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -14,6 +15,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/download" component={Download} />
+      <Route path="/massiv-guide" component={MassivGuide} />
       <Route component={NotFound} />
     </Switch>
   );
