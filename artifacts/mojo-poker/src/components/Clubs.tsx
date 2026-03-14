@@ -18,18 +18,6 @@ export function Clubs() {
 
   const clubs = [
     {
-      id: 'mojo1',
-      clubId: '356323',
-      name: t('clubs.mojo.name'),
-      desc: t('clubs.mojo.desc'),
-      features: [t('clubs.mojo.feature1'), t('clubs.mojo.feature2'), t('clubs.mojo.feature3')],
-      logo: '/images/mojo1-logo.png',
-      logoBg: '#222222',
-      members: '5 000+',
-      tables: '200+',
-      badge: null,
-    },
-    {
       id: 'massiv',
       clubId: '799798',
       name: t('clubs.massiv.name'),
@@ -37,9 +25,25 @@ export function Clubs() {
       features: [t('clubs.massiv.feature1'), t('clubs.massiv.feature2'), t('clubs.massiv.feature3')],
       logo: '/images/mojo2-logo.png',
       logoBg: '#ffffff',
+      logoLabel: 'MOJO: Massiv Poker Union',
+      logoLabelColor: '#111111',
       members: '570+',
       tables: '233+',
       badge: '🇺🇸 Union',
+    },
+    {
+      id: 'mojo1',
+      clubId: '356323',
+      name: t('clubs.mojo.name'),
+      desc: t('clubs.mojo.desc'),
+      features: [t('clubs.mojo.feature1'), t('clubs.mojo.feature2'), t('clubs.mojo.feature3')],
+      logo: '/images/mojo1-logo.png',
+      logoBg: '#222222',
+      logoLabel: 'MOJO',
+      logoLabelColor: 'rgba(255,255,255,0.55)',
+      members: '5 000+',
+      tables: '200+',
+      badge: null,
     },
   ];
 
@@ -100,6 +104,10 @@ export function Clubs() {
               {/* Logo area — background matches the logo image */}
               <div style={{ position: 'relative', background: club.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 48px', minHeight: 200 }}>
                 <img src={club.logo} alt={club.name} style={{ width: '100%', maxWidth: 280, height: 'auto', display: 'block', objectFit: 'contain' }} />
+                {/* Club name label */}
+                <div style={{ position: 'absolute', bottom: 14, left: 18, fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: club.logoLabelColor }}>
+                  {club.logoLabel}
+                </div>
                 {club.badge && (
                   <div style={{ position: 'absolute', top: 14, right: 14 }}>
                     <img
