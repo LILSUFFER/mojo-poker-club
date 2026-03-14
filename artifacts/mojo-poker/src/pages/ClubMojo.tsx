@@ -105,24 +105,24 @@ export function ClubMojo() {
         ]}
       />
 
-      <main style={{ flex: 1, padding: isMobile ? '40px 0 64px' : '72px 0 100px' }}>
+      <main style={{ flex: 1, padding: isMobile ? '32px 0 64px' : '48px 0 96px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 20px' : '0 40px' }}>
 
           {/* ── Top: unified club info card ── */}
-          <div style={{ marginBottom: isMobile ? 36 : 56 }}>
+          <div style={{ marginBottom: isMobile ? 48 : 64 }}>
             <div style={{ borderRadius: 8, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', background: 'var(--bg-card)' }}>
 
-              {/* Club header: logo thumb + name */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 0, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                <div style={{ background: '#1a1a1a', width: 100, flexShrink: 0, alignSelf: 'stretch', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px 12px' }}>
-                  <img src="/images/mojo1-logo.png" alt="MOJO 1" style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }} />
+              {/* Club header: square logo + name */}
+              <div style={{ display: 'flex', alignItems: 'stretch', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <div style={{ width: 120, height: 120, flexShrink: 0, background: '#111', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRight: '1px solid rgba(255,255,255,0.06)' }}>
+                  <img src="/images/mojo1-logo.png" alt="MOJO 1" style={{ width: 88, height: 88, objectFit: 'contain', display: 'block' }} />
                 </div>
-                <div style={{ padding: '18px 24px' }}>
-                  <p style={{ margin: '0 0 3px', fontSize: 10, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600 }}>
+                <div style={{ padding: '28px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <p style={{ margin: '0 0 6px', fontSize: 10, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600 }}>
                     {isRu ? 'Название клуба' : 'Club Name'}
                   </p>
-                  <p style={{ margin: '0 0 4px', fontSize: 18, fontWeight: 700, color: 'white', lineHeight: 1.2 }}>MOJO 1</p>
-                  <p style={{ margin: 0, fontSize: 11, color: 'rgba(255,255,255,0.3)' }}>
+                  <p style={{ margin: '0 0 6px', fontSize: 20, fontWeight: 700, color: 'white', lineHeight: 1.2 }}>MOJO 1</p>
+                  <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.35)' }}>
                     {isRu ? 'Сеть ClubGG · GGClub' : 'ClubGG · GGClub network'}
                   </p>
                 </div>
@@ -132,16 +132,16 @@ export function ClubMojo() {
               <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
 
                 {/* Club ID */}
-                <div style={{ padding: '20px 24px', borderRight: isMobile ? 'none' : '1px solid rgba(255,255,255,0.06)', borderBottom: isMobile ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
+                <div style={{ padding: '24px 32px', borderRight: isMobile ? 'none' : '1px solid rgba(255,255,255,0.06)', borderBottom: isMobile ? '1px solid rgba(255,255,255,0.06)' : 'none' }}>
                   <p style={{ margin: '0 0 10px', fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>Club ID</p>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
-                    <span style={{ fontSize: 32, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.03em' }}>{CLUB_ID}</span>
+                    <span style={{ fontSize: 32, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.02em' }}>{CLUB_ID}</span>
                     <CopyBtn value={CLUB_ID} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
                   </div>
                 </div>
 
                 {/* Referral code */}
-                <div style={{ padding: '20px 24px' }}>
+                <div style={{ padding: '24px 32px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
@@ -151,18 +151,18 @@ export function ClubMojo() {
                     </p>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
-                    <span style={{ fontSize: 32, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.04em' }}>{REF_CODE}</span>
+                    <span style={{ fontSize: 26, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.06em', whiteSpace: 'nowrap' }}>{REF_CODE}</span>
                     <CopyBtn value={REF_CODE} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
                   </div>
-                  <p style={{ margin: '6px 0 0', fontSize: 11, color: 'rgba(255,255,255,0.3)', lineHeight: 1.5 }}>
+                  <p style={{ margin: '6px 0 0', fontSize: 12, color: 'rgba(255,255,255,0.3)', lineHeight: 1.5 }}>
                     {isRu ? 'Привязывает бонусы к аккаунту' : 'Links bonuses to your account'}
                   </p>
                 </div>
               </div>
 
               {/* CTA footer */}
-              <div style={{ padding: '16px 24px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' }}>
-                <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.35)', lineHeight: 1.5 }}>
+              <div style={{ padding: '20px 32px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap' }}>
+                <p style={{ margin: 0, fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.55 }}>
                   {isRu ? 'После заявки напишите менеджеру' : 'After applying, contact the manager'}{' '}
                   <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
                     style={{ color: 'rgba(37,211,102,0.75)', textDecoration: 'none', fontWeight: 600 }}
@@ -172,7 +172,7 @@ export function ClubMojo() {
                 </p>
                 <Link href="/join" style={{
                   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, flexShrink: 0,
-                  padding: '12px 28px', borderRadius: 4, textDecoration: 'none',
+                  padding: '13px 32px', borderRadius: 4, textDecoration: 'none', whiteSpace: 'nowrap',
                   background: 'hsl(4 80% 45%)', color: 'white',
                   fontSize: 14, fontWeight: 700, transition: 'background 0.15s',
                 }}
