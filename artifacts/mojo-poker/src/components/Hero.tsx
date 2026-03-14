@@ -8,64 +8,63 @@ export function Hero() {
   const base = import.meta.env.BASE_URL;
 
   return (
-    <section style={{ minHeight: '100vh', paddingTop: 64, background: 'var(--bg)', overflow: 'hidden', position: 'relative', display: 'flex', alignItems: 'center' }}>
+    <section style={{ minHeight: '100vh', paddingTop: 60, background: 'var(--bg)', overflow: 'hidden', position: 'relative', display: 'flex', alignItems: 'center' }}>
+      <div style={{ width: '100%', maxWidth: 1280, margin: '0 auto', padding: '60px 32px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center', position: 'relative', zIndex: 2 }}>
 
-      <div style={{ width: '100%', maxWidth: 1280, margin: '0 auto', padding: '60px 32px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center', position: 'relative', zIndex: 2 }}>
-
-        {/* Left: text */}
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {/* Network badge */}
+          {/* Label */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 28, alignSelf: 'flex-start', padding: '5px 12px 5px 8px', borderRadius: 20, border: '1px solid rgba(204,21,21,0.2)', background: 'rgba(204,21,21,0.06)' }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 24, alignSelf: 'flex-start' }}
           >
-            <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#22c55e', display: 'inline-block', boxShadow: '0 0 6px #22c55e' }} />
-            <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-muted)' }}>ClubGG Network • Online</span>
+            <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text-faint)' }}>/// ClubGG Network</span>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e', display: 'inline-block' }} />
+            <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-faint)' }}>Online</span>
           </motion.div>
 
-          {/* Headline */}
+          {/* Headline — plozilla style: white + muted grey inline */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            style={{ fontSize: 'clamp(36px, 4.5vw, 62px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 20, color: 'var(--text)', letterSpacing: '-0.03em' }}
-          >
-            {t('hero.title')}{' '}
-            <span style={{ color: 'hsl(4 80% 50%)' }}>{t('hero.titleHighlight')}</span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            style={{ fontSize: 'clamp(36px, 4.5vw, 60px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 20, letterSpacing: '-0.03em' }}
+          >
+            <span style={{ color: 'var(--text)' }}>{t('hero.title')}</span>{' '}
+            <span style={{ color: 'var(--text-muted)' }}>{t('hero.titleHighlight')}</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            style={{ fontSize: 'clamp(15px, 1.5vw, 17px)', color: 'var(--text-muted)', marginBottom: 36, lineHeight: 1.7, maxWidth: 440 }}
+            style={{ fontSize: 'clamp(15px, 1.4vw, 17px)', color: 'var(--text-faint)', marginBottom: 36, lineHeight: 1.7, maxWidth: 420 }}
           >
             {t('hero.subtitle')}
           </motion.p>
 
-          {/* CTAs */}
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 44 }}
+            style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 48 }}
           >
-            <Link href="/download"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 24px', borderRadius: 9, background: 'hsl(4 80% 45%)', color: 'white', fontWeight: 600, fontSize: 15, textDecoration: 'none', transition: 'all 0.15s', letterSpacing: '-0.01em' }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(4 80% 38%)'; el.style.transform = 'translateY(-1px)'; }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'hsl(4 80% 45%)'; el.style.transform = 'translateY(0)'; }}
-            >
-              {t('hero.cta')} <ArrowRight size={15} />
-            </Link>
+            {/* Primary CTA — outlined white */}
             <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 22px', borderRadius: 9, border: '1px solid var(--button-outline)', background: 'transparent', color: 'var(--text)', fontWeight: 500, fontSize: 15, textDecoration: 'none', transition: 'all 0.15s', letterSpacing: '-0.01em' }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.22)'; el.style.background = 'var(--elevate-1)'; }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'var(--button-outline)'; el.style.background = 'transparent'; }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 22px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.25)', background: 'transparent', color: 'white', fontWeight: 600, fontSize: 14, textDecoration: 'none', transition: 'all 0.15s', letterSpacing: '-0.01em' }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.55)'; el.style.background = 'rgba(255,255,255,0.05)'; }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.25)'; el.style.background = 'transparent'; }}
             >
-              <MessageCircle size={15} /> {t('hero.secondaryCta')}
+              {t('hero.cta')} <ArrowRight size={14} />
+            </a>
+            {/* Secondary CTA */}
+            <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 20px', borderRadius: 4, border: '1px solid var(--border-subtle)', background: 'transparent', color: 'var(--text-muted)', fontWeight: 500, fontSize: 14, textDecoration: 'none', transition: 'all 0.15s', letterSpacing: '-0.01em' }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.15)'; el.style.color = 'var(--text)'; }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'var(--border-subtle)'; el.style.color = 'var(--text-muted)'; }}
+            >
+              <MessageCircle size={14} /> {t('hero.secondaryCta')}
             </a>
           </motion.div>
 
@@ -73,8 +72,8 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            style={{ display: 'flex', gap: 32, paddingTop: 24, borderTop: '1px solid var(--border-subtle)' }}
+            transition={{ delay: 0.35 }}
+            style={{ display: 'flex', gap: 36, paddingTop: 24, borderTop: '1px solid var(--border-subtle)' }}
           >
             {[['5 000+', t('about.stats.players')], ['200+', t('about.stats.tables')], ['24/7', t('about.stats.support')]].map(([val, label]) => (
               <div key={label}>
@@ -85,18 +84,16 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right: image */}
+        {/* Right: image — no glow */}
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
+          initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          style={{ position: 'relative' }}
         >
-          <div style={{ position: 'absolute', inset: -40, background: 'radial-gradient(ellipse, rgba(180,40,0,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
           <img
             src={`${base}images/ggclub-hero.png`}
             alt="GGClub Poker App"
-            style={{ width: '100%', display: 'block', borderRadius: 14, position: 'relative', zIndex: 1 }}
+            style={{ width: '100%', display: 'block', borderRadius: 6 }}
           />
         </motion.div>
       </div>
