@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Send, ShieldCheck, Zap } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 export function Contact() {
   const { t } = useLanguage();
@@ -29,17 +29,6 @@ export function Contact() {
             {t('contact.btn')}
           </a>
 
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 32, marginTop: 44, flexWrap: 'wrap' }}>
-            {[
-              { icon: <ShieldCheck size={14} />, label: t('contact.note').split(' • ')[1] || 'Безопасные депозиты' },
-              { icon: <Zap size={14} />, label: t('contact.note').split(' • ')[2] || 'Мгновенные выводы' },
-            ].map(({ icon, label }) => (
-              <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 7, color: 'var(--text-faint)', fontSize: 13 }}>
-                <span style={{ color: 'hsl(4 80% 45%)' }}>{icon}</span>
-                {label}
-              </div>
-            ))}
-          </div>
         </motion.div>
       </div>
     </section>

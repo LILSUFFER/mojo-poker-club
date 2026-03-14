@@ -23,14 +23,9 @@ export function Footer() {
             ))}
           </div>
 
-          <div style={{ textAlign: 'right' }}>
-            <p style={{ fontSize: 12, color: 'var(--text-faint)' }}>
-              © {new Date().getFullYear()} MOJO Poker Club. {t('footer.rights')}
-            </p>
-            <p style={{ fontSize: 11, color: 'hsl(220 5% 28%)', marginTop: 3 }}>
-              {t('footer.disclaimer')}
-            </p>
-          </div>
+          <p style={{ fontSize: 12, color: 'var(--text-faint)' }}>
+            © {new Date().getFullYear()} MOJO Poker Club. {t('footer.rights')}
+          </p>
         </div>
       </div>
     </footer>

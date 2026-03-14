@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { ArrowRight, MessageCircle, Shield, Zap } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Link } from 'wouter';
 
 export function Hero() {
@@ -67,27 +67,6 @@ export function Hero() {
             >
               <MessageCircle size={15} /> {t('hero.secondaryCta')}
             </a>
-          </motion.div>
-
-          {/* Divider */}
-          <div style={{ width: 32, height: 1, background: 'var(--border-color)', marginBottom: 24 }} />
-
-          {/* Trust points */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 40 }}
-          >
-            {[
-              { icon: <Shield size={13} />, text: t('contact.note').split(' • ')[1] || 'Безопасные депозиты' },
-              { icon: <Zap size={13} />, text: t('contact.note').split(' • ')[2] || 'Мгновенные выводы' },
-            ].map(({ icon, text }) => (
-              <div key={text} style={{ display: 'flex', alignItems: 'center', gap: 9, color: 'var(--text-faint)', fontSize: 13 }}>
-                <span style={{ color: 'hsl(4 80% 50%)', flexShrink: 0 }}>{icon}</span>
-                {text}
-              </div>
-            ))}
           </motion.div>
 
           {/* Stats */}

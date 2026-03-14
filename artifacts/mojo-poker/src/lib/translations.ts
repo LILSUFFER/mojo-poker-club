@@ -35,7 +35,7 @@ export const translations = {
         desc: "Our flagship club offering exclusive tables, daily tournaments, and a tight-knit community of dedicated players.",
         feature1: "Exclusive VIP Tables",
         feature2: "Weekly Freerolls",
-        feature3: "Instant Cashouts"
+        feature3: "Active Tables 24/7"
       },
       massiv: {
         name: "MOJO 2 Massiv Union 🇺🇸",
@@ -112,11 +112,11 @@ export const translations = {
       title: "Ready to Play?",
       subtitle: "Contact our 24/7 support team to get your Club ID and start your journey.",
       btn: "Message on Telegram",
-      note: "Fast response • Secure deposits • Instant withdrawals"
+      note: "Fast response • Personal manager • Active 24/7"
     },
     footer: {
       rights: "All rights reserved.",
-      disclaimer: "You must be 18+ to play. Play responsibly."
+      disclaimer: ""
     }
   },
   ru: {
@@ -230,11 +230,11 @@ export const translations = {
       title: "Готовы играть?",
       subtitle: "Свяжитесь с нашей круглосуточной службой поддержки, чтобы получить ID клуба и начать свой путь.",
       btn: "Написать в Telegram",
-      note: "Быстрые ответы • Безопасные депозиты • Мгновенные выводы"
+      note: "Быстрые ответы • Персональный менеджер • Онлайн 24/7"
     },
     footer: {
       rights: "Все права защищены.",
-      disclaimer: "Для игры вам должно быть больше 18 лет. Играйте ответственно."
+      disclaimer: ""
     }
   }
 };

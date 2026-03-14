@@ -4,13 +4,13 @@ import { ShieldCheck, Zap, Globe } from 'lucide-react';
 
 const featuresData = {
   ru: [
-    { icon: ShieldCheck, title: 'Безопасность', desc: 'Лицензированная платформа с защитой средств игроков' },
-    { icon: Zap, title: 'Быстрые выплаты', desc: 'Вывод средств в течение нескольких часов' },
+    { icon: ShieldCheck, title: 'Надёжность', desc: 'Клуб с проверенной репутацией и тысячами игроков' },
+    { icon: Zap, title: 'Активная игра', desc: 'Столы с живым трафиком в любое время суток' },
     { icon: Globe, title: 'Поддержка 24/7', desc: 'Персональный менеджер всегда на связи' },
   ],
   en: [
-    { icon: ShieldCheck, title: 'Security', desc: 'Licensed platform with full player fund protection' },
-    { icon: Zap, title: 'Fast Payouts', desc: 'Withdrawals processed within hours, not days' },
+    { icon: ShieldCheck, title: 'Trusted Club', desc: 'Proven reputation and thousands of active players' },
+    { icon: Zap, title: 'Active Games', desc: 'Live tables with real traffic around the clock' },
     { icon: Globe, title: '24/7 Support', desc: 'Personal manager always available for you' },
   ],
 };
