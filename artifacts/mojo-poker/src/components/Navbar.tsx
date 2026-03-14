@@ -1,19 +1,129 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X, Download, Globe } from 'lucide-react';
+import { Menu, X, Download, Globe, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
+
+const linkStyle = {
+  color: 'rgba(255,255,255,0.5)',
+  fontSize: 14,
+  fontWeight: 500,
+  textDecoration: 'none',
+  padding: '6px 14px',
+  borderRadius: 4,
+  transition: 'color 0.15s',
+  display: 'flex',
+  alignItems: 'center',
+  gap: 4,
+  cursor: 'pointer',
+  background: 'none',
+  border: 'none',
+  fontFamily: 'inherit',
+};
+
+interface DropItem { label: string; href: string; external?: boolean }
+
+function DropMenu({ label, items }: { label: string; items: DropItem[] }) {
+  const [open, setOpen] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const show = () => {
+    if (timer.current) clearTimeout(timer.current);
+    setOpen(true);
+  };
+  const hide = () => {
+    timer.current = setTimeout(() => setOpen(false), 120);
+  };
+
+  return (
+    <div style={{ position: 'relative' }} onMouseEnter={show} onMouseLeave={hide}>
+      <button style={linkStyle as React.CSSProperties}
+        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}
+        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
+      >
+        {label}
+        <ChevronDown size={12} style={{ opacity: 0.6, transition: 'transform 0.15s', transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }} />
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.15 }}
+            style={{
+              position: 'absolute', top: '100%', left: 0,
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border-subtle)',
+              borderRadius: 6, padding: '6px 0',
+              minWidth: 210, zIndex: 100,
+              boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+            }}
+          >
+            {items.map(item => (
+              item.external ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  style={{ display: 'block', padding: '9px 18px', fontSize: 13, color: 'rgba(255,255,255,0.6)', textDecoration: 'none', transition: 'all 0.12s', whiteSpace: 'nowrap' }}
+                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255,255,255,0.05)'; el.style.color = 'white'; }}
+                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.color = 'rgba(255,255,255,0.6)'; }}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  style={{ display: 'block', padding: '9px 18px', fontSize: 13, color: 'rgba(255,255,255,0.6)', textDecoration: 'none', transition: 'all 0.12s', whiteSpace: 'nowrap' }}
+                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(255,255,255,0.05)'; el.style.color = 'white'; }}
+                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'transparent'; el.style.color = 'rgba(255,255,255,0.6)'; }}
+                >
+                  {item.label}
+                </Link>
+              )
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export function Navbar() {
   const { language, setLanguage, t } = useLanguage();
   const [open, setOpen] = useState(false);
   const [location] = useLocation();
   const isHome = location === '/';
+  const isRu = language === 'ru';
 
-  const navLinks = [
-    { label: t('nav.about'), href: isHome ? '#about' : '/#about' },
-    { label: t('nav.clubs'), href: isHome ? '#clubs' : '/#clubs' },
-    { label: t('nav.howToJoin'), href: isHome ? '#how-to-join' : '/#how-to-join' },
+  const clubItems: DropItem[] = [
+    { label: 'MOJO: Massiv Poker Union', href: isHome ? '#clubs' : '/#clubs' },
+    { label: 'MOJO', href: isHome ? '#clubs' : '/#clubs' },
+  ];
+
+  const joinItems: DropItem[] = isRu ? [
+    { label: 'Скачать GGClub', href: '/download' },
+    { label: 'Создание аккаунта', href: '/massiv-guide' },
+    { label: 'Подключение клуба', href: '/join' },
+  ] : [
+    { label: 'Download GGClub', href: '/download' },
+    { label: 'Create Account', href: '/massiv-guide' },
+    { label: 'Connect to Club', href: '/join' },
+  ];
+
+  const mobileLinks = [
+    { label: isRu ? 'Наши клубы' : 'Our Clubs', href: isHome ? '#clubs' : '/#clubs' },
+    { label: isRu ? 'Скачать GGClub' : 'Download GGClub', href: '/download' },
+    { label: isRu ? 'Создание аккаунта' : 'Create Account', href: '/massiv-guide' },
+    { label: isRu ? 'Подключение клуба' : 'Connect to Club', href: '/join' },
+    { label: isRu ? 'О нас' : 'About', href: isHome ? '#about' : '/#about' },
+    { label: isRu ? 'Отзывы' : 'Reviews', href: isHome ? '#reviews' : '/#reviews' },
   ];
 
   return (
@@ -36,13 +146,18 @@ export function Navbar() {
           </Link>
 
           <div className="nav-desktop" style={{ alignItems: 'center', gap: 0 }}>
-          {navLinks.map(link => (
-            <a key={link.label} href={link.href}
-              style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, fontWeight: 500, textDecoration: 'none', padding: '6px 14px', borderRadius: 4, transition: 'color 0.15s' }}
+            <DropMenu label={isRu ? 'Наши клубы' : 'Our Clubs'} items={clubItems} />
+            <DropMenu label={isRu ? 'Как вступить' : 'How to Join'} items={joinItems} />
+            <a href={isHome ? '#about' : '/#about'}
+              style={linkStyle as React.CSSProperties}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
-            >{link.label}</a>
-          ))}
+            >{isRu ? 'О нас' : 'About'}</a>
+            <a href={isHome ? '#reviews' : '/#reviews'}
+              style={linkStyle as React.CSSProperties}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
+            >{isRu ? 'Отзывы' : 'Reviews'}</a>
           </div>
         </div>
 
@@ -57,7 +172,6 @@ export function Navbar() {
             {language === 'en' ? 'RU' : 'EN'}
           </button>
 
-          {/* Download — RED */}
           <Link href="/download"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '7px 16px', borderRadius: 4, background: 'hsl(4 80% 45%)', color: 'white', fontSize: 13, fontWeight: 600, textDecoration: 'none', transition: 'background 0.15s' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(4 80% 38%)'; }}
@@ -67,7 +181,6 @@ export function Navbar() {
             {t('nav.download')}
           </Link>
 
-          {/* Contact — outline */}
           <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
             style={{ display: 'inline-flex', alignItems: 'center', padding: '7px 16px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.85)', fontSize: 13, fontWeight: 600, textDecoration: 'none', transition: 'all 0.15s', whiteSpace: 'nowrap' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.4)'; (e.currentTarget as HTMLElement).style.color = 'white'; }}
@@ -94,7 +207,7 @@ export function Navbar() {
             style={{ background: 'var(--bg)', borderTop: '1px solid var(--border-subtle)', overflow: 'hidden' }}
           >
             <div style={{ padding: '16px 24px 24px', display: 'flex', flexDirection: 'column', gap: 4 }}>
-              {navLinks.map(link => (
+              {mobileLinks.map(link => (
                 <a key={link.label} href={link.href} onClick={() => setOpen(false)}
                   style={{ color: 'rgba(255,255,255,0.7)', fontSize: 16, fontWeight: 500, textDecoration: 'none', padding: '10px 12px', borderRadius: 4 }}>
                   {link.label}
