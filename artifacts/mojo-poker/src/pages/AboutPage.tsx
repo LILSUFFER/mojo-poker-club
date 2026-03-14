@@ -2,6 +2,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageHeader } from '@/components/PageHeader';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/useIsMobile';
 import SEO from '@/components/SEO';
 
 const TG_ICON = (
@@ -13,6 +14,7 @@ const TG_ICON = (
 export function AboutPage() {
   const { language } = useLanguage();
   const isRu = language === 'ru';
+  const isMobile = useIsMobile();
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
@@ -42,11 +44,11 @@ export function AboutPage() {
         ]}
       />
 
-      <main style={{ flex: 1, padding: '72px 0 100px' }}>
-        <div style={{ maxWidth: 860, margin: '0 auto', padding: '0 48px' }}>
+      <main style={{ flex: 1, padding: isMobile ? '40px 0 64px' : '72px 0 100px' }}>
+        <div style={{ maxWidth: 860, margin: '0 auto', padding: isMobile ? '0 20px' : '0 48px' }}>
 
           {/* Main info */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, marginBottom: 72, alignItems: 'start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 32 : 48, marginBottom: isMobile ? 48 : 72, alignItems: 'start' }}>
 
             {/* Left: about text */}
             <div>
@@ -104,7 +106,7 @@ export function AboutPage() {
             <p style={{ margin: '0 0 24px', fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase' }}>
               {isRu ? '/// Сообщество' : '/// Community'}
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
               <a
                 href="https://t.me/MOJOPoker"
                 target="_blank"
@@ -165,15 +167,15 @@ export function AboutPage() {
 
           {/* Massiv Union mention */}
           <div style={{
-            padding: '28px 32px', borderRadius: 8,
+            padding: isMobile ? '20px' : '28px 32px', borderRadius: 8,
             background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
             border: '1px solid rgba(255,255,255,0.07)',
-            display: 'flex', alignItems: 'center', gap: 24,
+            display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'flex-start' : 'center', gap: isMobile ? 16 : 24,
           }}>
             <img
               src="/images/massiv-union-logo-nobg.png"
               alt="Massiv Union"
-              style={{ width: 100, height: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.35, flexShrink: 0 }}
+              style={{ width: isMobile ? 70 : 100, height: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.35, flexShrink: 0 }}
             />
             <div>
               <p style={{ margin: '0 0 6px', fontSize: 14, fontWeight: 700, color: 'rgba(255,255,255,0.8)' }}>
