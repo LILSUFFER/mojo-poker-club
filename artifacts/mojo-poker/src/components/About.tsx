@@ -143,20 +143,23 @@ export function About() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.12 + i * 0.08 }}
                 style={{
+                  padding: '28px 32px',
                   borderRadius: 4,
                   border: '1px solid rgba(255,255,255,0.1)',
                   background: 'var(--bg-card)',
-                  overflow: 'hidden',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 28,
                   transition: 'border-color 0.2s',
                   cursor: 'default',
                 }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.22)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.10)'; }}
               >
-                <div style={{ width: '100%', aspectRatio: '4/3', overflow: 'hidden' }}>
+                <div style={{ flexShrink: 0, width: 120, height: 120, borderRadius: 8, overflow: 'hidden' }}>
                   <img src={p.img} alt={p.label} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
-                <div style={{ padding: '20px 24px' }}>
+                <div>
                   <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.03em', lineHeight: 1 }}>
                     {p.value}
                   </div>
