@@ -1,44 +1,7 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'wouter';
-
-function UnionBadge() {
-  return (
-    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-      {/* Shield shape */}
-      <path d="M32 4 L56 14 L56 36 C56 50 44 60 32 62 C20 60 8 50 8 36 L8 14 Z"
-        fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="1.2" />
-
-      {/* Globe */}
-      <circle cx="32" cy="31" r="13" fill="none" stroke="rgba(255,255,255,0.55)" strokeWidth="1.2" />
-      {/* Latitude lines */}
-      <ellipse cx="32" cy="31" rx="6" ry="13" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="0.9" />
-      <line x1="19" y1="31" x2="45" y2="31" stroke="rgba(255,255,255,0.3)" strokeWidth="0.9" />
-      <line x1="20" y1="25" x2="44" y2="25" stroke="rgba(255,255,255,0.2)" strokeWidth="0.7" />
-      <line x1="20" y1="37" x2="44" y2="37" stroke="rgba(255,255,255,0.2)" strokeWidth="0.7" />
-
-      {/* Left laurel */}
-      <path d="M10 30 Q8 26 11 23 Q9 27 12 28 Q10 24 14 22 Q12 26 15 27 Q13 23 17 22 Q15 26 18 28"
-        fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeLinecap="round" />
-      {/* Right laurel */}
-      <path d="M54 30 Q56 26 53 23 Q55 27 52 28 Q54 24 50 22 Q52 26 49 27 Q51 23 47 22 Q49 26 46 28"
-        fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1" strokeLinecap="round" />
-
-      {/* UNION text */}
-      <text x="32" y="52" textAnchor="middle" fill="rgba(255,255,255,0.7)"
-        fontSize="7" fontWeight="700" letterSpacing="1.5" fontFamily="system-ui, sans-serif">
-        UNION
-      </text>
-
-      {/* Stars */}
-      <g fill="rgba(255,255,255,0.35)">
-        <polygon points="26,57 26.4,58.2 27.6,58.2 26.7,58.9 27,60.1 26,59.4 25,60.1 25.3,58.9 24.4,58.2 25.6,58.2" transform="scale(0.6) translate(16,36)"/>
-        <polygon points="26,57 26.4,58.2 27.6,58.2 26.7,58.9 27,60.1 26,59.4 25,60.1 25.3,58.9 24.4,58.2 25.6,58.2" transform="scale(0.6) translate(26,36)"/>
-        <polygon points="26,57 26.4,58.2 27.6,58.2 26.7,58.9 27,60.1 26,59.4 25,60.1 25.3,58.9 24.4,58.2 25.6,58.2" transform="scale(0.6) translate(36,36)"/>
-      </g>
-    </svg>
-  );
-}
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 const perksData = {
   ru: [
@@ -73,13 +36,13 @@ const perksData = {
 
 export function About() {
   const { t, language } = useLanguage();
+  const isMobile = useIsMobile();
   const perks = perksData[language];
-
   const isRu = language === 'ru';
 
   return (
-    <section id="about" style={{ padding: '100px 0', background: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)' }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
+    <section id="about" style={{ padding: isMobile ? '60px 0' : '100px 0', background: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: isMobile ? '0 20px' : '0 32px' }}>
 
         {/* ── TOP: Massiv Union perks ── */}
         <motion.div
@@ -92,7 +55,7 @@ export function About() {
           <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 14 }}>
             /// {t('about.title')}
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 48 }}>
+          <div style={{ display: 'flex', alignItems: isMobile ? 'flex-start' : 'center', gap: isMobile ? 0 : 48, flexDirection: isMobile ? 'column' : 'row' }}>
             {/* Left: badge + text */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 24, flex: '1 1 auto' }}>
               <div style={{ flexShrink: 0, paddingTop: 4 }}>
@@ -103,7 +66,7 @@ export function About() {
                 />
               </div>
               <div>
-                <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em', margin: '0 0 10px 0' }}>
+                <h2 style={{ fontSize: isMobile ? 26 : 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em', margin: '0 0 10px 0' }}>
                   {isRu ? 'Лучшие условия на рынке' : 'Best Conditions on the Market'}
                 </h2>
                 <p style={{ fontSize: 15, color: 'var(--text-faint)', letterSpacing: '0.01em', marginBottom: 16 }}>
@@ -136,14 +99,16 @@ export function About() {
                 </Link>
               </div>
             </div>
-            {/* Right: Massiv Union logo */}
-            <div style={{ flexShrink: 0 }}>
-              <img
-                src="/images/massiv-union-logo-nobg.png"
-                alt="Massiv Union ClubGG"
-                style={{ width: 280, height: 'auto', display: 'block', filter: 'brightness(0) invert(1)', opacity: 0.55 }}
-              />
-            </div>
+            {/* Right: Massiv Union logo — hidden on mobile */}
+            {!isMobile && (
+              <div style={{ flexShrink: 0 }}>
+                <img
+                  src="/images/massiv-union-logo-nobg.png"
+                  alt="Massiv Union ClubGG"
+                  style={{ width: 280, height: 'auto', display: 'block', filter: 'brightness(0) invert(1)', opacity: 0.55 }}
+                />
+              </div>
+            )}
           </div>
         </motion.div>
 
@@ -153,7 +118,7 @@ export function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12, marginBottom: 80 }}
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12, marginBottom: isMobile ? 0 : 80 }}
         >
           {perks.map((p, i) => {
             return (
@@ -164,7 +129,7 @@ export function About() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.12 + i * 0.08 }}
                 style={{
-                  padding: '28px 32px',
+                  padding: isMobile ? '20px 24px' : '28px 32px',
                   borderRadius: 4,
                   border: '1px solid rgba(255,255,255,0.1)',
                   background: 'var(--bg-card)',
@@ -177,11 +142,11 @@ export function About() {
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.22)'; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.10)'; }}
               >
-                <div style={{ flexShrink: 0, width: 120, height: 120, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ flexShrink: 0, width: isMobile ? 80 : 120, height: isMobile ? 80 : 120, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <img src={p.img} alt={p.label} style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
                 </div>
                 <div>
-                  <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.03em', lineHeight: 1 }}>
+                  <div style={{ fontSize: isMobile ? 26 : 32, fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.03em', lineHeight: 1 }}>
                     {p.value}
                   </div>
                   <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-muted)', marginTop: 4, letterSpacing: '0.04em', textTransform: 'uppercase' }}>

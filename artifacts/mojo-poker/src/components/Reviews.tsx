@@ -1,4 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 interface Review {
   name: string;
@@ -78,23 +79,24 @@ function Stars({ count }: { count: number }) {
 
 export function Reviews() {
   const { language } = useLanguage();
+  const isMobile = useIsMobile();
   const isRu = language === 'ru';
 
   return (
-    <section id="reviews" style={{ padding: '100px 0', background: 'var(--bg)' }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ marginBottom: 56 }}>
+    <section id="reviews" style={{ padding: isMobile ? '60px 0' : '100px 0', background: 'var(--bg)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: isMobile ? '0 20px' : '0 32px' }}>
+        <div style={{ marginBottom: isMobile ? 36 : 56 }}>
           <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', color: 'var(--text-faint)', textTransform: 'uppercase', marginBottom: 14 }}>
             /// {isRu ? 'ОТЗЫВЫ' : 'REVIEWS'}
           </p>
-          <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, color: 'var(--text)', margin: 0, lineHeight: 1.1, letterSpacing: '-0.025em', fontFamily: 'Space Grotesk, sans-serif' }}>
+          <h2 style={{ fontSize: isMobile ? 26 : 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, color: 'var(--text)', margin: 0, lineHeight: 1.1, letterSpacing: '-0.025em', fontFamily: 'Space Grotesk, sans-serif' }}>
             {isRu ? 'Что говорят игроки' : 'What Players Say'}
           </h2>
         </div>
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(300px, 1fr))',
           gap: 16,
         }}>
           {reviews.map((r) => (

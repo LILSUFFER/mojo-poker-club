@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 const featuresData = {
   ru: [
@@ -16,12 +17,13 @@ const featuresData = {
 
 export function PremiumExperience() {
   const { t, language } = useLanguage();
+  const isMobile = useIsMobile();
   const features = featuresData[language];
 
   return (
-    <section style={{ padding: '100px 0', background: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)' }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 80, alignItems: 'center' }}>
+    <section style={{ padding: isMobile ? '60px 0' : '100px 0', background: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: isMobile ? '0 20px' : '0 32px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: isMobile ? 32 : 80, alignItems: 'center' }}>
 
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -29,7 +31,7 @@ export function PremiumExperience() {
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
           >
-            <h2 style={{ fontSize: 'clamp(22px, 2.8vw, 34px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em', marginBottom: 20 }}>
+            <h2 style={{ fontSize: isMobile ? 24 : 'clamp(22px, 2.8vw, 34px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em', marginBottom: 20 }}>
               {t('about.subtitle')}
             </h2>
             <p style={{ color: 'var(--text-faint)', fontSize: 15, lineHeight: 1.75, marginBottom: 16 }}>

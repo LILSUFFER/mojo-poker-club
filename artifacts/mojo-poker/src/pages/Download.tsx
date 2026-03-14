@@ -3,6 +3,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageHeader } from '@/components/PageHeader';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 const CLUBGG_URL = 'https://www.clubgg.com/';
 
@@ -48,6 +49,7 @@ const devices = [
 export function Download() {
   const { language } = useLanguage();
   const isRu = language === 'ru';
+  const isMobile = useIsMobile();
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
@@ -63,11 +65,11 @@ export function Download() {
         ]}
       />
 
-      <main style={{ flex: 1, padding: '56px 0 80px' }}>
-        <div style={{ maxWidth: 1000, margin: '0 auto', padding: '0 40px', width: '100%' }}>
+      <main style={{ flex: 1, padding: isMobile ? '40px 0 60px' : '56px 0 80px' }}>
+        <div style={{ maxWidth: 1000, margin: '0 auto', padding: isMobile ? '0 20px' : '0 40px', width: '100%', boxSizing: 'border-box' }}>
 
-          {/* Two blocks side by side */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+          {/* Two blocks side by side → stack on mobile */}
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
 
             {/* Block 1 */}
             <div style={{
@@ -189,7 +191,7 @@ export function Download() {
             <p style={{ margin: '0 0 20px', fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)' }}>
               {isRu ? 'Что дальше?' : 'What\'s next?'}
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 12 }}>
 
               <Link href="/create-account" style={{ textDecoration: 'none' }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.18)'; }}

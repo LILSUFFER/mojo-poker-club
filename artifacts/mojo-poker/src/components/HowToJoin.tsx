@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/useIsMobile';
 import { Download, Search, MessageCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'wouter';
 
 export function HowToJoin() {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
 
   const steps = [
     { num: '01', icon: Download, title: t('howToJoin.step1.title'), desc: t('howToJoin.step1.desc'), extra: 'download' },
@@ -13,19 +15,19 @@ export function HowToJoin() {
   ];
 
   return (
-    <section id="how-to-join" style={{ padding: '100px 0', background: 'var(--bg)' }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
+    <section id="how-to-join" style={{ padding: isMobile ? '60px 0' : '100px 0', background: 'var(--bg)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: isMobile ? '0 20px' : '0 32px' }}>
 
-        <div style={{ marginBottom: 56 }}>
+        <div style={{ marginBottom: isMobile ? 36 : 56 }}>
           <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 16 }}>
             /// {t('howToJoin.title')}
           </div>
-          <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em' }}>
+          <h2 style={{ fontSize: isMobile ? 26 : 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em' }}>
             {t('howToJoin.subtitle')}
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 2, marginBottom: 48 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 2, marginBottom: 36 }}>
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (
