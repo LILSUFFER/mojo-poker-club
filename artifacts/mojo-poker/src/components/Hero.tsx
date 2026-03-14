@@ -14,7 +14,7 @@ function DeviceMacbook({ src }: { src: string }) {
     <div className="device device-macbook-pro" style={{ zoom: MAC_ZOOM }}>
       <div className="device-frame">
         <img className="device-screen" src={src} alt="Poker on MacBook"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }} />
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }} />
       </div>
       <div className="device-stripe" />
       <div className="device-header" />
