@@ -1,32 +1,132 @@
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'wouter';
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
+  const isRu = language === 'ru';
+
+  const cols = isRu ? [
+    {
+      heading: 'Навигация',
+      links: [
+        { label: 'О нас', href: '/#about' },
+        { label: 'Наши клубы', href: '/#clubs' },
+        { label: 'Как вступить', href: '/join' },
+      ],
+    },
+    {
+      heading: 'Инструкции',
+      links: [
+        { label: 'Скачать ClubGG', href: '/download' },
+        { label: 'Как установить', href: '/install' },
+        { label: 'Аккаунт для Massiv', href: '/massiv-guide' },
+      ],
+    },
+    {
+      heading: 'Контакты',
+      links: [
+        { label: '@Mojo_Adm в Telegram', href: 'https://t.me/Mojo_Adm', external: true },
+      ],
+    },
+  ] : [
+    {
+      heading: 'Navigation',
+      links: [
+        { label: 'About', href: '/#about' },
+        { label: 'Our Clubs', href: '/#clubs' },
+        { label: 'How to Join', href: '/join' },
+      ],
+    },
+    {
+      heading: 'Guides',
+      links: [
+        { label: 'Download ClubGG', href: '/download' },
+        { label: 'How to Install', href: '/install' },
+        { label: 'Massiv Account Guide', href: '/massiv-guide' },
+      ],
+    },
+    {
+      heading: 'Contact',
+      links: [
+        { label: '@Mojo_Adm on Telegram', href: 'https://t.me/Mojo_Adm', external: true },
+      ],
+    },
+  ];
 
   return (
-    <footer style={{ background: 'var(--bg)', borderTop: '1px solid var(--border-subtle)', padding: '28px 0' }}>
+    <footer style={{ background: 'var(--bg)', borderTop: '1px solid var(--border-subtle)', paddingTop: 56, paddingBottom: 32 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
 
-          <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 20, color: 'var(--text-faint)', letterSpacing: '0.06em' }}>MOJO</span>
+        {/* Top row: logo + columns */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto auto auto', gap: 48, alignItems: 'start', marginBottom: 48 }}>
 
-          <div style={{ display: 'flex', gap: 24 }}>
-            {[
-              ['#about', t('nav.about')],
-              ['#clubs', t('nav.clubs')],
-              ['#how-to-join', t('nav.howToJoin')],
-            ].map(([href, label]) => (
-              <a key={href} href={href} style={{ fontSize: 13, color: 'var(--text-faint)', textDecoration: 'none', transition: 'color 0.15s' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-faint)'; }}
-              >{label}</a>
-            ))}
+          {/* Brand */}
+          <div>
+            <Link href="/" style={{ display: 'inline-block', textDecoration: 'none', marginBottom: 12 }}>
+              <span style={{ fontFamily: 'Anton, Impact, sans-serif', fontSize: 28, color: 'var(--text)', letterSpacing: '0.06em', lineHeight: 1 }}>MOJO</span>
+            </Link>
+            <p style={{ fontSize: 13, color: 'var(--text-faint)', lineHeight: 1.6, maxWidth: 220, margin: 0 }}>
+              {isRu
+                ? 'Покерный клуб в сети ClubGG. Премиум столы, честная игра, VIP поддержка 24/7.'
+                : 'Poker club on ClubGG network. Premium tables, fair play, VIP support 24/7.'}
+            </p>
           </div>
 
-          <p style={{ fontSize: 12, color: 'var(--text-faint)' }}>
-            © {new Date().getFullYear()} MOJO Poker Club. {t('footer.rights')}
-          </p>
+          {/* Link columns */}
+          {cols.map(col => (
+            <div key={col.heading}>
+              <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 16 }}>
+                {col.heading}
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {col.links.map(link => (
+                  link.external ? (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ fontSize: 13, color: 'var(--text-faint)', textDecoration: 'none', transition: 'color 0.15s' }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-faint)'; }}
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      style={{ fontSize: 13, color: 'var(--text-faint)', textDecoration: 'none', transition: 'color 0.15s' }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-faint)'; }}
+                    >
+                      {link.label}
+                    </Link>
+                  )
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
+
+        {/* Divider */}
+        <div style={{ height: 1, background: 'var(--border-subtle)', marginBottom: 24 }} />
+
+        {/* Bottom row */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
+          <p style={{ fontSize: 12, color: 'var(--text-faint)', margin: 0 }}>
+            © {new Date().getFullYear()} MOJO Poker Club.{' '}
+            {isRu ? 'Все права защищены.' : 'All rights reserved.'}
+          </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+            <span style={{ fontSize: 11, color: 'var(--text-faint)', fontWeight: 500 }}>ClubGG Network</span>
+            <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'var(--text-faint)', display: 'inline-block' }} />
+            <span style={{ fontSize: 11, color: 'var(--text-faint)', fontWeight: 500 }}>
+              {isRu ? 'Реферальный код:' : 'Referral code:'} 3383-3619
+            </span>
+          </div>
+        </div>
+
       </div>
     </footer>
   );

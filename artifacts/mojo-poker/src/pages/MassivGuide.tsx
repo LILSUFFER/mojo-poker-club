@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { PageHeader } from '@/components/PageHeader';
 import { Download, MessageCircle, UserPlus, PlayCircle } from 'lucide-react';
 import { Link } from 'wouter';
 
@@ -116,27 +117,18 @@ export function MassivGuide() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <Navbar />
-      <div style={{ maxWidth: 860, margin: '0 auto', padding: '120px 32px 100px' }}>
-
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          style={{ marginBottom: 72 }}
-        >
-          <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 16 }}>
-            /// {isRu ? 'MASSIV POKER UNION' : 'MASSIV POKER UNION'}
-          </div>
-          <h1 style={{ fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.03em', margin: '0 0 20px 0' }}>
-            {isRu ? 'Как создать аккаунт\nи вступить в клуб' : 'How to Create an Account\nand Join the Club'}
-          </h1>
-          <p style={{ fontSize: 16, color: 'var(--text-faint)', lineHeight: 1.7, maxWidth: 560 }}>
-            {isRu
-              ? 'Всего 4 шага — от скачивания приложения до первой раздачи за столом Massiv Union.'
-              : 'Just 4 steps — from downloading the app to your first hand at a Massiv Union table.'}
-          </p>
-        </motion.div>
+      <PageHeader
+        label="Massiv Poker Union"
+        title={isRu ? 'Как создать аккаунт и вступить в клуб' : 'How to Create an Account and Join the Club'}
+        subtitle={isRu
+          ? 'Всего 4 шага — от скачивания приложения до первой раздачи за столом Massiv Union.'
+          : 'Just 4 steps — from downloading the app to your first hand at a Massiv Union table.'}
+        breadcrumbs={[
+          { label: isRu ? 'Главная' : 'Home', href: '/' },
+          { label: 'Massiv Guide' },
+        ]}
+      />
+      <div style={{ maxWidth: 860, margin: '0 auto', padding: '60px 32px 100px' }}>
 
         {/* Steps */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 2, marginBottom: 80 }}>

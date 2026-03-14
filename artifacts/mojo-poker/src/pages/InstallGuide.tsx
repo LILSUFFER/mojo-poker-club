@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { PageHeader } from '@/components/PageHeader';
 import { Link } from 'wouter';
 
 export function InstallGuide() {
@@ -73,29 +74,19 @@ export function InstallGuide() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
-      <main style={{ flex: 1, padding: '100px 0 80px' }}>
+      <PageHeader
+        label={isRu ? 'Установка приложения' : 'App Installation'}
+        title={isRu ? 'Как установить ClubGG' : 'How to Install ClubGG'}
+        subtitle={isRu
+          ? 'Выберите свою платформу и следуйте пошаговой инструкции — установка занимает меньше минуты.'
+          : 'Choose your platform and follow the step-by-step guide — installation takes less than a minute.'}
+        breadcrumbs={[
+          { label: isRu ? 'Главная' : 'Home', href: '/' },
+          { label: isRu ? 'Установка' : 'Install' },
+        ]}
+      />
+      <main style={{ flex: 1, padding: '60px 0 80px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 32px' }}>
-
-          {/* Breadcrumb */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 40, fontSize: 12, color: 'var(--text-faint)' }}>
-            <Link href="/" style={{ color: 'var(--text-faint)', textDecoration: 'none' }}>
-              {isRu ? 'Главная' : 'Home'}
-            </Link>
-            <span>/</span>
-            <span>{isRu ? 'Установка' : 'Install'}</span>
-          </div>
-
-          <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 16 }}>
-            /// {isRu ? 'Установка приложения' : 'App Installation'}
-          </div>
-          <h1 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, color: 'var(--text)', letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 16 }}>
-            {isRu ? 'Как установить ClubGG' : 'How to Install ClubGG'}
-          </h1>
-          <p style={{ fontSize: 15, color: 'var(--text-faint)', lineHeight: 1.7, marginBottom: 64, maxWidth: 560 }}>
-            {isRu
-              ? 'Выберите свою платформу и следуйте пошаговой инструкции — установка занимает меньше минуты.'
-              : 'Choose your platform and follow the step-by-step guide — installation takes less than a minute.'}
-          </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
             {platforms.map((platform, pi) => (

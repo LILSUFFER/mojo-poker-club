@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { PageHeader } from '@/components/PageHeader';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { Download as DownloadIcon, Smartphone, Monitor, Apple, Check, ChevronRight } from 'lucide-react';
@@ -53,40 +54,22 @@ export function Download() {
     }
   ];
 
-  return (
-    <div className="min-h-screen w-full flex flex-col bg-background relative selection:bg-primary/30 selection:text-primary-foreground">
-      <Navbar />
-      
-      <main className="flex-grow pt-32 pb-24">
-        {/* Background gradient */}
-        <div className="absolute top-0 left-0 w-full h-96 bg-primary/5 blur-[100px] pointer-events-none"></div>
+  const isRu = t('nav.about') === 'О нас';
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center justify-center p-3 bg-primary/10 rounded-full mb-6"
-            >
-              <DownloadIcon className="w-8 h-8 text-primary" />
-            </motion.div>
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-display mb-4"
-            >
-              {t('download.title')}
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-muted-foreground font-light"
-            >
-              {t('download.subtitle')}
-            </motion.p>
-          </div>
+  return (
+    <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
+      <Navbar />
+      <PageHeader
+        label={isRu ? 'Загрузка' : 'Download'}
+        title={t('download.title')}
+        subtitle={t('download.subtitle')}
+        breadcrumbs={[
+          { label: isRu ? 'Главная' : 'Home', href: '/' },
+          { label: isRu ? 'Скачать' : 'Download' },
+        ]}
+      />
+      <main style={{ flex: 1, padding: '60px 0 80px' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 32px' }}>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
             {platforms.map((platform, idx) => (

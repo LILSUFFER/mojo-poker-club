@@ -4,7 +4,6 @@ import { About } from '@/components/About';
 import { PremiumExperience } from '@/components/PremiumExperience';
 import { Games } from '@/components/Games';
 import { Clubs } from '@/components/Clubs';
-import { Stats } from '@/components/Stats';
 import { DownloadBanner } from '@/components/DownloadBanner';
 import { Footer } from '@/components/Footer';
 
@@ -18,7 +17,6 @@ export function Home() {
         <PremiumExperience />
         <Games />
         <Clubs />
-        <Stats />
         <DownloadBanner />
       </main>
       <Footer />

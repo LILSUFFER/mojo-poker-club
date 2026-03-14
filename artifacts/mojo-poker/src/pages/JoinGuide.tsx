@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { PageHeader } from '@/components/PageHeader';
 import { Link } from 'wouter';
 import { Copy, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
@@ -83,29 +84,19 @@ export function JoinGuide() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
-      <main style={{ flex: 1, padding: '100px 0 80px' }}>
+      <PageHeader
+        label={isRu ? 'Вступление в клуб' : 'Joining the Club'}
+        title={isRu ? 'Как вступить в клуб MOJO' : 'How to Join MOJO Club'}
+        subtitle={isRu
+          ? 'Весь процесс занимает около 5 минут. Следуйте шагам ниже и вы уже за столом.'
+          : 'The whole process takes about 5 minutes. Follow the steps below and you\'ll be at the table in no time.'}
+        breadcrumbs={[
+          { label: isRu ? 'Главная' : 'Home', href: '/' },
+          { label: isRu ? 'Как вступить' : 'How to Join' },
+        ]}
+      />
+      <main style={{ flex: 1, padding: '60px 0 80px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 32px' }}>
-
-          {/* Breadcrumb */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 40, fontSize: 12, color: 'var(--text-faint)' }}>
-            <Link href="/" style={{ color: 'var(--text-faint)', textDecoration: 'none' }}>
-              {isRu ? 'Главная' : 'Home'}
-            </Link>
-            <span>/</span>
-            <span>{isRu ? 'Как вступить' : 'How to Join'}</span>
-          </div>
-
-          <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 16 }}>
-            /// {isRu ? 'Вступление в клуб' : 'Joining the Club'}
-          </div>
-          <h1 style={{ fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 700, color: 'var(--text)', letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 16 }}>
-            {isRu ? 'Как вступить в клуб MOJO' : 'How to Join MOJO Club'}
-          </h1>
-          <p style={{ fontSize: 15, color: 'var(--text-faint)', lineHeight: 1.7, marginBottom: 64, maxWidth: 560 }}>
-            {isRu
-              ? 'Весь процесс занимает около 5 минут. Следуйте шагам ниже и вы уже за столом.'
-              : 'The whole process takes about 5 minutes. Follow the steps below and you\'ll be at the table in no time.'}
-          </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {steps.map((step, i) => (
