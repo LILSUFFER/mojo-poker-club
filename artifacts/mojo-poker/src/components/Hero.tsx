@@ -68,7 +68,7 @@ export function Hero() {
         bottom: 0,
         width: '44%',
         maxWidth: 560,
-        padding: '0 0 0 48px',
+        padding: '0 0 0 32px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
