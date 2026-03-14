@@ -7,7 +7,7 @@ const clubs = [
   {
     id: 'massiv',
     href: '/clubs/massiv',
-    logo: '/images/mojo2-logo.png',
+    logo: '/images/mojo-logo-dark.svg',
     logoBg: '#ffffff',
     label: 'MOJO: Massiv Poker Union',
     descRu: 'Один из крупнейших покерных союзов в ClubGG — огромный пул игроков и экшн 24/7. Идеально для тех, кто ищет максимальную активность за столами.',
@@ -21,8 +21,8 @@ const clubs = [
   {
     id: 'mojo1',
     href: '/clubs/mojo',
-    logo: '/images/mojo1-logo.png',
-    logoBg: '#222222',
+    logo: '/images/mojo-logo-red.svg',
+    logoBg: '#1a1a1a',
     label: 'MOJO',
     descRu: 'Закрытый клуб с отборными игроками и эксклюзивными столами. Высокий рейкбек, строгий отбор участников и комфортная атмосфера для серьёзной игры.',
     descEn: 'A private club with hand-picked players and exclusive tables. High rakeback, strict vetting and a comfortable atmosphere for serious play.',
@@ -70,8 +70,8 @@ export function Clubs() {
               }}
             >
               {/* Logo */}
-              <div style={{ position: 'relative', background: club.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px', minHeight: 160 }}>
-                <img src={club.logo} alt={club.label} style={{ width: '100%', maxWidth: 200, height: 'auto', objectFit: 'contain', display: 'block' }} />
+              <div style={{ position: 'relative', background: club.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '44px 48px', minHeight: 210 }}>
+                <img src={club.logo} alt={club.label} style={{ width: '100%', maxWidth: 280, height: 'auto', objectFit: 'contain', display: 'block' }} />
                 {club.badge && (
                   <div style={{ position: 'absolute', top: 12, right: 12 }}>
                     <img src={club.badge} alt="Union" style={{ width: 44, height: 44, objectFit: 'contain', borderRadius: 6 }} />
