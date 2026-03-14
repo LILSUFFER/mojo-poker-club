@@ -31,7 +31,7 @@ export function Navbar() {
             <img
               src="/images/massiv-union-logo-nobg.png"
               alt="Massiv Union ClubGG"
-              style={{ height: 38, width: 'auto', objectFit: 'contain', display: 'block' }}
+              style={{ height: 38, width: 'auto', objectFit: 'contain', display: 'block', filter: 'brightness(0) invert(1)', opacity: 0.62 }}
             />
           </Link>
 

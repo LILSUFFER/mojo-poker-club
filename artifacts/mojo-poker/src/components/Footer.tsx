@@ -68,7 +68,7 @@ export function Footer() {
               <img
                 src="/images/massiv-union-logo-nobg.png"
                 alt="Massiv Union ClubGG"
-                style={{ height: 44, width: 'auto', objectFit: 'contain', display: 'block' }}
+                style={{ height: 44, width: 'auto', objectFit: 'contain', display: 'block', filter: 'brightness(0) invert(1)', opacity: 0.62 }}
               />
             </Link>
             <p style={{ fontSize: 13, color: 'var(--text-faint)', lineHeight: 1.6, maxWidth: 220, margin: 0 }}>
