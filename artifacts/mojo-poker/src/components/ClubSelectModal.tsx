@@ -11,16 +11,15 @@ interface Props {
 const clubs = [
   {
     path: '/clubs/massiv',
-    logo: '/images/mojo2-logo.png',
-    logoBg: '#ffffff',
-    badge: '/images/union-badge-orig.png',
+    logo: '/images/massiv-logo.png',
+    logoBg: '#111',
+    badge: null,
     nameRu: 'MOJO: Massiv Poker Union',
     nameEn: 'MOJO: Massiv Poker Union',
     tagRu: 'Покерный союз',
     tagEn: 'Poker Union',
     id: '799798',
     rb: '50%',
-    chip: '1к1',
     onlineRu: '698+ онлайн',
     onlineEn: '698+ online',
     tablesRu: '255+ столов',
@@ -31,7 +30,7 @@ const clubs = [
   {
     path: '/clubs/mojo',
     logo: '/images/mojo1-logo.png',
-    logoBg: '#1a1a1a',
+    logoBg: '#111',
     badge: null,
     nameRu: 'MOJO 1',
     nameEn: 'MOJO 1',
@@ -39,7 +38,6 @@ const clubs = [
     tagEn: 'Private Club',
     id: '356323',
     rb: '55%',
-    chip: '1к1',
     onlineRu: '62+ онлайн',
     onlineEn: '62+ online',
     tablesRu: '58+ столов',
@@ -71,9 +69,9 @@ export function ClubSelectModal({ open, onClose, onSelect }: Props) {
       onClick={onClose}
       style={{
         position: 'fixed', inset: 0, zIndex: 1000,
-        background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(6px)',
+        background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(8px)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: '20px',
+        padding: '24px',
       }}
     >
       <div
@@ -81,35 +79,43 @@ export function ClubSelectModal({ open, onClose, onSelect }: Props) {
         style={{
           background: 'hsl(0 0% 9%)',
           border: '1px solid rgba(255,255,255,0.1)',
-          borderRadius: 12,
+          borderRadius: 14,
           width: '100%',
-          maxWidth: 680,
+          maxWidth: 920,
           position: 'relative',
           overflow: 'hidden',
         }}
       >
         {/* Header */}
-        <div style={{ padding: '24px 28px 20px', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ padding: '32px 40px 28px', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
-            <p style={{ margin: '0 0 3px', fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>
+            <p style={{ margin: '0 0 6px', fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>
               {isRu ? 'Выберите клуб' : 'Select a club'}
             </p>
-            <h2 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: 'white', letterSpacing: '-0.02em' }}>
+            <h2 style={{ margin: 0, fontSize: 28, fontWeight: 800, color: 'white', letterSpacing: '-0.02em' }}>
               {isRu ? 'В какой клуб вступить?' : 'Which club to join?'}
             </h2>
           </div>
           <button
             onClick={onClose}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6, color: 'rgba(255,255,255,0.4)', display: 'flex', borderRadius: 4, transition: 'color 0.15s' }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'white'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.4)'; }}
+            style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', cursor: 'pointer', padding: 10, color: 'rgba(255,255,255,0.5)', display: 'flex', borderRadius: 8, transition: 'all 0.15s' }}
+            onMouseEnter={e => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.color = 'white';
+              el.style.background = 'rgba(255,255,255,0.1)';
+            }}
+            onMouseLeave={e => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.color = 'rgba(255,255,255,0.5)';
+              el.style.background = 'rgba(255,255,255,0.05)';
+            }}
           >
-            <X size={20} />
+            <X size={22} />
           </button>
         </div>
 
         {/* Club cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16, padding: '20px 24px 24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 20, padding: '28px 40px 36px' }}>
           {clubs.map(club => (
             <button
               key={club.path}
@@ -117,7 +123,7 @@ export function ClubSelectModal({ open, onClose, onSelect }: Props) {
               style={{
                 background: 'rgba(255,255,255,0.03)',
                 border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: 8,
+                borderRadius: 10,
                 cursor: 'pointer',
                 padding: 0,
                 textAlign: 'left',
@@ -136,45 +142,42 @@ export function ClubSelectModal({ open, onClose, onSelect }: Props) {
               }}
             >
               {/* Logo area */}
-              <div style={{ background: club.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px 28px', position: 'relative', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                <img src={club.logo} alt={club.nameEn} style={{ height: 72, width: 'auto', maxWidth: '100%', objectFit: 'contain', display: 'block' }} />
-                {club.badge && (
-                  <img src={club.badge} alt="badge" style={{ position: 'absolute', top: 10, right: 10, width: 32, height: 32, objectFit: 'contain' }} />
-                )}
+              <div style={{ background: club.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', height: 180, position: 'relative', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <img src={club.logo} alt={club.nameEn} style={{ width: 120, height: 120, objectFit: 'contain', display: 'block' }} />
               </div>
 
               {/* Info */}
-              <div style={{ padding: '16px 18px 18px' }}>
-                <p style={{ margin: '0 0 2px', fontSize: 9, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>
+              <div style={{ padding: '22px 24px 24px' }}>
+                <p style={{ margin: '0 0 5px', fontSize: 10, fontWeight: 700, letterSpacing: '0.13em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>
                   {isRu ? club.tagRu : club.tagEn}
                 </p>
-                <p style={{ margin: '0 0 10px', fontSize: 16, fontWeight: 700, color: 'white', lineHeight: 1.2 }}>
+                <p style={{ margin: '0 0 12px', fontSize: 20, fontWeight: 700, color: 'white', lineHeight: 1.2 }}>
                   {isRu ? club.nameRu : club.nameEn}
                 </p>
-                <p style={{ margin: '0 0 14px', fontSize: 12, color: 'rgba(255,255,255,0.4)', lineHeight: 1.55 }}>
+                <p style={{ margin: '0 0 18px', fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6 }}>
                   {isRu ? club.descRu : club.descEn}
                 </p>
 
                 {/* Stats row */}
-                <div style={{ display: 'flex', gap: 12, marginBottom: 14, paddingBottom: 14, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                    <Users size={11} color="rgba(255,255,255,0.35)" />
-                    <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)' }}>{isRu ? club.onlineRu : club.onlineEn}</span>
+                <div style={{ display: 'flex', gap: 16, marginBottom: 18, paddingBottom: 18, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <Users size={13} color="rgba(255,255,255,0.35)" />
+                    <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>{isRu ? club.onlineRu : club.onlineEn}</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                    <Table2 size={11} color="rgba(255,255,255,0.35)" />
-                    <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)' }}>{isRu ? club.tablesRu : club.tablesEn}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <Table2 size={13} color="rgba(255,255,255,0.35)" />
+                    <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>{isRu ? club.tablesRu : club.tablesEn}</span>
                   </div>
-                  <div style={{ marginLeft: 'auto', fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.6)' }}>
+                  <div style={{ marginLeft: 'auto', fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.7)' }}>
                     RB {club.rb}
                   </div>
                 </div>
 
                 {/* CTA row */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.3)' }}>ID: {club.id}</span>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 12, fontWeight: 700, color: 'hsl(4 80% 55%)', transition: 'gap 0.15s' }}>
-                    {isRu ? 'Перейти' : 'Go to club'} <ArrowRight size={12} />
+                  <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)' }}>ID: {club.id}</span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, fontWeight: 700, color: 'hsl(4 80% 55%)' }}>
+                    {isRu ? 'Перейти' : 'Go to club'} <ArrowRight size={14} />
                   </span>
                 </div>
               </div>
