@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageHeader } from '@/components/PageHeader';
+import { VPNGuide } from '@/components/VPNGuide';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Copy, CheckCircle2 } from 'lucide-react';
 import { Link } from 'wouter';
@@ -166,6 +167,12 @@ export function ClubMassiv() {
               </Link>
             </div>
           </div>
+
+          {/* Divider */}
+          <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', marginBottom: 72 }} />
+
+          {/* VPN Guide */}
+          <VPNGuide />
 
           {/* Divider */}
           <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', marginBottom: 72 }} />
