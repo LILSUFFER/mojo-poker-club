@@ -12,7 +12,7 @@ interface Props {
 const clubs = [
   {
     path: '/clubs/massiv',
-    logo: '/images/mojo2-logo.png',
+    logo: '/images/mojo-logo-dark-full.svg',
     logoBg: '#ffffff',
     logoFill: false,
     badge: null,
@@ -31,8 +31,8 @@ const clubs = [
   },
   {
     path: '/clubs/mojo',
-    logo: '/images/mojo1-logo.png',
-    logoBg: '#222222',
+    logo: '/images/mojo-logo-red-full.svg',
+    logoBg: '#1a1a1a',
     logoFill: false,
     badge: null,
     nameRu: 'MOJO',
