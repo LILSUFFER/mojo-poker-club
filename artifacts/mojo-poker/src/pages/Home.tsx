@@ -2,6 +2,7 @@ import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
 import { PremiumExperience } from '@/components/PremiumExperience';
+import { Games } from '@/components/Games';
 import { Clubs } from '@/components/Clubs';
 import { HowToJoin } from '@/components/HowToJoin';
 import { Stats } from '@/components/Stats';
@@ -17,6 +18,7 @@ export function Home() {
         <Hero />
         <About />
         <PremiumExperience />
+        <Games />
         <Clubs />
         <HowToJoin />
         <Stats />
