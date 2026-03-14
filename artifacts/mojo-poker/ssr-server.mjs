@@ -117,14 +117,14 @@ const OG_IMAGE = `${BASE_URL}/opengraph.jpg`;
 function stripExistingMeta(html) {
   return html
     .replace(/<title>[\s\S]*?<\/title>/gi, '')
-    .replace(/<meta\s+name="description"[^>]*/gi, '')
-    .replace(/<meta\s+name="keywords"[^>]*/gi, '')
-    .replace(/<meta\s+name="robots"[^>]*/gi, '')
-    .replace(/<meta\s+name="author"[^>]*/gi, '')
-    .replace(/<link\s+rel="canonical"[^>]*/gi, '')
-    .replace(/<link\s+rel="alternate"[^>]*hreflang[^>]*/gi, '')
-    .replace(/<meta\s+property="og:[^>]*/gi, '')
-    .replace(/<meta\s+name="twitter:[^>]*/gi, '')
+    .replace(/<meta\s+name="description"[^>]*>/gi, '')
+    .replace(/<meta\s+name="keywords"[^>]*>/gi, '')
+    .replace(/<meta\s+name="robots"[^>]*>/gi, '')
+    .replace(/<meta\s+name="author"[^>]*>/gi, '')
+    .replace(/<link\s+rel="canonical"[^>]*>/gi, '')
+    .replace(/<link\s+rel="alternate"[^>]*hreflang[^>]*>/gi, '')
+    .replace(/<meta\s+property="og:[^>]*>/gi, '')
+    .replace(/<meta\s+name="twitter:[^>]*>/gi, '')
     .replace(/<script\s+type="application\/ld\+json">[\s\S]*?<\/script>/gi, '');
 }
 
