@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Copy, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'wouter';
 
 const REF_CODE = '3383-3619';
 
@@ -48,15 +49,15 @@ export function Clubs() {
   ];
 
   const steps = isRu ? [
-    { n: '01', title: 'Скачать ClubGG', desc: 'Скачайте приложение ClubGG Poker на нашей странице загрузки для вашего устройства.' },
-    { n: '02', title: 'Установить приложение', desc: 'Запустите установщик и следуйте инструкциям на экране.' },
-    { n: '03', title: 'Найти клуб по ID', desc: 'Войдите в приложение, перейдите в раздел «Клубы» и введите ID нужного клуба.' },
-    { n: '04', title: 'Написать менеджеру', desc: 'Напишите @Mojo_Adm в Telegram с вашим никнеймом в игре — вас одобрят быстро.' },
+    { n: '01', title: 'Скачать ClubGG', desc: 'Скачайте приложение ClubGG Poker для вашего устройства.', link: '/download', linkLabel: 'Страница загрузки' },
+    { n: '02', title: 'Установить приложение', desc: 'Запустите установщик и следуйте инструкциям на экране.', link: '/install', linkLabel: 'Инструкция по установке' },
+    { n: '03', title: 'Найти клуб по ID', desc: 'Войдите в приложение, перейдите в «Клубы» и введите Club ID.', link: '/join', linkLabel: 'Как вступить' },
+    { n: '04', title: 'Написать менеджеру', desc: 'Напишите @Mojo_Adm в Telegram — вас одобрят быстро.', link: 'https://t.me/Mojo_Adm', linkLabel: '@Mojo_Adm', external: true },
   ] : [
-    { n: '01', title: 'Download ClubGG', desc: 'Get the ClubGG Poker app from our download page for your device.' },
-    { n: '02', title: 'Install the App', desc: 'Run the installer and follow the on-screen instructions.' },
-    { n: '03', title: 'Find Club by ID', desc: 'Sign in, go to Clubs section, and enter the Club ID you want to join.' },
-    { n: '04', title: 'Message the Manager', desc: 'Contact @Mojo_Adm on Telegram with your in-game nickname for quick approval.' },
+    { n: '01', title: 'Download ClubGG', desc: 'Get the ClubGG Poker app for your device.', link: '/download', linkLabel: 'Download page' },
+    { n: '02', title: 'Install the App', desc: 'Run the installer and follow the on-screen instructions.', link: '/install', linkLabel: 'Install guide' },
+    { n: '03', title: 'Find Club by ID', desc: 'Sign in, go to Clubs section, and enter the Club ID.', link: '/join', linkLabel: 'How to join' },
+    { n: '04', title: 'Message the Manager', desc: 'Contact @Mojo_Adm on Telegram for quick approval.', link: 'https://t.me/Mojo_Adm', linkLabel: '@Mojo_Adm', external: true },
   ];
 
   const CopyButton = ({ val, copyKey, label }: { val: string; copyKey: string; label: string }) => {
@@ -233,7 +234,26 @@ export function Clubs() {
                   {/* Text */}
                   <div style={{ paddingTop: 8 }}>
                     <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--text)', marginBottom: 6 }}>{step.title}</div>
-                    <div style={{ fontSize: 13, color: 'var(--text-faint)', lineHeight: 1.6 }}>{step.desc}</div>
+                    <div style={{ fontSize: 13, color: 'var(--text-faint)', lineHeight: 1.6, marginBottom: step.link ? 10 : 0 }}>{step.desc}</div>
+                    {step.link && (
+                      step.external ? (
+                        <a
+                          href={step.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 }}
+                        >
+                          {step.linkLabel} →
+                        </a>
+                      ) : (
+                        <Link
+                          href={step.link}
+                          style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 }}
+                        >
+                          {step.linkLabel} →
+                        </Link>
+                      )
+                    )}
                   </div>
                 </motion.div>
               ))}

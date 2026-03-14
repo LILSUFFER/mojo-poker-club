@@ -6,6 +6,8 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Home } from "@/pages/Home";
 import { Download } from "@/pages/Download";
 import { MassivGuide } from "@/pages/MassivGuide";
+import { InstallGuide } from "@/pages/InstallGuide";
+import { JoinGuide } from "@/pages/JoinGuide";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -15,6 +17,8 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/download" component={Download} />
+      <Route path="/install" component={InstallGuide} />
+      <Route path="/join" component={JoinGuide} />
       <Route path="/massiv-guide" component={MassivGuide} />
       <Route component={NotFound} />
     </Switch>
