@@ -20,8 +20,8 @@ export function AboutPage() {
         label={isRu ? 'О нас' : 'About Us'}
         title={isRu ? 'MOJO Poker Club' : 'MOJO Poker Club'}
         subtitle={isRu
-          ? 'Покерный клуб нового уровня в сети ClubGG — официальный юнит Massiv Poker Union'
-          : 'A next-level poker club on ClubGG — official unit of Massiv Poker Union'}
+          ? 'Покерный клуб нового уровня в сети ClubGG — официальный партнёр Massiv Poker Union'
+          : 'A next-level poker club on ClubGG — official partner of Massiv Poker Union'}
         breadcrumbs={[
           { label: isRu ? 'Главная' : 'Home', href: '/' },
           { label: isRu ? 'О нас' : 'About' },
@@ -45,8 +45,8 @@ export function AboutPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 <p style={{ margin: 0, fontSize: 14, lineHeight: 1.8, color: 'rgba(255,255,255,0.55)' }}>
                   {isRu
-                    ? 'MOJO Poker Club основан в 2025 году. Мы являемся официальным юнитом Massiv Poker Union — одного из крупнейших покерных союзов в сети ClubGG с игроками со всего мира.'
-                    : 'MOJO Poker Club was founded in 2025. We are an official unit of Massiv Poker Union — one of the largest poker unions on the ClubGG network with players from around the world.'}
+                    ? 'MOJO Poker Club основан в 2025 году. Мы являемся официальным партнёром Massiv Poker Union — одного из крупнейших покерных союзов в сети ClubGG с игроками со всего мира.'
+                    : 'MOJO Poker Club was founded in 2025. We are an official partner of Massiv Poker Union — one of the largest poker unions on the ClubGG network with players from around the world.'}
                 </p>
                 <p style={{ margin: 0, fontSize: 14, lineHeight: 1.8, color: 'rgba(255,255,255,0.55)' }}>
                   {isRu
@@ -163,7 +163,7 @@ export function AboutPage() {
             />
             <div>
               <p style={{ margin: '0 0 6px', fontSize: 14, fontWeight: 700, color: 'rgba(255,255,255,0.8)' }}>
-                {isRu ? 'Официальный юнит Massiv Poker Union' : 'Official Unit of Massiv Poker Union'}
+                {isRu ? 'Официальный партнёр Massiv Poker Union' : 'Official Partner of Massiv Poker Union'}
               </p>
               <p style={{ margin: 0, fontSize: 13, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)' }}>
                 {isRu
