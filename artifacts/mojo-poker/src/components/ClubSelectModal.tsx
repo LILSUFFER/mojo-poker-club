@@ -31,8 +31,8 @@ const clubs = [
   {
     path: '/clubs/mojo',
     logo: '/images/mojo1-logo.png',
-    logoBg: '#111',
-    logoFill: true,
+    logoBg: '#222222',
+    logoFill: false,
     badge: null,
     nameRu: 'MOJO 1',
     nameEn: 'MOJO 1',
