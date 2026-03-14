@@ -1,31 +1,59 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 
-const TABS = [
-  { id: 'nlh',  label: 'Холдем', img: '/images/game-nlh.png'  },
-  { id: 'plo4', label: 'PLO4',   img: '/images/game-plo4.png' },
-  { id: 'plo5', label: 'PLO5',   img: '/images/game-plo5.png' },
-  { id: 'mtt',  label: 'MTT',    img: '/images/game-mtt.png'  },
-  { id: 'aof',  label: 'AOF',    img: '/images/game-aof.png'  },
-];
+const MACBOOK_W = 740, MACBOOK_H = 434;
+const IPHONE_W = 428, IPHONE_H = 868;
+
+const MAC_SCALE = 0.80;
+const PHN_SCALE = 0.42;
+
+function ScaledDevice({ nativeW, nativeH, scale, children }: {
+  nativeW: number; nativeH: number; scale: number; children: React.ReactNode;
+}) {
+  return (
+    <div style={{ position: 'relative', width: nativeW * scale, height: nativeH * scale, flexShrink: 0 }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, transformOrigin: 'top left', transform: `scale(${scale})` }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function DeviceMacbook({ src }: { src: string }) {
+  return (
+    <div className="device device-macbook-pro">
+      <div className="device-frame">
+        <img className="device-screen" src={src} alt="Mojo Poker on MacBook" />
+      </div>
+      <div className="device-stripe" />
+      <div className="device-header" />
+      <div className="device-sensors" />
+      <div className="device-btns" />
+      <div className="device-power" />
+      <div className="device-home" />
+    </div>
+  );
+}
+
+function DeviceIPhone({ src }: { src: string }) {
+  return (
+    <div className="device device-iphone-x">
+      <div className="device-frame">
+        <img className="device-screen" src={src} alt="Mojo Poker on iPhone" />
+      </div>
+      <div className="device-stripe" />
+      <div className="device-header" />
+      <div className="device-sensors" />
+      <div className="device-btns" />
+      <div className="device-power" />
+      <div className="device-home" />
+    </div>
+  );
+}
 
 export function Hero() {
   const { t } = useLanguage();
-  const [active, setActive] = useState('nlh');
-  const [dir, setDir] = useState(1);
-  const [prev, setPrev] = useState('nlh');
-
-  const currentIdx = TABS.findIndex(t => t.id === active);
-  const current = TABS[currentIdx];
-
-  const switchTab = (id: string) => {
-    const newIdx = TABS.findIndex(t => t.id === id);
-    setDir(newIdx > currentIdx ? 1 : -1);
-    setPrev(active);
-    setActive(id);
-  };
 
   return (
     <section style={{
@@ -38,12 +66,12 @@ export function Hero() {
     }}>
       <div style={{
         width: '100%',
-        maxWidth: 1440,
+        maxWidth: 1280,
         margin: '0 auto',
-        padding: '48px 0 48px 64px',
+        padding: '60px 32px',
         display: 'grid',
-        gridTemplateColumns: '420px 1fr',
-        gap: 56,
+        gridTemplateColumns: '400px 1fr',
+        gap: 48,
         alignItems: 'center',
       }}>
 
@@ -64,7 +92,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.05 }}
-            style={{ fontSize: 'clamp(38px, 3.5vw, 58px)', fontWeight: 700, lineHeight: 1.08, marginBottom: 20, letterSpacing: '-0.035em' }}
+            style={{ fontSize: 'clamp(36px, 3.5vw, 56px)', fontWeight: 700, lineHeight: 1.08, marginBottom: 20, letterSpacing: '-0.035em' }}
           >
             <span style={{ color: 'var(--text)' }}>{t('hero.title')}</span>
             <br />
@@ -118,125 +146,69 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* RIGHT: App mockup window */}
+        {/* RIGHT: Device composition
+            MacBook: 740×434 at scale MAC_SCALE → (429×252)px
+            iPhone X: 428×868 at scale PHN_SCALE → (154×312)px
+            Layout: MacBook flush left, iPhone overlaps right edge of MacBook
+        */}
         <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          style={{ display: 'flex', flexDirection: 'column' }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          style={{
+            position: 'relative',
+            height: Math.max(MACBOOK_H * MAC_SCALE, IPHONE_H * PHN_SCALE) + 30,
+            overflow: 'visible',
+            display: 'flex',
+            alignItems: 'flex-end',
+          }}
         >
-          {/* Tab switcher above window */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginBottom: 12, paddingLeft: 2 }}>
-            {TABS.map(tab => {
-              const isActive = tab.id === active;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => switchTab(tab.id)}
-                  style={{
-                    position: 'relative',
-                    padding: '7px 18px',
-                    borderRadius: 4,
-                    border: isActive ? '1px solid rgba(255,255,255,0.2)' : '1px solid transparent',
-                    background: isActive ? 'rgba(255,255,255,0.08)' : 'transparent',
-                    color: isActive ? 'white' : 'var(--text-faint)',
-                    fontSize: 13,
-                    fontWeight: isActive ? 700 : 500,
-                    letterSpacing: '0.03em',
-                    cursor: 'pointer',
-                    transition: 'all 0.18s',
-                    fontFamily: 'Space Grotesk, sans-serif',
-                    whiteSpace: 'nowrap',
-                  }}
-                  onMouseEnter={e => { if (!isActive) { (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'; } }}
-                  onMouseLeave={e => { if (!isActive) { (e.currentTarget as HTMLElement).style.color = 'var(--text-faint)'; } }}
-                >
-                  {tab.label}
-                </button>
-              );
-            })}
-          </div>
+          {/* MacBook Pro — full left, behind */}
+          <motion.div
+            initial={{ opacity: 0, x: -16, y: 12 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.35 }}
+            style={{
+              position: 'absolute',
+              left: 0,
+              bottom: 0,
+              zIndex: 1,
+              filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.8))',
+            }}
+          >
+            <ScaledDevice nativeW={MACBOOK_W} nativeH={MACBOOK_H} scale={MAC_SCALE}>
+              <DeviceMacbook src="/images/game-nlh.png" />
+            </ScaledDevice>
+          </motion.div>
 
-          {/* App window frame */}
+          {/* iPhone X — overlapping MacBook's right edge, in front */}
+          <motion.div
+            initial={{ opacity: 0, x: 16, y: 12 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.55 }}
+            style={{
+              position: 'absolute',
+              left: Math.round(MACBOOK_W * MAC_SCALE - IPHONE_W * PHN_SCALE * 0.6),
+              bottom: 0,
+              zIndex: 2,
+              filter: 'drop-shadow(-8px 20px 36px rgba(0,0,0,0.9))',
+            }}
+          >
+            <ScaledDevice nativeW={IPHONE_W} nativeH={IPHONE_H} scale={PHN_SCALE}>
+              <DeviceIPhone src="/images/game-aof.png" />
+            </ScaledDevice>
+          </motion.div>
+
+          {/* Ambient glow */}
           <div style={{
-            borderRadius: 10,
-            border: '1px solid rgba(255,255,255,0.1)',
-            overflow: 'hidden',
-            boxShadow: '0 40px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.06)',
-            background: '#0a0a0a',
-          }}>
-            {/* Title bar */}
-            <div style={{
-              height: 38,
-              background: 'rgba(255,255,255,0.04)',
-              borderBottom: '1px solid rgba(255,255,255,0.07)',
-              display: 'flex',
-              alignItems: 'center',
-              padding: '0 14px',
-              gap: 7,
-            }}>
-              <span style={{ width: 11, height: 11, borderRadius: '50%', background: '#ff5f57', display: 'inline-block' }} />
-              <span style={{ width: 11, height: 11, borderRadius: '50%', background: '#ffbd2e', display: 'inline-block' }} />
-              <span style={{ width: 11, height: 11, borderRadius: '50%', background: '#28ca41', display: 'inline-block' }} />
-              <span style={{ marginLeft: 12, fontSize: 11, color: 'rgba(255,255,255,0.3)', fontWeight: 500, letterSpacing: '0.02em' }}>
-                ClubGG — {current.label}
-              </span>
-            </div>
-
-            {/* Screenshot area */}
-            <div style={{ position: 'relative', overflow: 'hidden', lineHeight: 0 }}>
-              <AnimatePresence mode="popLayout" initial={false}>
-                <motion.img
-                  key={active}
-                  src={current.img}
-                  alt={current.label}
-                  initial={{ opacity: 0, x: dir * 40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: dir * -40 }}
-                  transition={{ duration: 0.28, ease: 'easeInOut' }}
-                  style={{ width: '100%', display: 'block', objectFit: 'cover' }}
-                />
-              </AnimatePresence>
-
-              {/* Bottom overlay with dots */}
-              <div style={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                height: 48,
-                background: 'linear-gradient(to top, rgba(0,0,0,0.5), transparent)',
-                display: 'flex',
-                alignItems: 'flex-end',
-                justifyContent: 'center',
-                paddingBottom: 12,
-                gap: 6,
-              }}>
-                {TABS.map(tab => (
-                  <button
-                    key={tab.id}
-                    onClick={() => switchTab(tab.id)}
-                    style={{
-                      width: tab.id === active ? 20 : 6,
-                      height: 6,
-                      borderRadius: 3,
-                      background: tab.id === active ? 'white' : 'rgba(255,255,255,0.35)',
-                      border: 'none',
-                      cursor: 'pointer',
-                      padding: 0,
-                      transition: 'all 0.25s ease',
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Reflection / glow under window */}
-          <div style={{
-            height: 40,
-            background: 'radial-gradient(ellipse 70% 100% at 50% 0%, rgba(255,255,255,0.04) 0%, transparent 100%)',
-            marginTop: -1,
+            position: 'absolute',
+            bottom: -16,
+            left: '10%',
+            right: '10%',
+            height: 32,
+            background: 'radial-gradient(ellipse 80% 100% at 50% 100%, rgba(255,255,255,0.04) 0%, transparent 100%)',
+            pointerEvents: 'none',
+            zIndex: 0,
           }} />
         </motion.div>
 
