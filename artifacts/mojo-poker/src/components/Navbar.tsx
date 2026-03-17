@@ -3,7 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X, Download, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
-import { LANGUAGE_NAMES, LANGUAGE_FLAGS, Language, isRTL } from '@/lib/translations';
+import { LANGUAGE_NAMES, LANGUAGE_COUNTRY, Language, isRTL } from '@/lib/translations';
 
 const LANGUAGES: Language[] = ['en', 'ru', 'es', 'de', 'fr', 'it', 'pt', 'ar', 'hi', 'fa', 'tr', 'az', 'zh', 'ja'];
 
@@ -173,7 +173,7 @@ export function Navbar() {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'white'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
             >
-              <span style={{ fontSize: 18, lineHeight: 1 }}>{LANGUAGE_FLAGS[language]}</span>
+              <span className={`fi fi-${LANGUAGE_COUNTRY[language]}`} style={{ width: 20, height: 15, borderRadius: 2, flexShrink: 0 }} />
               <ChevronDown size={11} style={{ opacity: 0.6, transition: 'transform 0.15s', transform: langOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
             </button>
 
@@ -214,9 +214,7 @@ export function Navbar() {
                       onMouseEnter={e => { if (language !== code) { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)'; (e.currentTarget as HTMLElement).style.color = 'white'; } }}
                       onMouseLeave={e => { if (language !== code) { (e.currentTarget as HTMLElement).style.background = 'transparent'; (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.55)'; } }}
                     >
-                      <span style={{ fontSize: 18, lineHeight: 1, minWidth: 22, direction: 'ltr' }}>
-                        {LANGUAGE_FLAGS[code]}
-                      </span>
+                      <span className={`fi fi-${LANGUAGE_COUNTRY[code]}`} style={{ width: 20, height: 15, borderRadius: 2, flexShrink: 0 }} />
                       {LANGUAGE_NAMES[code]}
                     </button>
                   ))}
@@ -276,7 +274,7 @@ export function Navbar() {
                 onClick={() => setMobileLangOpen(!mobileLangOpen)}
                 style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.5)', fontSize: 14, fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: '8px 12px', textAlign: 'left' }}
               >
-                <span style={{ fontSize: 20, lineHeight: 1 }}>{LANGUAGE_FLAGS[language]}</span>
+                <span className={`fi fi-${LANGUAGE_COUNTRY[language]}`} style={{ width: 22, height: 16, borderRadius: 2, flexShrink: 0 }} />
                 {LANGUAGE_NAMES[language]}
                 <ChevronDown size={13} style={{ marginLeft: 'auto', transition: 'transform 0.15s', transform: mobileLangOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
               </button>
@@ -307,9 +305,7 @@ export function Navbar() {
                             direction: isRTL(code) ? 'rtl' : 'ltr',
                           }}
                         >
-                          <span style={{ fontSize: 18, lineHeight: 1, direction: 'ltr', minWidth: 22 }}>
-                            {LANGUAGE_FLAGS[code]}
-                          </span>
+                          <span className={`fi fi-${LANGUAGE_COUNTRY[code]}`} style={{ width: 20, height: 15, borderRadius: 2, flexShrink: 0 }} />
                           {LANGUAGE_NAMES[code]}
                         </button>
                       ))}
