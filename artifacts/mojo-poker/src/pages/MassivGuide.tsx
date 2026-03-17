@@ -253,7 +253,7 @@ export function MassivGuide() {
             href="/"
             style={{ display: 'inline-flex', alignItems: 'center', fontSize: 14, color: 'var(--text-faint)', padding: '12px 24px', textDecoration: 'none' }}
           >
-            ← {language === 'ru' ? 'На главную' : 'Back to Home'}
+            {t('pages.backHome')}
           </Link>
         </motion.div>
 

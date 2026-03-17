@@ -9,65 +9,35 @@ import SEO from '@/components/SEO';
 export function InstallGuide() {
   const { language, t } = useLanguage();
 
-  const platforms = language === 'ru' ? [
+  const platforms = [
     {
       name: 'Android',
       steps: [
-        'Скачайте APK-файл с нашей страницы загрузки.',
-        'Откройте «Настройки» → «Безопасность» (или «Приложения») и включите «Установка из неизвестных источников» для своего браузера или файлового менеджера.',
-        'Откройте скачанный APK-файл и нажмите «Установить».',
-        'После установки откройте ClubGG и войдите или создайте аккаунт.',
+        t('pages.install.android1'),
+        t('pages.install.android2'),
+        t('pages.install.android3'),
+        t('pages.install.android4'),
       ],
-      note: 'На некоторых устройствах путь к настройкам может отличаться. Если система запросит подтверждение — нажмите «Разрешить».',
+      note: t('pages.install.androidNote'),
     },
     {
       name: 'iOS (iPhone / iPad)',
       steps: [
-        'Перейдите по нашей ссылке — откроется App Store со страницей приложения ClubGG.',
-        'Нажмите «Загрузить» и дождитесь установки.',
-        'Откройте приложение и войдите или создайте аккаунт.',
+        t('pages.install.ios1'),
+        t('pages.install.ios2'),
+        t('pages.install.ios3'),
       ],
-      note: 'Для загрузки нужен Apple ID. Если приложение не появляется в вашем регионе — используйте иностранный App Store.',
+      note: t('pages.install.iosNote'),
     },
     {
       name: 'PC (Windows)',
       steps: [
-        'Скачайте установщик (.exe) с нашей страницы загрузки.',
-        'Запустите скачанный файл. Если Windows SmartScreen показывает предупреждение — нажмите «Подробнее» → «Всё равно выполнить».',
-        'Следуйте инструкциям установщика и нажмите «Установить».',
-        'После установки запустите ClubGG с рабочего стола.',
+        t('pages.install.pc1'),
+        t('pages.install.pc2'),
+        t('pages.install.pc3'),
+        t('pages.install.pc4'),
       ],
-      note: 'Требуется Windows 10 или новее. Убедитесь, что у вас достаточно места на диске.',
-    },
-  ] : [
-    {
-      name: 'Android',
-      steps: [
-        'Download the APK file from our download page.',
-        'Open Settings → Security (or Apps) and enable "Install from Unknown Sources" for your browser or file manager.',
-        'Open the downloaded APK and tap "Install".',
-        'Once installed, open ClubGG and sign in or register.',
-      ],
-      note: 'The exact path may vary by device. If prompted by the system, tap "Allow".',
-    },
-    {
-      name: 'iOS (iPhone / iPad)',
-      steps: [
-        'Follow our link — it will open the App Store page for ClubGG.',
-        'Tap "Get" and wait for installation to complete.',
-        'Open the app and sign in or create an account.',
-      ],
-      note: 'An Apple ID is required. If the app is not available in your region, try a foreign App Store account.',
-    },
-    {
-      name: 'PC (Windows)',
-      steps: [
-        'Download the installer (.exe) from our download page.',
-        'Run the downloaded file. If Windows SmartScreen shows a warning, click "More info" → "Run anyway".',
-        'Follow the installer instructions and click "Install".',
-        'After installation, launch ClubGG from your desktop.',
-      ],
-      note: 'Requires Windows 10 or later. Make sure you have enough disk space.',
+      note: t('pages.install.pcNote'),
     },
   ];
 

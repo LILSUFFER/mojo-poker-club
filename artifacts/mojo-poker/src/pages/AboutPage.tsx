@@ -57,10 +57,10 @@ export function AboutPage() {
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 <p style={{ margin: 0, fontSize: 14, lineHeight: 1.8, color: 'rgba(255,255,255,0.55)' }}>
-                  {language === 'ru' ? 'MOJO Poker Club основан в 2025 году. Мы являемся официальным партнёром Massiv Poker Union — одного из крупнейших покерных союзов в сети ClubGG с игроками со всего мира.' : 'MOJO Poker Club was founded in 2025. We are an official partner of Massiv Poker Union — one of the largest poker unions on the ClubGG network with players from around the world.'}
+                  {t('pages.about.para1')}
                 </p>
                 <p style={{ margin: 0, fontSize: 14, lineHeight: 1.8, color: 'rgba(255,255,255,0.55)' }}>
-                  {language === 'ru' ? 'Наша главная цель — предоставлять игрокам лучшие условия на рынке: максимальный рейкбек, честный обмен фишек и профессиональную поддержку на каждом этапе.' : 'Our main goal is to provide players with the best conditions on the market: maximum rakeback, fair chip exchange, and professional support at every step.'}
+                  {t('pages.about.para2')}
                 </p>
               </div>
             </div>
@@ -71,7 +71,7 @@ export function AboutPage() {
                 { value: '2025', label: t('pages.about.founded'), sub: t('pages.about.foundedSub') },
                 { value: '1 724', label: t('pages.about.chatMembers'), sub: t('pages.about.chatSub') },
                 { value: '50%', label: t('pages.about.rakeback'), sub: t('pages.about.rakebackSub') },
-                { value: '24/7', label: language === 'ru' ? 'Поддержка' : 'Support', sub: t('pages.about.supportSub') },
+                { value: '24/7', label: t('pages.about.support'), sub: t('pages.about.supportSub') },
               ].map((item) => (
                 <div key={item.value} style={{
                   display: 'flex', alignItems: 'center', gap: 20,
@@ -175,7 +175,7 @@ export function AboutPage() {
                 {t('pages.about.officialPartner')}
               </p>
               <p style={{ margin: 0, fontSize: 13, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)' }}>
-                {language === 'ru' ? 'Massiv Poker Union — один из крупнейших покерных союзов в ClubGG. Огромный пул игроков, столы работают круглосуточно на всех лимитах.' : 'Massiv Poker Union is one of the largest poker unions on ClubGG. Massive player pool, tables running around the clock at all stakes.'}
+                {t('pages.about.massivDesc')}
               </p>
             </div>
           </div>

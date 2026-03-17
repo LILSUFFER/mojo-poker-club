@@ -16,18 +16,13 @@ const clubs = [
     logoBg: '#ffffff',
     logoFill: false,
     badge: null,
-    nameRu: 'MOJO: Massiv Poker Union',
-    nameEn: 'MOJO: Massiv Poker Union',
-    tagRu: 'Покерный союз',
-    tagEn: 'Poker Union',
+    name: 'MOJO: Massiv Poker Union',
+    tagKey: 'pages.pokerUnion' as const,
     id: '799798',
     rb: '50%',
-    onlineRu: '698+ онлайн',
-    onlineEn: '698+ online',
-    tablesRu: '255+ столов',
-    tablesEn: '255+ tables',
-    descRu: 'Один из крупнейших покерных союзов в ClubGG — огромный пул игроков, экшн 24/7',
-    descEn: 'One of the largest poker unions in ClubGG — massive player pool, action 24/7',
+    onlineNum: '698+',
+    tablesNum: '255+',
+    descKey: 'pages.massiv.pageSubtitle' as const,
   },
   {
     path: '/clubs/mojo',
@@ -35,18 +30,13 @@ const clubs = [
     logoBg: '#1a1a1a',
     logoFill: false,
     badge: null,
-    nameRu: 'MOJO',
-    nameEn: 'MOJO',
-    tagRu: 'Закрытый клуб',
-    tagEn: 'Private Club',
+    name: 'MOJO',
+    tagKey: 'pages.privateClub' as const,
     id: '356323',
     rb: '55%',
-    onlineRu: '62+ онлайн',
-    onlineEn: '62+ online',
-    tablesRu: '58+ столов',
-    tablesEn: '58+ tables',
-    descRu: 'Закрытый клуб с отборными игроками, эксклюзивными столами и максимальным рейкбеком',
-    descEn: 'Private club with elite players, exclusive tables and top rakeback',
+    onlineNum: '62+',
+    tablesNum: '58+',
+    descKey: 'pages.mojo.pageSubtitle' as const,
   },
 ];
 
@@ -104,10 +94,10 @@ export function ClubSelectModal({ open, onClose, onSelect }: Props) {
         }}>
           <div>
             <p style={{ margin: '0 0 4px', fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>
-              {language === 'ru' ? 'Выберите клуб' : 'Select a club'}
+              {t('pages.selectClub')}
             </p>
             <h2 style={{ margin: 0, fontSize: isMobile ? 20 : 28, fontWeight: 800, color: 'white', letterSpacing: '-0.02em' }}>
-              {language === 'ru' ? 'В какой клуб вступить?' : 'Which club to join?'}
+              {t('pages.whichClub')}
             </h2>
           </div>
           <button
@@ -165,32 +155,32 @@ export function ClubSelectModal({ open, onClose, onSelect }: Props) {
               {/* Logo area */}
               <div style={{ background: club.logoBg, height: isMobile ? 130 : 180, position: 'relative', borderBottom: '1px solid rgba(255,255,255,0.06)', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 {club.logoFill
-                  ? <img src={club.logo} alt={club.nameEn} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                  : <img src={club.logo} alt={club.nameEn} style={{ width: isMobile ? 90 : 130, height: isMobile ? 90 : 130, objectFit: 'contain', display: 'block' }} />
+                  ? <img src={club.logo} alt={club.name} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                  : <img src={club.logo} alt={club.name} style={{ width: isMobile ? 90 : 130, height: isMobile ? 90 : 130, objectFit: 'contain', display: 'block' }} />
                 }
               </div>
 
               {/* Info */}
               <div style={{ padding: isMobile ? '16px 18px 18px' : '22px 24px 24px' }}>
                 <p style={{ margin: '0 0 4px', fontSize: 10, fontWeight: 700, letterSpacing: '0.13em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>
-                  {language === 'ru' ? club.tagRu : club.tagEn}
+                  {t(club.tagKey)}
                 </p>
                 <p style={{ margin: '0 0 10px', fontSize: isMobile ? 17 : 20, fontWeight: 700, color: 'white', lineHeight: 1.2 }}>
-                  {language === 'ru' ? club.nameRu : club.nameEn}
+                  {club.name}
                 </p>
                 <p style={{ margin: '0 0 14px', fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6 }}>
-                  {language === 'ru' ? club.descRu : club.descEn}
+                  {t(club.descKey)}
                 </p>
 
                 {/* Stats row */}
                 <div style={{ display: 'flex', gap: 14, marginBottom: 14, paddingBottom: 14, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
                     <Users size={12} color="rgba(255,255,255,0.35)" />
-                    <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>{language === 'ru' ? club.onlineRu : club.onlineEn}</span>
+                    <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>{club.onlineNum} {t('pages.onlineSuffix')}</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
                     <Table2 size={12} color="rgba(255,255,255,0.35)" />
-                    <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>{language === 'ru' ? club.tablesRu : club.tablesEn}</span>
+                    <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>{club.tablesNum} {t('pages.tablesSuffix')}</span>
                   </div>
                   <div style={{ marginLeft: 'auto', fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.7)' }}>
                     RB {club.rb}

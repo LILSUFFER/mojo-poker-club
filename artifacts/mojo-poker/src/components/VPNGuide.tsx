@@ -4,11 +4,11 @@ const VPN_ANDROID = 'https://play.google.com/store/apps/details?id=com.free.vpn.
 const VPN_IOS = 'https://apps.apple.com/app/id1370293473';
 
 const countries = [
-  { code: 'US', ru: 'США', en: 'USA' },
-  { code: 'DE', ru: 'Германия', en: 'Germany' },
-  { code: 'FR', ru: 'Франция', en: 'France' },
-  { code: 'GB', ru: 'Великобритания', en: 'UK' },
-  { code: 'CA', ru: 'Канада', en: 'Canada' },
+  { code: 'US', tKey: 'pages.vpn.usa' },
+  { code: 'DE', tKey: 'pages.vpn.germany' },
+  { code: 'FR', tKey: 'pages.vpn.france' },
+  { code: 'GB', tKey: 'pages.vpn.uk' },
+  { code: 'CA', tKey: 'pages.vpn.canada' },
 ];
 
 function FlagImg({ code }: { code: string }) {
@@ -27,20 +27,13 @@ function FlagImg({ code }: { code: string }) {
 export function VPNGuide() {
   const { language, t } = useLanguage();
 
-  const steps = language === 'ru' ? [
-    { num: 1, text: 'Скачайте бесплатный VPN (кнопка «Продолжить с рекламой»)' },
-    { num: 2, text: 'Отключите Wi-Fi — используйте только мобильный интернет' },
-    { num: 3, text: 'Выберите страну в VPN из списка справа' },
-    { num: 4, text: 'Подключитесь к VPN, затем откройте ClubGG' },
-    { num: 5, text: 'Зайдите в профиль → нажмите «Выход»' },
-    { num: 6, text: 'Нажмите «Зарегистрироваться» — на первом шаге увидите флаг страны VPN' },
-  ] : [
-    { num: 1, text: 'Download a free VPN (tap "Continue with Ads")' },
-    { num: 2, text: 'Turn off Wi-Fi — use mobile data only' },
-    { num: 3, text: 'Select a country in VPN from the list on the right' },
-    { num: 4, text: 'Connect VPN, then open ClubGG' },
-    { num: 5, text: 'Go to profile → tap "Sign Out"' },
-    { num: 6, text: 'Tap "Register" — you\'ll see the VPN country flag on step one' },
+  const steps = [
+    { num: 1, text: t('pages.vpn.howStep1') },
+    { num: 2, text: t('pages.vpn.howStep2') },
+    { num: 3, text: t('pages.vpn.howStep3') },
+    { num: 4, text: t('pages.vpn.howStep4') },
+    { num: 5, text: t('pages.vpn.howStep5') },
+    { num: 6, text: t('pages.vpn.howStep6') },
   ];
 
   const blue = 'hsl(217 91% 60%)';
@@ -66,10 +59,10 @@ export function VPNGuide() {
         </svg>
         <div>
           <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.14em', color: blueAlpha(0.6), textTransform: 'uppercase' }}>
-            {language === 'ru' ? 'Только для Massiv Poker Union · ' : 'Massiv Poker Union only · '}
+            {t('pages.vpn.flagSub')} · 
           </span>
           <span style={{ fontSize: 13, fontWeight: 700, color: blue }}>
-            {language === 'ru' ? 'Как получить зарубежный флаг в профиле' : 'How to get a foreign flag in your profile'}
+            {t('pages.vpn.flagTitle')}
           </span>
         </div>
       </div>
@@ -134,14 +127,14 @@ export function VPNGuide() {
           {/* Countries */}
           <div>
             <p style={{ margin: '0 0 8px', fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: blueAlpha(0.55), textTransform: 'uppercase' }}>
-              {language === 'ru' ? 'Страны VPN' : 'VPN Countries'}
+              {t('pages.vpn.countriesTitle')}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
               {countries.map(c => (
                 <div key={c.code} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>
                   <FlagImg code={c.code} />
                   <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', color: blueAlpha(0.5), textTransform: 'uppercase', minWidth: 18 }}>{c.code}</span>
-                  <span>{language === 'ru' ? c.ru : c.en}</span>
+                  <span>{t(c.tKey)}</span>
                 </div>
               ))}
             </div>

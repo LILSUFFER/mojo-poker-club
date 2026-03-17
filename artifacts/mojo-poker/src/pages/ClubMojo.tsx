@@ -55,16 +55,11 @@ export function ClubMojo() {
     </svg>,
   ];
 
-  const features = language === 'ru' ? [
-    { title: 'Фишка 1к1', desc: 'Прямой обмен без комиссии — покупай и продавай фишки по курсу 1 к 1.' },
-    { title: 'Рейкбек 55%', desc: 'Максимальный рейкбек для членов MOJO — 55% от рейка возвращается тебе.' },
-    { title: 'Эксклюзивные столы', desc: 'Закрытый клуб с отборными игроками. Комфортная атмосфера и контролируемый состав.' },
-    { title: 'Экшн 24/7', desc: 'Столы работают круглосуточно — раздачи идут в любое время дня и ночи.' },
-  ] : [
-    { title: '1:1 Chip Rate', desc: 'Direct exchange with no commission — buy and sell chips at a 1:1 rate.' },
-    { title: '55% Rakeback', desc: 'Maximum rakeback for MOJO members — 55% of rake returned to you.' },
-    { title: 'Exclusive Tables', desc: 'A closed club with hand-picked players. A comfortable atmosphere and controlled roster.' },
-    { title: '24/7 Action', desc: 'Tables run around the clock — hands are dealt at any time of day or night.' },
+  const features = [
+    { title: t('pages.mojo.feat1Title'), desc: t('pages.mojo.feat1Desc') },
+    { title: t('pages.mojo.feat2Title'), desc: t('pages.mojo.feat2Desc') },
+    { title: t('pages.mojo.feat3Title'), desc: t('pages.mojo.feat3Desc') },
+    { title: t('pages.mojo.feat4Title'), desc: t('pages.mojo.feat4Desc') },
   ];
 
   return (
@@ -94,7 +89,7 @@ export function ClubMojo() {
       <PageHeader
         label="MOJO"
         title="MOJO"
-        subtitle={language === 'ru' ? 'Закрытый клуб с отборными игроками, эксклюзивными столами и высоким рейкбеком' : 'A closed club with hand-picked players, exclusive tables and top rakeback'}
+        subtitle={t('pages.mojo.pageSubtitle')}
         breadcrumbs={[
           { label: t('pages.home'), href: '/' },
           { label: t('pages.ourClubs'), href: '/#clubs' },

@@ -56,16 +56,11 @@ export function ClubMassiv() {
     </svg>,
   ];
 
-  const features = language === 'ru' ? [
-    { title: 'Фишка 1к1', desc: 'Прямой обмен без комиссии — покупай и продавай фишки по курсу 1 к 1.' },
-    { title: 'Рейкбек 50%', desc: 'Один из лучших рейкбеков на рынке клубного покера — 50% от рейка возвращается тебе.' },
-    { title: 'Огромный пул', desc: 'Тысячи игроков со всего мира. Столы запускаются круглосуточно на любых лимитах.' },
-    { title: 'Экшн 24/7', desc: 'Благодаря глобальному пулу игроков Massiv Union никогда не спит — раздачи в любое время.' },
-  ] : [
-    { title: '1:1 Chip Rate', desc: 'Direct exchange with no commission — buy and sell chips at a 1:1 rate.' },
-    { title: '50% Rakeback', desc: 'One of the best rakeback rates in club poker — 50% of rake returned to you.' },
-    { title: 'Massive Pool', desc: 'Thousands of players from around the world. Tables running around the clock at any stake.' },
-    { title: '24/7 Action', desc: 'Thanks to a global player pool, Massiv Union never sleeps — hands at any time of day.' },
+  const features = [
+    { title: t('pages.massiv.feat1Title'), desc: t('pages.massiv.feat1Desc') },
+    { title: t('pages.massiv.feat2Title'), desc: t('pages.massiv.feat2Desc') },
+    { title: t('pages.massiv.feat3Title'), desc: t('pages.massiv.feat3Desc') },
+    { title: t('pages.massiv.feat4Title'), desc: t('pages.massiv.feat4Desc') },
   ];
 
   return (
@@ -95,7 +90,7 @@ export function ClubMassiv() {
       <PageHeader
         label="Massiv Poker Union"
         title="MOJO: Massiv Poker Union"
-        subtitle={language === 'ru' ? 'Один из крупнейших покерных союзов в ClubGG — огромный пул игроков, экшн 24/7' : 'One of the largest poker unions on ClubGG — massive player pool, 24/7 action'}
+        subtitle={t('pages.massiv.pageSubtitle')}
         breadcrumbs={[
           { label: t('pages.home'), href: '/' },
           { label: t('pages.ourClubs'), href: '/#clubs' },

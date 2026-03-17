@@ -110,7 +110,7 @@ export function Reviews() {
             }}>
               <Stars count={r.rating} />
               <p style={{ fontSize: 14, lineHeight: 1.65, color: 'rgba(255,255,255,0.65)', margin: 0, flex: 1 }}>
-                "{language === 'ru' ? r.text.ru : r.text.en}"
+                "{r.text[language as keyof typeof r.text] ?? r.text.en}"
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, paddingTop: 4, borderTop: '1px solid var(--border-subtle)' }}>
                 <div style={{

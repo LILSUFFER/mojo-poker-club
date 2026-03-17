@@ -87,6 +87,7 @@ const steps: Step[] = [
 
 export function CreateAccount() {
   const { language, t } = useLanguage();
+  const getLang = <T extends { ru: string; en: string }>(field: T) => (language in field ? field[language as keyof T] as string : undefined) ?? field.en;
   const isMobile = useIsMobile();
 
   return (
@@ -145,14 +146,14 @@ export function CreateAccount() {
                       {step.num}
                     </div>
                     <h2 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
-                      {language === 'ru' ? step.title.ru : step.title.en}
+                      {getLang(step.title)}
                     </h2>
                   </div>
 
                   {/* Description */}
                   <div style={{ paddingLeft: 52 }}>
                     <p style={{ margin: '0 0 24px', fontSize: 15, lineHeight: 1.75, color: 'rgba(255,255,255,0.6)' }}>
-                      {language === 'ru' ? step.desc.ru : step.desc.en}
+                      {getLang(step.desc)}
                     </p>
 
                     {step.note && (
@@ -167,7 +168,7 @@ export function CreateAccount() {
                         color: 'rgba(255,255,255,0.45)',
                         lineHeight: 1.6,
                       }}>
-                        {language === 'ru' ? step.note.ru : step.note.en}
+                        {getLang(step.note!)}
                       </div>
                     )}
 
@@ -181,7 +182,7 @@ export function CreateAccount() {
                     }}>
                       <img
                         src={step.img}
-                        alt={language === 'ru' ? step.title.ru : step.title.en}
+                        alt={getLang(step.title)}
                         style={{ width: 300, height: 'auto', display: 'block' }}
                       />
                     </div>

@@ -36,6 +36,7 @@ function CopyBtn({ value, label, copiedLabel }: { value: string; label: string; 
 
 export function JoinGuide() {
   const { language, t } = useLanguage();
+  const getLang = <T extends { ru: string; en: string }>(field: T) => (language in field ? field[language as keyof T] as string : undefined) ?? field.en;
 
   interface StepDef {
     num: number;
@@ -154,7 +155,7 @@ export function JoinGuide() {
                   {step.num}
                 </div>
                 <h2 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
-                  {language === 'ru' ? step.title.ru : step.title.en}
+                  {getLang(step.title)}
                 </h2>
               </div>
 
@@ -163,7 +164,7 @@ export function JoinGuide() {
 
                 {/* Description with line breaks */}
                 <div style={{ marginBottom: 24 }}>
-                  {(language === 'ru' ? step.desc.ru : step.desc.en).split('\n').map((line, i) => (
+                  {(getLang(step.desc)).split('\n').map((line, i) => (
                     line === '' ? <div key={i} style={{ height: 8 }} /> :
                     line.startsWith('•') ? (
                       <div key={i} style={{ display: 'flex', gap: 10, marginBottom: 6 }}>
@@ -333,7 +334,7 @@ export function JoinGuide() {
                     color: 'rgba(255,255,255,0.4)',
                     lineHeight: 1.6,
                   }}>
-                    {language === 'ru' ? step.note.ru : step.note.en}
+                    {getLang(step.note!)}
                   </div>
                 )}
 
@@ -349,7 +350,7 @@ export function JoinGuide() {
                     }}>
                       <img
                         src={step.img}
-                        alt={language === 'ru' ? step.title.ru : step.title.en}
+                        alt={getLang(step.title)}
                         style={{ width: 320, height: 'auto', display: 'block' }}
                       />
                     </div>
