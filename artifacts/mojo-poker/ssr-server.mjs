@@ -158,7 +158,7 @@ const META = {
   },
 };
 
-const BASE_URL = 'https://mojo-poker.com';
+const BASE_URL = 'https://mojopokerclub.com';
 const OG_IMAGE = `${BASE_URL}/opengraph.jpg`;
 
 const VALID_LANGS = ['en', 'ru', 'es', 'de', 'fr', 'it', 'pt', 'ar', 'hi', 'fa', 'tr', 'az', 'zh', 'ja'];

@@ -267,7 +267,7 @@ export function CreateAccount() {
           '@type': 'HowTo',
           name: 'How to Create a GGClub Account for MOJO Poker Club',
           description: 'Registration guide for GGClub to join Massiv Poker Union or MOJO',
-          url: 'https://mojo-poker.com/create-account',
+          url: 'https://mojopokerclub.com/create-account',
         }}
       />
       <Navbar />

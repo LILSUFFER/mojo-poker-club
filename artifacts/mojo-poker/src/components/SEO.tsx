@@ -13,7 +13,7 @@ interface SEOProps {
   structuredData?: object;
 }
 
-const BASE_URL = 'https://mojo-poker.com';
+const BASE_URL = 'https://mojopokerclub.com';
 const OG_IMAGE = `${BASE_URL}/opengraph.jpg`;
 
 const HREFLANG: Record<string, string> = {

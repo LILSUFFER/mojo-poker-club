@@ -377,11 +377,11 @@ export function GamesPage() {
           "@type": "WebPage",
           "name": "Poker Games & Formats — MOJO: Massiv Poker Union",
           "description": "Full list of poker game formats, limits, and rake schedule at MOJO Massiv Poker Union on GGClub network.",
-          "url": "https://mojo-poker.com/games",
+          "url": "https://mojopokerclub.com/games",
           "publisher": {
             "@type": "Organization",
             "name": "MOJO Poker Club",
-            "url": "https://mojo-poker.com"
+            "url": "https://mojopokerclub.com"
           },
           "mainEntity": {
             "@type": "ItemList",

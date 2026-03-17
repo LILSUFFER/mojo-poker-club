@@ -34,7 +34,7 @@ export function Home() {
           '@context': 'https://schema.org',
           '@type': 'Organization',
           name: 'MOJO Poker Club',
-          url: 'https://mojo-poker.com',
+          url: 'https://mojopokerclub.com',
           description: 'Official poker club on GGClub / Massiv Poker Union network',
           contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', url: 'https://t.me/Mojo_Adm' },
         }}

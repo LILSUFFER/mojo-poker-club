@@ -253,7 +253,7 @@ export function JoinGuide() {
           '@type': 'HowTo',
           name: 'How to Join MOJO Poker Club on GGClub',
           description: 'Guide to joining MOJO Poker Club on GGClub / Massiv Poker Union',
-          url: 'https://mojo-poker.com/join',
+          url: 'https://mojopokerclub.com/join',
         }}
       />
       <Navbar />
