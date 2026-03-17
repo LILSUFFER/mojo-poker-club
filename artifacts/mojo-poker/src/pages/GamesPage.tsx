@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { PageHeader } from '@/components/PageHeader';
@@ -215,6 +216,42 @@ const RAKE_SECTIONS: { title: string; rate: string; rows: { blind: string; cap: 
   },
 ];
 
+const MOJO_RAKE_SECTIONS: { title: string; rate: string; rows: { blind: string; cap: string }[] }[] = [
+  {
+    title: 'NLH',
+    rate: '5–7%',
+    rows: [
+      { blind: '0.05/0.10', cap: '5% no cap' },
+      { blind: '0.10/0.20', cap: '5% no cap' },
+      { blind: '0.25/0.50', cap: '7% cap 5 BB' },
+      { blind: '0.50/1',    cap: '7% cap 5 BB' },
+      { blind: '1/2',       cap: '5% cap 5 BB' },
+      { blind: '2/4',       cap: '5% cap 5 BB' },
+      { blind: '5/10',      cap: '5% cap 2 BB' },
+    ],
+  },
+  {
+    title: 'NLH Bonus Table',
+    rate: '8%',
+    rows: [
+      { blind: '0.50/1', cap: '8% cap 3.5 BB' },
+    ],
+  },
+  {
+    title: 'PLO',
+    rate: '5–7%',
+    rows: [
+      { blind: '0.05/0.10', cap: '5% no cap' },
+      { blind: '0.10/0.20', cap: '5% no cap' },
+      { blind: '0.25/0.50', cap: '7% cap 5 BB' },
+      { blind: '0.50/1',    cap: '7% cap 5 BB' },
+      { blind: '1/2',       cap: '7% cap 5 BB' },
+      { blind: '2/4',       cap: '5% cap 5 BB' },
+      { blind: '3/6',       cap: '5% cap 5 BB' },
+    ],
+  },
+];
+
 const PAGE_COPY: Record<string, LangText> = {
   label:       { en: 'MASSIV POKER UNION', ru: 'MASSIV POKER UNION' },
   title:       { en: 'Games & Formats', ru: 'Игры и форматы', es: 'Juegos y formatos', de: 'Spiele & Formate', fr: 'Jeux & Formats', it: 'Giochi & Formati', pt: 'Jogos & Formatos', ar: 'الألعاب والأشكال', hi: 'गेम्स और फॉर्मेट', fa: 'بازی‌ها و فرمت‌ها', tr: 'Oyunlar & Formatlar', az: 'Oyunlar & Formatlar', zh: '游戏与格式', ja: 'ゲームとフォーマット' },
@@ -228,6 +265,73 @@ const PAGE_COPY: Record<string, LangText> = {
   colBlind:    { en: 'Blinds', ru: 'Блайнды', es: 'Ciegas', de: 'Blinds', fr: 'Blindes', it: 'Bui', pt: 'Blinds', ar: 'البلايند', hi: 'ब्लाइंड', fa: 'بلاینด', tr: 'Blindlar', az: 'Blindlər', zh: '盲注', ja: 'ブラインド' },
   colCap:      { en: 'Cap', ru: 'Кэп', es: 'Tope', de: 'Cap', fr: 'Plafond', it: 'Cap', pt: 'Teto', ar: 'الحد الأقصى', hi: 'कैप', fa: 'سقف', tr: 'Tavan', az: 'Üst hədd', zh: '上限', ja: 'キャップ' },
 };
+
+type RakeSection = { title: string; rate: string; rows: { blind: string; cap: string }[] };
+
+function RakeCard({ section, gl, thStyle, tdMonoStyle, tdStyle, colBlind, colCap }: {
+  section: RakeSection;
+  gl: (f: LangText) => string;
+  thStyle: React.CSSProperties;
+  tdMonoStyle: React.CSSProperties;
+  tdStyle: React.CSSProperties;
+  colBlind: LangText;
+  colCap: LangText;
+}) {
+  return (
+    <div style={{ borderRadius: 10, border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden', background: 'var(--bg-card)' }}>
+      <div style={{ padding: '12px 16px', background: 'rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <span style={{ fontSize: 13, fontWeight: 700, color: 'white' }}>{section.title}</span>
+        <span style={{ fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 4, background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.05em' }}>Rake {section.rate}</span>
+      </div>
+      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <thead><tr>
+          <th style={{ ...thStyle, fontSize: 10, padding: '8px 14px' }}>{gl(colBlind)}</th>
+          <th style={{ ...thStyle, fontSize: 10, padding: '8px 14px', textAlign: 'right' }}>{gl(colCap)}</th>
+        </tr></thead>
+        <tbody>
+          {section.rows.map((row, j) => (
+            <tr key={j} style={{ background: j % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.015)' }}>
+              <td style={{ ...tdMonoStyle, padding: '8px 14px', fontSize: 12 }}>{row.blind}</td>
+              <td style={{ ...tdStyle, padding: '8px 14px', fontSize: 12, textAlign: 'right', color: 'rgba(255,255,255,0.5)' }}>{row.cap}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function MojoRakeCard({ section, gl, thStyle, tdMonoStyle, tdStyle, colBlind }: {
+  section: RakeSection;
+  gl: (f: LangText) => string;
+  thStyle: React.CSSProperties;
+  tdMonoStyle: React.CSSProperties;
+  tdStyle: React.CSSProperties;
+  colBlind: LangText;
+}) {
+  return (
+    <div style={{ borderRadius: 10, border: '1px solid rgba(255,255,255,0.08)', overflow: 'hidden', background: 'var(--bg-card)' }}>
+      <div style={{ padding: '12px 16px', background: 'rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <span style={{ fontSize: 13, fontWeight: 700, color: 'white' }}>{section.title}</span>
+        <span style={{ fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 4, background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.05em' }}>Rake {section.rate}</span>
+      </div>
+      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <thead><tr>
+          <th style={{ ...thStyle, fontSize: 10, padding: '8px 14px' }}>{gl(colBlind)}</th>
+          <th style={{ ...thStyle, fontSize: 10, padding: '8px 14px', textAlign: 'right' }}>Rate / Cap</th>
+        </tr></thead>
+        <tbody>
+          {section.rows.map((row, j) => (
+            <tr key={j} style={{ background: j % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.015)' }}>
+              <td style={{ ...tdMonoStyle, padding: '8px 14px', fontSize: 12 }}>{row.blind}</td>
+              <td style={{ ...tdStyle, padding: '8px 14px', fontSize: 12, textAlign: 'right', color: 'rgba(255,255,255,0.5)' }}>{row.cap}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 const thStyle: React.CSSProperties = {
   padding: '12px 16px', textAlign: 'left', fontSize: 11, fontWeight: 700,
@@ -246,6 +350,7 @@ export function GamesPage() {
   const { language } = useLanguage();
   const isMobile = useIsMobile();
   const gl = (f: LangText) => getLang(f, language);
+  const [activeClub, setActiveClub] = useState<'massiv' | 'mojo'>('massiv');
 
   return (
     <>
@@ -337,50 +442,63 @@ export function GamesPage() {
           <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, color: 'white', marginBottom: 8 }}>
             {gl(PAGE_COPY.rakeTitle)}
           </h2>
-          <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 36 }}>
-            {gl(PAGE_COPY.rakeSubtitle)}
-          </p>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(240px, 1fr))',
-            gap: 20,
-          }}>
-            {RAKE_SECTIONS.map((section) => (
-              <div key={section.title} style={{
-                borderRadius: 10, border: '1px solid rgba(255,255,255,0.08)',
-                overflow: 'hidden', background: 'var(--bg-card)',
-              }}>
-                <div style={{
-                  padding: '12px 16px', background: 'rgba(255,255,255,0.04)',
-                  borderBottom: '1px solid rgba(255,255,255,0.08)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                }}>
-                  <span style={{ fontSize: 13, fontWeight: 700, color: 'white' }}>{section.title}</span>
-                  <span style={{
-                    fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 4,
-                    background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.05em',
-                  }}>Rake {section.rate}</span>
-                </div>
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                  <thead>
-                    <tr>
-                      <th style={{ ...thStyle, fontSize: 10, padding: '8px 14px' }}>{gl(PAGE_COPY.colBlind)}</th>
-                      <th style={{ ...thStyle, fontSize: 10, padding: '8px 14px', textAlign: 'right' }}>{gl(PAGE_COPY.colCap)}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {section.rows.map((row, j) => (
-                      <tr key={j} style={{ background: j % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.015)' }}>
-                        <td style={{ ...tdMonoStyle, padding: '8px 14px', fontSize: 12 }}>{row.blind}</td>
-                        <td style={{ ...tdStyle, padding: '8px 14px', fontSize: 12, textAlign: 'right', color: 'rgba(255,255,255,0.5)' }}>{row.cap}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+          {/* Club switcher tabs */}
+          <div style={{ display: 'flex', gap: 8, marginBottom: 28, flexWrap: 'wrap' }}>
+            {([
+              { key: 'massiv', label: 'MOJO: Massiv Poker Union' },
+              { key: 'mojo',   label: 'MOJO (Allin Zone)' },
+            ] as const).map(({ key, label }) => (
+              <button
+                key={key}
+                onClick={() => setActiveClub(key)}
+                style={{
+                  padding: '7px 18px', borderRadius: 6, border: '1px solid',
+                  borderColor: activeClub === key ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.08)',
+                  background: activeClub === key ? 'rgba(255,255,255,0.08)' : 'transparent',
+                  color: activeClub === key ? 'white' : 'rgba(255,255,255,0.4)',
+                  fontSize: 13, fontWeight: activeClub === key ? 600 : 400,
+                  cursor: 'pointer', transition: 'all 0.15s',
+                }}
+              >
+                {label}
+              </button>
             ))}
           </div>
+
+          {activeClub === 'massiv' && (
+            <>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 28 }}>
+                {gl(PAGE_COPY.rakeSubtitle)}
+              </p>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(240px, 1fr))',
+                gap: 20,
+              }}>
+                {RAKE_SECTIONS.map((section) => (
+                  <RakeCard key={section.title} section={section} gl={gl} thStyle={thStyle} tdMonoStyle={tdMonoStyle} tdStyle={tdStyle} colBlind={PAGE_COPY.colBlind} colCap={PAGE_COPY.colCap} />
+                ))}
+              </div>
+            </>
+          )}
+
+          {activeClub === 'mojo' && (
+            <>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', marginBottom: 28 }}>
+                MOJO Club · ID: 356323
+              </p>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(260px, 1fr))',
+                gap: 20,
+              }}>
+                {MOJO_RAKE_SECTIONS.map((section) => (
+                  <MojoRakeCard key={section.title} section={section} gl={gl} thStyle={thStyle} tdMonoStyle={tdMonoStyle} tdStyle={tdStyle} colBlind={PAGE_COPY.colBlind} />
+                ))}
+              </div>
+            </>
+          )}
         </section>
 
       </div>
