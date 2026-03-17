@@ -47,8 +47,6 @@ export function Footer() {
       heading: t('footer.contactHeading'),
       links: [
         { label: t('footer.managerLink'), href: 'https://t.me/Mojo_Adm', external: true },
-        { label: t('footer.channelLink'), href: 'https://t.me/MOJOPoker', external: true },
-        { label: `${t('footer.chatLink')} · 1724`, href: 'https://t.me/+63QXd66PAuwyNjQ6', external: true },
       ],
     },
   ];
