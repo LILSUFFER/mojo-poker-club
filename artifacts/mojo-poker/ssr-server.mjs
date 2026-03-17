@@ -1,6 +1,6 @@
 import http from 'http';
 import { createServer as createViteServer } from 'vite';
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -290,6 +290,23 @@ async function main() {
         pathname = pathname.slice(BASE_PATH.length) || '/';
       }
       if (!pathname.startsWith('/')) pathname = '/' + pathname;
+
+      // Serve static XML/XSL files with correct Content-Type
+      const xmlExtMatch = pathname.match(/\.(xml|xsl)$/i);
+      if (xmlExtMatch) {
+        const staticFile = resolve(__dirname, 'public', pathname.replace(/^\//, ''));
+        if (existsSync(staticFile)) {
+          const isXsl = xmlExtMatch[1].toLowerCase() === 'xsl';
+          const contentType = isXsl
+            ? 'application/xslt+xml; charset=utf-8'
+            : 'application/xml; charset=utf-8';
+          res.statusCode = 200;
+          res.setHeader('Content-Type', contentType);
+          res.setHeader('Cache-Control', 'public, max-age=3600');
+          res.end(readFileSync(staticFile, 'utf-8'));
+          return;
+        }
+      }
 
       if (isPageRequest(pathname)) {
         const transformed = await vite.transformIndexHtml(req.url, rawIndexHtml);
