@@ -251,10 +251,49 @@ export function GamesPage() {
     <>
       <SEO
         canonical="/games"
-        langs={Object.fromEntries(LANGS.map(lang => [lang, {
-          title: `${getLang(PAGE_COPY.title, lang)} — MOJO Poker Club`,
-          description: getLang(PAGE_COPY.subtitle, lang),
-        }]))}
+        langs={{
+          en: { title: "Poker Games & Formats — MOJO: Massiv Poker Union | GGClub", description: "Full list of poker game formats at MOJO Massiv Poker Union on GGClub: NLH, PLO4, PLO5, PLO6, MTT, Short Deck, Hi-Lo. Limits from 0.05/0.10 to 5/10. MASSIV rake schedule 6.5% NLH / 6% PLO.", keywords: "GGClub poker games, NLH poker, PLO4 PLO5 PLO6, Massiv poker union games, poker rake schedule, ClubGG game formats" },
+          ru: { title: "Игры и форматы покера — MOJO: Massiv Poker Union | GGClub", description: "Полный список форматов покера в MOJO Massiv Poker Union на GGClub: NLH, PLO4, PLO5, PLO6, MTT, Short Deck, Hi-Lo. Лимиты от 0.05/0.10 до 5/10. Расписание рейка MASSIV: 6.5% NLH / 6% PLO.", keywords: "покер форматы GGClub, NLH покер, PLO4 PLO5 PLO6, Massiv покерный союз, расписание рейка, ClubGG форматы" },
+          es: { title: "Juegos y Formatos de Póker — MOJO: Massiv Poker Union | GGClub", description: "Lista completa de formatos de juego en MOJO Massiv Poker Union en GGClub: NLH, PLO4, PLO5, PLO6, MTT, Short Deck, Hi-Lo. Límites desde 0.05/0.10 hasta 5/10. Tabla de rake MASSIV: 6.5% NLH / 6% PLO." },
+          de: { title: "Poker Spiele & Formate — MOJO: Massiv Poker Union | GGClub", description: "Vollständige Liste der Spielformate bei MOJO Massiv Poker Union auf GGClub: NLH, PLO4, PLO5, PLO6, MTT, Short Deck, Hi-Lo. Limits von 0.05/0.10 bis 5/10. MASSIV Rake-Tabelle: 6,5% NLH / 6% PLO." },
+          fr: { title: "Jeux & Formats de Poker — MOJO: Massiv Poker Union | GGClub", description: "Liste complète des formats de jeu chez MOJO Massiv Poker Union sur GGClub: NLH, PLO4, PLO5, PLO6, MTT, Short Deck, Hi-Lo. Limites de 0.05/0.10 à 5/10. Tableau de rake MASSIV: 6,5% NLH / 6% PLO." },
+          it: { title: "Giochi & Formati Poker — MOJO: Massiv Poker Union | GGClub", description: "Elenco completo dei formati di gioco a MOJO Massiv Poker Union su GGClub: NLH, PLO4, PLO5, PLO6, MTT, Short Deck, Hi-Lo. Limiti da 0.05/0.10 a 5/10. Schema rake MASSIV: 6,5% NLH / 6% PLO." },
+          pt: { title: "Jogos & Formatos de Pôquer — MOJO: Massiv Poker Union | GGClub", description: "Lista completa de formatos de jogo na MOJO Massiv Poker Union no GGClub: NLH, PLO4, PLO5, PLO6, MTT, Short Deck, Hi-Lo. Limites de 0.05/0.10 a 5/10. Tabela de rake MASSIV: 6,5% NLH / 6% PLO." },
+          ar: { title: "ألعاب وأشكال البوكر — MOJO: Massiv Poker Union | GGClub", description: "القائمة الكاملة لأشكال الألعاب في MOJO Massiv Poker Union على GGClub: NLH، PLO4، PLO5، PLO6، MTT، Short Deck، Hi-Lo. حدود من 0.05/0.10 إلى 5/10. جدول ريك MASSIV: 6.5% NLH / 6% PLO." },
+          hi: { title: "पोकर गेम्स और फॉर्मेट — MOJO: Massiv Poker Union | GGClub", description: "MOJO Massiv Poker Union, GGClub पर सभी गेम फॉर्मेट: NLH, PLO4, PLO5, PLO6, MTT, Short Deck, Hi-Lo। लिमिट 0.05/0.10 से 5/10 तक। MASSIV रेक: 6.5% NLH / 6% PLO।" },
+          fa: { title: "بازی‌ها و فرمت‌های پوکر — MOJO: Massiv Poker Union | GGClub", description: "فهرست کامل فرمت‌های بازی در MOJO Massiv Poker Union در GGClub: NLH، PLO4، PLO5، PLO6، MTT، Short Deck، Hi-Lo. محدودیت از 0.05/0.10 تا 5/10. جدول ریک MASSIV: 6.5% NLH / 6% PLO." },
+          tr: { title: "Poker Oyunları & Formatları — MOJO: Massiv Poker Union | GGClub", description: "MOJO Massiv Poker Union'da GGClub'daki tüm oyun formatları: NLH, PLO4, PLO5, PLO6, MTT, Short Deck, Hi-Lo. 0.05/0.10'dan 5/10'a kadar limitler. MASSIV rake: %6.5 NLH / %6 PLO." },
+          az: { title: "Poker Oyunları & Formatları — MOJO: Massiv Poker Union | GGClub", description: "MOJO Massiv Poker Union-da GGClub-dakı bütün oyun formatları: NLH, PLO4, PLO5, PLO6, MTT, Short Deck, Hi-Lo. 0.05/0.10-dan 5/10-a qədər limitlər. MASSIV rake: 6.5% NLH / 6% PLO." },
+          zh: { title: "扑克游戏与格式 — MOJO: Massiv Poker Union | GGClub", description: "MOJO Massiv Poker Union 在 GGClub 的完整游戏格式列表：NLH、PLO4、PLO5、PLO6、MTT、短牌、高低。限注从 0.05/0.10 到 5/10。MASSIV 佣金：NLH 6.5% / PLO 6%。" },
+          ja: { title: "ポーカーゲームとフォーマット — MOJO: Massiv Poker Union | GGClub", description: "MOJO Massiv Poker Union（GGClub）の全ゲームフォーマット：NLH、PLO4、PLO5、PLO6、MTT、ショートデック、ハイロー。リミット 0.05/0.10〜5/10。MASSIVレーキ：NLH 6.5% / PLO 6%。" },
+        }}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Poker Games & Formats — MOJO: Massiv Poker Union",
+          "description": "Full list of poker game formats, limits, and rake schedule at MOJO Massiv Poker Union on GGClub network.",
+          "url": "https://mojo-poker.com/games",
+          "publisher": {
+            "@type": "Organization",
+            "name": "MOJO Poker Club",
+            "url": "https://mojo-poker.com"
+          },
+          "mainEntity": {
+            "@type": "ItemList",
+            "name": "Available Poker Game Formats",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Multi-Table Tournaments", "description": "Entry FREE to 150. Freerolls, Knockout Bounty, Progressive KO, Mega Satellites." },
+              { "@type": "ListItem", "position": 2, "name": "No Limit Holdem", "description": "Limits 0.10/0.20 to 5/10. 10BB Max, 20BB Max, Ante, Bomb Pot, Double Board." },
+              { "@type": "ListItem", "position": 3, "name": "Pot Limit Omaha (PLO4)", "description": "Limits 0.25/0.50 to 5/10. 20BB Max, 60BB Max, Ante, Bomb Pot, Double Board." },
+              { "@type": "ListItem", "position": 4, "name": "PLO5", "description": "Limits 0.25/0.50 to 5/10. 20BB Max, 50BB Max, Ante, Run it Multi-Times." },
+              { "@type": "ListItem", "position": 5, "name": "PLO6", "description": "Limits 0.25/0.50 to 5/10. 10BB Max, 60BB Max, Ante, Double Board." },
+              { "@type": "ListItem", "position": 6, "name": "PLO5 Hi-Lo", "description": "Limits 0.25/0.50 to 1/2." },
+              { "@type": "ListItem", "position": 7, "name": "PLO6 Hi-Lo", "description": "Limits 0.25/0.50 to 0.50/1." },
+              { "@type": "ListItem", "position": 8, "name": "Short Deck", "description": "Limits 0.50 to 2." },
+              { "@type": "ListItem", "position": 9, "name": "Sit-N-Gos", "description": "Currently not available due to insufficient demand." },
+            ]
+          }
+        }}
       />
       <Navbar />
       <PageHeader
