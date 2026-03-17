@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+<!--
+  MOJO Poker Club — Sitemap
+  https://mojopokerclub.com
+  Generated: 2026-03-17
+
+  9 pages × 14 languages = 126 URLs
+  Languages: en, ru, es, de, fr, it, pt, ar, hi, fa, tr, az, zh, ja
+-->
+
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+
+  <!-- ══════════════════════════════════
+       Home
+       ══════════════════════════════════ -->
 
   <url>
     <loc>https://mojopokerclub.com/?lang=en</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -19,12 +38,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/?lang=ru</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -40,12 +60,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/?lang=es</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -61,12 +82,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/?lang=de</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -82,12 +104,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/?lang=fr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -103,12 +126,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/?lang=it</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -124,12 +148,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/?lang=pt</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -145,12 +170,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/?lang=ar</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -166,12 +192,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/?lang=hi</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -187,12 +214,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/?lang=fa</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -208,12 +236,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/?lang=tr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -229,12 +258,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/?lang=az</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -250,12 +280,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/?lang=zh</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -271,12 +302,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/?lang=ja</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/?lang=es"/>
@@ -292,12 +324,17 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
+
+  <!-- ══════════════════════════════════
+       Club — MOJO: Massiv Poker Union
+       ══════════════════════════════════ -->
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=en</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -313,12 +350,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=ru</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -334,12 +372,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=es</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -355,12 +394,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=de</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -376,12 +416,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=fr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -397,12 +438,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=it</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -418,12 +460,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=pt</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -439,12 +482,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=ar</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -460,12 +504,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=hi</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -481,12 +526,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=fa</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -502,12 +548,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=tr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -523,12 +570,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=az</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -544,12 +592,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=zh</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -565,12 +614,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv?lang=ja</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
@@ -586,12 +636,17 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
+
+  <!-- ══════════════════════════════════
+       Club — MOJO
+       ══════════════════════════════════ -->
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=en</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -607,12 +662,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=ru</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -628,12 +684,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=es</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -649,12 +706,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=de</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -670,12 +728,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=fr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -691,12 +750,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=it</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -712,12 +772,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=pt</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -733,12 +794,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=ar</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -754,12 +816,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=hi</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -775,12 +838,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=fa</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -796,12 +860,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=tr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -817,12 +882,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=az</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -838,12 +904,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=zh</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -859,12 +926,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo?lang=ja</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
@@ -880,12 +948,17 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
+
+  <!-- ══════════════════════════════════
+       Games & Rake Schedule
+       ══════════════════════════════════ -->
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=en</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -901,12 +974,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=ru</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -922,12 +996,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=es</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -943,12 +1018,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=de</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -964,12 +1040,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=fr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -985,12 +1062,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=it</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -1006,12 +1084,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=pt</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -1027,12 +1106,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=ar</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -1048,12 +1128,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=hi</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -1069,12 +1150,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=fa</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -1090,12 +1172,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=tr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -1111,12 +1194,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=az</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -1132,12 +1216,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=zh</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -1153,12 +1238,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/games?lang=ja</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/games?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/games?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/games?lang=es"/>
@@ -1174,12 +1260,17 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/games?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/games?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/games?lang=en"/>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
+
+  <!-- ══════════════════════════════════
+       How to Join
+       ══════════════════════════════════ -->
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=en</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1195,12 +1286,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=ru</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1216,12 +1308,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=es</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1237,12 +1330,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=de</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1258,12 +1352,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=fr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1279,12 +1374,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=it</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1300,12 +1396,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=pt</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1321,12 +1418,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=ar</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1342,12 +1440,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=hi</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1363,12 +1462,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=fa</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1384,12 +1484,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=tr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1405,12 +1506,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=az</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1426,12 +1528,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=zh</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1447,12 +1550,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/join?lang=ja</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/join?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/join?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/join?lang=es"/>
@@ -1468,12 +1572,17 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/join?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/join?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/join?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
+
+  <!-- ══════════════════════════════════
+       Create Account
+       ══════════════════════════════════ -->
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=en</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1489,12 +1598,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=ru</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1510,12 +1620,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=es</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1531,12 +1642,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=de</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1552,12 +1664,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=fr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1573,12 +1686,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=it</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1594,12 +1708,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=pt</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1615,12 +1730,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=ar</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1636,12 +1752,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=hi</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1657,12 +1774,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=fa</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1678,12 +1796,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=tr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1699,12 +1818,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=az</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1720,12 +1840,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=zh</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1741,12 +1862,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/create-account?lang=ja</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/create-account?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/create-account?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/create-account?lang=es"/>
@@ -1762,12 +1884,17 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/create-account?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/create-account?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/create-account?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
+
+  <!-- ══════════════════════════════════
+       Download ClubGG
+       ══════════════════════════════════ -->
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=en</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -1783,12 +1910,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=ru</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -1804,12 +1932,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=es</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -1825,12 +1954,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=de</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -1846,12 +1976,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=fr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -1867,12 +1998,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=it</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -1888,12 +2020,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=pt</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -1909,12 +2042,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=ar</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -1930,12 +2064,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=hi</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -1951,12 +2086,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=fa</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -1972,12 +2108,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=tr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -1993,12 +2130,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=az</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -2014,12 +2152,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=zh</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -2035,12 +2174,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/download?lang=ja</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/download?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/download?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/download?lang=es"/>
@@ -2056,12 +2196,17 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/download?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/download?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/download?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
+
+  <!-- ══════════════════════════════════
+       Install Guide
+       ══════════════════════════════════ -->
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=en</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2077,12 +2222,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=ru</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2098,12 +2244,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=es</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2119,12 +2266,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=de</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2140,12 +2288,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=fr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2161,12 +2310,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=it</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2182,12 +2332,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=pt</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2203,12 +2354,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=ar</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2224,12 +2376,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=hi</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2245,12 +2398,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=fa</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2266,12 +2420,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=tr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2287,12 +2442,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=az</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2308,12 +2464,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=zh</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2329,12 +2486,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/install?lang=ja</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/install?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/install?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/install?lang=es"/>
@@ -2350,12 +2508,17 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/install?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/install?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/install?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
+
+  <!-- ══════════════════════════════════
+       About
+       ══════════════════════════════════ -->
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=en</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2371,12 +2534,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=ru</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2392,12 +2556,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=es</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2413,12 +2578,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=de</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2434,12 +2600,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=fr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2455,12 +2622,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=it</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2476,12 +2644,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=pt</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2497,12 +2666,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=ar</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2518,12 +2688,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=hi</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2539,12 +2710,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=fa</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2560,12 +2732,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=tr</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2581,12 +2754,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=az</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2602,12 +2776,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=zh</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2623,12 +2798,13 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://mojopokerclub.com/about?lang=ja</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
@@ -2644,8 +2820,6 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://mojopokerclub.com/about?lang=zh"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about?lang=en"/>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
 </urlset>
