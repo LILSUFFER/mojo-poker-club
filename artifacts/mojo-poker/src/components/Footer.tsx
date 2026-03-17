@@ -26,6 +26,7 @@ export function Footer() {
       links: [
         { label: t('footer.aboutLink'), href: '/about' },
         { label: t('footer.joinLink'), href: '/join' },
+        { label: t('nav.games'), href: '/games' },
       ],
     },
     {

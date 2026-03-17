@@ -35,7 +35,7 @@ export const translations = {
   // ─────────────── ENGLISH ───────────────
   en: t({
     nav: {
-      clubs: 'Our Clubs', guides: 'Guides', about: 'About', reviews: 'Reviews',
+      clubs: 'Our Clubs', guides: 'Guides', about: 'About', reviews: 'Reviews', games: 'Games',
       download: 'Download', contact: 'Contact',
       downloadGG: 'Download GGClub', createAccount: 'Create GGClub Account', joinClub: 'Join the Club',
     },
@@ -127,7 +127,7 @@ export const translations = {
   // ─────────────── RUSSIAN ───────────────
   ru: t({
     nav: {
-      clubs: 'Наши клубы', guides: 'Инструкции', about: 'О нас', reviews: 'Отзывы',
+      clubs: 'Наши клубы', guides: 'Инструкции', about: 'О нас', reviews: 'Отзывы', games: 'Игры',
       download: 'Скачать', contact: 'Связаться',
       downloadGG: 'Скачать GGClub', createAccount: 'Создание аккаунта GGClub', joinClub: 'Вступление в клуб',
     },
@@ -218,7 +218,7 @@ export const translations = {
 
   // ─────────────── SPANISH ───────────────
   es: t({
-    nav: { clubs: 'Nuestros Clubs', guides: 'Guías', about: 'Nosotros', reviews: 'Reseñas', download: 'Descargar', contact: 'Contacto', downloadGG: 'Descargar GGClub', createAccount: 'Crear cuenta GGClub', joinClub: 'Unirse al Club' },
+    nav: { clubs: 'Nuestros Clubs', guides: 'Guías', about: 'Nosotros', reviews: 'Reseñas', games: 'Juegos', download: 'Descargar', contact: 'Contacto', downloadGG: 'Descargar GGClub', createAccount: 'Crear cuenta GGClub', joinClub: 'Unirse al Club' },
     hero: { title: 'Club de Póker', titleHighlight: 'de élite', subtitle: 'Únete a MOJO en la red exclusiva ClubGG. Mesas premium, servicio excepcional y las apuestas más altas.', cta: 'Únete ahora', secondaryCta: 'Contactar manager' },
     about: {
       title: 'Sobre nosotros', subtitle: 'La experiencia poker premium',
@@ -245,7 +245,7 @@ export const translations = {
 
   // ─────────────── GERMAN ───────────────
   de: t({
-    nav: { clubs: 'Unsere Clubs', guides: 'Anleitungen', about: 'Über uns', reviews: 'Bewertungen', download: 'Download', contact: 'Kontakt', downloadGG: 'GGClub herunterladen', createAccount: 'GGClub-Konto erstellen', joinClub: 'Club beitreten' },
+    nav: { clubs: 'Unsere Clubs', guides: 'Anleitungen', about: 'Über uns', reviews: 'Bewertungen', games: 'Spiele', download: 'Download', contact: 'Kontakt', downloadGG: 'GGClub herunterladen', createAccount: 'GGClub-Konto erstellen', joinClub: 'Club beitreten' },
     hero: { title: 'Poker Club', titleHighlight: 'der nächsten Stufe', subtitle: 'Trete MOJO im exklusiven ClubGG-Netzwerk bei. Premium-Tische, erstklassiger Service und die höchsten Einsätze.', cta: 'Jetzt beitreten', secondaryCta: 'Manager kontaktieren' },
     about: { title: 'Über uns', subtitle: 'Das Premium-Pokererlebnis', content1: 'MOJO Poker Club ist eine exklusive Gemeinschaft im ClubGG-Netzwerk.', content2: 'Ob entspanntes Spiel oder VIP-Tische – unser Club bietet 24/7 Action.', stats: { players: 'Aktive Spieler', tables: 'Tägliche Tische', support: 'Support' }, heading: 'Beste Konditionen auf dem Markt', massivLabel: 'für Massiv Poker Union', massivDesc: '', createAccountLink: 'Konto erstellen', chipValue: '1:1', chipLabel: 'Chip-Rate', chipDesc: 'Direkttausch, keine Provision', rakebackValue: '50%', rakebackLabel: 'Rakeback', rakebackDesc: 'Bestes Rakeback auf dem Markt' },
     features: { trusted: { title: 'Vertrauenswürdiger Club', desc: 'Bewährter Ruf und Tausende aktiver Spieler' }, active: { title: 'Aktive Spiele', desc: 'Live-Tische mit echtem Traffic rund um die Uhr' }, support: { title: '24/7 Support', desc: 'Persönlicher Manager immer für dich verfügbar' } },
@@ -263,7 +263,7 @@ export const translations = {
 
   // ─────────────── FRENCH ───────────────
   fr: t({
-    nav: { clubs: 'Nos Clubs', guides: 'Guides', about: 'À propos', reviews: 'Avis', download: 'Télécharger', contact: 'Contact', downloadGG: 'Télécharger GGClub', createAccount: 'Créer un compte GGClub', joinClub: 'Rejoindre le Club' },
+    nav: { clubs: 'Nos Clubs', guides: 'Guides', about: 'À propos', reviews: 'Avis', games: 'Jeux', download: 'Télécharger', contact: 'Contact', downloadGG: 'Télécharger GGClub', createAccount: 'Créer un compte GGClub', joinClub: 'Rejoindre le Club' },
     hero: { title: 'Club de Poker', titleHighlight: 'de haut niveau', subtitle: 'Rejoignez MOJO sur le réseau exclusif ClubGG. Tables premium, service exceptionnel et les enjeux les plus élevés.', cta: 'Rejoindre maintenant', secondaryCta: 'Contacter le manager' },
     about: { title: 'À propos', subtitle: "L'expérience poker premium", content1: 'MOJO Poker Club est une communauté exclusive dans le réseau ClubGG.', content2: 'Partidas décontractées ou tables VIP — notre club offre une action 24/7.', stats: { players: 'Joueurs actifs', tables: 'Tables quotidiennes', support: 'Support' }, heading: 'Meilleures Conditions du Marché', massivLabel: 'pour Massiv Poker Union', massivDesc: '', createAccountLink: 'Comment créer un compte', chipValue: '1:1', chipLabel: 'Taux de Jetons', chipDesc: 'Échange direct, sans commission', rakebackValue: '50%', rakebackLabel: 'Rakeback', rakebackDesc: 'Meilleur rakeback du marché' },
     features: { trusted: { title: 'Club de Confiance', desc: 'Réputation prouvée et des milliers de joueurs actifs' }, active: { title: 'Jeux Actifs', desc: 'Tables en direct avec trafic réel 24h/24' }, support: { title: 'Support 24/7', desc: 'Manager personnel toujours disponible' } },
@@ -281,7 +281,7 @@ export const translations = {
 
   // ─────────────── ITALIAN ───────────────
   it: t({
-    nav: { clubs: 'I nostri Club', guides: 'Guide', about: 'Chi siamo', reviews: 'Recensioni', download: 'Scarica', contact: 'Contatto', downloadGG: 'Scarica GGClub', createAccount: 'Crea account GGClub', joinClub: 'Unisciti al Club' },
+    nav: { clubs: 'I nostri Club', guides: 'Guide', about: 'Chi siamo', reviews: 'Recensioni', games: 'Giochi', download: 'Scarica', contact: 'Contatto', downloadGG: 'Scarica GGClub', createAccount: 'Crea account GGClub', joinClub: 'Unisciti al Club' },
     hero: { title: 'Club Poker', titleHighlight: 'di alto livello', subtitle: 'Unisciti a MOJO sulla rete esclusiva ClubGG. Tavoli premium, servizio eccezionale e le puntate più alte.', cta: 'Unisciti ora', secondaryCta: 'Contatta il manager' },
     about: { title: 'Chi siamo', subtitle: "L'esperienza poker premium", content1: 'MOJO Poker Club è una comunità esclusiva nella rete ClubGG.', content2: 'Partite rilassate o tavoli VIP — il nostro club offre azione 24/7.', stats: { players: 'Giocatori attivi', tables: 'Tavoli giornalieri', support: 'Supporto' }, heading: 'Le Migliori Condizioni del Mercato', massivLabel: 'per Massiv Poker Union', massivDesc: '', createAccountLink: 'Come creare account', chipValue: '1:1', chipLabel: 'Tasso di Chip', chipDesc: 'Scambio diretto, nessuna commissione', rakebackValue: '50%', rakebackLabel: 'Rakeback', rakebackDesc: 'Miglior rakeback del mercato' },
     features: { trusted: { title: 'Club Affidabile', desc: 'Reputazione provata e migliaia di giocatori attivi' }, active: { title: 'Giochi Attivi', desc: 'Tavoli live con traffico reale tutto il giorno' }, support: { title: 'Supporto 24/7', desc: 'Manager personale sempre disponibile' } },
@@ -299,7 +299,7 @@ export const translations = {
 
   // ─────────────── PORTUGUESE ───────────────
   pt: t({
-    nav: { clubs: 'Nossos Clubes', guides: 'Guias', about: 'Sobre nós', reviews: 'Avaliações', download: 'Baixar', contact: 'Contato', downloadGG: 'Baixar GGClub', createAccount: 'Criar conta GGClub', joinClub: 'Entrar no Clube' },
+    nav: { clubs: 'Nossos Clubes', guides: 'Guias', about: 'Sobre nós', reviews: 'Avaliações', games: 'Jogos', download: 'Baixar', contact: 'Contato', downloadGG: 'Baixar GGClub', createAccount: 'Criar conta GGClub', joinClub: 'Entrar no Clube' },
     hero: { title: 'Clube de Poker', titleHighlight: 'de alto nível', subtitle: 'Junte-se ao MOJO na rede exclusiva ClubGG. Mesas premium, serviço excepcional e as maiores apostas.', cta: 'Entrar agora', secondaryCta: 'Contactar manager' },
     about: { title: 'Sobre nós', subtitle: 'A experiência premium de poker', content1: 'MOJO Poker Club é uma comunidade exclusiva na rede ClubGG.', content2: 'Jogos casuais ou mesas VIP — nosso clube oferece ação 24/7.', stats: { players: 'Jogadores ativos', tables: 'Mesas diárias', support: 'Suporte' }, heading: 'Melhores Condições do Mercado', massivLabel: 'para Massiv Poker Union', massivDesc: '', createAccountLink: 'Como criar conta', chipValue: '1:1', chipLabel: 'Taxa de Fichas', chipDesc: 'Troca direta, sem comissão', rakebackValue: '50%', rakebackLabel: 'Rakeback', rakebackDesc: 'Melhor rakeback do mercado' },
     features: { trusted: { title: 'Clube Confiável', desc: 'Reputação comprovada e milhares de jogadores ativos' }, active: { title: 'Jogos Ativos', desc: 'Mesas ao vivo com tráfego real 24 horas' }, support: { title: 'Suporte 24/7', desc: 'Manager pessoal sempre disponível' } },
@@ -317,7 +317,7 @@ export const translations = {
 
   // ─────────────── ARABIC ───────────────
   ar: t({
-    nav: { clubs: 'نوادينا', guides: 'الأدلة', about: 'من نحن', reviews: 'التقييمات', download: 'تحميل', contact: 'تواصل', downloadGG: 'تحميل GGClub', createAccount: 'إنشاء حساب GGClub', joinClub: 'الانضمام للنادي' },
+    nav: { clubs: 'نوادينا', guides: 'الأدلة', about: 'من نحن', reviews: 'التقييمات', games: 'الألعاب', download: 'تحميل', contact: 'تواصل', downloadGG: 'تحميل GGClub', createAccount: 'إنشاء حساب GGClub', joinClub: 'الانضمام للنادي' },
     hero: { title: 'نادي البوكر', titleHighlight: 'من المستوى التالي', subtitle: 'انضم إلى MOJO على شبكة ClubGG الحصرية. طاولات مميزة، خدمة استثنائية، وأعلى الرهانات.', cta: 'انضم الآن', secondaryCta: 'تواصل مع المدير' },
     about: { title: 'من نحن', subtitle: 'تجربة البوكر الممتازة', content1: 'MOJO Poker Club هو مجتمع حصري يعمل ضمن شبكة ClubGG.', content2: 'سواء ألعاب هادئة أو طاولات VIP — يقدم نادينا أكشناً 24/7.', stats: { players: 'لاعبون نشطون', tables: 'طاولات يومية', support: 'دعم فني' }, heading: 'أفضل الشروط في السوق', massivLabel: 'لـ Massiv Poker Union', massivDesc: '', createAccountLink: 'كيفية إنشاء حساب', chipValue: '1:1', chipLabel: 'معدل الرقائق', chipDesc: 'تبادل مباشر بدون عمولة', rakebackValue: '50%', rakebackLabel: 'ريك باك', rakebackDesc: 'أفضل ريك باك في السوق' },
     features: { trusted: { title: 'نادٍ موثوق', desc: 'سمعة مثبتة وآلاف اللاعبين النشطين' }, active: { title: 'ألعاب نشطة', desc: 'طاولات مباشرة بحركة حقيقية على مدار الساعة' }, support: { title: 'دعم 24/7', desc: 'مدير شخصي متاح دائماً' } },
@@ -335,7 +335,7 @@ export const translations = {
 
   // ─────────────── HINDI ───────────────
   hi: t({
-    nav: { clubs: 'हमारे क्लब', guides: 'गाइड', about: 'हमारे बारे में', reviews: 'समीक्षाएं', download: 'डाउनलोड', contact: 'संपर्क', downloadGG: 'GGClub डाउनलोड करें', createAccount: 'GGClub अकाउंट बनाएं', joinClub: 'क्लब जॉइन करें' },
+    nav: { clubs: 'हमारे क्लब', guides: 'गाइड', about: 'हमारे बारे में', reviews: 'समीक्षाएं', games: 'गेम्स', download: 'डाउनलोड', contact: 'संपर्क', downloadGG: 'GGClub डाउनलोड करें', createAccount: 'GGClub अकाउंट बनाएं', joinClub: 'क्लब जॉइन करें' },
     hero: { title: 'नेक्स्ट लेवल', titleHighlight: 'पोकर क्लब', subtitle: 'MOJO से जुड़ें एक्सक्लूसिव ClubGG नेटवर्क पर। प्रीमियम टेबल, बेहतरीन सेवा और सबसे ऊंची दांव।', cta: 'अभी जॉइन करें', secondaryCta: 'मैनेजर से बात करें' },
     about: { title: 'हमारे बारे में', subtitle: 'प्रीमियम पोकर अनुभव', content1: 'MOJO Poker Club ClubGG नेटवर्क में एक एक्सक्लूसिव कम्युनिटी है।', content2: 'कैजुअल गेम या VIP टेबल — हमारा क्लब 24/7 एक्शन देता है।', stats: { players: 'सक्रिय खिलाड़ी', tables: 'दैनिक टेबल', support: 'सहायता' }, heading: 'बाजार में सर्वोत्तम शर्तें', massivLabel: 'Massiv Poker Union के लिए', massivDesc: '', createAccountLink: 'अकाउंट कैसे बनाएं', chipValue: '1:1', chipLabel: 'चिप दर', chipDesc: 'सीधा आदान-प्रदान, कोई कमीशन नहीं', rakebackValue: '50%', rakebackLabel: 'रेकबैक', rakebackDesc: 'बाजार में सर्वोत्तम रेकबैक' },
     features: { trusted: { title: 'विश्वसनीय क्लब', desc: 'सिद्ध प्रतिष्ठा और हजारों सक्रिय खिलाड़ी' }, active: { title: 'सक्रिय खेल', desc: 'चौबीसों घंटे वास्तविक ट्रैफ़िक के साथ लाइव टेबल' }, support: { title: '24/7 सहायता', desc: 'व्यक्तिगत मैनेजर हमेशा उपलब्ध' } },
@@ -353,7 +353,7 @@ export const translations = {
 
   // ─────────────── PERSIAN ───────────────
   fa: t({
-    nav: { clubs: 'کلوب‌های ما', guides: 'راهنماها', about: 'درباره ما', reviews: 'نظرات', download: 'دانلود', contact: 'تماس', downloadGG: 'دانلود GGClub', createAccount: 'ساخت حساب GGClub', joinClub: 'عضویت در کلوب' },
+    nav: { clubs: 'کلوب‌های ما', guides: 'راهنماها', about: 'درباره ما', reviews: 'نظرات', games: 'بازی‌ها', download: 'دانلود', contact: 'تماس', downloadGG: 'دانلود GGClub', createAccount: 'ساخت حساب GGClub', joinClub: 'عضویت در کلوب' },
     hero: { title: 'کلوب پوکر', titleHighlight: 'سطح بعدی', subtitle: 'به MOJO در شبکه انحصاری ClubGG بپیوندید. میزهای ممتاز، خدمات استثنایی و بالاترین شرط‌بندی‌ها.', cta: 'همین الان بپیوند', secondaryCta: 'تماس با مدیر' },
     about: { title: 'درباره ما', subtitle: 'تجربه پوکر ممتاز', content1: 'MOJO Poker Club یک جامعه انحصاری در شبکه ClubGG است.', content2: 'بازی‌های آرام یا میزهای VIP — کلوب ما ۲۴/۷ اکشن ارائه می‌دهد.', stats: { players: 'بازیکنان فعال', tables: 'میزهای روزانه', support: 'پشتیبانی' }, heading: 'بهترین شرایط در بازار', massivLabel: 'برای Massiv Poker Union', massivDesc: '', createAccountLink: 'نحوه ایجاد حساب', chipValue: '1:1', chipLabel: 'نرخ چیپ', chipDesc: 'تبادل مستقیم، بدون کمیسیون', rakebackValue: '50%', rakebackLabel: 'ریک‌بک', rakebackDesc: 'بهترین ریک‌بک در بازار' },
     features: { trusted: { title: 'کلوب قابل اعتماد', desc: 'شهرت اثبات شده و هزاران بازیکن فعال' }, active: { title: 'بازی‌های فعال', desc: 'میزهای زنده با ترافیک واقعی ۲۴ ساعته' }, support: { title: 'پشتیبانی ۲۴/۷', desc: 'مدیر شخصی همیشه در دسترس' } },
@@ -371,7 +371,7 @@ export const translations = {
 
   // ─────────────── TURKISH ───────────────
   tr: t({
-    nav: { clubs: 'Kulüplerimiz', guides: 'Rehberler', about: 'Hakkımızda', reviews: 'Yorumlar', download: 'İndir', contact: 'İletişim', downloadGG: 'GGClub İndir', createAccount: 'GGClub Hesabı Oluştur', joinClub: 'Kulübe Katıl' },
+    nav: { clubs: 'Kulüplerimiz', guides: 'Rehberler', about: 'Hakkımızda', reviews: 'Yorumlar', games: 'Oyunlar', download: 'İndir', contact: 'İletişim', downloadGG: 'GGClub İndir', createAccount: 'GGClub Hesabı Oluştur', joinClub: 'Kulübe Katıl' },
     hero: { title: 'Üst Seviye', titleHighlight: 'Poker Kulübü', subtitle: "MOJO'ya özel ClubGG ağında katılın. Premium masalar, olağanüstü hizmet ve en yüksek bahisler.", cta: 'Şimdi Katıl', secondaryCta: 'Yöneticiyle İletişim' },
     about: { title: 'Hakkımızda', subtitle: 'Premium Poker Deneyimi', content1: "MOJO Poker Club, ClubGG ağında faaliyet gösteren özel bir topluluktur.", content2: "İster rahat oyunlar ister VIP masalar olsun, kulübümüz 7/24 aksiyon sunuyor.", stats: { players: 'Aktif Oyuncular', tables: 'Günlük Masalar', support: 'Destek' }, heading: 'Piyasadaki En İyi Koşullar', massivLabel: 'Massiv Poker Union için', massivDesc: '', createAccountLink: 'Hesap Nasıl Oluşturulur', chipValue: '1:1', chipLabel: 'Chip Oranı', chipDesc: 'Doğrudan değişim, komisyon yok', rakebackValue: '50%', rakebackLabel: 'Rakeback', rakebackDesc: 'Piyasadaki en iyi rakeback' },
     features: { trusted: { title: 'Güvenilir Kulüp', desc: 'Kanıtlanmış itibar ve binlerce aktif oyuncu' }, active: { title: 'Aktif Oyunlar', desc: '7/24 gerçek trafikli canlı masalar' }, support: { title: '7/24 Destek', desc: 'Kişisel yönetici her zaman hazır' } },
@@ -389,7 +389,7 @@ export const translations = {
 
   // ─────────────── AZERBAIJANI ───────────────
   az: t({
-    nav: { clubs: 'Klublarımız', guides: 'Bələdçilər', about: 'Haqqımızda', reviews: 'Rəylər', download: 'Yüklə', contact: 'Əlaqə', downloadGG: 'GGClub Yüklə', createAccount: 'GGClub Hesabı Yarat', joinClub: 'Kluba Qoşul' },
+    nav: { clubs: 'Klublarımız', guides: 'Bələdçilər', about: 'Haqqımızda', reviews: 'Rəylər', games: 'Oyunlar', download: 'Yüklə', contact: 'Əlaqə', downloadGG: 'GGClub Yüklə', createAccount: 'GGClub Hesabı Yarat', joinClub: 'Kluba Qoşul' },
     hero: { title: 'Növbəti Səviyyə', titleHighlight: 'Poker Klubu', subtitle: "MOJO-ya eksklüziv ClubGG şəbəkəsində qoşulun. Premium masalar, əla xidmət və ən yüksək stavkalar.", cta: 'İndi Qoşul', secondaryCta: 'Menecerlə Əlaqə' },
     about: { title: 'Haqqımızda', subtitle: 'Premium Poker Təcrübəsi', content1: 'MOJO Poker Club ClubGG şəbəkəsində eksklüziv bir cəmiyyətdir.', content2: 'Sakit oyunlar ya VIP masalar — klubumuz 24/7 aksion təklif edir.', stats: { players: 'Aktiv Oyunçular', tables: 'Gündəlik Masalar', support: 'Dəstək' }, heading: 'Bazardakı Ən Yaxşı Şərtlər', massivLabel: 'Massiv Poker Union üçün', massivDesc: '', createAccountLink: 'Hesab Necə Yaradılır', chipValue: '1:1', chipLabel: 'Çip Nisbəti', chipDesc: 'Birbaşa mübadilə, komissiya yoxdur', rakebackValue: '50%', rakebackLabel: 'Rakeback', rakebackDesc: 'Bazardakı ən yaxşı rakeback' },
     features: { trusted: { title: 'Etibarlı Klub', desc: 'Sübut edilmiş nüfuz və minlərlə aktiv oyunçu' }, active: { title: 'Aktiv Oyunlar', desc: '24/7 həqiqi trafikli canlı masalar' }, support: { title: '24/7 Dəstək', desc: 'Şəxsi menecer həmişə hazır' } },
@@ -407,7 +407,7 @@ export const translations = {
 
   // ─────────────── CHINESE ───────────────
   zh: t({
-    nav: { clubs: '我们的俱乐部', guides: '指南', about: '关于我们', reviews: '评价', download: '下载', contact: '联系我们', downloadGG: '下载 GGClub', createAccount: '创建 GGClub 账号', joinClub: '加入俱乐部' },
+    nav: { clubs: '我们的俱乐部', guides: '指南', about: '关于我们', reviews: '评价', games: '游戏', download: '下载', contact: '联系我们', downloadGG: '下载 GGClub', createAccount: '创建 GGClub 账号', joinClub: '加入俱乐部' },
     hero: { title: '下一级', titleHighlight: '扑克俱乐部', subtitle: '加入 MOJO，体验独家 ClubGG 网络。高级牌桌、卓越服务和最高赌注。', cta: '立即加入', secondaryCta: '联系经理' },
     about: { title: '关于我们', subtitle: '顶级扑克体验', content1: 'MOJO Poker Club 是 ClubGG 网络中的独家社区。', content2: '无论休闲游戏还是 VIP 牌桌，我们的俱乐部全天候提供精彩游戏。', stats: { players: '活跃玩家', tables: '每日牌桌', support: '客服支持' }, heading: '市场最优条件', massivLabel: '为 Massiv Poker Union', massivDesc: '', createAccountLink: '如何创建账号', chipValue: '1:1', chipLabel: '筹码汇率', chipDesc: '直接兑换，零手续费', rakebackValue: '50%', rakebackLabel: '返水', rakebackDesc: '市场最高返水' },
     features: { trusted: { title: '可信赖的俱乐部', desc: '有口皆碑，拥有数千名活跃玩家' }, active: { title: '活跃游戏', desc: '全天候真实流量的游戏桌' }, support: { title: '24/7 客服', desc: '专属客服随时为您服务' } },
@@ -425,7 +425,7 @@ export const translations = {
 
   // ─────────────── JAPANESE ───────────────
   ja: t({
-    nav: { clubs: 'クラブ一覧', guides: 'ガイド', about: '私たちについて', reviews: 'レビュー', download: 'ダウンロード', contact: 'お問い合わせ', downloadGG: 'GGClub ダウンロード', createAccount: 'GGClub アカウント作成', joinClub: 'クラブに参加' },
+    nav: { clubs: 'クラブ一覧', guides: 'ガイド', about: '私たちについて', reviews: 'レビュー', games: 'ゲーム', download: 'ダウンロード', contact: 'お問い合わせ', downloadGG: 'GGClub ダウンロード', createAccount: 'GGClub アカウント作成', joinClub: 'クラブに参加' },
     hero: { title: '次のレベルの', titleHighlight: 'ポーカークラブ', subtitle: '独占的な ClubGG ネットワークで MOJO に参加しましょう。プレミアムテーブル、最高のサービス、最高額の賭け。', cta: '今すぐ参加', secondaryCta: 'マネージャーに連絡' },
     about: { title: '私たちについて', subtitle: 'プレミアムポーカー体験', content1: 'MOJO Poker Club は ClubGG ネットワークで運営する独占コミュニティです。', content2: 'カジュアルな低ステークスから VIP テーブルまで、クラブは 24/7 アクションを提供します。', stats: { players: 'アクティブプレイヤー', tables: '1日のテーブル数', support: 'サポート' }, heading: '市場最高の条件', massivLabel: 'Massiv Poker Union について', massivDesc: '', createAccountLink: 'アカウントの作成方法', chipValue: '1:1', chipLabel: 'チップレート', chipDesc: '直接交換、手数料なし', rakebackValue: '50%', rakebackLabel: 'レーキバック', rakebackDesc: '市場最高のレーキバック' },
     features: { trusted: { title: '信頼できるクラブ', desc: '実績ある評判と数千人のアクティブプレイヤー' }, active: { title: 'アクティブゲーム', desc: '24時間リアルトラフィックのライブテーブル' }, support: { title: '24/7 サポート', desc: '専属マネージャーが常に対応' } },

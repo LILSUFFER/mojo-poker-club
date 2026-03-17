@@ -124,6 +124,7 @@ export function Navbar() {
     { label: t('nav.createAccount'), href: '/create-account' },
     { label: t('nav.joinClub'), href: '/join' },
     { label: t('nav.about'), href: '/about' },
+    { label: t('nav.games'), href: '/games' },
     { label: t('nav.reviews'), href: isHome ? '#reviews' : '/#reviews' },
   ];
 
@@ -155,6 +156,11 @@ export function Navbar() {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
             >{t('nav.about')}</Link>
+            <Link href="/games"
+              style={linkStyle as React.CSSProperties}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
+            >{t('nav.games')}</Link>
             <a href={isHome ? '#reviews' : '/#reviews'}
               style={linkStyle as React.CSSProperties}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}

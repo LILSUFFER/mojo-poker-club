@@ -13,6 +13,7 @@ import { CreateAccount } from "@/pages/CreateAccount";
 import { ClubMassiv } from "@/pages/ClubMassiv";
 import { ClubMojo } from "@/pages/ClubMojo";
 import { AboutPage } from "@/pages/AboutPage";
+import { GamesPage } from "@/pages/GamesPage";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -53,6 +54,7 @@ function Router() {
         <Route path="/clubs/massiv" component={ClubMassiv} />
         <Route path="/clubs/mojo" component={ClubMojo} />
         <Route path="/about" component={AboutPage} />
+        <Route path="/games" component={GamesPage} />
         <Route component={NotFound} />
       </Switch>
     </>
