@@ -36,7 +36,6 @@ const clubs = [
 
 export function Clubs() {
   const { t, language } = useLanguage();
-  const isRu = language === 'ru';
   const isMobile = useIsMobile();
 
   return (
@@ -89,16 +88,16 @@ export function Clubs() {
                 </h3>
 
                 <p style={{ margin: 0, fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.65 }}>
-                  {isRu ? club.descRu : club.descEn}
+                  {language === 'ru' ? club.descRu : club.descEn}
                 </p>
 
                 {/* Stats: 2×2 grid */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: 8 }}>
                   {[
-                    { label: isRu ? 'Фишка' : 'Chip', val: club.chip },
-                    { label: isRu ? 'Рейкбек' : 'Rakeback', val: club.rb },
-                    { label: isRu ? 'Онлайн' : 'Online', val: club.online },
-                    { label: isRu ? 'Столов' : 'Tables', val: club.tables },
+                    { label: t('clubs.chipLabel'), val: club.chip },
+                    { label: t('clubs.rakebackLabel'), val: club.rb },
+                    { label: t('clubs.onlineLabel'), val: club.online },
+                    { label: t('clubs.tables'), val: club.tables },
                   ].map(s => (
                     <div key={s.label} style={{ padding: '10px 12px', borderRadius: 6, background: 'var(--bg)', border: '1px solid var(--border-subtle)' }}>
                       <div style={{ fontSize: 9, fontWeight: 700, color: 'var(--text-faint)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 5, whiteSpace: 'nowrap' }}>
@@ -124,7 +123,7 @@ export function Clubs() {
                   onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'; }}
                   onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.14)'; }}
                 >
-                  {isRu ? 'Подробнее о клубе' : 'Learn More'} →
+                  {t('clubs.learnMore')} →
                 </Link>
 
               </div>

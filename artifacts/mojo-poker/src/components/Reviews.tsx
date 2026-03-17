@@ -78,19 +78,18 @@ function Stars({ count }: { count: number }) {
 }
 
 export function Reviews() {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const isMobile = useIsMobile();
-  const isRu = language === 'ru';
 
   return (
     <section id="reviews" style={{ padding: isMobile ? '60px 0' : '100px 0', background: 'var(--bg)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: isMobile ? '0 20px' : '0 32px' }}>
         <div style={{ marginBottom: isMobile ? 36 : 56 }}>
           <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', color: 'var(--text-faint)', textTransform: 'uppercase', marginBottom: 14 }}>
-            /// {isRu ? 'ОТЗЫВЫ' : 'REVIEWS'}
+            /// {t('reviews.label')}
           </p>
           <h2 style={{ fontSize: isMobile ? 26 : 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, color: 'var(--text)', margin: 0, lineHeight: 1.1, letterSpacing: '-0.025em', fontFamily: 'Space Grotesk, sans-serif' }}>
-            {isRu ? 'Что говорят игроки' : 'What Players Say'}
+            {t('reviews.title')}
           </h2>
         </div>
 
@@ -111,7 +110,7 @@ export function Reviews() {
             }}>
               <Stars count={r.rating} />
               <p style={{ fontSize: 14, lineHeight: 1.65, color: 'rgba(255,255,255,0.65)', margin: 0, flex: 1 }}>
-                "{isRu ? r.text.ru : r.text.en}"
+                "{language === 'ru' ? r.text.ru : r.text.en}"
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, paddingTop: 4, borderTop: '1px solid var(--border-subtle)' }}>
                 <div style={{

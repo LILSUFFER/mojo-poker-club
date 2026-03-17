@@ -3,70 +3,38 @@ import { Link } from 'wouter';
 import { useIsMobile } from '@/hooks/useIsMobile';
 
 export function Footer() {
-  const { language } = useLanguage();
-  const isRu = language === 'ru';
+  const { t } = useLanguage();
   const isMobile = useIsMobile();
 
-  const cols = isRu ? [
+  const cols = [
     {
-      heading: 'Навигация',
+      heading: t('footer.navHeading'),
       links: [
-        { label: 'О нас', href: '/about' },
-        { label: 'Как вступить', href: '/join' },
+        { label: t('footer.aboutLink'), href: '/about' },
+        { label: t('footer.joinLink'), href: '/join' },
       ],
     },
     {
-      heading: 'Клубы',
+      heading: t('footer.clubsHeading'),
       links: [
         { label: 'Massiv Poker Union', href: '/clubs/massiv' },
         { label: 'MOJO', href: '/clubs/mojo' },
       ],
     },
     {
-      heading: 'Инструкции',
+      heading: t('footer.guidesHeading'),
       links: [
-        { label: 'Скачать ClubGG', href: '/download' },
-        { label: 'Как установить', href: '/install' },
-        { label: 'Создать аккаунт', href: '/create-account' },
+        { label: t('footer.downloadLink'), href: '/download' },
+        { label: t('footer.installLink'), href: '/install' },
+        { label: t('footer.createAccountLink'), href: '/create-account' },
       ],
     },
     {
-      heading: 'Контакты',
+      heading: t('footer.contactHeading'),
       links: [
-        { label: '@Mojo_Adm — менеджер', href: 'https://t.me/Mojo_Adm', external: true },
-        { label: 'Официальный канал', href: 'https://t.me/MOJOPoker', external: true },
-        { label: 'Чат игроков · 1724', href: 'https://t.me/+63QXd66PAuwyNjQ6', external: true },
-      ],
-    },
-  ] : [
-    {
-      heading: 'Navigation',
-      links: [
-        { label: 'About', href: '/about' },
-        { label: 'How to Join', href: '/join' },
-      ],
-    },
-    {
-      heading: 'Clubs',
-      links: [
-        { label: 'Massiv Poker Union', href: '/clubs/massiv' },
-        { label: 'MOJO', href: '/clubs/mojo' },
-      ],
-    },
-    {
-      heading: 'Guides',
-      links: [
-        { label: 'Download ClubGG', href: '/download' },
-        { label: 'How to Install', href: '/install' },
-        { label: 'Create Account', href: '/create-account' },
-      ],
-    },
-    {
-      heading: 'Contact',
-      links: [
-        { label: '@Mojo_Adm — Manager', href: 'https://t.me/Mojo_Adm', external: true },
-        { label: 'Official Channel', href: 'https://t.me/MOJOPoker', external: true },
-        { label: 'Player Chat · 1724', href: 'https://t.me/+63QXd66PAuwyNjQ6', external: true },
+        { label: t('footer.managerLink'), href: 'https://t.me/Mojo_Adm', external: true },
+        { label: t('footer.channelLink'), href: 'https://t.me/MOJOPoker', external: true },
+        { label: `${t('footer.chatLink')} · 1724`, href: 'https://t.me/+63QXd66PAuwyNjQ6', external: true },
       ],
     },
   ];
@@ -91,9 +59,7 @@ export function Footer() {
                 />
               </Link>
               <p style={{ fontSize: 13, color: 'var(--text-faint)', lineHeight: 1.6, maxWidth: 260, margin: 0 }}>
-                {isRu
-                  ? 'Покерный клуб в сети ClubGG. Премиум столы, честная игра, VIP поддержка 24/7.'
-                  : 'Poker club on ClubGG network. Premium tables, fair play, VIP support 24/7.'}
+                {t('download.note')}
               </p>
             </div>
 
@@ -106,7 +72,7 @@ export function Footer() {
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                     {col.links.map(link => (
-                      link.external ? (
+                      (link as any).external ? (
                         <a
                           key={link.label}
                           href={link.href}
@@ -147,9 +113,7 @@ export function Footer() {
                 />
               </Link>
               <p style={{ fontSize: 13, color: 'var(--text-faint)', lineHeight: 1.6, maxWidth: 220, margin: 0 }}>
-                {isRu
-                  ? 'Покерный клуб в сети ClubGG. Премиум столы, честная игра, VIP поддержка 24/7.'
-                  : 'Poker club on ClubGG network. Premium tables, fair play, VIP support 24/7.'}
+                Poker club on ClubGG network. Premium tables, fair play, VIP support 24/7.
               </p>
             </div>
 
@@ -161,7 +125,7 @@ export function Footer() {
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   {col.links.map(link => (
-                    link.external ? (
+                    (link as any).external ? (
                       <a
                         key={link.label}
                         href={link.href}
@@ -198,13 +162,13 @@ export function Footer() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
           <p style={{ fontSize: 12, color: 'var(--text-faint)', margin: 0 }}>
             © {new Date().getFullYear()} MOJO Poker Club.{' '}
-            {isRu ? 'Все права защищены.' : 'All rights reserved.'}
+            {t('footer.rights')}
           </p>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <span style={{ fontSize: 11, color: 'var(--text-faint)', fontWeight: 500 }}>ClubGG Network</span>
             <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'var(--text-faint)', display: 'inline-block' }} />
             <span style={{ fontSize: 11, color: 'var(--text-faint)', fontWeight: 500 }}>
-              {isRu ? 'Реферальный код:' : 'Referral code:'} 3383-3619
+              {t('footer.referralCode')} 3383-3619
             </span>
           </div>
         </div>

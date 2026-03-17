@@ -23,8 +23,7 @@ const gamesData = {
 };
 
 export function Games() {
-  const { language } = useLanguage();
-  const isRu = language === 'ru';
+  const { language, t } = useLanguage();
   const isMobile = useIsMobile();
   const games = (gamesData as any)[language] ?? gamesData['en'];
   const [active, setActive] = useState(0);
@@ -45,10 +44,10 @@ export function Games() {
               style={{ marginBottom: 24 }}
             >
               <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 14 }}>
-                /// {isRu ? 'ФОРМАТЫ ИГРЫ' : 'GAME FORMATS'}
+                /// {t('games.label')}
               </div>
               <h2 style={{ fontSize: 28, fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em', margin: 0 }}>
-                {isRu ? 'Доступные форматы' : 'Available Formats'}
+                {t('games.title')}
               </h2>
             </motion.div>
 
@@ -142,10 +141,10 @@ export function Games() {
                 style={{ marginBottom: 40 }}
               >
                 <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 14 }}>
-                  /// {isRu ? 'ФОРМАТЫ ИГРЫ' : 'GAME FORMATS'}
+                  /// {t('games.label')}
                 </div>
                 <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 700, lineHeight: 1.1, color: 'var(--text)', letterSpacing: '-0.025em', margin: 0 }}>
-                  {isRu ? 'Доступные форматы' : 'Available Formats'}
+                  {t('games.title')}
                 </h2>
               </motion.div>
 

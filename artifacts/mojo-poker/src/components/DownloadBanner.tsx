@@ -28,29 +28,12 @@ function WindowsIcon() {
 }
 
 export function DownloadBanner() {
-  const { t, language } = useLanguage();
-
-  const isRu = language === 'ru';
+  const { t } = useLanguage();
 
   const platforms = [
-    {
-      icon: <AndroidIcon />,
-      label: isRu ? 'Скачать APK' : 'Download APK',
-      sub: 'Android',
-      href: GGCLUB_URL,
-    },
-    {
-      icon: <AppleIcon />,
-      label: isRu ? 'App Store' : 'App Store',
-      sub: 'iOS / iPadOS',
-      href: GGCLUB_URL,
-    },
-    {
-      icon: <WindowsIcon />,
-      label: isRu ? 'Скачать .exe' : 'Download .exe',
-      sub: 'Windows / PC',
-      href: GGCLUB_URL,
-    },
+    { icon: <AndroidIcon />, label: t('download.apkLabel'), sub: 'Android', href: GGCLUB_URL },
+    { icon: <AppleIcon />,   label: 'App Store',            sub: 'iOS / iPadOS', href: GGCLUB_URL },
+    { icon: <WindowsIcon />, label: t('download.exeLabel'), sub: 'Windows / PC', href: GGCLUB_URL },
   ];
 
   return (
@@ -69,7 +52,7 @@ export function DownloadBanner() {
           style={{ marginBottom: 16 }}
         >
           <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-faint)' }}>
-            /// {isRu ? 'Скачать приложение' : 'Download App'}
+            /// {t('download.label')}
           </span>
         </motion.div>
 
@@ -81,7 +64,7 @@ export function DownloadBanner() {
           transition={{ delay: 0.06 }}
           style={{ fontSize: 'clamp(28px, 3vw, 44px)', fontWeight: 700, letterSpacing: '-0.03em', color: 'var(--text)', marginBottom: 12 }}
         >
-          {isRu ? 'Скачать сейчас' : 'Download Now'}
+          {t('download.cta')}
         </motion.h2>
 
         {/* Sub */}
@@ -92,7 +75,7 @@ export function DownloadBanner() {
           transition={{ delay: 0.1 }}
           style={{ fontSize: 13, color: 'var(--text-faint)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 48 }}
         >
-          {isRu ? 'Покупка не требуется' : 'No purchase required'}
+          {t('download.note')}
         </motion.p>
 
         {/* Buttons */}
@@ -110,28 +93,15 @@ export function DownloadBanner() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 14,
-                padding: '14px 28px',
-                borderRadius: 4,
+                display: 'inline-flex', alignItems: 'center', gap: 14,
+                padding: '14px 28px', borderRadius: 4,
                 border: '1px solid rgba(255,255,255,0.18)',
                 background: 'rgba(255,255,255,0.03)',
-                color: 'white',
-                textDecoration: 'none',
-                transition: 'all 0.15s',
-                minWidth: 200,
+                color: 'white', textDecoration: 'none',
+                transition: 'all 0.15s', minWidth: 200,
               }}
-              onMouseEnter={e => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = 'rgba(255,255,255,0.35)';
-                el.style.background = 'rgba(255,255,255,0.07)';
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = 'rgba(255,255,255,0.18)';
-                el.style.background = 'rgba(255,255,255,0.03)';
-              }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.35)'; el.style.background = 'rgba(255,255,255,0.07)'; }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.18)'; el.style.background = 'rgba(255,255,255,0.03)'; }}
             >
               <span style={{ color: 'var(--text-muted)', flexShrink: 0 }}>{icon}</span>
               <span style={{ textAlign: 'left' }}>

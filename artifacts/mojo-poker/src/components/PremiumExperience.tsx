@@ -2,23 +2,15 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/useIsMobile';
 
-const featuresData = {
-  ru: [
-    { img: '/images/icon-shield.png',  title: 'Надёжность',     desc: 'Клуб с проверенной репутацией и тысячами игроков' },
-    { img: '/images/icon-bolt.png',    title: 'Активная игра',  desc: 'Столы с живым трафиком в любое время суток' },
-    { img: '/images/icon-support.png', title: 'Поддержка 24/7', desc: 'Персональный менеджер всегда на связи' },
-  ],
-  en: [
-    { img: '/images/icon-shield.png',  title: 'Trusted Club',  desc: 'Proven reputation and thousands of active players' },
-    { img: '/images/icon-bolt.png',    title: 'Active Games',  desc: 'Live tables with real traffic around the clock' },
-    { img: '/images/icon-support.png', title: '24/7 Support',  desc: 'Personal manager always available for you' },
-  ],
-};
-
 export function PremiumExperience() {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const isMobile = useIsMobile();
-  const features = (featuresData as any)[language] ?? featuresData['en'];
+
+  const features = [
+    { img: '/images/icon-shield.png',  title: t('features.trusted.title'), desc: t('features.trusted.desc') },
+    { img: '/images/icon-bolt.png',    title: t('features.active.title'),  desc: t('features.active.desc') },
+    { img: '/images/icon-support.png', title: t('features.support.title'), desc: t('features.support.desc') },
+  ];
 
   return (
     <section style={{ padding: isMobile ? '60px 0' : '100px 0', background: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)' }}>
@@ -67,11 +59,7 @@ export function PremiumExperience() {
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)'; }}
               >
                 <div style={{ flexShrink: 0, width: 44, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <img
-                    src={f.img}
-                    alt={f.title}
-                    style={{ width: 40, height: 40, objectFit: 'contain', display: 'block' }}
-                  />
+                  <img src={f.img} alt={f.title} style={{ width: 40, height: 40, objectFit: 'contain', display: 'block' }} />
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--text)', marginBottom: 4 }}>{f.title}</div>
