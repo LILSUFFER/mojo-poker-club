@@ -12,6 +12,10 @@ export const LANGUAGE_LABELS: Record<Language, string> = {
   en: 'EN', ru: 'RU', es: 'ES', de: 'DE', fr: 'FR', it: 'IT', pt: 'PT',
   ar: 'AR', hi: 'HI', fa: 'FA', tr: 'TR', az: 'AZ', zh: 'ZH', ja: 'JA',
 };
+export const LANGUAGE_FLAGS: Record<Language, string> = {
+  en: '🇬🇧', ru: '🇷🇺', es: '🇪🇸', de: '🇩🇪', fr: '🇫🇷', it: '🇮🇹', pt: '🇧🇷',
+  ar: '🇸🇦', hi: '🇮🇳', fa: '🇮🇷', tr: '🇹🇷', az: '🇦🇿', zh: '🇨🇳', ja: '🇯🇵',
+};
 
 // ---------------------------------------------------------------------------
 // Helper to keep TypeScript happy without verbose typing
