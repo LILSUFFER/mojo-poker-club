@@ -105,62 +105,35 @@ export function AboutPage() {
             <p style={{ margin: '0 0 24px', fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase' }}>
               {t('pages.about.community')}
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
-              <a
-                href="https://t.me/MOJOPoker"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: 'none' }}
-              >
-                <div style={{
-                  padding: '24px 28px', borderRadius: 8,
-                  background: 'var(--bg-card)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  transition: 'border-color 0.15s',
-                  cursor: 'pointer',
-                }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.2)'; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.08)'; }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
-                    {TG_ICON}
-                    <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>Telegram</span>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: 16 }}>
+              {[
+                { flag: 'ru', label: 'Русский канал', href: 'https://t.me/+gPq_KS_WWXJhZDc6' },
+                { flag: 'gb', label: 'English channel', href: 'https://t.me/+05mQbZgpoEc1MDVi' },
+                { flag: 'tr', label: 'Türkçe kanal', href: 'https://t.me/+lwRi6Qatepw1ZDY6' },
+              ].map(ch => (
+                <a key={ch.href} href={ch.href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                  <div style={{
+                    padding: '24px 28px', borderRadius: 8,
+                    background: 'var(--bg-card)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    transition: 'border-color 0.15s',
+                    cursor: 'pointer',
+                    height: '100%', boxSizing: 'border-box',
+                  }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.2)'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.08)'; }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+                      {TG_ICON}
+                      <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>Telegram</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <span className={`fi fi-${ch.flag}`} style={{ width: 22, height: 16, borderRadius: 3, flexShrink: 0 }} />
+                      <p style={{ margin: 0, fontSize: 16, fontWeight: 700, color: 'white' }}>{ch.label}</p>
+                    </div>
                   </div>
-                  <p style={{ margin: '0 0 4px', fontSize: 16, fontWeight: 700, color: 'white' }}>
-                    {t('pages.about.officialChannel')}
-                  </p>
-                  <p style={{ margin: 0, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>@MOJOPoker</p>
-                </div>
-              </a>
-
-              <a
-                href="https://t.me/+63QXd66PAuwyNjQ6"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: 'none' }}
-              >
-                <div style={{
-                  padding: '24px 28px', borderRadius: 8,
-                  background: 'var(--bg-card)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  transition: 'border-color 0.15s',
-                  cursor: 'pointer',
-                }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.2)'; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.08)'; }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
-                    {TG_ICON}
-                    <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>Telegram</span>
-                  </div>
-                  <p style={{ margin: '0 0 4px', fontSize: 16, fontWeight: 700, color: 'white' }}>
-                    {t('pages.about.playerChat')}
-                  </p>
-                  <p style={{ margin: 0, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>
-                    1 724 {t('pages.about.members')}
-                  </p>
-                </div>
-              </a>
+                </a>
+              ))}
             </div>
           </div>
 
