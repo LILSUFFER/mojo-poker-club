@@ -113,7 +113,7 @@ export function Footer() {
                 />
               </Link>
               <p style={{ fontSize: 13, color: 'var(--text-faint)', lineHeight: 1.6, maxWidth: 220, margin: 0 }}>
-                Poker club on ClubGG network. Premium tables, fair play, VIP support 24/7.
+                {t('footer.tagline')}
               </p>
             </div>
 
