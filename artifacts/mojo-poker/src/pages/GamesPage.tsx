@@ -358,9 +358,9 @@ export function GamesPage() {
                 }}>
                   <span style={{ fontSize: 13, fontWeight: 700, color: 'white' }}>{section.title}</span>
                   <span style={{
-                    fontSize: 11, fontWeight: 700, padding: '2px 8px', borderRadius: 4,
-                    background: 'rgba(239,68,68,0.15)', color: '#f87171', letterSpacing: '0.05em',
-                  }}>{section.rate}</span>
+                    fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 4,
+                    background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.05em',
+                  }}>Rake {section.rate}</span>
                 </div>
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                   <thead>
