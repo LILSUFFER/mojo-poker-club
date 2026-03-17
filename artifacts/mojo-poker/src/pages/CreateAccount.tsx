@@ -246,15 +246,21 @@ export function CreateAccount() {
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
       <SEO
         canonical="/create-account"
-        ru={{
-          title: 'Как создать аккаунт в GGClub (ClubGG) — инструкция',
-          description: 'Пошаговая инструкция по регистрации аккаунта в GGClub для Massiv Poker Union и MOJO. Как выбрать нужный флаг ГЕО, использовать VPN и реферальный код.',
-          keywords: 'создать аккаунт GGClub, регистрация ClubGG, GGClub регистрация, Massiv Poker Union аккаунт, VPN для GGClub, покер аккаунт',
-        }}
-        en={{
-          title: 'How to Create a GGClub Account — Registration Guide',
-          description: 'Step-by-step guide to registering a GGClub account for Massiv Poker Union and MOJO. How to select the correct GEO flag, use VPN and referral code.',
-          keywords: 'create GGClub account, ClubGG registration, GGClub sign up, Massiv Poker Union account, VPN for GGClub, poker account setup',
+        langs={{
+          ru: { title: "Как создать аккаунт в GGClub (ClubGG) — инструкция", description: "Пошаговая инструкция по регистрации аккаунта в GGClub для Massiv Poker Union и MOJO. Как выбрать нужный флаг ГЕО, использовать VPN и реферальный код.", keywords: "создать аккаунт GGClub, регистрация ClubGG, Massiv Poker Union аккаунт, VPN для GGClub" },
+          en: { title: "How to Create a GGClub Account — Registration Guide", description: "Step-by-step guide to registering a GGClub account for Massiv Poker Union and MOJO. How to select the correct GEO flag, use VPN and referral code.", keywords: "create GGClub account, ClubGG registration, GGClub sign up, Massiv Poker Union account, VPN for GGClub" },
+          es: { title: "Cómo crear una cuenta GGClub — Guía de Registro", description: "Guía paso a paso para registrar una cuenta GGClub para Massiv Poker Union y MOJO. Cómo seleccionar la bandera GEO correcta, usar VPN y código de referido." },
+          de: { title: "GGClub-Konto erstellen — Registrierungsanleitung", description: "Schritt-für-Schritt-Anleitung zur Registrierung eines GGClub-Kontos für Massiv Poker Union und MOJO. Richtige GEO-Flagge, VPN und Referral-Code." },
+          fr: { title: "Comment créer un compte GGClub — Guide d'inscription", description: "Guide étape par étape pour enregistrer un compte GGClub pour Massiv Poker Union et MOJO. Comment sélectionner le bon drapeau GEO, utiliser un VPN et un code de parrainage." },
+          it: { title: "Come creare un account GGClub — Guida alla Registrazione", description: "Guida passo passo per registrare un account GGClub per Massiv Poker Union e MOJO. Come selezionare la bandiera GEO corretta, utilizzare VPN e codice referral." },
+          pt: { title: "Como criar uma conta GGClub — Guia de Registro", description: "Guia passo a passo para registrar uma conta GGClub para Massiv Poker Union e MOJO. Como selecionar a bandeira GEO correta, usar VPN e código de referência." },
+          ar: { title: "كيفية إنشاء حساب GGClub — دليل التسجيل", description: "دليل خطوة بخطوة لتسجيل حساب GGClub لـ Massiv Poker Union وMOJO. كيفية اختيار علم GEO الصحيح، واستخدام VPN ورمز الإحالة." },
+          hi: { title: "GGClub अकाउंट कैसे बनाएं — रजिस्ट्रेशन गाइड", description: "Massiv Poker Union और MOJO के लिए GGClub अकाउंट रजिस्टर करने की चरण-दर-चरण गाइड। सही GEO फ्लैग, VPN और रेफरल कोड।" },
+          fa: { title: "نحوه ایجاد حساب GGClub — راهنمای ثبت‌نام", description: "راهنمای گام به گام ثبت‌نام حساب GGClub برای Massiv Poker Union و MOJO. نحوه انتخاب پرچم GEO صحیح، استفاده از VPN و کد معرف." },
+          tr: { title: "GGClub Hesabı Nasıl Oluşturulur — Kayıt Rehberi", description: "Massiv Poker Union ve MOJO için GGClub hesabı kaydetmek için adım adım kılavuz. Doğru GEO bayrağı, VPN ve referans kodu." },
+          az: { title: "GGClub Hesabı Necə Yaradılır — Qeydiyyat Bələdçisi", description: "Massiv Poker Union və MOJO üçün GGClub hesabı qeyd etmək üçün addım-addım bələdçi. Düzgün GEO bayrağı, VPN və referral kodu." },
+          zh: { title: "如何创建 GGClub 账户 — 注册指南", description: "为 Massiv Poker Union 和 MOJO 注册 GGClub 账户的逐步指南。如何选择正确的 GEO 旗帜，使用 VPN 和推荐码。" },
+          ja: { title: "GGClubアカウントの作成方法 — 登録ガイド", description: "Massiv Poker UnionとMOJOのためのGGClubアカウント登録のステップバイステップガイド。正しいGEOフラグ、VPNと紹介コードの使い方。" },
         }}
         structuredData={{
           '@context': 'https://schema.org',

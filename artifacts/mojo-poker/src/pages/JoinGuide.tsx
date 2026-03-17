@@ -232,15 +232,21 @@ export function JoinGuide() {
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
       <SEO
         canonical="/join"
-        ru={{
-          title: 'Как вступить в покер клуб GGClub — инструкция MOJO',
-          description: 'Пошаговая инструкция как вступить в MOJO Poker Club на GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Реферальный код 3383-3619.',
-          keywords: 'как вступить в GGClub, ClubGG инструкция, Massiv Poker Union регистрация, MOJO Poker вступить, покер клуб GG Club',
-        }}
-        en={{
-          title: 'How to Join MOJO Poker Club on GGClub — Step by Step Guide',
-          description: 'Step-by-step guide to join MOJO Poker Club on GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Referral code 3383-3619.',
-          keywords: 'how to join GGClub, ClubGG guide, Massiv Poker Union sign up, MOJO Poker join, GG Club poker tutorial',
+        langs={{
+          ru: { title: "Как вступить в покер клуб GGClub — инструкция MOJO", description: "Пошаговая инструкция как вступить в MOJO Poker Club на GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Реферальный код 3383-3619.", keywords: "как вступить в GGClub, ClubGG инструкция, Massiv Poker Union регистрация, MOJO Poker вступить" },
+          en: { title: "How to Join MOJO Poker Club on GGClub — Step by Step Guide", description: "Step-by-step guide to join MOJO Poker Club on GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Referral code 3383-3619.", keywords: "how to join GGClub, ClubGG guide, Massiv Poker Union sign up, MOJO Poker join" },
+          es: { title: "Cómo unirse a MOJO Poker Club en GGClub — Guía Paso a Paso", description: "Guía paso a paso para unirse a MOJO Poker Club en GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Código de referido 3383-3619." },
+          de: { title: "MOJO Poker Club auf GGClub beitreten — Schritt-für-Schritt", description: "Schritt-für-Schritt-Anleitung zum Beitreten von MOJO Poker Club auf GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Referral-Code 3383-3619." },
+          fr: { title: "Comment rejoindre MOJO Poker Club sur GGClub — Guide Étape par Étape", description: "Guide étape par étape pour rejoindre MOJO Poker Club sur GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Code de parrainage 3383-3619." },
+          it: { title: "Come unirsi a MOJO Poker Club su GGClub — Guida Passo Passo", description: "Guida passo passo per unirsi a MOJO Poker Club su GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Codice referral 3383-3619." },
+          pt: { title: "Como entrar no MOJO Poker Club no GGClub — Guia Passo a Passo", description: "Guia passo a passo para entrar no MOJO Poker Club no GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Código de referência 3383-3619." },
+          ar: { title: "كيفية الانضمام إلى MOJO Poker Club على GGClub — دليل خطوة بخطوة", description: "دليل خطوة بخطوة للانضمام إلى MOJO Poker Club على GGClub (ClubGG). Massiv Poker Union ID 799798، MOJO ID 356323. رمز الإحالة 3383-3619." },
+          hi: { title: "GGClub पर MOJO Poker Club में कैसे शामिल हों — चरण-दर-चरण गाइड", description: "GGClub (ClubGG) पर MOJO Poker Club में शामिल होने के लिए चरण-दर-चरण गाइड। Massiv Poker Union ID 799798, MOJO ID 356323। रेफरल कोड 3383-3619।" },
+          fa: { title: "نحوه پیوستن به MOJO Poker Club در GGClub — راهنمای گام به گام", description: "راهنمای گام به گام پیوستن به MOJO Poker Club در GGClub (ClubGG). شناسه Massiv Poker Union 799798، شناسه MOJO 356323. کد معرف 3383-3619." },
+          tr: { title: "GGClub'da MOJO Poker Club'a Nasıl Katılınır — Adım Adım Rehber", description: "GGClub (ClubGG)'da MOJO Poker Club'a katılmak için adım adım kılavuz. Massiv Poker Union ID 799798, MOJO ID 356323. Referans kodu 3383-3619." },
+          az: { title: "GGClub-da MOJO Poker Club-a Necə Qoşulunur — Addım-addım Bələdçi", description: "GGClub (ClubGG)-da MOJO Poker Club-a qoşulmaq üçün addım-addım bələdçi. Massiv Poker Union ID 799798, MOJO ID 356323. Referral kodu 3383-3619." },
+          zh: { title: "如何加入 GGClub 上的 MOJO Poker Club — 逐步指南", description: "逐步指南，了解如何在 GGClub (ClubGG) 上加入 MOJO Poker Club。Massiv Poker Union ID 799798，MOJO ID 356323。推荐码 3383-3619。" },
+          ja: { title: "GGClubでMOJO Poker Clubに参加する方法 — ステップバイステップガイド", description: "GGClub (ClubGG) でMOJO Poker Clubに参加するためのステップバイステップガイド。Massiv Poker Union ID 799798、MOJO ID 356323。紹介コード 3383-3619。" },
         }}
         structuredData={{
           '@context': 'https://schema.org',

@@ -118,16 +118,22 @@ export function MassivGuide() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>
       <SEO
-        canonical="/join"
-        ru={{
-          title: 'Как вступить в Massiv Poker Union — MOJO',
-          description: 'Пошаговая инструкция: скачайте ClubGG, создайте аккаунт и вступите в клуб MOJO в Massiv Poker Union. Реферальный код 3383-3619.',
-          keywords: 'Massiv Poker Union вступить, MOJO клуб ClubGG, клубный покер как вступить',
-        }}
-        en={{
-          title: 'How to Join Massiv Poker Union — MOJO',
-          description: 'Step-by-step guide: download ClubGG, create an account and join MOJO club in Massiv Poker Union. Referral code 3383-3619.',
-          keywords: 'Massiv Poker Union join, MOJO club ClubGG, club poker how to join, GGClub referral',
+        canonical="/massiv-guide"
+        langs={{
+          ru: { title: "Как получить флаг на GGClub — гайд Massiv", description: "Инструкция как получить иностранный флаг на GGClub с помощью VPN для Massiv Poker Union. Лучшие VPN, нужные страны, пошаговое руководство.", keywords: "флаг GGClub, VPN для GGClub, Massiv Poker Union флаг, ClubGG регистрация" },
+          en: { title: "How to Get a Foreign Flag on GGClub — Massiv Guide", description: "Guide on how to get a foreign country flag on GGClub using VPN for Massiv Poker Union. Best VPNs, required countries, step-by-step instructions.", keywords: "GGClub flag, VPN for GGClub, Massiv Poker Union registration, ClubGG VPN guide" },
+          es: { title: "Cómo obtener una bandera extranjera en GGClub — Guía Massiv", description: "Guía sobre cómo obtener una bandera de país extranjero en GGClub usando VPN para Massiv Poker Union. Mejores VPN, países requeridos, instrucciones paso a paso." },
+          de: { title: "Wie man eine ausländische Flagge auf GGClub bekommt — Massiv-Anleitung", description: "Anleitung zum Erhalten einer ausländischen Landesflagge auf GGClub mit VPN für Massiv Poker Union. Beste VPNs, benötigte Länder, Schritt-für-Schritt-Anleitung." },
+          fr: { title: "Comment obtenir un drapeau étranger sur GGClub — Guide Massiv", description: "Guide sur la façon d'obtenir un drapeau de pays étranger sur GGClub en utilisant un VPN pour Massiv Poker Union. Meilleurs VPN, pays requis, instructions étape par étape." },
+          it: { title: "Come ottenere una bandiera straniera su GGClub — Guida Massiv", description: "Guida su come ottenere una bandiera di paese straniero su GGClub usando VPN per Massiv Poker Union. Migliori VPN, paesi richiesti, istruzioni passo passo." },
+          pt: { title: "Como obter uma bandeira estrangeira no GGClub — Guia Massiv", description: "Guia sobre como obter uma bandeira de país estrangeiro no GGClub usando VPN para Massiv Poker Union. Melhores VPNs, países necessários, instruções passo a passo." },
+          ar: { title: "كيفية الحصول على علم أجنبي في GGClub — دليل Massiv", description: "دليل حول كيفية الحصول على علم بلد أجنبي في GGClub باستخدام VPN لـ Massiv Poker Union. أفضل VPN، الدول المطلوبة، تعليمات خطوة بخطوة." },
+          hi: { title: "GGClub पर विदेशी झंडा कैसे पाएं — Massiv गाइड", description: "Massiv Poker Union के लिए VPN का उपयोग करके GGClub पर विदेशी देश का झंडा कैसे प्राप्त करें। बेस्ट VPN, आवश्यक देश, चरण-दर-चरण निर्देश।" },
+          fa: { title: "نحوه دریافت پرچم خارجی در GGClub — راهنمای Massiv", description: "راهنمای نحوه دریافت پرچم کشور خارجی در GGClub با استفاده از VPN برای Massiv Poker Union. بهترین VPN‌ها، کشورهای مورد نیاز، دستورالعمل‌های گام به گام." },
+          tr: { title: "GGClub'da Yabancı Bayrak Nasıl Alınır — Massiv Rehberi", description: "Massiv Poker Union için VPN kullanarak GGClub'da yabancı ülke bayrağının nasıl alınacağına dair rehber. En iyi VPN'ler, gerekli ülkeler, adım adım talimatlar." },
+          az: { title: "GGClub-da Xarici Bayraq Necə Alınır — Massiv Bələdçisi", description: "Massiv Poker Union üçün VPN istifadə edərək GGClub-da xarici ölkə bayrağının necə alınacağına dair bələdçi. Ən yaxşı VPN-lər, tələb olunan ölkələr, addım-addım təlimat." },
+          zh: { title: "如何在 GGClub 获得外国旗帜 — Massiv 指南", description: "关于如何使用 VPN 为 Massiv Poker Union 在 GGClub 上获得外国国家旗帜的指南。最佳 VPN，所需国家，逐步说明。" },
+          ja: { title: "GGClubで外国の旗を取得する方法 — Massivガイド", description: "Massiv Poker UnionのためにVPNを使用してGGClubで外国の国旗を取得する方法のガイド。最高のVPN、必要な国、ステップバイステップの手順。" },
         }}
       />
       <Navbar />

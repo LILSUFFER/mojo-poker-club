@@ -19,15 +19,21 @@ export function AboutPage() {
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
       <SEO
         canonical="/about"
-        ru={{
-          title: 'О нас — MOJO Poker Club',
-          description: 'MOJO Poker Club — официальный агент в сети GGClub и Massiv Poker Union. Рейкбек, поддержка, выгодные условия для покеристов. Контакт: @Mojo_Adm.',
-          keywords: 'MOJO Poker Club о нас, GGClub агент, Massiv Poker Union агент, покер поддержка, @Mojo_Adm',
-        }}
-        en={{
-          title: 'About Us — MOJO Poker Club',
-          description: 'MOJO Poker Club — official agent on GGClub and Massiv Poker Union network. Rakeback, support, best conditions for poker players. Contact: @Mojo_Adm.',
-          keywords: 'MOJO Poker Club about, GGClub agent, Massiv Poker Union agent, poker support, Telegram Mojo_Adm',
+        langs={{
+          ru: { title: "О нас — MOJO Poker Club", description: "MOJO Poker Club — официальный агент в сети GGClub и Massiv Poker Union. Рейкбек, поддержка, выгодные условия для покеристов. Контакт: @Mojo_Adm.", keywords: "MOJO Poker Club о нас, GGClub агент, Massiv Poker Union агент, @Mojo_Adm" },
+          en: { title: "About Us — MOJO Poker Club", description: "MOJO Poker Club — official agent on GGClub and Massiv Poker Union network. Rakeback, support, best conditions for poker players. Contact: @Mojo_Adm.", keywords: "MOJO Poker Club about, GGClub agent, Massiv Poker Union agent, Telegram Mojo_Adm" },
+          es: { title: "Sobre Nosotros — MOJO Poker Club", description: "MOJO Poker Club — agente oficial en GGClub y Massiv Poker Union. Rakeback, soporte, las mejores condiciones para jugadores de póker. Contacto: @Mojo_Adm." },
+          de: { title: "Über uns — MOJO Poker Club", description: "MOJO Poker Club — offizieller Agent im GGClub- und Massiv-Poker-Union-Netzwerk. Rakeback, Support, beste Bedingungen für Pokerspieler. Kontakt: @Mojo_Adm." },
+          fr: { title: "À propos — MOJO Poker Club", description: "MOJO Poker Club — agent officiel sur GGClub et Massiv Poker Union. Rakeback, assistance, meilleures conditions pour les joueurs de poker. Contact : @Mojo_Adm." },
+          it: { title: "Chi siamo — MOJO Poker Club", description: "MOJO Poker Club — agente ufficiale su GGClub e Massiv Poker Union. Rakeback, supporto, le migliori condizioni per i giocatori di poker. Contatto: @Mojo_Adm." },
+          pt: { title: "Sobre Nós — MOJO Poker Club", description: "MOJO Poker Club — agente oficial no GGClub e Massiv Poker Union. Rakeback, suporte, melhores condições para jogadores de pôquer. Contato: @Mojo_Adm." },
+          ar: { title: "معلومات عنا — MOJO Poker Club", description: "MOJO Poker Club — وكيل رسمي على GGClub وMassiv Poker Union. ريك باك، دعم، أفضل الشروط للاعبي البوكر. التواصل: @Mojo_Adm." },
+          hi: { title: "हमारे बारे में — MOJO Poker Club", description: "MOJO Poker Club — GGClub और Massiv Poker Union नेटवर्क पर आधिकारिक एजेंट। रेकबैक, सपोर्ट, पोकर खिलाड़ियों के लिए सर्वोत्तम शर्तें। संपर्क: @Mojo_Adm।" },
+          fa: { title: "درباره ما — MOJO Poker Club", description: "MOJO Poker Club — نماینده رسمی در شبکه GGClub و Massiv Poker Union. ریک‌بک، پشتیبانی، بهترین شرایط برای بازیکنان پوکر. تماس: @Mojo_Adm." },
+          tr: { title: "Hakkımızda — MOJO Poker Club", description: "MOJO Poker Club — GGClub ve Massiv Poker Union ağında resmi acente. Rakeback, destek, poker oyuncuları için en iyi koşullar. İletişim: @Mojo_Adm." },
+          az: { title: "Haqqımızda — MOJO Poker Club", description: "MOJO Poker Club — GGClub və Massiv Poker Union şəbəkəsindəki rəsmi agent. Rakeback, dəstək, poker oyunçuları üçün ən yaxşı şərtlər. Əlaqə: @Mojo_Adm." },
+          zh: { title: "关于我们 — MOJO Poker Club", description: "MOJO Poker Club — GGClub 和 Massiv Poker Union 网络的官方代理。返水、支持、为扑克玩家提供最佳条件。联系方式：@Mojo_Adm。" },
+          ja: { title: "私たちについて — MOJO Poker Club", description: "MOJO Poker Club — GGClubとMassiv Poker Unionネットワークの公式エージェント。レーキバック、サポート、ポーカープレイヤーへの最高の条件。連絡先：@Mojo_Adm。" },
         }}
       />
       <Navbar />

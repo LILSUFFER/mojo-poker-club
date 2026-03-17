@@ -67,23 +67,21 @@ export function ClubMassiv() {
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
       <SEO
         canonical="/clubs/massiv"
-        ru={{
-          title: 'MOJO: Massiv Poker Union — покер клуб GGClub',
-          description: 'Massiv Poker Union на GGClub — один из крупнейших покерных союзов. Рейкбек 50%, фишки 1к1, 698+ игроков онлайн, 255+ столов 24/7. ID клуба 799798.',
-          keywords: 'Massiv Poker Union, Massiv Union Poker, GGClub покер, ClubGG покер клуб, покер рейкбек, клубный покер онлайн, MOJO Poker Union',
-        }}
-        en={{
-          title: 'MOJO: Massiv Poker Union — GGClub Poker Club',
-          description: 'Massiv Poker Union on GGClub — one of the biggest poker unions. 50% rakeback, 1:1 chips, 698+ players online, 255+ tables 24/7. Club ID 799798.',
-          keywords: 'Massiv Poker Union, GGClub poker club, ClubGG poker, online poker club, rakeback poker, MOJO Poker',
-        }}
-        structuredData={{
-          '@context': 'https://schema.org',
-          '@type': 'SportsClub',
-          name: 'MOJO: Massiv Poker Union',
-          description: 'Massiv Poker Union poker club on GGClub network',
-          url: 'https://mojo-poker.com/clubs/massiv',
-          identifier: '799798',
+        langs={{
+          ru: { title: "MOJO: Massiv Poker Union — покер клуб GGClub", description: "Massiv Poker Union на GGClub — один из крупнейших покерных союзов. Рейкбек 50%, фишки 1к1, 698+ игроков онлайн, 255+ столов 24/7. ID клуба 799798.", keywords: "Massiv Poker Union, GGClub покер, ClubGG покер клуб, рейкбек покер" },
+          en: { title: "MOJO: Massiv Poker Union — GGClub Poker Club", description: "Massiv Poker Union on GGClub — one of the largest poker unions. 50% rakeback, 1:1 chips, 698+ players online, 255+ tables 24/7. Club ID 799798.", keywords: "Massiv Poker Union, GGClub poker, ClubGG poker club, rakeback poker" },
+          es: { title: "MOJO: Massiv Poker Union — Club de Póker GGClub", description: "Massiv Poker Union en GGClub — una de las mayores uniones de póker. 50% de rakeback, fichas 1:1, 698+ jugadores en línea, 255+ mesas 24/7. ID del club 799798." },
+          de: { title: "MOJO: Massiv Poker Union — GGClub Pokerclub", description: "Massiv Poker Union auf GGClub — eine der größten Pokerunionen. 50% Rakeback, 1:1 Chips, 698+ Spieler online, 255+ Tische 24/7. Club-ID 799798." },
+          fr: { title: "MOJO: Massiv Poker Union — Club de Poker GGClub", description: "Massiv Poker Union sur GGClub — l'une des plus grandes unions de poker. 50% de rakeback, jetons 1:1, 698+ joueurs en ligne, 255+ tables 24/7. ID du club 799798." },
+          it: { title: "MOJO: Massiv Poker Union — Club Poker GGClub", description: "Massiv Poker Union su GGClub — una delle più grandi unioni di poker. 50% di rakeback, chip 1:1, 698+ giocatori online, 255+ tavoli 24/7. ID club 799798." },
+          pt: { title: "MOJO: Massiv Poker Union — Clube de Pôquer GGClub", description: "Massiv Poker Union no GGClub — uma das maiores uniões de pôquer. 50% de rakeback, fichas 1:1, 698+ jogadores online, 255+ mesas 24/7. ID do clube 799798." },
+          ar: { title: "MOJO: Massiv Poker Union — نادي بوكر GGClub", description: "Massiv Poker Union على GGClub — إحدى أكبر اتحادات البوكر. 50% ريك باك، رقائق 1:1، 698+ لاعب متصل، 255+ طاولة 24/7. رقم النادي 799798." },
+          hi: { title: "MOJO: Massiv Poker Union — GGClub पोकर क्लब", description: "GGClub पर Massiv Poker Union — सबसे बड़े पोकर संघों में से एक। 50% रेकबैक, 1:1 चिप्स, 698+ ऑनलाइन खिलाड़ी, 255+ टेबल 24/7। क्लब ID 799798।" },
+          fa: { title: "MOJO: Massiv Poker Union — باشگاه پوکر GGClub", description: "Massiv Poker Union در GGClub — یکی از بزرگترین اتحادیه‌های پوکر. 50% ریک‌بک، تراشه 1:1، 698+ بازیکن آنلاین، 255+ میز 24/7. شناسه باشگاه 799798." },
+          tr: { title: "MOJO: Massiv Poker Union — GGClub Poker Kulübü", description: "GGClub'daki Massiv Poker Union — en büyük poker birliklerinden biri. %50 rakeback, 1:1 chip, 698+ çevrimiçi oyuncu, 255+ masa 24/7. Kulüp ID 799798." },
+          az: { title: "MOJO: Massiv Poker Union — GGClub Poker Klubu", description: "GGClub-da Massiv Poker Union — ən böyük poker ittifaqlarından biri. 50% rakeback, 1:1 çips, 698+ onlayn oyunçu, 255+ masa 24/7. Klub ID 799798." },
+          zh: { title: "MOJO: Massiv Poker Union — GGClub 扑克俱乐部", description: "GGClub 上的 Massiv Poker Union — 最大的扑克联盟之一。50%返水，1:1筹码，698+在线玩家，255+桌台 24/7。俱乐部 ID 799798。" },
+          ja: { title: "MOJO: Massiv Poker Union — GGClub ポーカークラブ", description: "GGClub上のMassiv Poker Union — 最大のポーカーユニオンの1つ。50%レーキバック、1:1チップ、698人以上オンライン、255以上のテーブル24/7。クラブID 799798。" },
         }}
       />
       <Navbar />

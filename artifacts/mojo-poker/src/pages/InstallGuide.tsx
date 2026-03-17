@@ -45,15 +45,21 @@ export function InstallGuide() {
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
       <SEO
         canonical="/install"
-        ru={{
-          title: 'Как установить ClubGG — MOJO Poker Club',
-          description: 'Пошаговая инструкция по установке ClubGG на Android, iPhone и Windows. Установка занимает меньше минуты.',
-          keywords: 'установить ClubGG, ClubGG APK, ClubGG iOS App Store, ClubGG Windows установка',
-        }}
-        en={{
-          title: 'How to Install ClubGG — MOJO Poker Club',
-          description: 'Step-by-step guide to install ClubGG on Android, iPhone and Windows. Installation takes less than a minute.',
-          keywords: 'install ClubGG, ClubGG APK, ClubGG iOS App Store, ClubGG Windows setup',
+        langs={{
+          ru: { title: "Как установить ClubGG — инструкция MOJO", description: "Пошаговая инструкция по установке приложения ClubGG на Android, iPhone и Windows. Скачать APK, App Store или EXE — всё в одном месте.", keywords: "установить ClubGG, ClubGG APK, скачать GGClub, ClubGG iPhone" },
+          en: { title: "How to Install ClubGG — MOJO Guide", description: "Step-by-step guide to installing the ClubGG app on Android, iPhone and Windows. Download APK, App Store or EXE — all in one place.", keywords: "install ClubGG, ClubGG APK, download GGClub, ClubGG iPhone" },
+          es: { title: "Cómo instalar ClubGG — Guía MOJO", description: "Guía paso a paso para instalar la app ClubGG en Android, iPhone y Windows. Descargar APK, App Store o EXE — todo en un solo lugar." },
+          de: { title: "ClubGG installieren — MOJO-Anleitung", description: "Schritt-für-Schritt-Anleitung zur Installation der ClubGG-App auf Android, iPhone und Windows. APK, App Store oder EXE herunterladen — alles an einem Ort." },
+          fr: { title: "Comment installer ClubGG — Guide MOJO", description: "Guide étape par étape pour installer l'application ClubGG sur Android, iPhone et Windows. Télécharger APK, App Store ou EXE — tout en un seul endroit." },
+          it: { title: "Come installare ClubGG — Guida MOJO", description: "Guida passo passo per installare l'app ClubGG su Android, iPhone e Windows. Scarica APK, App Store o EXE — tutto in un unico posto." },
+          pt: { title: "Como instalar o ClubGG — Guia MOJO", description: "Guia passo a passo para instalar o aplicativo ClubGG no Android, iPhone e Windows. Baixar APK, App Store ou EXE — tudo em um só lugar." },
+          ar: { title: "كيفية تثبيت ClubGG — دليل MOJO", description: "دليل خطوة بخطوة لتثبيت تطبيق ClubGG على Android وiPhone وWindows. تنزيل APK أو App Store أو EXE — كل شيء في مكان واحد." },
+          hi: { title: "ClubGG कैसे इंस्टॉल करें — MOJO गाइड", description: "Android, iPhone और Windows पर ClubGG ऐप इंस्टॉल करने के लिए चरण-दर-चरण गाइड। APK, App Store या EXE डाउनलोड करें — सब एक जगह।" },
+          fa: { title: "نحوه نصب ClubGG — راهنمای MOJO", description: "راهنمای گام به گام نصب اپلیکیشن ClubGG در Android، iPhone و Windows. دانلود APK، App Store یا EXE — همه در یک مکان." },
+          tr: { title: "ClubGG Nasıl Kurulur — MOJO Rehberi", description: "Android, iPhone ve Windows'ta ClubGG uygulamasını yüklemek için adım adım kılavuz. APK, App Store veya EXE indirin — hepsi tek bir yerde." },
+          az: { title: "ClubGG necə qurulur — MOJO Bələdçisi", description: "Android, iPhone və Windows-da ClubGG tətbiqini qurmaq üçün addım-addım bələdçi. APK, App Store və ya EXE yükləyin — hamısı bir yerdə." },
+          zh: { title: "如何安装 ClubGG — MOJO 指南", description: "逐步安装 ClubGG 应用的指南，适用于 Android、iPhone 和 Windows。下载 APK、App Store 或 EXE — 一切尽在一处。" },
+          ja: { title: "ClubGGのインストール方法 — MOJOガイド", description: "Android、iPhone、WindowsでClubGGアプリをインストールするためのステップバイステップガイド。APK、App Store、またはEXEをダウンロード — すべて一か所で。" },
         }}
       />
       <Navbar />
