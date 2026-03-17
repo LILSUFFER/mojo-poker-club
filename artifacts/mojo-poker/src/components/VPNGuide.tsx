@@ -25,10 +25,9 @@ function FlagImg({ code }: { code: string }) {
 }
 
 export function VPNGuide() {
-  const { language } = useLanguage();
-  const isRu = language === 'ru';
+  const { language, t } = useLanguage();
 
-  const steps = isRu ? [
+  const steps = language === 'ru' ? [
     { num: 1, text: 'Скачайте бесплатный VPN (кнопка «Продолжить с рекламой»)' },
     { num: 2, text: 'Отключите Wi-Fi — используйте только мобильный интернет' },
     { num: 3, text: 'Выберите страну в VPN из списка справа' },
@@ -67,10 +66,10 @@ export function VPNGuide() {
         </svg>
         <div>
           <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.14em', color: blueAlpha(0.6), textTransform: 'uppercase' }}>
-            {isRu ? 'Только для Massiv Poker Union · ' : 'Massiv Poker Union only · '}
+            {language === 'ru' ? 'Только для Massiv Poker Union · ' : 'Massiv Poker Union only · '}
           </span>
           <span style={{ fontSize: 13, fontWeight: 700, color: blue }}>
-            {isRu ? 'Как получить зарубежный флаг в профиле' : 'How to get a foreign flag in your profile'}
+            {language === 'ru' ? 'Как получить зарубежный флаг в профиле' : 'How to get a foreign flag in your profile'}
           </span>
         </div>
       </div>
@@ -108,7 +107,7 @@ export function VPNGuide() {
           {/* VPN links */}
           <div>
             <p style={{ margin: '0 0 8px', fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: blueAlpha(0.55), textTransform: 'uppercase' }}>
-              {isRu ? 'Скачать VPN' : 'Download VPN'}
+              {t('pages.vpn.downloadVpn')}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
               <a href={VPN_ANDROID} target="_blank" rel="noopener noreferrer" style={{
@@ -135,14 +134,14 @@ export function VPNGuide() {
           {/* Countries */}
           <div>
             <p style={{ margin: '0 0 8px', fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: blueAlpha(0.55), textTransform: 'uppercase' }}>
-              {isRu ? 'Страны VPN' : 'VPN Countries'}
+              {language === 'ru' ? 'Страны VPN' : 'VPN Countries'}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
               {countries.map(c => (
                 <div key={c.code} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>
                   <FlagImg code={c.code} />
                   <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.06em', color: blueAlpha(0.5), textTransform: 'uppercase', minWidth: 18 }}>{c.code}</span>
-                  <span>{isRu ? c.ru : c.en}</span>
+                  <span>{language === 'ru' ? c.ru : c.en}</span>
                 </div>
               ))}
             </div>

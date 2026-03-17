@@ -31,8 +31,7 @@ function CopyBtn({ value, label, copiedLabel }: { value: string; label: string; 
 }
 
 export function ClubMassiv() {
-  const { language } = useLanguage();
-  const isRu = language === 'ru';
+  const { language, t } = useLanguage();
   const isMobile = useIsMobile();
 
   const featureIcons = [
@@ -57,7 +56,7 @@ export function ClubMassiv() {
     </svg>,
   ];
 
-  const features = isRu ? [
+  const features = language === 'ru' ? [
     { title: 'Фишка 1к1', desc: 'Прямой обмен без комиссии — покупай и продавай фишки по курсу 1 к 1.' },
     { title: 'Рейкбек 50%', desc: 'Один из лучших рейкбеков на рынке клубного покера — 50% от рейка возвращается тебе.' },
     { title: 'Огромный пул', desc: 'Тысячи игроков со всего мира. Столы запускаются круглосуточно на любых лимитах.' },
@@ -96,12 +95,10 @@ export function ClubMassiv() {
       <PageHeader
         label="Massiv Poker Union"
         title="MOJO: Massiv Poker Union"
-        subtitle={isRu
-          ? 'Один из крупнейших покерных союзов в ClubGG — огромный пул игроков, экшн 24/7'
-          : 'One of the largest poker unions on ClubGG — massive player pool, 24/7 action'}
+        subtitle={language === 'ru' ? 'Один из крупнейших покерных союзов в ClubGG — огромный пул игроков, экшн 24/7' : 'One of the largest poker unions on ClubGG — massive player pool, 24/7 action'}
         breadcrumbs={[
-          { label: isRu ? 'Главная' : 'Home', href: '/' },
-          { label: isRu ? 'Наши клубы' : 'Our Clubs', href: '/#clubs' },
+          { label: t('pages.home'), href: '/' },
+          { label: t('pages.ourClubs'), href: '/#clubs' },
           { label: 'Massiv Poker Union' },
         ]}
       />
@@ -122,11 +119,11 @@ export function ClubMassiv() {
                 </div>
                 <div style={{ padding: '28px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                   <p style={{ margin: '0 0 6px', fontSize: 10, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600 }}>
-                    {isRu ? 'Название клуба' : 'Club Name'}
+                    {t('pages.clubName')}
                   </p>
                   <p style={{ margin: '0 0 6px', fontSize: 20, fontWeight: 700, color: 'white', lineHeight: 1.2 }}>MOJO: Massiv Poker Union</p>
                   <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.35)' }}>
-                    {isRu ? 'Сеть ClubGG · GGClub' : 'ClubGG · GGClub network'}
+                    {t('pages.network')}
                   </p>
                 </div>
               </div>
@@ -139,7 +136,7 @@ export function ClubMassiv() {
                   <p style={{ margin: '0 0 10px', fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>Club ID</p>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
                     <span style={{ fontSize: 32, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.02em' }}>{CLUB_ID}</span>
-                    <CopyBtn value={CLUB_ID} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
+                    <CopyBtn value={CLUB_ID} label={t('pages.copy')} copiedLabel={t('pages.copied')} />
                   </div>
                 </div>
 
@@ -150,16 +147,16 @@ export function ClubMassiv() {
                       <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
                     </svg>
                     <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
-                      {isRu ? 'Реф. код — обязательно' : 'Ref. code — required'}
+                      {t('pages.refRequired')}
                     </p>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
                     <span style={{ fontSize: 26, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.06em', whiteSpace: 'nowrap' }}>{REF_CODE}</span>
-                    <CopyBtn value={REF_CODE} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
+                    <CopyBtn value={REF_CODE} label={t('pages.copy')} copiedLabel={t('pages.copied')} />
                   </div>
                   <p style={{ margin: '6px 0 0', fontSize: 12, color: '#f5c518', lineHeight: 1.5, display: 'flex', alignItems: 'center', gap: 5 }}>
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-                    {isRu ? 'Привязывает бонусы к аккаунту' : 'Links bonuses to your account'}
+                    {t('pages.bonusLink')}
                   </p>
                 </div>
               </div>
@@ -172,12 +169,10 @@ export function ClubMassiv() {
                   </svg>
                   <div>
                     <p style={{ margin: '0 0 4px', fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.55 }}>
-                      {isRu
-                        ? 'Аккаунт нужно создавать через VPN с нужным ГЕО — смотри инструкцию справа'
-                        : 'Account must be created via VPN with correct GEO — see guide on the right'}
+                      {t('pages.massiv.vpnNote')}
                     </p>
                     <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.35)', lineHeight: 1.5 }}>
-                      {isRu ? 'После заявки напишите менеджеру' : 'After applying, contact the manager'}{' '}
+                      {t('pages.afterApply')}{' '}
                       <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
                         style={{ color: 'rgba(37,211,102,0.75)', textDecoration: 'none', fontWeight: 600 }}
                         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(37,211,102,1)'; }}
@@ -195,7 +190,7 @@ export function ClubMassiv() {
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(4 80% 38%)'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(4 80% 45%)'; }}
                 >
-                  {isRu ? 'Вступить в клуб →' : 'Join the Club →'}
+                  {t('pages.joinClubBtn')}
                 </Link>
               </div>
             </div>
@@ -214,10 +209,10 @@ export function ClubMassiv() {
           {/* ── Features ── */}
           <div style={{ marginBottom: 72 }}>
             <p style={{ margin: '0 0 8px', fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
-              /// {isRu ? 'Преимущества' : 'Features'}
+              /// {t('pages.features')}
             </p>
             <h2 style={{ margin: '0 0 36px', fontSize: 26, fontWeight: 800, color: 'white', lineHeight: 1.2 }}>
-              {isRu ? 'Почему Massiv Poker Union?' : 'Why Massiv Poker Union?'}
+              {t('pages.massiv.whyTitle')}
             </h2>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
               {features.map((f, i) => (
@@ -238,7 +233,7 @@ export function ClubMassiv() {
           <div style={{ borderRadius: 8, border: '1px solid rgba(255,255,255,0.08)', background: 'var(--bg-card)', overflow: 'hidden' }}>
             <div style={{ padding: '8px 20px', background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
               <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
-                {isRu ? 'Также в MOJO' : 'Also in MOJO'}
+                {t('pages.alsoInMojo')}
               </span>
             </div>
             <div style={{ padding: '20px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, flexWrap: 'wrap' }}>
@@ -248,11 +243,11 @@ export function ClubMassiv() {
                 </div>
                 <div>
                   <p style={{ margin: '0 0 3px', fontSize: 11, color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
-                    {isRu ? 'Покерный клуб' : 'Poker Club'}
+                    {t('pages.pokerClub')}
                   </p>
                   <p style={{ margin: '0 0 2px', fontSize: 16, fontWeight: 700, color: 'white' }}>MOJO</p>
                   <p style={{ margin: 0, fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>
-                    {isRu ? 'Фишка 1к1 · Рейкбек 55%' : 'Chip 1:1 · Rakeback 55%'}
+                    {t('pages.mojo.chipAndRakeback')}
                   </p>
                 </div>
               </div>
@@ -270,7 +265,7 @@ export function ClubMassiv() {
                 onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; }}
                 onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
               >
-                {isRu ? 'Подробнее о клубе →' : 'Learn More →'}
+                {t('pages.learnMoreBtn')}
               </Link>
             </div>
           </div>

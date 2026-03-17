@@ -111,8 +111,7 @@ const faq = {
 };
 
 export function MassivGuide() {
-  const { language } = useLanguage();
-  const isRu = language === 'ru';
+  const { language, t } = useLanguage();
   const stepList = (steps as any)[language] ?? steps['en'];
   const faqList = (faq as any)[language] ?? faq['en'];
 
@@ -134,12 +133,10 @@ export function MassivGuide() {
       <Navbar />
       <PageHeader
         label="Massiv Poker Union"
-        title={isRu ? 'Как создать аккаунт и вступить в клуб' : 'How to Create an Account and Join the Club'}
-        subtitle={isRu
-          ? 'Всего 4 шага — от скачивания приложения до первой раздачи за столом Massiv Union.'
-          : 'Just 4 steps — from downloading the app to your first hand at a Massiv Union table.'}
+        title={t('pages.massivGuide.title')}
+        subtitle={t('pages.massivGuide.subtitle')}
         breadcrumbs={[
-          { label: isRu ? 'Главная' : 'Home', href: '/' },
+          { label: t('pages.home'), href: '/' },
           { label: 'Massiv Guide' },
         ]}
       />
@@ -250,13 +247,13 @@ export function MassivGuide() {
             style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 14, fontWeight: 600, color: 'var(--text)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 4, padding: '12px 24px', textDecoration: 'none', background: 'var(--bg-card)' }}
           >
             <MessageCircle size={16} />
-            {isRu ? 'Написать менеджеру' : 'Message Manager'}
+            {t('pages.joinGuide.writeManager')}
           </a>
           <Link
             href="/"
             style={{ display: 'inline-flex', alignItems: 'center', fontSize: 14, color: 'var(--text-faint)', padding: '12px 24px', textDecoration: 'none' }}
           >
-            ← {isRu ? 'На главную' : 'Back to Home'}
+            ← {language === 'ru' ? 'На главную' : 'Back to Home'}
           </Link>
         </motion.div>
 

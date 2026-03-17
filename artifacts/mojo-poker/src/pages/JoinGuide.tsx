@@ -35,8 +35,7 @@ function CopyBtn({ value, label, copiedLabel }: { value: string; label: string; 
 }
 
 export function JoinGuide() {
-  const { language } = useLanguage();
-  const isRu = language === 'ru';
+  const { language, t } = useLanguage();
 
   interface StepDef {
     num: number;
@@ -128,14 +127,12 @@ export function JoinGuide() {
       />
       <Navbar />
       <PageHeader
-        label={isRu ? 'Вступление в клуб' : 'Join the Club'}
-        title={isRu ? 'Как вступить в клуб MOJO' : 'How to Join MOJO Club'}
-        subtitle={isRu
-          ? 'Пошаговая инструкция — весь процесс занимает около 3 минут'
-          : 'Step-by-step guide — the whole process takes about 3 minutes'}
+        label={t('pages.joinGuide.label')}
+        title={t('pages.joinGuide.title')}
+        subtitle={t('pages.joinGuide.subtitle')}
         breadcrumbs={[
-          { label: isRu ? 'Главная' : 'Home', href: '/' },
-          { label: isRu ? 'Как вступить' : 'How to Join' },
+          { label: t('pages.home'), href: '/' },
+          { label: t('pages.joinGuide.label') },
         ]}
       />
 
@@ -157,7 +154,7 @@ export function JoinGuide() {
                   {step.num}
                 </div>
                 <h2 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
-                  {isRu ? step.title.ru : step.title.en}
+                  {language === 'ru' ? step.title.ru : step.title.en}
                 </h2>
               </div>
 
@@ -166,7 +163,7 @@ export function JoinGuide() {
 
                 {/* Description with line breaks */}
                 <div style={{ marginBottom: 24 }}>
-                  {(isRu ? step.desc.ru : step.desc.en).split('\n').map((line, i) => (
+                  {(language === 'ru' ? step.desc.ru : step.desc.en).split('\n').map((line, i) => (
                     line === '' ? <div key={i} style={{ height: 8 }} /> :
                     line.startsWith('•') ? (
                       <div key={i} style={{ display: 'flex', gap: 10, marginBottom: 6 }}>
@@ -189,7 +186,7 @@ export function JoinGuide() {
 
                     {/* ── Clubs section ── */}
                     <p style={{ margin: '0 0 12px', fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase' }}>
-                      {isRu ? 'Клубы MOJO' : 'MOJO Clubs'}
+                      {t('pages.joinGuide.mojoClubs')}
                     </p>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 32 }}>
 
@@ -217,7 +214,7 @@ export function JoinGuide() {
                             <p style={{ margin: '0 0 2px', fontSize: 10, color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>Club ID</p>
                             <span style={{ fontSize: 22, fontWeight: 800, color: 'white', fontVariantNumeric: 'tabular-nums' }}>799798</span>
                           </div>
-                          <CopyBtn value="799798" label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
+                          <CopyBtn value="799798" label={t('pages.copy')} copiedLabel={t('pages.copied')} />
                         </div>
                       </div>
 
@@ -235,7 +232,7 @@ export function JoinGuide() {
                           </div>
                           <div>
                             <p style={{ margin: '0 0 2px', fontSize: 11, color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
-                              {isRu ? 'Покерный клуб' : 'Poker Club'}
+                              {t('pages.pokerClub')}
                             </p>
                             <span style={{ fontSize: 15, color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>MOJO</span>
                           </div>
@@ -245,14 +242,14 @@ export function JoinGuide() {
                             <p style={{ margin: '0 0 2px', fontSize: 10, color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>Club ID</p>
                             <span style={{ fontSize: 22, fontWeight: 800, color: 'white', fontVariantNumeric: 'tabular-nums' }}>356323</span>
                           </div>
-                          <CopyBtn value="356323" label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
+                          <CopyBtn value="356323" label={t('pages.copy')} copiedLabel={t('pages.copied')} />
                         </div>
                       </div>
                     </div>
 
                     {/* ── Referral section ── */}
                     <p style={{ margin: '0 0 12px', fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase' }}>
-                      {isRu ? 'Реферальный код' : 'Referral Code'}
+                      {t('pages.joinGuide.referralCode')}
                     </p>
                     <div style={{
                       borderRadius: 8,
@@ -270,7 +267,7 @@ export function JoinGuide() {
                           <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
                         </svg>
                         <span style={{ fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.4)' }}>
-                          {isRu ? 'Обязательно укажите — привязывает все бонусы к вашему аккаунту' : 'Required — links all bonuses to your account'}
+                          {t('pages.joinGuide.referralRequired')}
                         </span>
                       </div>
                       <div style={{
@@ -279,20 +276,20 @@ export function JoinGuide() {
                       }}>
                         <div>
                           <p style={{ margin: '0 0 3px', fontSize: 11, color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
-                            {isRu ? 'ID реферера' : 'Referrer ID'}
+                            {t('pages.joinGuide.referrerId')}
                           </p>
                           <span style={{ fontSize: 15, color: 'rgba(255,255,255,0.85)', fontWeight: 600 }}>MOJO Poker Club</span>
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                           <div style={{ textAlign: 'right' }}>
                             <p style={{ margin: '0 0 2px', fontSize: 10, color: 'rgba(255,255,255,0.25)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>
-                              {isRu ? 'Код' : 'Code'}
+                              {t('pages.joinGuide.codeLabel')}
                             </p>
                             <span style={{ fontSize: 26, fontWeight: 900, color: 'white', fontVariantNumeric: 'tabular-nums', letterSpacing: '0.06em' }}>
                               {REFERRAL}
                             </span>
                           </div>
-                          <CopyBtn value={REFERRAL} label={isRu ? 'Копировать' : 'Copy'} copiedLabel={isRu ? 'Скопировано' : 'Copied'} />
+                          <CopyBtn value={REFERRAL} label={t('pages.copy')} copiedLabel={t('pages.copied')} />
                         </div>
                       </div>
                     </div>
@@ -336,7 +333,7 @@ export function JoinGuide() {
                     color: 'rgba(255,255,255,0.4)',
                     lineHeight: 1.6,
                   }}>
-                    {isRu ? step.note.ru : step.note.en}
+                    {language === 'ru' ? step.note.ru : step.note.en}
                   </div>
                 )}
 
@@ -352,7 +349,7 @@ export function JoinGuide() {
                     }}>
                       <img
                         src={step.img}
-                        alt={isRu ? step.title.ru : step.title.en}
+                        alt={language === 'ru' ? step.title.ru : step.title.en}
                         style={{ width: 320, height: 'auto', display: 'block' }}
                       />
                     </div>
@@ -381,19 +378,17 @@ export function JoinGuide() {
               borderBottom: '1px solid rgba(255,255,255,0.06)',
             }}>
               <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
-                {isRu ? 'После вступления' : 'After joining'}
+                {t('pages.joinGuide.afterJoining')}
               </span>
             </div>
             <div style={{ padding: '24px 24px', display: 'flex', alignItems: 'flex-start', gap: 20, flexWrap: 'wrap' }}>
               <div style={{ fontSize: 32, lineHeight: 1 }}>🎯</div>
               <div style={{ flex: 1, minWidth: 220 }}>
                 <h3 style={{ margin: '0 0 8px', fontSize: 17, fontWeight: 700, color: 'white', lineHeight: 1.3 }}>
-                  {isRu ? 'Как получить фишки для игры' : 'How to get chips to play'}
+                  {t('pages.joinGuide.chipsTitle')}
                 </h3>
                 <p style={{ margin: '0 0 16px', fontSize: 14, lineHeight: 1.75, color: 'rgba(255,255,255,0.5)' }}>
-                  {isRu
-                    ? 'Напишите менеджеру в Telegram — он расскажет всё про фишки и сориентирует по дальнейшим шагам.'
-                    : 'Message the manager on Telegram — they\'ll explain everything about chips and guide you through the next steps.'}
+                  {t('pages.joinGuide.chipsDesc')}
                 </p>
                 <a
                   href="https://t.me/Mojo_Adm"

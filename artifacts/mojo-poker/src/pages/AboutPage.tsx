@@ -12,8 +12,7 @@ const TG_ICON = (
 );
 
 export function AboutPage() {
-  const { language } = useLanguage();
-  const isRu = language === 'ru';
+  const { language, t } = useLanguage();
   const isMobile = useIsMobile();
 
   return (
@@ -33,14 +32,12 @@ export function AboutPage() {
       />
       <Navbar />
       <PageHeader
-        label={isRu ? 'О нас' : 'About Us'}
-        title={isRu ? 'MOJO Poker Club' : 'MOJO Poker Club'}
-        subtitle={isRu
-          ? 'Покерный клуб нового уровня в сети ClubGG — официальный партнёр Massiv Poker Union'
-          : 'A next-level poker club on ClubGG — official partner of Massiv Poker Union'}
+        label={t('pages.about.label')}
+        title='MOJO Poker Club'
+        subtitle={t('pages.about.pageSubtitle')}
         breadcrumbs={[
-          { label: isRu ? 'Главная' : 'Home', href: '/' },
-          { label: isRu ? 'О нас' : 'About' },
+          { label: t('pages.home'), href: '/' },
+          { label: t('pages.about.label') },
         ]}
       />
 
@@ -53,21 +50,17 @@ export function AboutPage() {
             {/* Left: about text */}
             <div>
               <p style={{ margin: '0 0 8px', fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase' }}>
-                {isRu ? '/// Кто мы' : '/// Who We Are'}
+                {t('pages.about.whoWeAre')}
               </p>
               <h2 style={{ margin: '0 0 20px', fontSize: 26, fontWeight: 800, color: 'white', lineHeight: 1.2, letterSpacing: '-0.02em' }}>
-                {isRu ? 'Лучшие условия для клубного покера' : 'Best conditions for club poker'}
+                {t('pages.about.heading')}
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 <p style={{ margin: 0, fontSize: 14, lineHeight: 1.8, color: 'rgba(255,255,255,0.55)' }}>
-                  {isRu
-                    ? 'MOJO Poker Club основан в 2025 году. Мы являемся официальным партнёром Massiv Poker Union — одного из крупнейших покерных союзов в сети ClubGG с игроками со всего мира.'
-                    : 'MOJO Poker Club was founded in 2025. We are an official partner of Massiv Poker Union — one of the largest poker unions on the ClubGG network with players from around the world.'}
+                  {language === 'ru' ? 'MOJO Poker Club основан в 2025 году. Мы являемся официальным партнёром Massiv Poker Union — одного из крупнейших покерных союзов в сети ClubGG с игроками со всего мира.' : 'MOJO Poker Club was founded in 2025. We are an official partner of Massiv Poker Union — one of the largest poker unions on the ClubGG network with players from around the world.'}
                 </p>
                 <p style={{ margin: 0, fontSize: 14, lineHeight: 1.8, color: 'rgba(255,255,255,0.55)' }}>
-                  {isRu
-                    ? 'Наша главная цель — предоставлять игрокам лучшие условия на рынке: максимальный рейкбек, честный обмен фишек и профессиональную поддержку на каждом этапе.'
-                    : 'Our main goal is to provide players with the best conditions on the market: maximum rakeback, fair chip exchange, and professional support at every step.'}
+                  {language === 'ru' ? 'Наша главная цель — предоставлять игрокам лучшие условия на рынке: максимальный рейкбек, честный обмен фишек и профессиональную поддержку на каждом этапе.' : 'Our main goal is to provide players with the best conditions on the market: maximum rakeback, fair chip exchange, and professional support at every step.'}
                 </p>
               </div>
             </div>
@@ -75,10 +68,10 @@ export function AboutPage() {
             {/* Right: stat cards */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
-                { value: '2025', label: isRu ? 'Год основания' : 'Founded', sub: isRu ? 'Работаем с первого дня' : 'Operating from day one' },
-                { value: '1 724', label: isRu ? 'Игроков в чате' : 'Players in chat', sub: isRu ? 'Активное сообщество' : 'Active community' },
-                { value: '50%', label: isRu ? 'Рейкбек' : 'Rakeback', sub: isRu ? 'Один из лучших на рынке' : 'One of the best on the market' },
-                { value: '24/7', label: isRu ? 'Поддержка' : 'Support', sub: isRu ? 'Всегда на связи' : 'Always available' },
+                { value: '2025', label: t('pages.about.founded'), sub: t('pages.about.foundedSub') },
+                { value: '1 724', label: t('pages.about.chatMembers'), sub: t('pages.about.chatSub') },
+                { value: '50%', label: t('pages.about.rakeback'), sub: t('pages.about.rakebackSub') },
+                { value: '24/7', label: language === 'ru' ? 'Поддержка' : 'Support', sub: t('pages.about.supportSub') },
               ].map((item) => (
                 <div key={item.value} style={{
                   display: 'flex', alignItems: 'center', gap: 20,
@@ -104,7 +97,7 @@ export function AboutPage() {
           {/* Telegram community */}
           <div style={{ marginBottom: 72 }}>
             <p style={{ margin: '0 0 24px', fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', color: 'rgba(255,255,255,0.28)', textTransform: 'uppercase' }}>
-              {isRu ? '/// Сообщество' : '/// Community'}
+              {t('pages.about.community')}
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
               <a
@@ -128,7 +121,7 @@ export function AboutPage() {
                     <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>Telegram</span>
                   </div>
                   <p style={{ margin: '0 0 4px', fontSize: 16, fontWeight: 700, color: 'white' }}>
-                    {isRu ? 'Официальный канал' : 'Official Channel'}
+                    {t('pages.about.officialChannel')}
                   </p>
                   <p style={{ margin: 0, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>@MOJOPoker</p>
                 </div>
@@ -155,10 +148,10 @@ export function AboutPage() {
                     <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>Telegram</span>
                   </div>
                   <p style={{ margin: '0 0 4px', fontSize: 16, fontWeight: 700, color: 'white' }}>
-                    {isRu ? 'Чат игроков' : 'Player Chat'}
+                    {t('pages.about.playerChat')}
                   </p>
                   <p style={{ margin: 0, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>
-                    1 724 {isRu ? 'участника' : 'members'}
+                    1 724 {t('pages.about.members')}
                   </p>
                 </div>
               </a>
@@ -179,12 +172,10 @@ export function AboutPage() {
             />
             <div>
               <p style={{ margin: '0 0 6px', fontSize: 14, fontWeight: 700, color: 'rgba(255,255,255,0.8)' }}>
-                {isRu ? 'Официальный партнёр Massiv Poker Union' : 'Official Partner of Massiv Poker Union'}
+                {t('pages.about.officialPartner')}
               </p>
               <p style={{ margin: 0, fontSize: 13, lineHeight: 1.7, color: 'rgba(255,255,255,0.4)' }}>
-                {isRu
-                  ? 'Massiv Poker Union — один из крупнейших покерных союзов в ClubGG. Огромный пул игроков, столы работают круглосуточно на всех лимитах.'
-                  : 'Massiv Poker Union is one of the largest poker unions on ClubGG. Massive player pool, tables running around the clock at all stakes.'}
+                {language === 'ru' ? 'Massiv Poker Union — один из крупнейших покерных союзов в ClubGG. Огромный пул игроков, столы работают круглосуточно на всех лимитах.' : 'Massiv Poker Union is one of the largest poker unions on ClubGG. Massive player pool, tables running around the clock at all stakes.'}
               </p>
             </div>
           </div>

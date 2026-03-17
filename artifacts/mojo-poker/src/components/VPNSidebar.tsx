@@ -7,11 +7,11 @@ const ADGUARD_ANDROID = 'https://play.google.com/store/apps/details?id=com.adgua
 const ADGUARD_IOS = 'https://apps.apple.com/app/adguard-vpn-unlimited-proxy/id1525373602';
 
 const countries = [
-  { code: 'US', ru: 'США', en: 'USA' },
-  { code: 'DE', ru: 'Германия', en: 'Germany' },
-  { code: 'FR', ru: 'Франция', en: 'France' },
-  { code: 'GB', ru: 'Великобритания', en: 'UK' },
-  { code: 'CA', ru: 'Канада', en: 'Canada' },
+  { code: 'US', key: 'usa' },
+  { code: 'DE', key: 'germany' },
+  { code: 'FR', key: 'france' },
+  { code: 'GB', key: 'uk' },
+  { code: 'CA', key: 'canada' },
 ];
 
 function FlagImg({ code }: { code: string }) {
@@ -26,20 +26,14 @@ function FlagImg({ code }: { code: string }) {
 }
 
 export function VPNSidebar() {
-  const { language } = useLanguage();
-  const isRu = language === 'ru';
+  const { t } = useLanguage();
   const isMobile = useIsMobile();
 
-  const steps = isRu ? [
-    'Подключите VPN и выберите страну из списка',
-    'Зарегистрируйте аккаунт ClubGG',
-    'Отключите VPN',
-    'Заходите в ClubGG — VPN больше не нужен',
-  ] : [
-    'Connect VPN and select a country from the list',
-    'Register your ClubGG account',
-    'Disconnect VPN',
-    'Log into ClubGG — no VPN needed anymore',
+  const steps = [
+    t('pages.vpn.step1'),
+    t('pages.vpn.step2'),
+    t('pages.vpn.step3'),
+    t('pages.vpn.step4'),
   ];
 
   return (
@@ -69,7 +63,7 @@ export function VPNSidebar() {
             <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
           </svg>
           <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: 'white', lineHeight: 1.3 }}>
-            {isRu ? 'Внимание — только для Massiv Union' : 'Attention — Massiv Union only'}
+            {t('pages.vpn.attention')}
           </p>
         </div>
 
@@ -85,7 +79,7 @@ export function VPNSidebar() {
             <div>
               <p style={{ margin: 0, fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase' }}>Massiv Poker Union</p>
               <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.7)', lineHeight: 1.35 }}>
-                {isRu ? 'Обязательное условие для регистрации' : 'Required for registration'}
+                {t('pages.vpn.requiredReg')}
               </p>
             </div>
           </div>
@@ -99,16 +93,14 @@ export function VPNSidebar() {
             marginBottom: 16,
           }}>
             <p style={{ margin: 0, fontSize: 13, lineHeight: 1.6, color: 'rgba(255,255,255,0.65)' }}>
-              {isRu
-                ? 'Если вы не находитесь в одной из стран ниже — аккаунт нужно регистрировать обязательно через VPN. Иначе — блокировка.'
-                : 'If you are not in one of the countries below — you must register your account using VPN. Otherwise — account ban.'}
+              {t('pages.vpn.warning')}
             </p>
           </div>
 
           {/* How to: 4 steps */}
           <div style={{ marginBottom: 16 }}>
             <p style={{ margin: '0 0 10px', fontSize: 9, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
-              {isRu ? 'Порядок действий' : 'How to do it'}
+              {t('pages.vpn.howToDo')}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {steps.map((s, i) => (
@@ -137,7 +129,7 @@ export function VPNSidebar() {
           {/* Download VPN */}
           <div style={{ marginBottom: 16 }}>
             <p style={{ margin: '0 0 10px', fontSize: 9, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
-              {isRu ? 'Скачать VPN' : 'Download VPN'}
+              {t('pages.vpn.downloadVpn')}
             </p>
 
             {/* Option 1: Super VPN */}
@@ -168,7 +160,7 @@ export function VPNSidebar() {
               <p style={{ margin: '0 0 6px', fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.4)', display: 'flex', alignItems: 'center', gap: 6 }}>
                 AdGuard VPN
                 <span style={{ fontSize: 10, fontWeight: 600, color: 'rgba(34,197,94,0.8)', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: 3, padding: '1px 6px' }}>
-                  {isRu ? 'рекомендуем' : 'recommended'}
+                  {t('pages.vpn.recommended')}
                 </span>
               </p>
               <div style={{ display: 'flex', gap: 6 }}>
@@ -195,13 +187,13 @@ export function VPNSidebar() {
           {/* Countries */}
           <div>
             <p style={{ margin: '0 0 8px', fontSize: 9, fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
-              {isRu ? 'Страны — VPN не нужен' : 'Countries — no VPN needed'}
+              {t('pages.vpn.noVpnNeeded')}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
               {countries.map(c => (
                 <div key={c.code} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                   <FlagImg code={c.code} />
-                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)' }}>{isRu ? c.ru : c.en}</span>
+                  <span style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)' }}>{t(`pages.vpn.${c.key}`)}</span>
                 </div>
               ))}
             </div>

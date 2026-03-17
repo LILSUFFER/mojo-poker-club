@@ -7,10 +7,9 @@ import { Link } from 'wouter';
 import SEO from '@/components/SEO';
 
 export function InstallGuide() {
-  const { language } = useLanguage();
-  const isRu = language === 'ru';
+  const { language, t } = useLanguage();
 
-  const platforms = isRu ? [
+  const platforms = language === 'ru' ? [
     {
       name: 'Android',
       steps: [
@@ -89,14 +88,12 @@ export function InstallGuide() {
       />
       <Navbar />
       <PageHeader
-        label={isRu ? 'Установка приложения' : 'App Installation'}
-        title={isRu ? 'Как установить ClubGG' : 'How to Install ClubGG'}
-        subtitle={isRu
-          ? 'Выберите свою платформу и следуйте пошаговой инструкции — установка занимает меньше минуты.'
-          : 'Choose your platform and follow the step-by-step guide — installation takes less than a minute.'}
+        label={t('pages.install.label')}
+        title={t('pages.install.title')}
+        subtitle={t('pages.install.subtitle')}
         breadcrumbs={[
-          { label: isRu ? 'Главная' : 'Home', href: '/' },
-          { label: isRu ? 'Установка' : 'Install' },
+          { label: t('pages.home'), href: '/' },
+          { label: t('pages.install.label') },
         ]}
       />
       <main style={{ flex: 1, padding: '60px 0 80px' }}>
@@ -139,7 +136,7 @@ export function InstallGuide() {
                   {/* Note */}
                   <div style={{ padding: '16px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid var(--border-subtle)' }}>
                     <p style={{ fontSize: 12, color: 'var(--text-faint)', lineHeight: 1.6, margin: 0 }}>
-                      <span style={{ fontWeight: 700, marginRight: 6 }}>{isRu ? 'Примечание:' : 'Note:'}</span>
+                      <span style={{ fontWeight: 700, marginRight: 6 }}>{t('pages.install.noteLabel')}</span>
                       {platform.note}
                     </p>
                   </div>
@@ -152,10 +149,10 @@ export function InstallGuide() {
           <div style={{ marginTop: 64, padding: '32px', borderRadius: 8, border: '1px solid var(--border-subtle)', background: 'var(--bg-card)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
             <div>
               <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--text)', marginBottom: 6 }}>
-                {isRu ? 'Приложение установлено?' : 'App installed?'}
+                {t('pages.install.installedQ')}
               </div>
               <div style={{ fontSize: 13, color: 'var(--text-faint)' }}>
-                {isRu ? 'Следующий шаг — найти клуб и вступить.' : 'Next step — find the club and join.'}
+                {t('pages.install.installedSub')}
               </div>
             </div>
             <Link
@@ -168,7 +165,7 @@ export function InstallGuide() {
                 textDecoration: 'none', whiteSpace: 'nowrap',
               }}
             >
-              {isRu ? 'Как вступить →' : 'How to Join →'}
+              {t('pages.install.joinBtn')}
             </Link>
           </div>
 

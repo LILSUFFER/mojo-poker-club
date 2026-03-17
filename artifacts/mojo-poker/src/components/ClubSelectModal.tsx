@@ -51,8 +51,7 @@ const clubs = [
 ];
 
 export function ClubSelectModal({ open, onClose, onSelect }: Props) {
-  const { language } = useLanguage();
-  const isRu = language === 'ru';
+  const { language, t } = useLanguage();
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -105,10 +104,10 @@ export function ClubSelectModal({ open, onClose, onSelect }: Props) {
         }}>
           <div>
             <p style={{ margin: '0 0 4px', fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>
-              {isRu ? 'Выберите клуб' : 'Select a club'}
+              {language === 'ru' ? 'Выберите клуб' : 'Select a club'}
             </p>
             <h2 style={{ margin: 0, fontSize: isMobile ? 20 : 28, fontWeight: 800, color: 'white', letterSpacing: '-0.02em' }}>
-              {isRu ? 'В какой клуб вступить?' : 'Which club to join?'}
+              {language === 'ru' ? 'В какой клуб вступить?' : 'Which club to join?'}
             </h2>
           </div>
           <button
@@ -174,24 +173,24 @@ export function ClubSelectModal({ open, onClose, onSelect }: Props) {
               {/* Info */}
               <div style={{ padding: isMobile ? '16px 18px 18px' : '22px 24px 24px' }}>
                 <p style={{ margin: '0 0 4px', fontSize: 10, fontWeight: 700, letterSpacing: '0.13em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>
-                  {isRu ? club.tagRu : club.tagEn}
+                  {language === 'ru' ? club.tagRu : club.tagEn}
                 </p>
                 <p style={{ margin: '0 0 10px', fontSize: isMobile ? 17 : 20, fontWeight: 700, color: 'white', lineHeight: 1.2 }}>
-                  {isRu ? club.nameRu : club.nameEn}
+                  {language === 'ru' ? club.nameRu : club.nameEn}
                 </p>
                 <p style={{ margin: '0 0 14px', fontSize: 13, color: 'rgba(255,255,255,0.45)', lineHeight: 1.6 }}>
-                  {isRu ? club.descRu : club.descEn}
+                  {language === 'ru' ? club.descRu : club.descEn}
                 </p>
 
                 {/* Stats row */}
                 <div style={{ display: 'flex', gap: 14, marginBottom: 14, paddingBottom: 14, borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
                     <Users size={12} color="rgba(255,255,255,0.35)" />
-                    <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>{isRu ? club.onlineRu : club.onlineEn}</span>
+                    <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>{language === 'ru' ? club.onlineRu : club.onlineEn}</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
                     <Table2 size={12} color="rgba(255,255,255,0.35)" />
-                    <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>{isRu ? club.tablesRu : club.tablesEn}</span>
+                    <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>{language === 'ru' ? club.tablesRu : club.tablesEn}</span>
                   </div>
                   <div style={{ marginLeft: 'auto', fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,0.7)' }}>
                     RB {club.rb}
@@ -202,7 +201,7 @@ export function ClubSelectModal({ open, onClose, onSelect }: Props) {
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)' }}>ID: {club.id}</span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, fontWeight: 700, color: 'hsl(4 80% 55%)' }}>
-                    {isRu ? 'Перейти' : 'Go to club'} <ArrowRight size={14} />
+                    {t('pages.learnMoreBtn').replace(' →', '')} <ArrowRight size={14} />
                   </span>
                 </div>
               </div>

@@ -86,8 +86,7 @@ const steps: Step[] = [
 ];
 
 export function CreateAccount() {
-  const { language } = useLanguage();
-  const isRu = language === 'ru';
+  const { language, t } = useLanguage();
   const isMobile = useIsMobile();
 
   return (
@@ -114,14 +113,12 @@ export function CreateAccount() {
       />
       <Navbar />
       <PageHeader
-        title={isRu ? 'Как создать аккаунт GGClub' : 'How to Create a GGClub Account'}
-        subtitle={isRu
-          ? 'Пошаговая инструкция с реальными скриншотами из приложения'
-          : 'Step-by-step guide with real screenshots from the app'}
+        title={t('pages.createAccount.title')}
+        subtitle={t('pages.createAccount.subtitle')}
         breadcrumbs={[
-          { label: isRu ? 'Главная' : 'Home', href: '/' },
-          { label: isRu ? 'Как вступить' : 'How to Join', href: '/join' },
-          { label: isRu ? 'Создание аккаунта GGClub' : 'Create GGClub Account' },
+          { label: t('pages.home'), href: '/' },
+          { label: t('pages.joinGuide.label'), href: '/join' },
+          { label: t('pages.createAccount.breadcrumb') },
         ]}
       />
 
@@ -148,14 +145,14 @@ export function CreateAccount() {
                       {step.num}
                     </div>
                     <h2 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
-                      {isRu ? step.title.ru : step.title.en}
+                      {language === 'ru' ? step.title.ru : step.title.en}
                     </h2>
                   </div>
 
                   {/* Description */}
                   <div style={{ paddingLeft: 52 }}>
                     <p style={{ margin: '0 0 24px', fontSize: 15, lineHeight: 1.75, color: 'rgba(255,255,255,0.6)' }}>
-                      {isRu ? step.desc.ru : step.desc.en}
+                      {language === 'ru' ? step.desc.ru : step.desc.en}
                     </p>
 
                     {step.note && (
@@ -170,7 +167,7 @@ export function CreateAccount() {
                         color: 'rgba(255,255,255,0.45)',
                         lineHeight: 1.6,
                       }}>
-                        {isRu ? step.note.ru : step.note.en}
+                        {language === 'ru' ? step.note.ru : step.note.en}
                       </div>
                     )}
 
@@ -184,7 +181,7 @@ export function CreateAccount() {
                     }}>
                       <img
                         src={step.img}
-                        alt={isRu ? step.title.ru : step.title.en}
+                        alt={language === 'ru' ? step.title.ru : step.title.en}
                         style={{ width: 300, height: 'auto', display: 'block' }}
                       />
                     </div>
@@ -212,13 +209,13 @@ export function CreateAccount() {
               }}>
                 <div>
                   <p style={{ margin: '0 0 4px', fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', color: 'hsl(220 5% 45%)', textTransform: 'uppercase' }}>
-                    {isRu ? 'СЛЕДУЮЩИЙ ШАГ' : 'NEXT STEP'}
+                    {t('pages.createAccount.nextStepLabel')}
                   </p>
                   <h3 style={{ margin: '0 0 6px', fontSize: 18, fontWeight: 700, color: 'var(--text-primary)' }}>
-                    {isRu ? 'Подключитесь к клубу MOJO' : 'Connect to the MOJO Club'}
+                    {t('pages.createAccount.nextStepTitle')}
                   </h3>
                   <p style={{ margin: 0, fontSize: 14, color: 'rgba(255,255,255,0.4)' }}>
-                    {isRu ? 'Аккаунт готов — теперь найдите и вступите в клуб' : 'Account is ready — now find and join the club'}
+                    {t('pages.createAccount.nextStepDesc')}
                   </p>
                 </div>
                 <Link href="/join"
@@ -232,7 +229,7 @@ export function CreateAccount() {
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(4 80% 38%)'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'hsl(4 80% 45%)'; }}
                 >
-                  {isRu ? 'Подключиться к клубу →' : 'Connect to Club →'}
+                  {t('pages.createAccount.nextStepBtn')}
                 </Link>
               </div>
             </div>

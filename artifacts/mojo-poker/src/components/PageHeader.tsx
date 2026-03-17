@@ -14,11 +14,10 @@ interface PageHeaderProps {
 }
 
 export function PageHeader({ title, subtitle, breadcrumbs }: PageHeaderProps) {
-  const { language } = useLanguage();
-  const isRu = language === 'ru';
+  const { t } = useLanguage();
 
   const defaultCrumbs: Crumb[] = [
-    { label: isRu ? 'Главная' : 'Home', href: '/' },
+    { label: t('pages.home'), href: '/' },
   ];
   const crumbs = breadcrumbs ?? defaultCrumbs;
 
