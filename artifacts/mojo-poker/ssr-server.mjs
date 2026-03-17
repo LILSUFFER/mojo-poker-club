@@ -292,19 +292,15 @@ async function main() {
       }
       if (!pathname.startsWith('/')) pathname = '/' + pathname;
 
-      // Serve static XML/XSL files with correct Content-Type
+      // Serve XML/XSL from static-xml/ (NOT public/) so CDN never intercepts them
       if (/\.(xml|xsl)$/i.test(pathname)) {
         const rel = pathname.replace(/^\//, '');
-        const candidates = [
-          resolve(__dirname, 'public', rel),
-          resolve(__dirname, 'dist', 'public', rel),
-        ];
-        const found = candidates.find(f => existsSync(f));
-        if (found) {
+        const xmlFile = resolve(__dirname, 'static-xml', rel);
+        if (existsSync(xmlFile)) {
           res.statusCode = 200;
           res.setHeader('Content-Type', 'application/xml; charset=utf-8');
           res.setHeader('Cache-Control', 'no-store');
-          res.end(readFileSync(found, 'utf-8'));
+          res.end(readFileSync(xmlFile, 'utf-8'));
           return;
         }
       }
