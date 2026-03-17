@@ -271,6 +271,7 @@ function isPageRequest(pathname) {
   return true;
 }
 
+
 async function main() {
   const vite = await createViteServer({
     configFile: resolve(__dirname, 'vite.config.ts'),
@@ -292,16 +293,11 @@ async function main() {
       if (!pathname.startsWith('/')) pathname = '/' + pathname;
 
       // Serve static XML/XSL files with correct Content-Type
-      const xmlExtMatch = pathname.match(/\.(xml|xsl)$/i);
-      if (xmlExtMatch) {
+      if (/\.(xml|xsl)$/i.test(pathname)) {
         const staticFile = resolve(__dirname, 'public', pathname.replace(/^\//, ''));
         if (existsSync(staticFile)) {
-          const isXsl = xmlExtMatch[1].toLowerCase() === 'xsl';
-          const contentType = isXsl
-            ? 'application/xslt+xml; charset=utf-8'
-            : 'application/xml; charset=utf-8';
           res.statusCode = 200;
-          res.setHeader('Content-Type', contentType);
+          res.setHeader('Content-Type', 'application/xml; charset=utf-8');
           res.setHeader('Cache-Control', 'public, max-age=3600');
           res.end(readFileSync(staticFile, 'utf-8'));
           return;
