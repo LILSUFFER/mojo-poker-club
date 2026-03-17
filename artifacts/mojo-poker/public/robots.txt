@@ -1,4 +1,30 @@
+# ════════════════════════════════════════
+#   MOJO Poker Club — robots.txt
+#   https://mojopokerclub.com
+# ════════════════════════════════════════
+
+# ── All crawlers ─────────────────────────
 User-agent: *
 Allow: /
 
+# Block common vulnerability scanners
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /.env
+Disallow: /admin/
+
+# ── Google ────────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+# ── Bing ──────────────────────────────────
+User-agent: Bingbot
+Allow: /
+
+# ── Yandex ────────────────────────────────
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# ── Sitemap ───────────────────────────────
 Sitemap: https://mojopokerclub.com/sitemap.xml
