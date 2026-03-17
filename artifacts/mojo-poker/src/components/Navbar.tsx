@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X, Download, ChevronDown } from 'lucide-react';
+import { Menu, X, Download, Globe, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
-import { LANGUAGE_NAMES, LANGUAGE_COUNTRY, Language, isRTL } from '@/lib/translations';
+import { LANGUAGE_NAMES, LANGUAGE_LABELS, LANGUAGE_COUNTRY, Language, isRTL } from '@/lib/translations';
 
 const LANGUAGES: Language[] = ['en', 'ru', 'es', 'de', 'fr', 'it', 'pt', 'ar', 'hi', 'fa', 'tr', 'az', 'zh', 'ja'];
 
@@ -173,7 +173,8 @@ export function Navbar() {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'white'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
             >
-              <span className={`fi fi-${LANGUAGE_COUNTRY[language]}`} style={{ width: 20, height: 15, borderRadius: 2, flexShrink: 0 }} />
+              <Globe size={13} />
+              {LANGUAGE_LABELS[language]}
               <ChevronDown size={11} style={{ opacity: 0.6, transition: 'transform 0.15s', transform: langOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
             </button>
 
