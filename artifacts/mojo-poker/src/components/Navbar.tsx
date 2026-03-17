@@ -151,16 +151,16 @@ export function Navbar() {
           <div className="nav-desktop" style={{ alignItems: 'center', gap: 0 }}>
             <DropMenu label={t('nav.clubs')} items={clubItems} />
             <DropMenu label={t('nav.guides')} items={joinItems} />
-            <Link href="/about"
-              style={linkStyle as React.CSSProperties}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
-            >{t('nav.about')}</Link>
             <Link href="/games"
               style={linkStyle as React.CSSProperties}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
             >{t('nav.games')}</Link>
+            <Link href="/about"
+              style={linkStyle as React.CSSProperties}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
+            >{t('nav.about')}</Link>
             <a href={isHome ? '#reviews' : '/#reviews'}
               style={linkStyle as React.CSSProperties}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}
