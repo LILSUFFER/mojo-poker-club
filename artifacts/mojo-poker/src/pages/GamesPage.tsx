@@ -447,7 +447,7 @@ export function GamesPage() {
           <div style={{ display: 'flex', gap: 8, marginBottom: 28, flexWrap: 'wrap' }}>
             {([
               { key: 'massiv', label: 'MOJO: Massiv Poker Union' },
-              { key: 'mojo',   label: 'MOJO (Allin Zone)' },
+              { key: 'mojo',   label: 'MOJO' },
             ] as const).map(({ key, label }) => (
               <button
                 key={key}
