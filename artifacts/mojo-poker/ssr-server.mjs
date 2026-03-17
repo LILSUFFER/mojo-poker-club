@@ -294,12 +294,17 @@ async function main() {
 
       // Serve static XML/XSL files with correct Content-Type
       if (/\.(xml|xsl)$/i.test(pathname)) {
-        const staticFile = resolve(__dirname, 'public', pathname.replace(/^\//, ''));
-        if (existsSync(staticFile)) {
+        const rel = pathname.replace(/^\//, '');
+        const candidates = [
+          resolve(__dirname, 'public', rel),
+          resolve(__dirname, 'dist', 'public', rel),
+        ];
+        const found = candidates.find(f => existsSync(f));
+        if (found) {
           res.statusCode = 200;
           res.setHeader('Content-Type', 'application/xml; charset=utf-8');
           res.setHeader('Cache-Control', 'no-store');
-          res.end(readFileSync(staticFile, 'utf-8'));
+          res.end(readFileSync(found, 'utf-8'));
           return;
         }
       }
