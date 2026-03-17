@@ -2,6 +2,20 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'wouter';
 import { useIsMobile } from '@/hooks/useIsMobile';
 
+function TelegramIcon({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
+      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+    </svg>
+  );
+}
+
+const TG_CHANNELS = [
+  { flag: 'ru', label: 'Русский канал', href: 'https://t.me/+gPq_KS_WWXJhZDc6' },
+  { flag: 'gb', label: 'English channel', href: 'https://t.me/+05mQbZgpoEc1MDVi' },
+  { flag: 'tr', label: 'Türkçe kanal',   href: 'https://t.me/+lwRi6Qatepw1ZDY6' },
+];
+
 export function Footer() {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
@@ -64,7 +78,7 @@ export function Footer() {
             </div>
 
             {/* 2×2 link columns */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28, marginBottom: 40 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28, marginBottom: 28 }}>
               {cols.map(col => (
                 <div key={col.heading}>
                   <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 12 }}>
@@ -96,10 +110,34 @@ export function Footer() {
                 </div>
               ))}
             </div>
+
+            {/* Telegram channels — mobile */}
+            <div style={{ marginBottom: 40, padding: '16px', background: 'rgba(255,255,255,0.03)', borderRadius: 8, border: '1px solid var(--border-subtle)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 14 }}>
+                <TelegramIcon size={14} />
+                <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text-faint)' }}>
+                  Telegram
+                </span>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {TG_CHANNELS.map(ch => (
+                  <a
+                    key={ch.href}
+                    href={ch.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: 'var(--text-faint)', textDecoration: 'none' }}
+                  >
+                    <span className={`fi fi-${ch.flag}`} style={{ width: 16, height: 12, borderRadius: 2, flexShrink: 0 }} />
+                    {ch.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           </>
         ) : (
-          /* Desktop: 5-column grid */
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto auto auto auto', gap: 40, alignItems: 'start', marginBottom: 48 }}>
+          /* Desktop: 6-column grid */
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto auto auto auto auto', gap: 40, alignItems: 'start', marginBottom: 48 }}>
 
             {/* Brand */}
             <div>
@@ -152,6 +190,32 @@ export function Footer() {
                 </div>
               </div>
             ))}
+
+            {/* Telegram channels column */}
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 16 }}>
+                <TelegramIcon size={13} />
+                <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text-faint)' }}>
+                  Telegram
+                </span>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {TG_CHANNELS.map(ch => (
+                  <a
+                    key={ch.href}
+                    href={ch.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: 'var(--text-faint)', textDecoration: 'none', transition: 'color 0.15s' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-faint)'; }}
+                  >
+                    <span className={`fi fi-${ch.flag}`} style={{ width: 16, height: 12, borderRadius: 2, flexShrink: 0 }} />
+                    {ch.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 
