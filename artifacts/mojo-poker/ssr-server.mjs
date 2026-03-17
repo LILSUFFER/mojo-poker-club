@@ -256,6 +256,39 @@ function injectMeta(html, pathname, lang) {
   return htmlWithLang.replace('</head>', metaHtml + '\n  </head>');
 }
 
+// ─────────────────────────────────────────────
+// Dynamic sitemap generator (no filesystem dependency)
+// ─────────────────────────────────────────────
+const SITE_URL = 'https://mojopokerclub.com';
+const SITEMAP_PAGES = [
+  { path: '/',               changefreq: 'daily',   priority: '1.0' },
+  { path: '/clubs/massiv',   changefreq: 'weekly',  priority: '1.0' },
+  { path: '/clubs/mojo',     changefreq: 'weekly',  priority: '1.0' },
+  { path: '/games',          changefreq: 'weekly',  priority: '1.0' },
+  { path: '/join',           changefreq: 'monthly', priority: '1.0' },
+  { path: '/create-account', changefreq: 'monthly', priority: '1.0' },
+  { path: '/download',       changefreq: 'monthly', priority: '1.0' },
+  { path: '/install',        changefreq: 'monthly', priority: '1.0' },
+  { path: '/about',          changefreq: 'monthly', priority: '1.0' },
+];
+
+function generateSitemap() {
+  const today = new Date().toISOString().slice(0, 10);
+  const urlBlocks = [];
+  for (const page of SITEMAP_PAGES) {
+    for (const lang of VALID_LANGS) {
+      const loc = `${SITE_URL}${page.path}?lang=${lang}`;
+      const hreflangs = VALID_LANGS.map(l =>
+        `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE_URL}${page.path}?lang=${l}"/>`
+      ).join('\n');
+      urlBlocks.push(
+        `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${page.changefreq}</changefreq>\n    <priority>${page.priority}</priority>\n${hreflangs}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}${page.path}"/>\n  </url>`
+      );
+    }
+  }
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n\n${urlBlocks.join('\n\n')}\n\n</urlset>`;
+}
+
 // Determine if a request is for an HTML page (not an asset/vite special route)
 function isPageRequest(pathname) {
   if (pathname.startsWith('/@')) return false;
@@ -292,17 +325,14 @@ async function main() {
       }
       if (!pathname.startsWith('/')) pathname = '/' + pathname;
 
-      // Serve XML/XSL from static-xml/ (NOT public/) so CDN never intercepts them
-      if (/\.(xml|xsl)$/i.test(pathname)) {
-        const rel = pathname.replace(/^\//, '');
-        const xmlFile = resolve(__dirname, 'static-xml', rel);
-        if (existsSync(xmlFile)) {
-          res.statusCode = 200;
-          res.setHeader('Content-Type', 'application/xml; charset=utf-8');
-          res.setHeader('Cache-Control', 'no-store');
-          res.end(readFileSync(xmlFile, 'utf-8'));
-          return;
-        }
+      // Serve sitemap.xml dynamically — no filesystem dependency, works in all envs
+      if (pathname === '/sitemap.xml') {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/xml');
+        res.setHeader('X-Content-Type-Options', 'nosniff');
+        res.setHeader('Cache-Control', 'no-store');
+        res.end(generateSitemap());
+        return;
       }
 
       if (isPageRequest(pathname)) {
