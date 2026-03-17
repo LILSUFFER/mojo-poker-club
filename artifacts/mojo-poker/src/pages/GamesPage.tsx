@@ -240,7 +240,7 @@ const tdStyle: React.CSSProperties = {
   borderBottom: '1px solid rgba(255,255,255,0.05)', verticalAlign: 'top', lineHeight: 1.55,
 };
 const tdBoldStyle: React.CSSProperties = { ...tdStyle, fontWeight: 600, color: 'white', whiteSpace: 'nowrap' };
-const tdMonoStyle: React.CSSProperties = { ...tdStyle, fontFamily: 'monospace', whiteSpace: 'nowrap' };
+const tdMonoStyle: React.CSSProperties = { ...tdStyle, whiteSpace: 'nowrap' };
 
 export function GamesPage() {
   const { language } = useLanguage();
@@ -334,7 +334,7 @@ export function GamesPage() {
                     {section.rows.map((row, j) => (
                       <tr key={j} style={{ background: j % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.015)' }}>
                         <td style={{ ...tdMonoStyle, padding: '8px 14px', fontSize: 12 }}>{row.blind}</td>
-                        <td style={{ ...tdStyle, padding: '8px 14px', fontSize: 12, textAlign: 'right', color: 'rgba(255,255,255,0.5)', fontFamily: 'monospace' }}>{row.cap}</td>
+                        <td style={{ ...tdStyle, padding: '8px 14px', fontSize: 12, textAlign: 'right', color: 'rgba(255,255,255,0.5)' }}>{row.cap}</td>
                       </tr>
                     ))}
                   </tbody>
