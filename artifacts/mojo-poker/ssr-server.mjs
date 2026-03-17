@@ -298,7 +298,7 @@ async function main() {
         if (existsSync(staticFile)) {
           res.statusCode = 200;
           res.setHeader('Content-Type', 'application/xml; charset=utf-8');
-          res.setHeader('Cache-Control', 'public, max-age=3600');
+          res.setHeader('Cache-Control', 'no-store');
           res.end(readFileSync(staticFile, 'utf-8'));
           return;
         }
