@@ -18,7 +18,7 @@ const featuresData = {
 export function PremiumExperience() {
   const { t, language } = useLanguage();
   const isMobile = useIsMobile();
-  const features = featuresData[language];
+  const features = (featuresData as any)[language] ?? featuresData['en'];
 
   return (
     <section style={{ padding: isMobile ? '60px 0' : '100px 0', background: 'var(--bg-2)', borderTop: '1px solid var(--border-subtle)' }}>

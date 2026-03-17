@@ -113,8 +113,8 @@ const faq = {
 export function MassivGuide() {
   const { language } = useLanguage();
   const isRu = language === 'ru';
-  const stepList = steps[language];
-  const faqList = faq[language];
+  const stepList = (steps as any)[language] ?? steps['en'];
+  const faqList = (faq as any)[language] ?? faq['en'];
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', color: 'var(--text)' }}>

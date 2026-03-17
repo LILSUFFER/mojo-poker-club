@@ -3,6 +3,9 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X, Download, Globe, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
+import { LANGUAGE_NAMES, LANGUAGE_LABELS, Language, isRTL } from '@/lib/translations';
+
+const LANGUAGES: Language[] = ['en', 'ru', 'es', 'de', 'fr', 'it', 'pt', 'ar', 'hi', 'fa', 'tr', 'az', 'zh', 'ja'];
 
 const linkStyle = {
   color: 'rgba(255,255,255,0.5)',
@@ -27,13 +30,8 @@ function DropMenu({ label, items }: { label: string; items: DropItem[] }) {
   const [open, setOpen] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const show = () => {
-    if (timer.current) clearTimeout(timer.current);
-    setOpen(true);
-  };
-  const hide = () => {
-    timer.current = setTimeout(() => setOpen(false), 120);
-  };
+  const show = () => { if (timer.current) clearTimeout(timer.current); setOpen(true); };
+  const hide = () => { timer.current = setTimeout(() => setOpen(false), 120); };
 
   return (
     <div style={{ position: 'relative' }} onMouseEnter={show} onMouseLeave={hide}>
@@ -96,13 +94,14 @@ function DropMenu({ label, items }: { label: string; items: DropItem[] }) {
 }
 
 export function Navbar() {
-  const { language, setLanguage, t } = useLanguage();
+  const { language, setLanguage, t, isRu } = useLanguage();
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [mobileLangOpen, setMobileLangOpen] = useState(false);
   const langTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [location] = useLocation();
   const isHome = location === '/';
-  const isRu = language === 'ru';
+  const rtl = isRTL(language);
 
   const showLang = () => { if (langTimer.current) clearTimeout(langTimer.current); setLangOpen(true); };
   const hideLang = () => { langTimer.current = setTimeout(() => setLangOpen(false), 120); };
@@ -113,23 +112,19 @@ export function Navbar() {
     { label: 'MOJO', href: '/clubs/mojo' },
   ];
 
-  const joinItems: DropItem[] = isRu ? [
-    { label: 'Скачать GGClub', href: '/download' },
-    { label: 'Создание аккаунта GGClub', href: '/create-account' },
-    { label: 'Вступление в клуб', href: '/join' },
-  ] : [
-    { label: 'Download GGClub', href: '/download' },
-    { label: 'Create GGClub Account', href: '/create-account' },
-    { label: 'Join the Club', href: '/join' },
+  const joinItems: DropItem[] = [
+    { label: t('nav.downloadGG'), href: '/download' },
+    { label: t('nav.createAccount'), href: '/create-account' },
+    { label: t('nav.joinClub'), href: '/join' },
   ];
 
   const mobileLinks = [
-    { label: isRu ? 'Наши клубы' : 'Our Clubs', href: isHome ? '#clubs' : '/#clubs' },
-    { label: isRu ? 'Скачать GGClub' : 'Download GGClub', href: '/download' },
-    { label: isRu ? 'Создание аккаунта GGClub' : 'Create GGClub Account', href: '/create-account' },
-    { label: isRu ? 'Вступление в клуб' : 'Join the Club', href: '/join' },
-    { label: isRu ? 'О нас' : 'About', href: '/about' },
-    { label: isRu ? 'Отзывы' : 'Reviews', href: isHome ? '#reviews' : '/#reviews' },
+    { label: t('nav.clubs'), href: isHome ? '#clubs' : '/#clubs' },
+    { label: t('nav.downloadGG'), href: '/download' },
+    { label: t('nav.createAccount'), href: '/create-account' },
+    { label: t('nav.joinClub'), href: '/join' },
+    { label: t('nav.about'), href: '/about' },
+    { label: t('nav.reviews'), href: isHome ? '#reviews' : '/#reviews' },
   ];
 
   return (
@@ -137,6 +132,7 @@ export function Navbar() {
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
       background: 'var(--bg)',
       borderBottom: '1px solid var(--border-subtle)',
+      direction: 'ltr',
     }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px', height: 60, display: 'flex', alignItems: 'center' }}>
 
@@ -152,31 +148,36 @@ export function Navbar() {
           </Link>
 
           <div className="nav-desktop" style={{ alignItems: 'center', gap: 0 }}>
-            <DropMenu label={isRu ? 'Наши клубы' : 'Our Clubs'} items={clubItems} />
-            <DropMenu label={isRu ? 'Инструкции' : 'Guides'} items={joinItems} />
+            <DropMenu label={t('nav.clubs')} items={clubItems} />
+            <DropMenu label={t('nav.guides')} items={joinItems} />
             <Link href="/about"
               style={linkStyle as React.CSSProperties}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
-            >{isRu ? 'О нас' : 'About'}</Link>
+            >{t('nav.about')}</Link>
             <a href={isHome ? '#reviews' : '/#reviews'}
               style={linkStyle as React.CSSProperties}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.9)'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
-            >{isRu ? 'Отзывы' : 'Reviews'}</a>
+            >{t('nav.reviews')}</a>
           </div>
         </div>
 
+        {/* Desktop right side */}
         <div className="nav-desktop" style={{ alignItems: 'center', gap: 8, justifyContent: 'flex-end' }}>
+
+          {/* Language switcher */}
           <div style={{ position: 'relative' }} onMouseEnter={showLang} onMouseLeave={hideLang}>
-            <button style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '5px 10px', borderRadius: 4, border: 'none', color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 700, letterSpacing: '0.05em', background: 'transparent', cursor: 'pointer', transition: 'color 0.15s' }}
+            <button
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '5px 10px', borderRadius: 4, border: 'none', color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 700, letterSpacing: '0.05em', background: 'transparent', cursor: 'pointer', transition: 'color 0.15s' }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'white'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.5)'; }}
             >
               <Globe size={13} />
-              {language.toUpperCase()}
+              {LANGUAGE_LABELS[language]}
               <ChevronDown size={11} style={{ opacity: 0.6, transition: 'transform 0.15s', transform: langOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
             </button>
+
             <AnimatePresence>
               {langOpen && (
                 <motion.div
@@ -184,15 +185,40 @@ export function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.15 }}
-                  style={{ position: 'absolute', top: '100%', right: 0, background: 'var(--bg-card)', border: '1px solid var(--border-subtle)', borderRadius: 6, padding: '6px 0', minWidth: 110, zIndex: 100, boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}
+                  style={{
+                    position: 'absolute', top: '100%', right: 0,
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--border-subtle)',
+                    borderRadius: 6, padding: '6px 0',
+                    zIndex: 100,
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    minWidth: 240,
+                  }}
                 >
-                  {[{ code: 'en', label: 'English' }, { code: 'ru', label: 'Русский' }].map(opt => (
-                    <button key={opt.code} onClick={() => { setLanguage(opt.code as 'en' | 'ru'); setLangOpen(false); }}
-                      style={{ display: 'flex', alignItems: 'center', gap: 8, width: '100%', padding: '9px 16px', fontSize: 13, fontWeight: language === opt.code ? 700 : 400, color: language === opt.code ? 'white' : 'rgba(255,255,255,0.55)', background: language === opt.code ? 'rgba(255,255,255,0.06)' : 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left', transition: 'all 0.12s' }}
-                      onMouseEnter={e => { if (language !== opt.code) { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)'; (e.currentTarget as HTMLElement).style.color = 'white'; } }}
-                      onMouseLeave={e => { if (language !== opt.code) { (e.currentTarget as HTMLElement).style.background = 'transparent'; (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.55)'; } }}
+                  {LANGUAGES.map(code => (
+                    <button
+                      key={code}
+                      onClick={() => { setLanguage(code); setLangOpen(false); }}
+                      style={{
+                        display: 'flex', alignItems: 'center', gap: 8,
+                        padding: '9px 16px', fontSize: 13,
+                        fontWeight: language === code ? 700 : 400,
+                        color: language === code ? 'white' : 'rgba(255,255,255,0.55)',
+                        background: language === code ? 'rgba(255,255,255,0.06)' : 'transparent',
+                        border: 'none', cursor: 'pointer', textAlign: 'left',
+                        transition: 'all 0.12s',
+                        direction: isRTL(code) ? 'rtl' : 'ltr',
+                        whiteSpace: 'nowrap',
+                      }}
+                      onMouseEnter={e => { if (language !== code) { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)'; (e.currentTarget as HTMLElement).style.color = 'white'; } }}
+                      onMouseLeave={e => { if (language !== code) { (e.currentTarget as HTMLElement).style.background = 'transparent'; (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.55)'; } }}
                     >
-                      {opt.label}
+                      <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', color: 'rgba(255,255,255,0.3)', minWidth: 22, direction: 'ltr' }}>
+                        {LANGUAGE_LABELS[code]}
+                      </span>
+                      {LANGUAGE_NAMES[code]}
                     </button>
                   ))}
                 </motion.div>
@@ -218,6 +244,7 @@ export function Navbar() {
           </a>
         </div>
 
+        {/* Mobile burger */}
         <button onClick={() => setOpen(!open)}
           className="nav-mobile-btn"
           style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.1)', color: 'white', cursor: 'pointer', padding: '6px 8px', borderRadius: 4, alignItems: 'center' }}
@@ -226,6 +253,7 @@ export function Navbar() {
         </button>
       </div>
 
+      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -241,12 +269,56 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
+
               <div style={{ height: 1, background: 'rgba(255,255,255,0.07)', margin: '8px 0' }} />
-              <button onClick={() => { setLanguage(language === 'en' ? 'ru' : 'en'); setOpen(false); }}
-                style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.5)', fontSize: 14, fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: '8px 12px', textAlign: 'left' }}>
+
+              {/* Mobile language picker */}
+              <button
+                onClick={() => setMobileLangOpen(!mobileLangOpen)}
+                style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.5)', fontSize: 14, fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: '8px 12px', textAlign: 'left' }}
+              >
                 <Globe size={15} />
-                {language === 'en' ? 'Русский' : 'English'}
+                {LANGUAGE_NAMES[language]}
+                <ChevronDown size={13} style={{ marginLeft: 'auto', transition: 'transform 0.15s', transform: mobileLangOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
               </button>
+
+              <AnimatePresence>
+                {mobileLangOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    style={{ overflow: 'hidden' }}
+                  >
+                    <div style={{
+                      display: 'grid', gridTemplateColumns: '1fr 1fr',
+                      gap: 2, padding: '4px 12px 8px',
+                    }}>
+                      {LANGUAGES.map(code => (
+                        <button
+                          key={code}
+                          onClick={() => { setLanguage(code); setMobileLangOpen(false); setOpen(false); }}
+                          style={{
+                            display: 'flex', alignItems: 'center', gap: 6,
+                            padding: '8px 10px', borderRadius: 4, fontSize: 13,
+                            fontWeight: language === code ? 700 : 400,
+                            color: language === code ? 'white' : 'rgba(255,255,255,0.5)',
+                            background: language === code ? 'rgba(255,255,255,0.06)' : 'transparent',
+                            border: 'none', cursor: 'pointer', textAlign: 'left',
+                            direction: isRTL(code) ? 'rtl' : 'ltr',
+                          }}
+                        >
+                          <span style={{ fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.3)', direction: 'ltr', minWidth: 20 }}>
+                            {LANGUAGE_LABELS[code]}
+                          </span>
+                          {LANGUAGE_NAMES[code]}
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               <Link href="/download" onClick={() => setOpen(false)}
                 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '12px', borderRadius: 4, background: 'hsl(4 80% 45%)', color: 'white', fontSize: 15, fontWeight: 600, textDecoration: 'none', marginTop: 4 }}>
                 <Download size={15} /> {t('nav.download')}

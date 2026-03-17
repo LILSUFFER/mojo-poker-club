@@ -26,7 +26,7 @@ export function Games() {
   const { language } = useLanguage();
   const isRu = language === 'ru';
   const isMobile = useIsMobile();
-  const games = gamesData[language];
+  const games = (gamesData as any)[language] ?? gamesData['en'];
   const [active, setActive] = useState(0);
 
   return (

@@ -1,18 +1,22 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { translations, Language } from '@/lib/translations';
+import { translations, Language, isRTL } from '@/lib/translations';
+
+const VALID_LANGS: Language[] = ['en', 'ru', 'es', 'de', 'fr', 'it', 'pt', 'ar', 'hi', 'fa', 'tr', 'az', 'zh', 'ja'];
 
 type LanguageContextType = {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (path: string) => string;
+  isRu: boolean;
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 function getLangFromUrl(): Language {
+  if (typeof window === 'undefined') return 'en';
   const params = new URLSearchParams(window.location.search);
-  const lang = params.get('lang');
-  if (lang === 'en' || lang === 'ru') return lang;
+  const lang = params.get('lang') as Language;
+  if (lang && VALID_LANGS.includes(lang)) return lang;
   return 'en';
 }
 
@@ -22,23 +26,31 @@ function setLangInUrl(lang: Language) {
   window.history.replaceState({}, '', url.toString());
 }
 
+function applyDocumentDir(lang: Language) {
+  document.documentElement.dir = isRTL(lang) ? 'rtl' : 'ltr';
+  document.documentElement.lang = lang;
+}
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>(getLangFromUrl);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     setLangInUrl(lang);
+    applyDocumentDir(lang);
   };
 
   useEffect(() => {
-    // If no ?lang= in URL on first load, add it silently
     const params = new URLSearchParams(window.location.search);
     if (!params.has('lang')) {
       setLangInUrl(language);
     }
+    applyDocumentDir(language);
 
     const handlePop = () => {
-      setLanguageState(getLangFromUrl());
+      const newLang = getLangFromUrl();
+      setLanguageState(newLang);
+      applyDocumentDir(newLang);
     };
     window.addEventListener('popstate', handlePop);
     return () => window.removeEventListener('popstate', handlePop);
@@ -46,11 +58,16 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const t = (path: string): string => {
     const keys = path.split('.');
-    let current: any = translations[language];
+    let current: any = (translations as any)[language] ?? (translations as any)['en'];
     for (const key of keys) {
-      if (current[key] === undefined) {
-        console.warn(`Translation key not found: ${path}`);
-        return path;
+      if (current?.[key] === undefined) {
+        // Fallback to English
+        let fallback: any = (translations as any)['en'];
+        for (const k of keys) {
+          if (fallback?.[k] === undefined) return path;
+          fallback = fallback[k];
+        }
+        return fallback as string;
       }
       current = current[key];
     }
@@ -58,7 +75,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, isRu: language === 'ru' }}>
       {children}
     </LanguageContext.Provider>
   );

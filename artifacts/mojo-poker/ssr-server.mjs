@@ -130,7 +130,7 @@ function stripExistingMeta(html) {
 
 function buildMetaHtml(pathname, lang) {
   const routeMeta = META[pathname] || META['/'];
-  const m = routeMeta[lang] || routeMeta['ru'];
+  const m = routeMeta[lang] || (lang === 'ru' ? routeMeta['ru'] : routeMeta['en']);
   const canonicalUrl = `${BASE_URL}${pathname}?lang=${lang}`;
   const canonicalRu  = `${BASE_URL}${pathname}?lang=ru`;
   const canonicalEn  = `${BASE_URL}${pathname}?lang=en`;
@@ -200,7 +200,8 @@ async function main() {
     try {
       const url = new URL(req.url, `http://localhost:${PORT}`);
       const langParam = url.searchParams.get('lang');
-      const lang = (langParam === 'ru' || langParam === 'en') ? langParam : 'en';
+      const VALID_LANGS = ['en', 'ru', 'es', 'de', 'fr', 'it', 'pt', 'ar', 'hi', 'fa', 'tr', 'az', 'zh', 'ja'];
+      const lang = (langParam && VALID_LANGS.includes(langParam)) ? langParam : 'en';
       // Strip BASE_PATH prefix to get the actual route
       let pathname = url.pathname;
       if (BASE_PATH && pathname.startsWith(BASE_PATH)) {

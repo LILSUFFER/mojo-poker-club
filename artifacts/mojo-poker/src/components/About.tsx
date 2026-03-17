@@ -37,7 +37,7 @@ const perksData = {
 export function About() {
   const { t, language } = useLanguage();
   const isMobile = useIsMobile();
-  const perks = perksData[language];
+  const perks = (perksData as any)[language] ?? perksData['en'];
   const isRu = language === 'ru';
 
   return (
