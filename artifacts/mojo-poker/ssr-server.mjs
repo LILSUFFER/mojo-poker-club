@@ -294,8 +294,7 @@ async function main() {
 
       // Serve static XML/XSL files with correct Content-Type
       if (/\.(xml|xsl)$/i.test(pathname)) {
-        // Serve from project root (NOT public/) so CDN can't intercept
-        const staticFile = resolve(__dirname, pathname.replace(/^\//, ''));
+        const staticFile = resolve(__dirname, 'public', pathname.replace(/^\//, ''));
         if (existsSync(staticFile)) {
           res.statusCode = 200;
           res.setHeader('Content-Type', 'application/xml; charset=utf-8');
