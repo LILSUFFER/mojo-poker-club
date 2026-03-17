@@ -33,8 +33,8 @@ const reviews: Review[] = [
     rating: 5,
   },
   {
-    name: 'Maxim V.',
-    handle: '@max_v',
+    name: 'Lucas V.',
+    handle: '@lucas_v',
     text: {
       ru: 'Перешёл из другого клуба и не пожалел. Столов много, лимиты разные. Регистрация заняла 10 минут, сразу сел за стол.',
       en: 'Switched from another club and have no regrets. Lots of tables, various stakes. Registration took 10 minutes, sat down right away.',
@@ -75,8 +75,8 @@ const reviews: Review[] = [
     rating: 5,
   },
   {
-    name: 'Igor P.',
-    handle: '@igor_p',
+    name: 'Kemal P.',
+    handle: '@kemal_p',
     text: {
       ru: 'Честный клуб без лишних вопросов. Поддержка отвечает даже ночью. За год игры — ни одного нарушения условий.',
       en: 'Honest club, no unnecessary questions. Support replies even at night. One year of play — zero policy violations.',
@@ -96,8 +96,8 @@ const reviews: Review[] = [
     rating: 5,
   },
   {
-    name: 'Sergei M.',
-    handle: '@s_m_poker',
+    name: 'Carlos M.',
+    handle: '@carlos_m',
     text: {
       ru: 'Начинал с низких лимитов, сейчас играю NL100+. Клуб вырос вместе со мной. Советую новичкам — здесь комфортно стартовать.',
       en: 'Started at low stakes, now playing NL100+. The club grew with me. Recommend to beginners — comfortable place to start.',
