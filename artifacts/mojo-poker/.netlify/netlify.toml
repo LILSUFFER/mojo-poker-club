@@ -1,0 +1,28 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "/home/runner/workspace/artifacts/mojo-poker/artifacts/mojo-poker/dist"
+publishOrigin = "ui"
+commandOrigin = "ui"
+base = "/home/runner/workspace/artifacts/mojo-poker"
+command = "pnpm --filter @workspace/mojo-poker... run build"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]

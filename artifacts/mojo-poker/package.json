@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node ssr-server.mjs",
     "dev:vite": "vite --config vite.config.ts --host 0.0.0.0",
-    "build": "node generate-sitemap.mjs && vite build --config vite.config.ts && node generate-meta.mjs && node -e \"const fs=require('fs');fs.cpSync('dist/public/index.html','dist/ssr-template.html');fs.rmSync('dist/public/index.html');\"",
+    "build": "node generate-sitemap.mjs && vite build --config vite.config.ts && node generate-meta.mjs",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

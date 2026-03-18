@@ -381,13 +381,13 @@ function handleRequest(req, res, rawIndexHtml, serveAsset) {
 }
 
 async function main() {
-  const templatePath = resolve(__dirname, 'dist/ssr-template.html');
+  const distIndexPath = resolve(__dirname, 'dist/public/index.html');
   const distDir = resolve(__dirname, 'dist/public');
-  const isProd = existsSync(templatePath);
+  const isProd = existsSync(distIndexPath);
 
   if (isProd) {
-    console.log('[mojo-poker] Production mode — SSR from dist/ssr-template.html, assets from dist/public/');
-    const rawIndexHtml = readFileSync(templatePath, 'utf-8');
+    console.log('[mojo-poker] Production mode — serving from dist/public/');
+    const rawIndexHtml = readFileSync(distIndexPath, 'utf-8');
 
     const server = http.createServer((req, res) => {
       try {
