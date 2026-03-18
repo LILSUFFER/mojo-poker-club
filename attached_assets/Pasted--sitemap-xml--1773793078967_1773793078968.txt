@@ -1,0 +1,71 @@
+Ты делаешь sitemap.xml НЕПРАВИЛЬНО.
+
+Сейчас ты возвращаешь обычный текст со ссылками подряд.
+Мне нужен ВАЛИДНЫЙ XML sitemap index по стандарту sitemaps.org.
+
+Сделай строго так:
+
+1. Файл /sitemap.xml должен возвращать XML, а не plain text.
+2. Корневой тег должен быть:
+   <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+3. Внутри должны быть теги <sitemap>, и в каждом:
+   - <loc>
+   - <lastmod>
+
+Пример структуры:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://mojopokerclub.com/sitemap-pages.xml</loc>
+    <lastmod>2026-03-18</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://mojopokerclub.com/sitemap-clubs.xml</loc>
+    <lastmod>2026-03-18</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://mojopokerclub.com/sitemap-games.xml</loc>
+    <lastmod>2026-03-18</lastmod>
+  </sitemap>
+</sitemapindex>
+
+4. Отдельные sitemap-файлы тоже должны быть XML:
+   - /sitemap-pages.xml
+   - /sitemap-clubs.xml
+   - /sitemap-games.xml
+   - /sitemap-join.xml
+   - /sitemap-download.xml
+   - /sitemap-about.xml
+
+5. Каждый из этих файлов должен иметь корневой тег:
+   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+Пример:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://mojopokerclub.com/</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/clubs/mojo</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>
+
+6. Не выводи URL как обычный текст.
+7. Не склеивай все ссылки в одну строку.
+8. Не используй JSON.
+9. Ответ Content-Type должен быть:
+   application/xml; charset=utf-8
+
+10. Мне нужен именно sitemap index, как у нормальных сайтов, а не один текстовый файл.
+
+Сначала покажи готовый код route/handler, который отдает валидный XML для /sitemap.xml.
+Потом отдельно покажи код для /sitemap-pages.xml.
