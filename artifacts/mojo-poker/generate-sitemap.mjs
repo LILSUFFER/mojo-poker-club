@@ -18,46 +18,51 @@ const PAGES = [
   { path: '/about',        changefreq: 'monthly', priority: '0.5' },
 ];
 
-function hrefUrl(lang, path) {
-  const slug = path === '/' ? '/' : path + '/';
-  return lang === 'en' ? `${BASE}${slug}` : `${BASE}/${lang}${slug}`;
-}
+// /sitemap.xml — sitemapindex (renders as XML tree in Chrome, no xmlns:xhtml)
+writeFileSync(`${OUT}/sitemap.xml`,
+`<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>${BASE}/sitemap-main.xml</loc>
+    <lastmod>${TODAY}</lastmod>
+  </sitemap>
+</sitemapindex>`, 'utf8');
 
+// /sitemap-main.xml — urlset with all pages + hreflang
 const urls = PAGES.map(({ path, changefreq, priority }) => {
   const loc  = path === '/' ? `${BASE}/` : `${BASE}${path}/`;
-  const alts = LANGS.map(l =>
-    `    <xhtml:link rel="alternate" hreflang="${l}" href="${hrefUrl(l, path)}" />`
-  ).join('\n');
+  const alts = LANGS.map(l => {
+    const slug = path === '/' ? '/' : path + '/';
+    const u = l === 'en' ? `${BASE}${slug}` : `${BASE}/${l}${slug}`;
+    return `    <xhtml:link rel="alternate" hreflang="${l}" href="${u}" />`;
+  }).join('\n');
   return `  <url>
     <loc>${loc}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-
 ${alts}
     <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />
   </url>`;
 }).join('\n\n');
 
-const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+writeFileSync(`${OUT}/sitemap-main.xml`,
+`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
 ${urls}
 
-</urlset>`;
-
-writeFileSync(`${OUT}/sitemap.xml`, xml, 'utf8');
+</urlset>`, 'utf8');
 
 // remove leftover files
 for (const f of [
-  'sitemap-main.xml','sitemap-pages.xml','sitemap-clubs.xml',
-  'sitemap-games.xml','sitemap-about.xml','sitemap-join.xml',
-  'sitemap-create-account.xml','sitemap-download.xml','sitemap-install.xml'
+  'sitemap-pages.xml','sitemap-clubs.xml','sitemap-games.xml',
+  'sitemap-about.xml','sitemap-join.xml','sitemap-create-account.xml',
+  'sitemap-download.xml','sitemap-install.xml'
 ]) {
   const p = `${OUT}/${f}`;
   if (existsSync(p)) unlinkSync(p);
 }
 
-console.log(`[sitemap] sitemap.xml — ${PAGES.length} pages × ${LANGS.length} langs`);
+console.log(`[sitemap] sitemap.xml (index) → sitemap-main.xml (${PAGES.length} pages × ${LANGS.length} langs)`);

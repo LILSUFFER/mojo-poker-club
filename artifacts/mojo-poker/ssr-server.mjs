@@ -267,7 +267,18 @@ const _SM_PAGES = [
   { path: '/about',        changefreq: 'monthly', priority: '0.5' },
 ];
 
-function _smXml() {
+function _smIndex() {
+  const today = new Date().toISOString().slice(0, 10);
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>${_SM_BASE}/sitemap-main.xml</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>
+</sitemapindex>`;
+}
+
+function _smMain() {
   const today = new Date().toISOString().slice(0, 10);
   const urls = _SM_PAGES.map(({ path, changefreq, priority }) => {
     const loc  = path === '/' ? `${_SM_BASE}/` : `${_SM_BASE}${path}/`;
@@ -281,15 +292,13 @@ function _smXml() {
     <lastmod>${today}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-
 ${alts}
     <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />
   </url>`;
   }).join('\n\n');
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
 ${urls}
 
@@ -342,7 +351,14 @@ async function main() {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/xml; charset=utf-8');
         res.setHeader('Cache-Control', 'no-store');
-        res.end(_smXml());
+        res.end(_smIndex());
+        return;
+      }
+      if (pathname === '/sitemap-main.xml') {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+        res.setHeader('Cache-Control', 'no-store');
+        res.end(_smMain());
         return;
       }
 
