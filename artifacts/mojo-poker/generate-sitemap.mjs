@@ -3,54 +3,70 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const publicDir = resolve(__dirname, 'public');
+const publicDir  = resolve(__dirname, 'public');
 mkdirSync(publicDir, { recursive: true });
 
-const BASE     = 'https://mojopokerclub.com';
-const TODAY    = new Date().toISOString().slice(0, 10);
-const LANGS    = ['en','ru','es','de','fr','it','pt','ar','hi','fa','tr','az','zh','ja'];
+const BASE  = 'https://mojopokerclub.com';
+const TODAY = new Date().toISOString().slice(0, 10);
+const LANGS = ['en','ru','es','de','fr','it','pt','ar','hi','fa','tr','az','zh','ja'];
 
-const PAGES = [
-  { loc: `${BASE}/`,                changefreq: 'weekly',  priority: '1.0' },
-  { loc: `${BASE}/clubs/massiv/`,   changefreq: 'weekly',  priority: '0.8' },
-  { loc: `${BASE}/clubs/mojo/`,     changefreq: 'weekly',  priority: '0.8' },
-  { loc: `${BASE}/games/`,          changefreq: 'weekly',  priority: '0.8' },
-  { loc: `${BASE}/about/`,          changefreq: 'monthly', priority: '0.7' },
-  { loc: `${BASE}/join/`,           changefreq: 'monthly', priority: '0.6' },
-  { loc: `${BASE}/create-account/`, changefreq: 'monthly', priority: '0.6' },
-  { loc: `${BASE}/download/`,       changefreq: 'monthly', priority: '0.6' },
-  { loc: `${BASE}/install/`,        changefreq: 'monthly', priority: '0.6' },
-];
-
-function hreflangUrl(lang, canonical) {
-  if (lang === 'en') return canonical;
-  // insert /lang/ after domain
-  return canonical.replace(`${BASE}/`, `${BASE}/${lang}/`);
+function hrefUrl(lang, path) {
+  const slug = path === '/' ? '/' : path + '/';
+  return lang === 'en' ? `${BASE}${slug}` : `${BASE}/${lang}${slug}`;
 }
 
-const urlEntries = PAGES.map(({ loc, changefreq, priority }) => {
-  const alts = LANGS.map(l =>
-    `    <xhtml:link rel="alternate" hreflang="${l}" href="${hreflangUrl(l, loc)}" />`
-  ).join('\n');
-
-  return `  <url>
+function writeSub(filename, pages) {
+  const entries = pages.map(({ path, changefreq, priority }) => {
+    const loc  = path === '/' ? `${BASE}/` : `${BASE}${path}/`;
+    const alts = LANGS.map(l =>
+      `    <xhtml:link rel="alternate" hreflang="${l}" href="${hrefUrl(l, path)}" />`
+    ).join('\n');
+    return `  <url>
     <loc>${loc}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-
 ${alts}
     <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />
   </url>`;
-}).join('\n\n');
+  }).join('\n');
 
-const xml = `<?xml version="1.0" encoding="UTF-8"?>
+  writeFileSync(resolve(publicDir, filename), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${entries}
+</urlset>`, 'utf8');
+  console.log(`[sitemap] ✓ ${filename}`);
+}
 
-${urlEntries}
+// One sub-sitemap per page / section
+writeSub('sitemap-pages.xml',          [{ path: '/',               changefreq: 'weekly',  priority: '1.0' }]);
+writeSub('sitemap-clubs.xml',          [{ path: '/clubs/massiv',   changefreq: 'weekly',  priority: '0.8' },
+                                         { path: '/clubs/mojo',    changefreq: 'weekly',  priority: '0.8' }]);
+writeSub('sitemap-games.xml',          [{ path: '/games',          changefreq: 'weekly',  priority: '0.8' }]);
+writeSub('sitemap-about.xml',          [{ path: '/about',          changefreq: 'monthly', priority: '0.7' }]);
+writeSub('sitemap-join.xml',           [{ path: '/join',           changefreq: 'monthly', priority: '0.6' }]);
+writeSub('sitemap-create-account.xml', [{ path: '/create-account', changefreq: 'monthly', priority: '0.6' }]);
+writeSub('sitemap-download.xml',       [{ path: '/download',       changefreq: 'monthly', priority: '0.6' }]);
+writeSub('sitemap-install.xml',        [{ path: '/install',        changefreq: 'monthly', priority: '0.6' }]);
 
-</urlset>`;
+// sitemap.xml — pure sitemapindex, no xhtml namespace → renders as XML tree in browser
+const SUB_FILES = [
+  'sitemap-pages.xml',
+  'sitemap-clubs.xml',
+  'sitemap-games.xml',
+  'sitemap-about.xml',
+  'sitemap-join.xml',
+  'sitemap-create-account.xml',
+  'sitemap-download.xml',
+  'sitemap-install.xml',
+];
 
-writeFileSync(resolve(publicDir, 'sitemap.xml'), xml, 'utf8');
-console.log(`[sitemap] ✓ sitemap.xml — ${PAGES.length} pages × ${LANGS.length} langs`);
+writeFileSync(resolve(publicDir, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${SUB_FILES.map(f => `  <sitemap>
+    <loc>${BASE}/${f}</loc>
+    <lastmod>${TODAY}</lastmod>
+  </sitemap>`).join('\n')}
+</sitemapindex>`, 'utf8');
+console.log(`[sitemap] ✓ sitemap.xml → ${SUB_FILES.length} sub-sitemaps`);

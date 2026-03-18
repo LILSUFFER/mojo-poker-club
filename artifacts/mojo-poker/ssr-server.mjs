@@ -262,33 +262,43 @@ function injectMeta(html, pathname, lang) {
 const SITE_URL = 'https://mojopokerclub.com';
 const SM_LANGS = ['en','ru','es','de','fr','it','pt','ar','hi','fa','tr','az','zh','ja'];
 
-const SM_PAGES = [
-  { loc: `${SITE_URL}/`,                changefreq: 'weekly',  priority: '1.0' },
-  { loc: `${SITE_URL}/clubs/massiv/`,   changefreq: 'weekly',  priority: '0.8' },
-  { loc: `${SITE_URL}/clubs/mojo/`,     changefreq: 'weekly',  priority: '0.8' },
-  { loc: `${SITE_URL}/games/`,          changefreq: 'weekly',  priority: '0.8' },
-  { loc: `${SITE_URL}/about/`,          changefreq: 'monthly', priority: '0.7' },
-  { loc: `${SITE_URL}/join/`,           changefreq: 'monthly', priority: '0.6' },
-  { loc: `${SITE_URL}/create-account/`, changefreq: 'monthly', priority: '0.6' },
-  { loc: `${SITE_URL}/download/`,       changefreq: 'monthly', priority: '0.6' },
-  { loc: `${SITE_URL}/install/`,        changefreq: 'monthly', priority: '0.6' },
-];
+const SM_SUB = {
+  'sitemap-pages.xml':          [{ path: '/',               changefreq: 'weekly',  priority: '1.0' }],
+  'sitemap-clubs.xml':          [{ path: '/clubs/massiv',   changefreq: 'weekly',  priority: '0.8' },
+                                  { path: '/clubs/mojo',    changefreq: 'weekly',  priority: '0.8' }],
+  'sitemap-games.xml':          [{ path: '/games',          changefreq: 'weekly',  priority: '0.8' }],
+  'sitemap-about.xml':          [{ path: '/about',          changefreq: 'monthly', priority: '0.7' }],
+  'sitemap-join.xml':           [{ path: '/join',           changefreq: 'monthly', priority: '0.6' }],
+  'sitemap-create-account.xml': [{ path: '/create-account', changefreq: 'monthly', priority: '0.6' }],
+  'sitemap-download.xml':       [{ path: '/download',       changefreq: 'monthly', priority: '0.6' }],
+  'sitemap-install.xml':        [{ path: '/install',        changefreq: 'monthly', priority: '0.6' }],
+};
+const SM_INDEX = Object.keys(SM_SUB);
 
-function smHreflangUrl(lang, canonical) {
-  if (lang === 'en') return canonical;
-  return canonical.replace(`${SITE_URL}/`, `${SITE_URL}/${lang}/`);
+function smHrefUrl(lang, path) {
+  const slug = path === '/' ? '/' : path + '/';
+  return lang === 'en' ? `${SITE_URL}${slug}` : `${SITE_URL}/${lang}${slug}`;
 }
 
 function generateSitemap() {
   const today = new Date().toISOString().slice(0, 10);
-  const urlEntries = SM_PAGES.map(({ loc, changefreq, priority }) => {
-    const locWithDate = loc;
+  const entries = SM_INDEX.map(f =>
+    `  <sitemap>\n    <loc>${SITE_URL}/${f}</loc>\n    <lastmod>${today}</lastmod>\n  </sitemap>`
+  ).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</sitemapindex>`;
+}
+
+function generateSubSitemap(filename) {
+  const today = new Date().toISOString().slice(0, 10);
+  const pages = SM_SUB[filename] || [];
+  const entries = pages.map(({ path, changefreq, priority }) => {
+    const loc  = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}/`;
     const alts = SM_LANGS.map(l =>
-      `    <xhtml:link rel="alternate" hreflang="${l}" href="${smHreflangUrl(l, locWithDate)}" />`
+      `    <xhtml:link rel="alternate" hreflang="${l}" href="${smHrefUrl(l, path)}" />`
     ).join('\n');
-    return `  <url>\n    <loc>${locWithDate}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n\n${alts}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${locWithDate}" />\n  </url>`;
-  }).join('\n\n');
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n\n${urlEntries}\n\n</urlset>`;
+    return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n${alts}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />\n  </url>`;
+  }).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries}\n</urlset>`;
 }
 
 // Determine if a request is for an HTML page (not an asset/vite special route)
@@ -340,6 +350,15 @@ async function main() {
         res.setHeader('X-Content-Type-Options', 'nosniff');
         res.setHeader('Cache-Control', 'no-store');
         res.end(generateSitemap());
+        return;
+      }
+      const subMatch = pathname.match(/^\/(sitemap-[a-z-]+\.xml)$/);
+      if (subMatch) {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/xml');
+        res.setHeader('X-Content-Type-Options', 'nosniff');
+        res.setHeader('Cache-Control', 'no-store');
+        res.end(generateSubSitemap(subMatch[1]));
         return;
       }
 
