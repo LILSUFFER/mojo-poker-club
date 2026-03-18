@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mojopokerclub.com/clubs/massiv</loc>
     <lastmod>2026-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/massiv?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/massiv?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/massiv?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/clubs/massiv?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/clubs/massiv?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/clubs/massiv?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/clubs/massiv?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/clubs/massiv?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/clubs/massiv?lang=hi"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/clubs/massiv?lang=fa"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/clubs/massiv?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/clubs/massiv?lang=az"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/clubs/massiv?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/massiv?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/massiv"/>
   </url>
   <url>
     <loc>https://mojopokerclub.com/clubs/mojo</loc>
     <lastmod>2026-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/clubs/mojo?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/clubs/mojo?lang=ru"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/clubs/mojo?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/clubs/mojo?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/clubs/mojo?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/clubs/mojo?lang=it"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/clubs/mojo?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/clubs/mojo?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/clubs/mojo?lang=hi"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/clubs/mojo?lang=fa"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/clubs/mojo?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/clubs/mojo?lang=az"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/clubs/mojo?lang=zh"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/clubs/mojo?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/clubs/mojo"/>
   </url>
 </urlset>
