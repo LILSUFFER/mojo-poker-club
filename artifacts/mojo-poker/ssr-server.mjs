@@ -257,17 +257,20 @@ function injectMeta(html, pathname, lang) {
 }
 
 // ─────────────────────────────────────────────
-// Sitemap generator (dev fallback — production uses static file from dist/public/)
+// Sitemap generator (dev fallback — production uses static files from dist/public/)
 // ─────────────────────────────────────────────
 const SITE_URL = 'https://mojopokerclub.com';
 const SM_LANGS = ['en','ru','es','de','fr','it','pt','ar','hi','fa','tr','az','zh','ja'];
-const SM_PAGES = [
-  { path: '/',             changefreq: 'weekly',  priority: '1.0' },
-  { path: '/clubs/massiv', changefreq: 'weekly',  priority: '0.8' },
-  { path: '/clubs/mojo',   changefreq: 'weekly',  priority: '0.8' },
-  { path: '/games',        changefreq: 'weekly',  priority: '0.8' },
-  { path: '/about',        changefreq: 'monthly', priority: '0.5' },
-];
+
+const SM_SUB = {
+  'sitemap-pages.xml': [{ path: '/',             changefreq: 'weekly',  priority: '1.0' }],
+  'sitemap-clubs.xml': [{ path: '/clubs/massiv', changefreq: 'weekly',  priority: '0.8' },
+                         { path: '/clubs/mojo',  changefreq: 'weekly',  priority: '0.8' }],
+  'sitemap-games.xml': [{ path: '/games',        changefreq: 'weekly',  priority: '0.8' }],
+  'sitemap-about.xml': [{ path: '/about',        changefreq: 'monthly', priority: '0.5' }],
+};
+
+const SM_INDEX_FILES = ['sitemap-pages.xml','sitemap-clubs.xml','sitemap-games.xml','sitemap-about.xml'];
 
 function smAltUrl(lang, path) {
   const slug = path === '/' ? '/' : path + '/';
@@ -276,14 +279,23 @@ function smAltUrl(lang, path) {
 
 function generateSitemap() {
   const today = new Date().toISOString().slice(0, 10);
-  const entries = SM_PAGES.map(({ path, changefreq, priority }) => {
+  const entries = SM_INDEX_FILES.map(f =>
+    `  <sitemap>\n    <loc>${SITE_URL}/${f}</loc>\n    <lastmod>${today}</lastmod>\n  </sitemap>`
+  ).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</sitemapindex>`;
+}
+
+function generateSubSitemap(filename) {
+  const today = new Date().toISOString().slice(0, 10);
+  const pages = SM_SUB[filename] || [];
+  const entries = pages.map(({ path, changefreq, priority }) => {
     const loc = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}/`;
     const alts = SM_LANGS.map(l =>
       `    <xhtml:link rel="alternate" hreflang="${l}" href="${smAltUrl(l, path)}" />`
     ).join('\n');
     return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n${alts}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />\n  </url>`;
   });
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset\n  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n  xmlns:xhtml="http://www.w3.org/1999/xhtml">\n\n${entries.join('\n\n')}\n\n</urlset>`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>`;
 }
 
 // Determine if a request is for an HTML page (not an asset/vite special route)
@@ -328,13 +340,22 @@ async function main() {
         pathname = '/' + segments.slice(1).join('/') || '/';
       }
 
-      // Serve sitemap dynamically in dev — production uses static file from dist/public/
+      // Serve sitemaps dynamically in dev — production uses static files from dist/public/
       if (pathname === '/sitemap.xml') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/xml');
         res.setHeader('X-Content-Type-Options', 'nosniff');
         res.setHeader('Cache-Control', 'no-store');
         res.end(generateSitemap());
+        return;
+      }
+      const subMatch = pathname.match(/^\/(sitemap-[a-z-]+\.xml)$/);
+      if (subMatch) {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/xml');
+        res.setHeader('X-Content-Type-Options', 'nosniff');
+        res.setHeader('Cache-Control', 'no-store');
+        res.end(generateSubSitemap(subMatch[1]));
         return;
       }
 
