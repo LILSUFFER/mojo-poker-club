@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://mojopokerclub.com/sitemap-pages.xml</loc>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://mojopokerclub.com/</loc>
     <lastmod>2026-03-18</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://mojopokerclub.com/sitemap-clubs.xml</loc>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/about</loc>
     <lastmod>2026-03-18</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://mojopokerclub.com/sitemap-games.xml</loc>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/clubs/massiv</loc>
     <lastmod>2026-03-18</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://mojopokerclub.com/sitemap-about.xml</loc>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/clubs/mojo</loc>
     <lastmod>2026-03-18</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://mojopokerclub.com/sitemap-join.xml</loc>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/games</loc>
     <lastmod>2026-03-18</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://mojopokerclub.com/sitemap-create-account.xml</loc>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/join</loc>
     <lastmod>2026-03-18</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://mojopokerclub.com/sitemap-download.xml</loc>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/create-account</loc>
     <lastmod>2026-03-18</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://mojopokerclub.com/sitemap-install.xml</loc>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/download</loc>
     <lastmod>2026-03-18</lastmod>
-  </sitemap>
-</sitemapindex>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/install</loc>
+    <lastmod>2026-03-18</lastmod>
+  </url>
+</urlset>

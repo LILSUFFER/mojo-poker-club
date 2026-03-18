@@ -257,59 +257,27 @@ function injectMeta(html, pathname, lang) {
 }
 
 // ─────────────────────────────────────────────
-// Sitemap generator (dev fallback — production uses static files from dist/public/)
+// Sitemap generator (dev fallback — production uses static file from dist/public/)
 // ─────────────────────────────────────────────
 const SITE_URL = 'https://mojopokerclub.com';
-const SITEMAP_LANGS = ['en','ru','es','de','fr','it','pt','ar','hi','fa','tr','az','zh','ja'];
-
-const SUB_SITEMAPS = [
-  'sitemap-pages.xml',
-  'sitemap-clubs.xml',
-  'sitemap-games.xml',
-  'sitemap-about.xml',
-  'sitemap-join.xml',
-  'sitemap-create-account.xml',
-  'sitemap-download.xml',
-  'sitemap-install.xml',
+const SITEMAP_PAGES = [
+  'https://mojopokerclub.com/',
+  'https://mojopokerclub.com/about',
+  'https://mojopokerclub.com/clubs/massiv',
+  'https://mojopokerclub.com/clubs/mojo',
+  'https://mojopokerclub.com/games',
+  'https://mojopokerclub.com/join',
+  'https://mojopokerclub.com/create-account',
+  'https://mojopokerclub.com/download',
+  'https://mojopokerclub.com/install',
 ];
 
-const SUB_PAGES = {
-  'sitemap-pages.xml':          [{ path: '/',               changefreq: 'daily',   priority: '1.0' }],
-  'sitemap-clubs.xml':          [{ path: '/clubs/massiv',   changefreq: 'weekly',  priority: '0.9' },
-                                  { path: '/clubs/mojo',    changefreq: 'weekly',  priority: '0.9' }],
-  'sitemap-games.xml':          [{ path: '/games',          changefreq: 'weekly',  priority: '0.8' }],
-  'sitemap-about.xml':          [{ path: '/about',          changefreq: 'monthly', priority: '0.8' }],
-  'sitemap-join.xml':           [{ path: '/join',           changefreq: 'monthly', priority: '0.7' }],
-  'sitemap-create-account.xml': [{ path: '/create-account', changefreq: 'monthly', priority: '0.7' }],
-  'sitemap-download.xml':       [{ path: '/download',       changefreq: 'monthly', priority: '0.7' }],
-  'sitemap-install.xml':        [{ path: '/install',        changefreq: 'monthly', priority: '0.7' }],
-};
-
-function sitemapLangUrl(lang, path) {
-  if (lang === 'en') return `${SITE_URL}${path}`;
-  const page = path === '/' ? '' : path;
-  return `${SITE_URL}/${lang}${page}`;
-}
-
-function generateSitemapIndex() {
+function generateSitemap() {
   const today = new Date().toISOString().slice(0, 10);
-  const entries = SUB_SITEMAPS.map(f =>
-    `  <sitemap>\n    <loc>${SITE_URL}/${f}</loc>\n    <lastmod>${today}</lastmod>\n  </sitemap>`
+  const urls = SITEMAP_PAGES.map(loc =>
+    `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`
   ).join('\n');
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</sitemapindex>`;
-}
-
-function generateSubSitemap(filename) {
-  const today = new Date().toISOString().slice(0, 10);
-  const pages = SUB_PAGES[filename] || [];
-  const entries = pages.map(({ path, changefreq, priority }) => {
-    const canonical = `${SITE_URL}${path}`;
-    const hreflangs = SITEMAP_LANGS.map(l =>
-      `    <xhtml:link rel="alternate" hreflang="${l}" href="${sitemapLangUrl(l, path)}"/>`
-    ).join('\n');
-    return `  <url>\n    <loc>${canonical}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n${hreflangs}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${canonical}"/>\n  </url>`;
-  });
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>`;
 }
 
 // Determine if a request is for an HTML page (not an asset/vite special route)
