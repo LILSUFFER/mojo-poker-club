@@ -3,7 +3,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const DIST = resolve(__dirname, 'dist/public');
+const DIST = resolve(__dirname, 'dist/spa');
 
 const META = {
   '/': {
@@ -263,8 +263,7 @@ function injectMeta(html, pathname, lang) {
   const metaHtml  = buildMetaHtml(pathname, lang);
   const htmlLang = HREFLANG[lang] || 'en';
   const htmlWithLang = stripped.replace(/<html([^>]*)lang="[^"]*"/, `<html$1lang="${htmlLang}"`);
-  const langScript = `<script>window.__MOJO_LANG__=${JSON.stringify(lang)}</script>`;
-  return htmlWithLang.replace('</head>', langScript + '\n' + metaHtml + '\n  </head>');
+  return htmlWithLang.replace('</head>', metaHtml + '\n  </head>');
 }
 
 const baseHtml = readFileSync(resolve(DIST, 'index.html'), 'utf-8');
@@ -272,8 +271,6 @@ let count = 0;
 
 for (const [route, langs] of Object.entries(META)) {
   for (const lang of VALID_LANGS) {
-    const html = injectMeta(baseHtml, route, lang);
-
     let outDir;
     if (lang === 'en') {
       outDir = route === '/' ? DIST : resolve(DIST, ...route.split('/').filter(Boolean));
@@ -283,10 +280,17 @@ for (const [route, langs] of Object.entries(META)) {
         : resolve(DIST, lang, ...route.split('/').filter(Boolean));
     }
 
+    // Skip root English file — Vite output already has the inline meta detection script
+    if (lang === 'en' && route === '/') {
+      count++;
+      continue;
+    }
+
+    const html = injectMeta(baseHtml, route, lang);
     mkdirSync(outDir, { recursive: true });
     writeFileSync(resolve(outDir, 'index.html'), html, 'utf-8');
     count++;
   }
 }
 
-console.log(`[generate-meta] Generated ${count} HTML files in dist/public/`);
+console.log(`[generate-meta] Generated ${count} HTML files in dist/spa/`);

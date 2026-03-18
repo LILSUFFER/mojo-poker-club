@@ -259,8 +259,7 @@ function injectMeta(html, pathname, lang) {
   const metaHtml  = buildMetaHtml(pathname, lang);
   const htmlLang = HREFLANG[lang] || 'en';
   const htmlWithLang = stripped.replace(/<html([^>]*)lang="[^"]*"/, `<html$1lang="${htmlLang}"`);
-  const langScript = `<script>window.__MOJO_LANG__=${JSON.stringify(lang)}</script>`;
-  return htmlWithLang.replace('</head>', langScript + '\n' + metaHtml + '\n  </head>');
+  return htmlWithLang.replace('</head>', metaHtml + '\n  </head>');
 }
 
 // ─── Sitemap handler (dev only) ───
@@ -382,12 +381,12 @@ function handleRequest(req, res, rawIndexHtml, serveAsset) {
 }
 
 async function main() {
-  const distIndexPath = resolve(__dirname, 'dist/public/index.html');
+  const distIndexPath = resolve(__dirname, 'dist/spa/index.html');
   const isProd = existsSync(distIndexPath);
 
   if (isProd) {
-    console.log('[mojo-poker] Production mode — serving from dist/public/');
-    const distDir = resolve(__dirname, 'dist/public');
+    console.log('[mojo-poker] Production mode — serving from dist/spa/');
+    const distDir = resolve(__dirname, 'dist/spa');
     const rawIndexHtml = readFileSync(distIndexPath, 'utf-8');
 
     const server = http.createServer((req, res) => {
