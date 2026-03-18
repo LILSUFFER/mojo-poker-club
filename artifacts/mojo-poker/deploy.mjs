@@ -1,116 +1,14 @@
-import https from 'https';
 import fs from 'fs';
 import path from 'path';
-import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
-import { createRequire } from 'module';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const require = createRequire(import.meta.url);
 
 const OWNER = 'LILSUFFER';
 const REPO = 'mojo-poker-club';
 const SRC = path.resolve(__dirname, 'dist/public');
-
-// --- Netlify config ---
-const NETLIFY_TOKEN = 'nfp_T2HCgX6BNT46zDxRZoxKuvcaxGRGYpqne5c7';
-const NETLIFY_SITE_ID = '589a55c4-139e-4470-aa34-c5118c9ae815';
-
-// =====================
-// NETLIFY DEPLOY
-// =====================
-async function netlifyRequest(opts, body) {
-  return new Promise((resolve, reject) => {
-    const req = https.request(opts, res => {
-      let d = '';
-      res.on('data', c => d += c);
-      res.on('end', () => {
-        try { resolve({ status: res.statusCode, body: JSON.parse(d) }); }
-        catch (e) { resolve({ status: res.statusCode, body: d }); }
-      });
-    });
-    req.on('error', reject);
-    if (body) req.write(typeof body === 'string' ? body : JSON.stringify(body));
-    req.end();
-  });
-}
-
-async function uploadNetlifyFile(deployId, hash, filePath) {
-  return new Promise((resolve, reject) => {
-    const content = fs.readFileSync(filePath);
-    const ext = path.extname(filePath).toLowerCase();
-    const mimeMap = {
-      '.js': 'application/javascript', '.css': 'text/css', '.html': 'text/html',
-      '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg',
-      '.ico': 'image/x-icon', '.json': 'application/json', '.xml': 'application/xml',
-      '.txt': 'text/plain', '.webp': 'image/webp', '.woff2': 'font/woff2',
-      '.woff': 'font/woff', '.ttf': 'font/ttf'
-    };
-    const ct = mimeMap[ext] || 'application/octet-stream';
-    const opts = {
-      hostname: 'api.netlify.com',
-      path: `/api/v1/deploys/${deployId}/files/${encodeURIComponent(hash)}`,
-      method: 'PUT',
-      headers: {
-        'Authorization': 'Bearer ' + NETLIFY_TOKEN,
-        'Content-Type': ct,
-        'Content-Length': content.length
-      }
-    };
-    const req = https.request(opts, res => {
-      let d = '';
-      res.on('data', c => d += c);
-      res.on('end', () => res.statusCode < 300 ? resolve() : reject(new Error('HTTP ' + res.statusCode)));
-    });
-    req.on('error', reject);
-    req.write(content);
-    req.end();
-  });
-}
-
-async function deployToNetlify(files, hashMap) {
-  console.log('\n🌐 Deploying to Netlify...');
-  const bodyStr = JSON.stringify({ files });
-  const r = await netlifyRequest({
-    hostname: 'api.netlify.com',
-    path: `/api/v1/sites/${NETLIFY_SITE_ID}/deploys`,
-    method: 'POST',
-    headers: {
-      'Authorization': 'Bearer ' + NETLIFY_TOKEN,
-      'Content-Type': 'application/json',
-      'Content-Length': Buffer.byteLength(bodyStr)
-    }
-  }, bodyStr);
-
-  const deployId = r.body.id;
-  const required = r.body.required || [];
-  console.log(`   Deploy ID: ${deployId} | Uploading: ${required.length} files`);
-
-  let done = 0;
-  for (let i = 0; i < required.length; i += 5) {
-    await Promise.all(required.slice(i, i + 5).map(async hash => {
-      const fp = hashMap[hash];
-      if (fp) await uploadNetlifyFile(deployId, hash, fp);
-      done++;
-    }));
-    if (done % 50 === 0) process.stdout.write(`   ${done}/${required.length}...\n`);
-  }
-
-  for (let i = 0; i < 30; i++) {
-    await new Promise(r => setTimeout(r, 2000));
-    const s = await netlifyRequest({
-      hostname: 'api.netlify.com',
-      path: `/api/v1/deploys/${deployId}`,
-      headers: { 'Authorization': 'Bearer ' + NETLIFY_TOKEN }
-    });
-    if (s.body.state === 'ready') {
-      console.log('   ✅ Netlify: ' + s.body.ssl_url);
-      return;
-    }
-    process.stdout.write('.');
-  }
-}
+const BASE_PATH = '/mojo-poker-club/';
 
 // =====================
 // GITHUB PAGES DEPLOY
@@ -175,7 +73,7 @@ async function deployToGitHubPages(allFiles) {
   const tree = await ghPost(`/repos/${OWNER}/${REPO}/git/trees`, { tree: treeItems });
   console.log('   Tree:', tree.sha?.slice(0, 7));
 
-  // Create commit (orphan)
+  // Create commit (orphan — no parents)
   const commit = await ghPost(`/repos/${OWNER}/${REPO}/git/commits`, {
     message: `Deploy ${new Date().toISOString().slice(0, 10)} — MOJO Poker Club`,
     tree: tree.sha,
@@ -183,7 +81,7 @@ async function deployToGitHubPages(allFiles) {
   });
   console.log('   Commit:', commit.sha?.slice(0, 7));
 
-  // Force-update gh-pages ref
+  // Force-update gh-pages branch
   const refResp = await connectors.proxy('github', `/repos/${OWNER}/${REPO}/git/refs/heads/gh-pages`, {
     method: 'PATCH',
     body: JSON.stringify({ sha: commit.sha, force: true }),
@@ -198,40 +96,41 @@ async function deployToGitHubPages(allFiles) {
 }
 
 // =====================
-// MAIN
+// HELPERS
 // =====================
-async function main() {
-  // 1. Build
-  console.log('🔨 Building...');
-  execSync('pnpm run build', { stdio: 'inherit', cwd: __dirname });
-
-  // 2. Collect files
+function collectFiles(srcDir) {
   const allFiles = [];
-  const files = {};
-  const hashMap = {};
-
   function walk(dir) {
     for (const f of fs.readdirSync(dir)) {
       const fp = path.join(dir, f);
       if (fs.statSync(fp).isDirectory()) walk(fp);
       else {
-        const rel = '/' + path.relative(SRC, fp).replace(/\\/g, '/');
-        const relNoSlash = rel.slice(1);
-        const hash = crypto.createHash('sha1').update(fs.readFileSync(fp)).digest('hex');
-        files[rel] = hash;
-        hashMap[hash] = fp;
-        allFiles.push({ fp, rel: relNoSlash });
+        const rel = path.relative(srcDir, fp).replace(/\\/g, '/');
+        allFiles.push({ fp, rel });
       }
     }
   }
-  walk(SRC);
+  walk(srcDir);
+  return allFiles;
+}
+
+// =====================
+// MAIN
+// =====================
+async function main() {
+  console.log(`🔨 Building for GitHub Pages (base=${BASE_PATH})...`);
+  execSync('pnpm run build', {
+    stdio: 'inherit',
+    cwd: __dirname,
+    env: { ...process.env, BASE_PATH }
+  });
+
+  const allFiles = collectFiles(SRC);
   console.log(`📦 ${allFiles.length} files collected`);
 
-  // 3. Deploy to both
-  await deployToNetlify(files, hashMap);
   await deployToGitHubPages(allFiles);
 
-  console.log('\n🎉 Done! Both deployments updated.');
+  console.log('\n🎉 Done! Site is live at: https://lilsuffer.github.io/mojo-poker-club/');
 }
 
 main().catch(e => { console.error('ERROR:', e.message); process.exit(1); });
