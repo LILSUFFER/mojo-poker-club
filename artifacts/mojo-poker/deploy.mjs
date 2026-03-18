@@ -30,43 +30,40 @@ async function main() {
   console.log('\n🐙 Deploying via git...');
   const repoDir = '/tmp/mojopokerclub-deploy';
 
-  const script = `
-set -e
-REPO_DIR="${repoDir}"
+  const gitEnv = {
+    ...process.env,
+    GIT_TERMINAL_PROMPT: '0',
+    GIT_ASKPASS: 'echo',
+    GIT_CONFIG_NOSYSTEM: '1',
+  };
 
-# Clone fresh
-rm -rf "$REPO_DIR"
-git clone "https://${token}@github.com/${OWNER}/${REPO}.git" "$REPO_DIR" --depth 1
-
-# Remove old files (keep .git)
-find "$REPO_DIR" -mindepth 1 -not -path "$REPO_DIR/.git/*" -not -name ".git" -delete
-
-# Copy built files
-cp -r ${SRC}/. "$REPO_DIR/"
-
-# Ensure .nojekyll
-touch "$REPO_DIR/.nojekyll"
-
-# Git config
-cd "$REPO_DIR"
-git config user.email "deploy@mojopokerclub.com"
-git config user.name "MOJO Deploy Bot"
-
-# Commit and push
-git add -A
-git commit -m "Deploy $(date +%Y-%m-%d) — MOJO Poker Club"
-git push origin main --force
-
-echo "✅ Done: https://${OWNER}.github.io/"
-`;
-
-  const out = execSync(`bash -c '${script.replace(/'/g, "'\\''")}'`, {
-    timeout: 180000,
+  const run = (cmd) => execSync(cmd, {
     encoding: 'utf8',
-    stdio: ['pipe', 'pipe', 'pipe']
+    timeout: 120000,
+    env: gitEnv,
+    stdio: ['pipe', 'pipe', 'pipe'],
   });
 
-  console.log(out.split('\n').filter(l => l.trim()).slice(-10).join('\n'));
+  const cloneUrl = `https://oauth2:${token}@github.com/${OWNER}/${REPO}.git`;
+
+  run(`rm -rf "${repoDir}"`);
+  run(`git -c credential.helper= clone "${cloneUrl}" "${repoDir}" --depth 1`);
+  run(`find "${repoDir}" -mindepth 1 -not -path "${repoDir}/.git/*" -not -name ".git" -delete`);
+  run(`cp -r "${SRC}/." "${repoDir}/"`);
+  run(`touch "${repoDir}/.nojekyll"`);
+
+  const git = (cmd) => execSync(`git -C "${repoDir}" ${cmd}`, {
+    encoding: 'utf8', timeout: 60000, env: gitEnv, stdio: ['pipe', 'pipe', 'pipe'],
+  });
+
+  git('config user.email "deploy@mojopokerclub.com"');
+  git('config user.name "MOJO Deploy Bot"');
+  git('add -A');
+  try { git(`commit -m "Deploy ${new Date().toISOString().slice(0,10)} — MOJO Poker Club"`); }
+  catch { console.log('Nothing to commit, site already up to date.'); }
+  git(`-c credential.helper= push "${cloneUrl}" main --force`);
+
+  console.log('✅ Done');
   console.log('\n🎉 Site live at: https://mojopokerclub.github.io/');
 }
 
