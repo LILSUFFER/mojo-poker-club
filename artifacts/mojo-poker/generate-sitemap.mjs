@@ -16,13 +16,16 @@ function langUrl(lang, path) {
   return `${SITE_URL}/${lang}${page}`;
 }
 
-// SEO-valuable pages only — no technical/conversion pages
 const PAGES = [
-  { path: '/',              changefreq: 'daily',  priority: '1.0' },
-  { path: '/clubs/massiv',  changefreq: 'weekly', priority: '0.9' },
-  { path: '/clubs/mojo',    changefreq: 'weekly', priority: '0.9' },
-  { path: '/games',         changefreq: 'weekly', priority: '0.8' },
-  { path: '/about',         changefreq: 'monthly', priority: '0.7' },
+  { path: '/',               changefreq: 'daily',   priority: '1.0' },
+  { path: '/clubs/massiv',   changefreq: 'weekly',  priority: '0.9' },
+  { path: '/clubs/mojo',     changefreq: 'weekly',  priority: '0.9' },
+  { path: '/games',          changefreq: 'weekly',  priority: '0.8' },
+  { path: '/about',          changefreq: 'monthly', priority: '0.8' },
+  { path: '/join',           changefreq: 'monthly', priority: '0.7' },
+  { path: '/create-account', changefreq: 'monthly', priority: '0.7' },
+  { path: '/download',       changefreq: 'monthly', priority: '0.7' },
+  { path: '/install',        changefreq: 'monthly', priority: '0.7' },
 ];
 
 // One canonical URL per page (English root), hreflang for all language variants

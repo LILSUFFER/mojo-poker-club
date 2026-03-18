@@ -262,11 +262,15 @@ function injectMeta(html, pathname, lang) {
 const SITE_URL = 'https://mojopokerclub.com';
 const SITEMAP_LANGS = ['en','ru','es','de','fr','it','pt','ar','hi','fa','tr','az','zh','ja'];
 const SEO_PAGES = [
-  { path: '/',             changefreq: 'daily',   priority: '1.0' },
-  { path: '/clubs/massiv', changefreq: 'weekly',  priority: '0.9' },
-  { path: '/clubs/mojo',   changefreq: 'weekly',  priority: '0.9' },
-  { path: '/games',        changefreq: 'weekly',  priority: '0.8' },
-  { path: '/about',        changefreq: 'monthly', priority: '0.7' },
+  { path: '/',               changefreq: 'daily',   priority: '1.0' },
+  { path: '/clubs/massiv',   changefreq: 'weekly',  priority: '0.9' },
+  { path: '/clubs/mojo',     changefreq: 'weekly',  priority: '0.9' },
+  { path: '/games',          changefreq: 'weekly',  priority: '0.8' },
+  { path: '/about',          changefreq: 'monthly', priority: '0.8' },
+  { path: '/join',           changefreq: 'monthly', priority: '0.7' },
+  { path: '/create-account', changefreq: 'monthly', priority: '0.7' },
+  { path: '/download',       changefreq: 'monthly', priority: '0.7' },
+  { path: '/install',        changefreq: 'monthly', priority: '0.7' },
 ];
 
 function sitemapLangUrl(lang, path) {
