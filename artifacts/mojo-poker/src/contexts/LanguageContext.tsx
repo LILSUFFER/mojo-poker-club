@@ -59,10 +59,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>(getInitialLang);
 
   const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    applyDocumentDir(lang);
-    const newUrl = buildLangUrl(lang);
-    window.history.pushState({}, '', newUrl);
+    window.location.href = buildLangUrl(lang);
   };
 
   useEffect(() => {
