@@ -159,7 +159,7 @@ export function ClubMojo() {
                     style={{ color: 'rgba(37,211,102,0.75)', textDecoration: 'none', fontWeight: 600 }}
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(37,211,102,1)'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(37,211,102,0.75)'; }}
-                  >@Mojo_Adm</a>
+                  >MOJO Contacts</a>
                 </p>
                 <Link href="/join" style={{
                   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, flexShrink: 0,

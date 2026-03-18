@@ -267,8 +267,18 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- MOJO Support Live Chat Widget -->
-    <link rel="stylesheet" href="https://support.mojopokerclub.com/live_chat/css/style.css">
-    <script src="https://support.mojopokerclub.com/live_chat/dist/widget.js?token=e3d2a44f3e1b1ecc5b49037af5b35a9e333868d2e533e0ae39ed45a6ddf208ab" defer></script>
+    <!-- MOJO Support Live Chat Widget — loaded non-blocking to prevent render-blocking -->
+    <script>
+      (function() {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://support.mojopokerclub.com/live_chat/css/style.css';
+        document.head.appendChild(link);
+        var script = document.createElement('script');
+        script.src = 'https://support.mojopokerclub.com/live_chat/dist/widget.js?token=e3d2a44f3e1b1ecc5b49037af5b35a9e333868d2e533e0ae39ed45a6ddf208ab';
+        script.defer = true;
+        document.body.appendChild(script);
+      })();
+    </script>
   </body>
 </html>

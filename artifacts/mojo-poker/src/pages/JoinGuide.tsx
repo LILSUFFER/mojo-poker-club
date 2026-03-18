@@ -209,20 +209,20 @@ export function JoinGuide() {
         zh: '在 Telegram 联系经理', ja: 'Telegramでマネージャーにメッセージ',
       },
       desc: {
-        ru: 'Заявка отправлена — теперь напишите менеджеру @Mojo_Adm в Telegram. Укажите:\n\n• Ваш никнейм в ClubGG\n• В какой клуб хотите вступить (MOJO или Massiv)\n\nОбычно одобрение приходит в течение нескольких минут. Менеджер может задать дополнительные вопросы.',
-        en: 'Request sent — now message manager @Mojo_Adm on Telegram. Include:\n\n• Your ClubGG nickname\n• Which club you want to join (MOJO or Massiv)\n\nApproval usually takes just a few minutes. The manager may ask a few questions.',
-        es: 'Solicitud enviada — ahora escribe al gerente @Mojo_Adm en Telegram. Incluye:\n\n• Tu apodo de ClubGG\n• A qué club quieres unirte (MOJO o Massiv)\n\nLa aprobación suele tardar solo unos minutos. El gerente puede hacer algunas preguntas.',
-        de: 'Anfrage gesendet — schreibe jetzt dem Manager @Mojo_Adm in Telegram. Gib an:\n\n• Deinen ClubGG-Nickname\n• Welchem Club du beitreten möchtest (MOJO oder Massiv)\n\nDie Genehmigung dauert normalerweise nur wenige Minuten. Der Manager kann einige Fragen stellen.',
-        fr: "Demande envoyée — envoyez maintenant un message au manager @Mojo_Adm sur Telegram. Mentionnez :\n\n• Votre pseudo ClubGG\n• Le club que vous souhaitez rejoindre (MOJO ou Massiv)\n\nL'approbation prend généralement quelques minutes. Le manager peut poser quelques questions.",
-        it: 'Richiesta inviata — ora scrivi al manager @Mojo_Adm su Telegram. Includi:\n\n• Il tuo nickname ClubGG\n• A quale club vuoi unirti (MOJO o Massiv)\n\nLa approvazione di solito richiede solo pochi minuti. Il manager potrebbe fare alcune domande.',
-        pt: 'Solicitação enviada — agora escreva para o gerente @Mojo_Adm no Telegram. Inclua:\n\n• Seu apelido no ClubGG\n• Qual clube você quer entrar (MOJO ou Massiv)\n\nA aprovação geralmente leva apenas alguns minutos. O gerente pode fazer algumas perguntas.',
-        ar: 'تم إرسال الطلب — الآن أرسل رسالة للمدير @Mojo_Adm عبر Telegram. اذكر:\n\n• اسمك المستعار في ClubGG\n• النادي الذي تريد الانضمام إليه (MOJO أو Massiv)\n\nعادةً ما تستغرق الموافقة بضع دقائق فقط. قد يطرح المدير بعض الأسئلة.',
-        hi: 'रिक्वेस्ट भेजी गई — अब Telegram पर मैनेजर @Mojo_Adm को संदेश भेजें। शामिल करें:\n\n• ClubGG में आपका उपनाम\n• आप किस क्लब में जॉइन करना चाहते हैं (MOJO या Massiv)\n\nमंजूरी आमतौर पर कुछ मिनटों में मिल जाती है। मैनेजर कुछ सवाल पूछ सकते हैं।',
-        fa: 'درخواست ارسال شد — حالا در Telegram به مدیر @Mojo_Adm پیام بدهید. موارد زیر را ذکر کنید:\n\n• نام کاربری شما در ClubGG\n• کدام باشگاه می‌خواهید بپیوندید (MOJO یا Massiv)\n\nتأیید معمولاً فقط چند دقیقه طول می‌کشد. مدیر ممکن است چند سوال بپرسد.',
-        tr: "İstek gönderildi — şimdi Telegram'da yönetici @Mojo_Adm'e yaz. Şunları belirt:\n\n• ClubGG takma adın\n• Hangi kulübe katılmak istediğin (MOJO veya Massiv)\n\nOnay genellikle sadece birkaç dakika sürer. Yönetici bazı sorular sorabilir.",
-        az: 'Sorğu göndərildi — indi Telegramda menecer @Mojo_Adm-ə yaz. Qeyd et:\n\n• ClubGG-dəki ləqəbin\n• Hansı kluba qoşulmaq istədiyini (MOJO və ya Massiv)\n\nTəsdiq adətən yalnız bir neçə dəqiqə çəkir. Menecer bir neçə sual verə bilər.',
-        zh: '申请已发送 — 现在请在 Telegram 上联系经理 @Mojo_Adm。请说明：\n\n• 您在 ClubGG 的昵称\n• 您想加入哪个俱乐部（MOJO 或 Massiv）\n\n审批通常只需几分钟。经理可能会提出几个问题。',
-        ja: 'リクエストが送信されました — TelegramでマネージャーのTelegram @Mojo_Admにメッセージを送ってください。以下を含めてください：\n\n• ClubGGのニックネーム\n• 参加したいクラブ（MOJOまたはMassiv）\n\n承認は通常数分で完了します。マネージャーからいくつか質問があるかもしれません。',
+        ru: 'Заявка отправлена — теперь напишите менеджеру MOJO Contacts в Telegram. Укажите:\n\n• Ваш никнейм в ClubGG\n• В какой клуб хотите вступить (MOJO или Massiv)\n\nОбычно одобрение приходит в течение нескольких минут. Менеджер может задать дополнительные вопросы.',
+        en: 'Request sent — now message manager MOJO Contacts on Telegram. Include:\n\n• Your ClubGG nickname\n• Which club you want to join (MOJO or Massiv)\n\nApproval usually takes just a few minutes. The manager may ask a few questions.',
+        es: 'Solicitud enviada — ahora escribe al gerente MOJO Contacts en Telegram. Incluye:\n\n• Tu apodo de ClubGG\n• A qué club quieres unirte (MOJO o Massiv)\n\nLa aprobación suele tardar solo unos minutos. El gerente puede hacer algunas preguntas.',
+        de: 'Anfrage gesendet — schreibe jetzt dem Manager MOJO Contacts in Telegram. Gib an:\n\n• Deinen ClubGG-Nickname\n• Welchem Club du beitreten möchtest (MOJO oder Massiv)\n\nDie Genehmigung dauert normalerweise nur wenige Minuten. Der Manager kann einige Fragen stellen.',
+        fr: "Demande envoyée — envoyez maintenant un message au manager MOJO Contacts sur Telegram. Mentionnez :\n\n• Votre pseudo ClubGG\n• Le club que vous souhaitez rejoindre (MOJO ou Massiv)\n\nL'approbation prend généralement quelques minutes. Le manager peut poser quelques questions.",
+        it: 'Richiesta inviata — ora scrivi al manager MOJO Contacts su Telegram. Includi:\n\n• Il tuo nickname ClubGG\n• A quale club vuoi unirti (MOJO o Massiv)\n\nLa approvazione di solito richiede solo pochi minuti. Il manager potrebbe fare alcune domande.',
+        pt: 'Solicitação enviada — agora escreva para o gerente MOJO Contacts no Telegram. Inclua:\n\n• Seu apelido no ClubGG\n• Qual clube você quer entrar (MOJO ou Massiv)\n\nA aprovação geralmente leva apenas alguns minutos. O gerente pode fazer algumas perguntas.',
+        ar: 'تم إرسال الطلب — الآن أرسل رسالة للمدير MOJO Contacts عبر Telegram. اذكر:\n\n• اسمك المستعار في ClubGG\n• النادي الذي تريد الانضمام إليه (MOJO أو Massiv)\n\nعادةً ما تستغرق الموافقة بضع دقائق فقط. قد يطرح المدير بعض الأسئلة.',
+        hi: 'रिक्वेस्ट भेजी गई — अब Telegram पर मैनेजर MOJO Contacts को संदेश भेजें। शामिल करें:\n\n• ClubGG में आपका उपनाम\n• आप किस क्लब में जॉइन करना चाहते हैं (MOJO या Massiv)\n\nमंजूरी आमतौर पर कुछ मिनटों में मिल जाती है। मैनेजर कुछ सवाल पूछ सकते हैं।',
+        fa: 'درخواست ارسال شد — حالا در Telegram به مدیر MOJO Contacts پیام بدهید. موارد زیر را ذکر کنید:\n\n• نام کاربری شما در ClubGG\n• کدام باشگاه می‌خواهید بپیوندید (MOJO یا Massiv)\n\nتأیید معمولاً فقط چند دقیقه طول می‌کشد. مدیر ممکن است چند سوال بپرسد.',
+        tr: "İstek gönderildi — şimdi Telegram'da yönetici MOJO Contacts'e yaz. Şunları belirt:\n\n• ClubGG takma adın\n• Hangi kulübe katılmak istediğin (MOJO veya Massiv)\n\nOnay genellikle sadece birkaç dakika sürer. Yönetici bazı sorular sorabilir.",
+        az: 'Sorğu göndərildi — indi Telegramda menecer MOJO Contacts-ə yaz. Qeyd et:\n\n• ClubGG-dəki ləqəbin\n• Hansı kluba qoşulmaq istədiyini (MOJO və ya Massiv)\n\nTəsdiq adətən yalnız bir neçə dəqiqə çəkir. Menecer bir neçə sual verə bilər.',
+        zh: '申请已发送 — 现在请在 Telegram 上联系经理 MOJO Contacts。请说明：\n\n• 您在 ClubGG 的昵称\n• 您想加入哪个俱乐部（MOJO 或 Massiv）\n\n审批通常只需几分钟。经理可能会提出几个问题。',
+        ja: 'リクエストが送信されました — TelegramでマネージャーのTelegram MOJO Contactsにメッセージを送ってください。以下を含めてください：\n\n• ClubGGのニックネーム\n• 参加したいクラブ（MOJOまたはMassiv）\n\n承認は通常数分で完了します。マネージャーからいくつか質問があるかもしれません。',
       },
       extra: 'telegram',
     },
@@ -446,7 +446,7 @@ export function JoinGuide() {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                       <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 6.886l-1.872 8.82c-.14.62-.503.77-.995.48l-2.75-2.026-1.328 1.278c-.147.147-.27.27-.553.27l.196-2.79 5.088-4.597c.221-.196-.048-.305-.344-.11l-6.29 3.96-2.713-.85c-.59-.184-.602-.59.123-.872l10.582-4.08c.49-.178.92.108.856.517z" fill="#229ED9"/>
                     </svg>
-                    @Mojo_Adm
+                    MOJO Contacts
                   </a>
                 )}
 
@@ -537,7 +537,7 @@ export function JoinGuide() {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 6.886l-1.872 8.82c-.14.62-.503.77-.995.48l-2.75-2.026-1.328 1.278c-.147.147-.27.27-.553.27l.196-2.79 5.088-4.597c.221-.196-.048-.305-.344-.11l-6.29 3.96-2.713-.85c-.59-.184-.602-.59.123-.872l10.582-4.08c.49-.178.92.108.856.517z" fill="#229ED9"/>
                   </svg>
-                  @Mojo_Adm
+                  MOJO Contacts
                 </a>
               </div>
             </div>

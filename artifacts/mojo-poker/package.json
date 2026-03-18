@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node ssr-server.mjs",
+    "dev": "NODE_ENV=development node ssr-server.mjs",
     "dev:vite": "vite --config vite.config.ts --host 0.0.0.0",
     "build": "node generate-sitemap.mjs && vite build --config vite.config.ts && node generate-meta.mjs",
     "deploy": "node deploy.mjs",

@@ -49,7 +49,7 @@ export function JoinNextSteps({ clubId, refCode, requiresVpn }: Props) {
       icon: <MessageCircle size={18} />,
       title: t('join.step4.title'),
       desc: t('join.step4.desc'),
-      link: 'https://t.me/Mojo_Adm',
+      link: '/support',
       linkLabel: t('join.step4.link'),
       external: true,
     },
@@ -153,9 +153,7 @@ export function JoinNextSteps({ clubId, refCode, requiresVpn }: Props) {
           </p>
         </div>
         <a
-          href="https://t.me/Mojo_Adm"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/support"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 6, whiteSpace: 'nowrap',
             padding: '9px 18px', borderRadius: 4, textDecoration: 'none',
@@ -166,7 +164,7 @@ export function JoinNextSteps({ clubId, refCode, requiresVpn }: Props) {
           onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(37,211,102,0.2)'; el.style.borderColor = 'rgba(37,211,102,0.4)'; }}
           onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(37,211,102,0.12)'; el.style.borderColor = 'rgba(37,211,102,0.25)'; }}
         >
-          <MessageCircle size={13} /> @Mojo_Adm
+          <MessageCircle size={13} /> MOJO Contacts
         </a>
       </div>
     </div>

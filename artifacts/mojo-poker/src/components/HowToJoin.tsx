@@ -77,12 +77,12 @@ export function HowToJoin() {
                   </Link>
                 )}
                 {step.extra === 'tg' && (
-                  <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
+                  <a href="/support"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 12, fontWeight: 600, color: 'var(--text-faint)', textDecoration: 'none', marginTop: 'auto', transition: 'color 0.15s' }}
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'; }}
                     onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'var(--text-faint)'; }}
                   >
-                    @Mojo_Adm <ArrowRight size={12} />
+                    MOJO Contacts <ArrowRight size={12} />
                   </a>
                 )}
               </motion.div>
@@ -91,13 +91,13 @@ export function HowToJoin() {
         </div>
 
         <div>
-          <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
+          <a href="/support"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 24px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.2)', background: 'transparent', color: 'var(--text)', fontWeight: 600, fontSize: 14, textDecoration: 'none', transition: 'all 0.15s' }}
             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.4)'; el.style.background = 'rgba(255,255,255,0.04)'; }}
             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.2)'; el.style.background = 'transparent'; }}
           >
             <MessageCircle size={15} />
-            @Mojo_Adm on Telegram
+            MOJO Contacts on Telegram
           </a>
         </div>
       </div>

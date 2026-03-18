@@ -170,7 +170,7 @@ export function ClubMassiv() {
                         style={{ color: 'rgba(37,211,102,0.75)', textDecoration: 'none', fontWeight: 600 }}
                         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(37,211,102,1)'; }}
                         onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(37,211,102,0.75)'; }}
-                      >@Mojo_Adm</a>
+                      >MOJO Contacts</a>
                     </p>
                   </div>
                 </div>

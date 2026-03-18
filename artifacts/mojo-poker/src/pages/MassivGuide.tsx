@@ -28,8 +28,8 @@ const steps = {
       icon: MessageCircle,
       num: '03',
       title: 'Напишите менеджеру',
-      desc: 'Свяжитесь с нашим менеджером в Telegram @Mojo_Adm. Сообщите свой никнейм в ClubGG — он отправит вам приглашение в клуб Massiv Union.',
-      action: { label: '@Mojo_Adm в Telegram', href: '/support' },
+      desc: 'Свяжитесь с нашей поддержкой. Сообщите свой никнейм в ClubGG — вам отправят приглашение в клуб Massiv Union.',
+      action: { label: 'MOJO Contacts', href: '/support' },
     },
     {
       icon: PlayCircle,
@@ -58,8 +58,8 @@ const steps = {
       icon: MessageCircle,
       num: '03',
       title: 'Message the Manager',
-      desc: 'Contact our manager on Telegram @Mojo_Adm. Send your ClubGG nickname — they will send you an invitation to the Massiv Union club.',
-      action: { label: '@Mojo_Adm on Telegram', href: '/support' },
+      desc: 'Contact our support team. Send your ClubGG nickname — they will send you an invitation to the Massiv Union club.',
+      action: { label: 'MOJO Contacts', href: '/support' },
     },
     {
       icon: PlayCircle,
@@ -79,7 +79,7 @@ const faq = {
     },
     {
       q: 'Где взять фишки для игры?',
-      a: 'Фишки обмениваются в соотношении 1к1. Для получения фишек свяжитесь с менеджером @Mojo_Adm в Telegram.',
+      a: 'Фишки обмениваются в соотношении 1к1. Для получения фишек свяжитесь с нашей поддержкой через раздел Contacts.',
     },
     {
       q: 'Что такое Massiv Poker Union?',
@@ -97,7 +97,7 @@ const faq = {
     },
     {
       q: 'How do I get chips?',
-      a: 'Chips are exchanged at a 1:1 rate. Contact manager @Mojo_Adm on Telegram to get chips.',
+      a: 'Chips are exchanged at a 1:1 rate. Contact our support team via the Contacts page to get chips.',
     },
     {
       q: 'What is Massiv Poker Union?',
