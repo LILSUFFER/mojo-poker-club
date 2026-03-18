@@ -108,7 +108,7 @@ export function SupportPage() {
             </div>
 
             <a
-              href="https://t.me/Mojo_Adm"
+              href="https://t.me/mojoagentbot"
               target="_blank"
               rel="noopener noreferrer"
               style={{
