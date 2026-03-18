@@ -29,9 +29,6 @@ export function getLangFromPath(): Language {
 
 function getInitialLang(): Language {
   if (typeof window === 'undefined') return 'en';
-  const ssrLang = (window as any).__MOJO_LANG__;
-  delete (window as any).__MOJO_LANG__;
-  if (ssrLang && LANGS_SET.has(ssrLang)) return ssrLang as Language;
   return getLangFromPath();
 }
 
