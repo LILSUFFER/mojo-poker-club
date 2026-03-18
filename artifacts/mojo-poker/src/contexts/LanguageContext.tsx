@@ -46,8 +46,8 @@ function getPageSegments(): string[] {
 export function buildLangUrl(lang: Language): string {
   const base = getViteBase();
   const pageSegs = getPageSegments();
-  const page = pageSegs.length > 0 ? '/' + pageSegs.join('/') : '';
-  return lang === 'en' ? `${base}${page || '/'}` : `${base}/${lang}${page}`;
+  const page = pageSegs.length > 0 ? '/' + pageSegs.join('/') + '/' : '/';
+  return lang === 'en' ? `${base}${page}` : `${base}/${lang}${page}`;
 }
 
 function applyDocumentDir(lang: Language) {
@@ -59,11 +59,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>(getInitialLang);
 
   const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    applyDocumentDir(lang);
     const newUrl = buildLangUrl(lang);
-    window.history.pushState({}, '', newUrl);
-    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.location.href = newUrl;
   };
 
   useEffect(() => {
