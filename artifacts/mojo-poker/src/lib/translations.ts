@@ -36,7 +36,7 @@ export const translations = {
   en: t({
     nav: {
       clubs: 'Our Clubs', guides: 'Guides', about: 'About', reviews: 'Reviews', games: 'Games',
-      download: 'Download', contact: 'Contact',
+      download: 'Download', contact: 'Contacts',
       downloadGG: 'Download GGClub', createAccount: 'Create GGClub Account', joinClub: 'Join the Club',
     },
     hero: {
@@ -128,7 +128,7 @@ export const translations = {
   ru: t({
     nav: {
       clubs: 'Наши клубы', guides: 'Инструкции', about: 'О нас', reviews: 'Отзывы', games: 'Игры',
-      download: 'Скачать', contact: 'Связаться',
+      download: 'Скачать', contact: 'Контакты',
       downloadGG: 'Скачать GGClub', createAccount: 'Создание аккаунта GGClub', joinClub: 'Вступление в клуб',
     },
     hero: {
@@ -245,7 +245,7 @@ export const translations = {
 
   // ─────────────── GERMAN ───────────────
   de: t({
-    nav: { clubs: 'Unsere Clubs', guides: 'Anleitungen', about: 'Über uns', reviews: 'Bewertungen', games: 'Spiele', download: 'Download', contact: 'Kontakt', downloadGG: 'GGClub herunterladen', createAccount: 'GGClub-Konto erstellen', joinClub: 'Club beitreten' },
+    nav: { clubs: 'Unsere Clubs', guides: 'Anleitungen', about: 'Über uns', reviews: 'Bewertungen', games: 'Spiele', download: 'Download', contact: 'Kontakte', downloadGG: 'GGClub herunterladen', createAccount: 'GGClub-Konto erstellen', joinClub: 'Club beitreten' },
     hero: { title: 'Poker Club', titleHighlight: 'der nächsten Stufe', subtitle: 'Trete MOJO im exklusiven ClubGG-Netzwerk bei. Premium-Tische, erstklassiger Service und die höchsten Einsätze.', cta: 'Jetzt beitreten', secondaryCta: 'Manager kontaktieren' },
     about: { title: 'Über uns', subtitle: 'Das Premium-Pokererlebnis', content1: 'MOJO Poker Club ist eine exklusive Gemeinschaft im ClubGG-Netzwerk.', content2: 'Ob entspanntes Spiel oder VIP-Tische – unser Club bietet 24/7 Action.', stats: { players: 'Aktive Spieler', tables: 'Tägliche Tische', support: 'Support' }, heading: 'Beste Konditionen auf dem Markt', massivLabel: 'für Massiv Poker Union', massivDesc: '', createAccountLink: 'Konto erstellen', chipValue: '1:1', chipLabel: 'Chip-Rate', chipDesc: 'Direkttausch, keine Provision', rakebackValue: '50%', rakebackLabel: 'Rakeback', rakebackDesc: 'Bestes Rakeback auf dem Markt' },
     features: { trusted: { title: 'Vertrauenswürdiger Club', desc: 'Bewährter Ruf und Tausende aktiver Spieler' }, active: { title: 'Aktive Spiele', desc: 'Live-Tische mit echtem Traffic rund um die Uhr' }, support: { title: '24/7 Support', desc: 'Persönlicher Manager immer für dich verfügbar' } },
@@ -299,7 +299,7 @@ export const translations = {
 
   // ─────────────── PORTUGUESE ───────────────
   pt: t({
-    nav: { clubs: 'Nossos Clubes', guides: 'Guias', about: 'Sobre nós', reviews: 'Avaliações', games: 'Jogos', download: 'Baixar', contact: 'Contato', downloadGG: 'Baixar GGClub', createAccount: 'Criar conta GGClub', joinClub: 'Entrar no Clube' },
+    nav: { clubs: 'Nossos Clubes', guides: 'Guias', about: 'Sobre nós', reviews: 'Avaliações', games: 'Jogos', download: 'Baixar', contact: 'Contatos', downloadGG: 'Baixar GGClub', createAccount: 'Criar conta GGClub', joinClub: 'Entrar no Clube' },
     hero: { title: 'Clube de Poker', titleHighlight: 'de alto nível', subtitle: 'Junte-se ao MOJO na rede exclusiva ClubGG. Mesas premium, serviço excepcional e as maiores apostas.', cta: 'Entrar agora', secondaryCta: 'Contactar manager' },
     about: { title: 'Sobre nós', subtitle: 'A experiência premium de poker', content1: 'MOJO Poker Club é uma comunidade exclusiva na rede ClubGG.', content2: 'Jogos casuais ou mesas VIP — nosso clube oferece ação 24/7.', stats: { players: 'Jogadores ativos', tables: 'Mesas diárias', support: 'Suporte' }, heading: 'Melhores Condições do Mercado', massivLabel: 'para Massiv Poker Union', massivDesc: '', createAccountLink: 'Como criar conta', chipValue: '1:1', chipLabel: 'Taxa de Fichas', chipDesc: 'Troca direta, sem comissão', rakebackValue: '50%', rakebackLabel: 'Rakeback', rakebackDesc: 'Melhor rakeback do mercado' },
     features: { trusted: { title: 'Clube Confiável', desc: 'Reputação comprovada e milhares de jogadores ativos' }, active: { title: 'Jogos Ativos', desc: 'Mesas ao vivo com tráfego real 24 horas' }, support: { title: 'Suporte 24/7', desc: 'Manager pessoal sempre disponível' } },

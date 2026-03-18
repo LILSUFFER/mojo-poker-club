@@ -24,7 +24,7 @@ export function Contact() {
             {t('contact.subtitle')}
           </p>
 
-          <a href="/support"
+          <a href="/contact"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 9, padding: '12px 32px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.22)', background: 'transparent', color: 'var(--text)', fontWeight: 600, fontSize: 15, textDecoration: 'none', transition: 'all 0.15s' }}
             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.45)'; el.style.background = 'rgba(255,255,255,0.04)'; }}
             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.22)'; el.style.background = 'transparent'; }}

@@ -41,7 +41,7 @@ function openChatWidget() {
   if (widget) widget.classList.add('ptw--open');
 }
 
-export function SupportPage() {
+export function ContactPage() {
   const { language, t } = useLanguage();
   const isMobile = useIsMobile();
   const L = labels[language] ?? labels.en;
@@ -49,7 +49,7 @@ export function SupportPage() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
       <SEO
-        canonical="/support"
+        canonical="/contact"
         langs={{
           en: { title: 'Contacts', description: 'Contact MOJO Poker Club support via live chat or Telegram.' },
           ru: { title: 'Контакты', description: 'Свяжитесь с поддержкой MOJO Poker Club через чат или Telegram.' },

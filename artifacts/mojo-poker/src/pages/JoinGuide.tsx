@@ -431,7 +431,7 @@ export function JoinGuide() {
                 {/* Telegram extra */}
                 {step.extra === 'telegram' && (
                   <a
-                    href="/support"
+                    href="/contact"
                    
                     style={{
                       display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 24,
@@ -521,7 +521,7 @@ export function JoinGuide() {
                   {t('pages.joinGuide.chipsDesc')}
                 </p>
                 <a
-                  href="/support"
+                  href="/contact"
                  
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: 9,

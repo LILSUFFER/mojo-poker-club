@@ -47,7 +47,7 @@ export function Footer() {
     {
       heading: t('footer.contactHeading'),
       links: [
-        { label: t('footer.managerLink'), href: '/support', external: false },
+        { label: t('footer.managerLink'), href: '/contact', external: false },
       ],
     },
   ];

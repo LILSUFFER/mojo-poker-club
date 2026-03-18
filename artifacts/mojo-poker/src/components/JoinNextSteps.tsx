@@ -49,7 +49,7 @@ export function JoinNextSteps({ clubId, refCode, requiresVpn }: Props) {
       icon: <MessageCircle size={18} />,
       title: t('join.step4.title'),
       desc: t('join.step4.desc'),
-      link: '/support',
+      link: '/contact',
       linkLabel: t('join.step4.link'),
       external: true,
     },
@@ -153,7 +153,7 @@ export function JoinNextSteps({ clubId, refCode, requiresVpn }: Props) {
           </p>
         </div>
         <a
-          href="/support"
+          href="/contact"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 6, whiteSpace: 'nowrap',
             padding: '9px 18px', borderRadius: 4, textDecoration: 'none',

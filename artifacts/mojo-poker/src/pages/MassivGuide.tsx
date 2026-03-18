@@ -29,7 +29,7 @@ const steps = {
       num: '03',
       title: 'Напишите менеджеру',
       desc: 'Свяжитесь с нашей поддержкой. Сообщите свой никнейм в ClubGG — вам отправят приглашение в клуб Massiv Union.',
-      action: { label: 'MOJO Contacts', href: '/support' },
+      action: { label: 'MOJO Contacts', href: '/contact' },
     },
     {
       icon: PlayCircle,
@@ -59,7 +59,7 @@ const steps = {
       num: '03',
       title: 'Message the Manager',
       desc: 'Contact our support team. Send your ClubGG nickname — they will send you an invitation to the Massiv Union club.',
-      action: { label: 'MOJO Contacts', href: '/support' },
+      action: { label: 'MOJO Contacts', href: '/contact' },
     },
     {
       icon: PlayCircle,
@@ -247,7 +247,7 @@ export function MassivGuide() {
           style={{ marginTop: 64, display: 'flex', gap: 12, flexWrap: 'wrap' }}
         >
           <a
-            href="/support"
+            href="/contact"
            
             style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 14, fontWeight: 600, color: 'var(--text)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 4, padding: '12px 24px', textDecoration: 'none', background: 'var(--bg-card)' }}
           >
