@@ -358,13 +358,6 @@ async function main() {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/xml; charset=utf-8');
         res.setHeader('Cache-Control', 'no-store');
-        res.end(_smIndex());
-        return;
-      }
-      if (pathname === '/sitemap-main.xml') {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/xml; charset=utf-8');
-        res.setHeader('Cache-Control', 'no-store');
         res.end(_smMain());
         return;
       }

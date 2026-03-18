@@ -1,15 +1,14 @@
-import { writeFileSync, mkdirSync } from 'fs';
+import { writeFileSync, mkdirSync, existsSync, unlinkSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const OUT = resolve(__dirname, 'public');
+const OUT   = resolve(__dirname, 'public');
 mkdirSync(OUT, { recursive: true });
 
 const BASE  = 'https://mojopokerclub.com';
 const TODAY = new Date().toISOString().slice(0, 10);
 const LANGS = ['en','ru','es','de','fr','it','pt','ar','hi','fa','tr','az','zh','ja'];
-
 const PAGES = [
   { path: '/',               changefreq: 'weekly',  priority: '1.0' },
   { path: '/clubs/massiv',   changefreq: 'weekly',  priority: '0.8' },
@@ -22,28 +21,13 @@ const PAGES = [
   { path: '/install',        changefreq: 'monthly', priority: '0.6' },
 ];
 
-function href(lang, path) {
-  const slug = path === '/' ? '/' : path + '/';
-  return lang === 'en' ? `${BASE}${slug}` : `${BASE}/${lang}${slug}`;
-}
-
-// /sitemap.xml — sitemapindex
-writeFileSync(`${OUT}/sitemap.xml`,
-`<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>${BASE}/sitemap-main.xml</loc>
-    <lastmod>${TODAY}</lastmod>
-  </sitemap>
-</sitemapindex>`
-, 'utf8');
-
-// /sitemap-main.xml — urlset with all pages + hreflang
 const urls = PAGES.map(({ path, changefreq, priority }) => {
   const loc  = path === '/' ? `${BASE}/` : `${BASE}${path}/`;
-  const alts = LANGS.map(l =>
-    `    <xhtml:link rel="alternate" hreflang="${l}" href="${href(l, path)}" />`
-  ).join('\n');
+  const alts = LANGS.map(l => {
+    const slug = path === '/' ? '/' : path + '/';
+    const u    = l === 'en' ? `${BASE}${slug}` : `${BASE}/${l}${slug}`;
+    return `    <xhtml:link rel="alternate" hreflang="${l}" href="${u}" />`;
+  }).join('\n');
   return `  <url>
     <loc>${loc}</loc>
     <lastmod>${TODAY}</lastmod>
@@ -54,14 +38,21 @@ ${alts}
   </url>`;
 }).join('\n\n');
 
-writeFileSync(`${OUT}/sitemap-main.xml`,
+writeFileSync(`${OUT}/sitemap.xml`,
 `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
 ${urls}
 
-</urlset>`
-, 'utf8');
+</urlset>`, 'utf8');
 
-console.log(`[sitemap] sitemap.xml (index) + sitemap-main.xml (${PAGES.length} pages × ${LANGS.length} langs)`);
+// remove leftover files
+for (const f of ['sitemap-main.xml','sitemap-pages.xml','sitemap-clubs.xml',
+  'sitemap-games.xml','sitemap-about.xml','sitemap-join.xml',
+  'sitemap-create-account.xml','sitemap-download.xml','sitemap-install.xml','sitemap.xsl']) {
+  const p = `${OUT}/${f}`;
+  if (existsSync(p)) unlinkSync(p);
+}
+
+console.log(`[sitemap] sitemap.xml — ${PAGES.length} pages × ${LANGS.length} langs`);
