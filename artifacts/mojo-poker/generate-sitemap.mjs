@@ -10,85 +10,86 @@ mkdirSync(publicDir, { recursive: true });
 
 const LANGS = ['en','ru','es','de','fr','it','pt','ar','hi','fa','tr','az','zh','ja'];
 
+function langUrl(lang, path) {
+  const page = path === '/' ? '' : path;
+  return lang === 'en'
+    ? `${SITE_URL}${path}`
+    : `${SITE_URL}/${lang}${page}`;
+}
+
 function hreflangLinks(path) {
   const lines = LANGS.map(l =>
-    `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE_URL}${path}?lang=${l}"/>`
+    `    <xhtml:link rel="alternate" hreflang="${l}" href="${langUrl(l, path)}"/>`
   );
   lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}${path}"/>`);
   return lines.join('\n');
 }
 
-function urlset(urls) {
-  const entries = urls.map(({ loc, path, lastmod, changefreq, priority }) => `  <url>
+function urlset(pages) {
+  const entries = [];
+  for (const { path, changefreq, priority } of pages) {
+    for (const lang of LANGS) {
+      const loc = langUrl(lang, path);
+      entries.push(`  <url>
     <loc>${loc}</loc>
-    <lastmod>${lastmod}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
 ${hreflangLinks(path)}
-  </url>`).join('\n');
-
+  </url>`);
+    }
+  }
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${entries}
+${entries.join('\n')}
 </urlset>`;
 }
 
 const SUB_SITEMAPS = [
   {
     file: 'sitemap-pages.xml',
-    urls: [
-      { loc: `${SITE_URL}/`,               path: '/',               lastmod: today, changefreq: 'daily',   priority: '1.0' },
+    pages: [
+      { path: '/', changefreq: 'daily', priority: '1.0' },
     ],
   },
   {
     file: 'sitemap-clubs.xml',
-    urls: [
-      { loc: `${SITE_URL}/clubs/massiv`,   path: '/clubs/massiv',   lastmod: today, changefreq: 'weekly',  priority: '1.0' },
-      { loc: `${SITE_URL}/clubs/mojo`,     path: '/clubs/mojo',     lastmod: today, changefreq: 'weekly',  priority: '1.0' },
+    pages: [
+      { path: '/clubs/massiv', changefreq: 'weekly', priority: '1.0' },
+      { path: '/clubs/mojo',   changefreq: 'weekly', priority: '1.0' },
     ],
   },
   {
     file: 'sitemap-games.xml',
-    urls: [
-      { loc: `${SITE_URL}/games`,          path: '/games',          lastmod: today, changefreq: 'weekly',  priority: '1.0' },
-    ],
+    pages: [{ path: '/games', changefreq: 'weekly', priority: '1.0' }],
   },
   {
     file: 'sitemap-join.xml',
-    urls: [
-      { loc: `${SITE_URL}/join`,           path: '/join',           lastmod: today, changefreq: 'monthly', priority: '1.0' },
-    ],
+    pages: [{ path: '/join', changefreq: 'monthly', priority: '1.0' }],
   },
   {
     file: 'sitemap-create-account.xml',
-    urls: [
-      { loc: `${SITE_URL}/create-account`, path: '/create-account', lastmod: today, changefreq: 'monthly', priority: '1.0' },
-    ],
+    pages: [{ path: '/create-account', changefreq: 'monthly', priority: '1.0' }],
   },
   {
     file: 'sitemap-download.xml',
-    urls: [
-      { loc: `${SITE_URL}/download`,       path: '/download',       lastmod: today, changefreq: 'monthly', priority: '1.0' },
-    ],
+    pages: [{ path: '/download', changefreq: 'monthly', priority: '1.0' }],
   },
   {
     file: 'sitemap-install.xml',
-    urls: [
-      { loc: `${SITE_URL}/install`,        path: '/install',        lastmod: today, changefreq: 'monthly', priority: '1.0' },
-    ],
+    pages: [{ path: '/install', changefreq: 'monthly', priority: '1.0' }],
   },
   {
     file: 'sitemap-about.xml',
-    urls: [
-      { loc: `${SITE_URL}/about`,          path: '/about',          lastmod: today, changefreq: 'monthly', priority: '1.0' },
-    ],
+    pages: [{ path: '/about', changefreq: 'monthly', priority: '1.0' }],
   },
 ];
 
-for (const { file, urls } of SUB_SITEMAPS) {
-  writeFileSync(resolve(publicDir, file), urlset(urls), 'utf8');
-  console.log(`[generate-sitemap] ✓ ${file} (${urls.length} URL, ${LANGS.length + 1} hreflang each)`);
+for (const { file, pages } of SUB_SITEMAPS) {
+  const totalUrls = pages.length * LANGS.length;
+  writeFileSync(resolve(publicDir, file), urlset(pages), 'utf8');
+  console.log(`[generate-sitemap] ✓ ${file} (${totalUrls} URLs)`);
 }
 
 const sitemapEntries = SUB_SITEMAPS.map(({ file }) => `  <sitemap>

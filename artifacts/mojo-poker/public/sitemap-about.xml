@@ -6,20 +6,293 @@
     <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/about?lang=ru"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/about?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/about?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/about?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/about?lang=it"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/about?lang=pt"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/about?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/about?lang=hi"/>
-    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/about?lang=fa"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/about?lang=tr"/>
-    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/about?lang=az"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/about?lang=zh"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/about?lang=ja"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/ru/about</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/es/about</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/de/about</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/fr/about</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/it/about</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/pt/about</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/ar/about</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/hi/about</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/fa/about</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/tr/about</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/az/about</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/zh/about</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
+  </url>
+  <url>
+    <loc>https://mojopokerclub.com/ja/about</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mojopokerclub.com/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://mojopokerclub.com/ru/about"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mojopokerclub.com/es/about"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://mojopokerclub.com/de/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mojopokerclub.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://mojopokerclub.com/it/about"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://mojopokerclub.com/pt/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://mojopokerclub.com/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://mojopokerclub.com/hi/about"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://mojopokerclub.com/fa/about"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://mojopokerclub.com/tr/about"/>
+    <xhtml:link rel="alternate" hreflang="az" href="https://mojopokerclub.com/az/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://mojopokerclub.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mojopokerclub.com/ja/about"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mojopokerclub.com/about"/>
   </url>
 </urlset>

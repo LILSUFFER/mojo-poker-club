@@ -307,13 +307,19 @@ async function main() {
   const server = http.createServer(async (req, res) => {
     try {
       const url = new URL(req.url, `http://localhost:${PORT}`);
-      const langParam = url.searchParams.get('lang');
-      const lang = (langParam && VALID_LANGS.includes(langParam)) ? langParam : 'en';
       let pathname = url.pathname;
       if (BASE_PATH && pathname.startsWith(BASE_PATH)) {
         pathname = pathname.slice(BASE_PATH.length) || '/';
       }
       if (!pathname.startsWith('/')) pathname = '/' + pathname;
+
+      // Extract language from path prefix: /ru/about → lang=ru, pathname=/about
+      const segments = pathname.split('/').filter(Boolean);
+      const langFromPath = segments[0] && VALID_LANGS.includes(segments[0]) ? segments[0] : null;
+      const lang = langFromPath ?? 'en';
+      if (langFromPath) {
+        pathname = '/' + segments.slice(1).join('/') || '/';
+      }
 
       // Serve sitemap index dynamically in dev — production uses static files from dist/public/
       if (pathname === '/sitemap.xml') {

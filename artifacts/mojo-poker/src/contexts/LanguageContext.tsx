@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { translations, Language, isRTL } from '@/lib/translations';
 
 const VALID_LANGS: Language[] = ['en', 'ru', 'es', 'de', 'fr', 'it', 'pt', 'ar', 'hi', 'fa', 'tr', 'az', 'zh', 'ja'];
+const LANGS_SET = new Set<string>(VALID_LANGS);
 
 type LanguageContextType = {
   language: Language;
@@ -12,18 +13,33 @@ type LanguageContextType = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-function getLangFromUrl(): Language {
-  if (typeof window === 'undefined') return 'en';
-  const params = new URLSearchParams(window.location.search);
-  const lang = params.get('lang') as Language;
-  if (lang && VALID_LANGS.includes(lang)) return lang;
-  return 'en';
+function getViteBase(): string {
+  if (typeof window === 'undefined') return '';
+  return (import.meta.env.BASE_URL ?? '/').replace(/\/$/, '');
 }
 
-function setLangInUrl(lang: Language) {
-  const url = new URL(window.location.href);
-  url.searchParams.set('lang', lang);
-  window.history.replaceState({}, '', url.toString());
+export function getLangFromPath(): Language {
+  if (typeof window === 'undefined') return 'en';
+  const base = getViteBase();
+  const path = window.location.pathname;
+  const afterBase = base ? path.slice(base.length) : path;
+  const first = afterBase.split('/').filter(Boolean)[0] ?? '';
+  return LANGS_SET.has(first) ? (first as Language) : 'en';
+}
+
+function getPageSegments(): string[] {
+  const base = getViteBase();
+  const path = window.location.pathname;
+  const afterBase = base ? path.slice(base.length) : path;
+  const segs = afterBase.split('/').filter(Boolean);
+  return LANGS_SET.has(segs[0]) ? segs.slice(1) : segs;
+}
+
+export function buildLangUrl(lang: Language): string {
+  const base = getViteBase();
+  const pageSegs = getPageSegments();
+  const page = pageSegs.length > 0 ? '/' + pageSegs.join('/') : '';
+  return lang === 'en' ? `${base}${page || '/'}` : `${base}/${lang}${page}`;
 }
 
 function applyDocumentDir(lang: Language) {
@@ -32,23 +48,20 @@ function applyDocumentDir(lang: Language) {
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>(getLangFromUrl);
+  const [language, setLanguageState] = useState<Language>(getLangFromPath);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
-    setLangInUrl(lang);
     applyDocumentDir(lang);
+    const newUrl = buildLangUrl(lang);
+    window.history.pushState({}, '', newUrl);
+    window.dispatchEvent(new PopStateEvent('popstate'));
   };
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (!params.has('lang')) {
-      setLangInUrl(language);
-    }
     applyDocumentDir(language);
-
     const handlePop = () => {
-      const newLang = getLangFromUrl();
+      const newLang = getLangFromPath();
       setLanguageState(newLang);
       applyDocumentDir(newLang);
     };
@@ -61,7 +74,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     let current: any = (translations as any)[language] ?? (translations as any)['en'];
     for (const key of keys) {
       if (current?.[key] === undefined) {
-        // Fallback to English
         let fallback: any = (translations as any)['en'];
         for (const k of keys) {
           if (fallback?.[k] === undefined) return path;

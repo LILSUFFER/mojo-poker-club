@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { Home } from "@/pages/Home";
 import { Download } from "@/pages/Download";
 import { InstallGuide } from "@/pages/InstallGuide";
@@ -18,6 +17,8 @@ import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
 
+const VALID_LANGS = ['en','ru','es','de','fr','it','pt','ar','hi','fa','tr','az','zh','ja'];
+
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
@@ -26,25 +27,10 @@ function ScrollToTop() {
   return null;
 }
 
-function LangUrlSync() {
-  const [location] = useLocation();
-  const { language } = useLanguage();
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get('lang') !== language) {
-      const url = new URL(window.location.href);
-      url.searchParams.set('lang', language);
-      window.history.replaceState({}, '', url.toString());
-    }
-  }, [location, language]);
-  return null;
-}
-
-function Router() {
+function Routes() {
   return (
     <>
       <ScrollToTop />
-      <LangUrlSync />
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/download" component={Download} />
@@ -61,13 +47,25 @@ function Router() {
   );
 }
 
+function LangAwareRouter() {
+  const [location] = useLocation();
+  const firstSeg = location.split('/').filter(Boolean)[0] ?? '';
+  const langBase = VALID_LANGS.includes(firstSeg) ? `/${firstSeg}` : '';
+
+  return (
+    <WouterRouter base={langBase}>
+      <Routes />
+    </WouterRouter>
+  );
+}
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <TooltipProvider>
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-            <Router />
+            <LangAwareRouter />
           </WouterRouter>
           <Toaster />
         </TooltipProvider>
