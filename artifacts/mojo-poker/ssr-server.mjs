@@ -322,22 +322,13 @@ async function main() {
         pathname = '/' + segments.slice(1).join('/') || '/';
       }
 
-      // Serve sitemaps dynamically in dev — production uses static files from dist/public/
+      // Serve sitemap dynamically in dev — production uses static file from dist/public/
       if (pathname === '/sitemap.xml') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/xml');
         res.setHeader('X-Content-Type-Options', 'nosniff');
         res.setHeader('Cache-Control', 'no-store');
-        res.end(generateSitemapIndex());
-        return;
-      }
-      const subMatch = pathname.match(/^\/(sitemap-[a-z-]+\.xml)$/);
-      if (subMatch) {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/xml');
-        res.setHeader('X-Content-Type-Options', 'nosniff');
-        res.setHeader('Cache-Control', 'no-store');
-        res.end(generateSubSitemap(subMatch[1]));
+        res.end(generateSitemap());
         return;
       }
 
