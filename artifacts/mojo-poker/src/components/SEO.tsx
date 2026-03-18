@@ -29,11 +29,17 @@ const OG_LOCALE: Record<string, string> = {
   zh: 'zh_CN', ja: 'ja_JP',
 };
 
+function pathUrl(base: string, path: string, lang: string): string {
+  const slug = path === '/' ? '/' : path.replace(/\/+$/, '') + '/';
+  return lang === 'en' ? `${base}${slug}` : `${base}/${lang}${slug}`;
+}
+
 export default function SEO({ langs, canonical, structuredData }: SEOProps) {
   const { language } = useLanguage();
   const meta = langs[language] ?? langs['en']!;
   const title = meta.title.includes('MOJO') ? meta.title : `${meta.title} — MOJO Poker Club`;
-  const canonicalUrl = `${BASE_URL}${canonical}?lang=${language}`;
+  const canonicalUrl = pathUrl(BASE_URL, canonical, language);
+  const defaultUrl  = pathUrl(BASE_URL, canonical, 'en');
 
   return (
     <Helmet>
@@ -44,9 +50,9 @@ export default function SEO({ langs, canonical, structuredData }: SEOProps) {
       <link rel="canonical" href={canonicalUrl} />
 
       {Object.entries(HREFLANG).map(([code, hreflang]) => (
-        <link key={code} rel="alternate" hrefLang={hreflang} href={`${BASE_URL}${canonical}?lang=${code}`} />
+        <link key={code} rel="alternate" hrefLang={hreflang} href={pathUrl(BASE_URL, canonical, code)} />
       ))}
-      <link rel="alternate" hrefLang="x-default" href={`${BASE_URL}${canonical}?lang=en`} />
+      <link rel="alternate" hrefLang="x-default" href={defaultUrl} />
 
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="MOJO Poker Club" />

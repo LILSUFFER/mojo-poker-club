@@ -220,7 +220,7 @@ function buildMetaHtml(pathname, lang) {
   const htmlLang = HREFLANG[lang] || 'en';
 
   // Path-based URLs: English = /path/, others = /ru/path/
-  const slug = pathname === '/' ? '/' : pathname + '/';
+  const slug = pathname === '/' ? '/' : pathname.replace(/\/+$/, '') + '/';
   const canonicalUrl = lang === 'en'
     ? `${BASE_URL}${slug}`
     : `${BASE_URL}/${lang}${slug}`;
