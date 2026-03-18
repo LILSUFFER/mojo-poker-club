@@ -34,10 +34,13 @@ function pathUrl(base: string, path: string, lang: string): string {
   return lang === 'en' ? `${base}${slug}` : `${base}/${lang}${slug}`;
 }
 
+const NO_SUFFIX_PAGES = ['/download', '/create-account'];
+
 export default function SEO({ langs, canonical, structuredData }: SEOProps) {
   const { language } = useLanguage();
   const meta = langs[language] ?? langs['en']!;
-  const title = meta.title.includes('MOJO') ? meta.title : `${meta.title} — MOJO Poker Club`;
+  const noSuffix = NO_SUFFIX_PAGES.includes(canonical);
+  const title = (noSuffix || meta.title.includes('MOJO')) ? meta.title : `${meta.title} — MOJO Poker Club`;
   const canonicalUrl = pathUrl(BASE_URL, canonical, language);
   const defaultUrl  = pathUrl(BASE_URL, canonical, 'en');
 
