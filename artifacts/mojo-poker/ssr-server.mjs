@@ -1,7 +1,7 @@
 import http from 'http';
 import { createServer as createViteServer } from 'vite';
-import { readFileSync, existsSync } from 'fs';
-import { resolve, dirname } from 'path';
+import { readFileSync, existsSync, statSync, createReadStream } from 'fs';
+import { resolve, dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -296,79 +296,182 @@ ${urls}
 </urlset>`;
 }
 
-// Determine if a request is for an HTML page (not an asset/vite special route)
-function isPageRequest(pathname) {
-  if (pathname.startsWith('/@')) return false;
-  if (pathname.startsWith('/__')) return false;
-  if (pathname.startsWith('/node_modules/')) return false;
-  if (pathname.startsWith('/src/')) return false;
+const MIME_TYPES = {
+  '.html': 'text/html; charset=utf-8',
+  '.js':   'application/javascript; charset=utf-8',
+  '.mjs':  'application/javascript; charset=utf-8',
+  '.css':  'text/css; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.png':  'image/png',
+  '.jpg':  'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.gif':  'image/gif',
+  '.svg':  'image/svg+xml',
+  '.ico':  'image/x-icon',
+  '.woff': 'font/woff',
+  '.woff2':'font/woff2',
+  '.ttf':  'font/ttf',
+  '.txt':  'text/plain; charset=utf-8',
+  '.xml':  'application/xml; charset=utf-8',
+  '.xsl':  'application/xslt+xml; charset=utf-8',
+  '.webmanifest': 'application/manifest+json',
+};
+
+function getMime(filePath) {
+  const ext = extname(filePath).toLowerCase();
+  return MIME_TYPES[ext] || 'application/octet-stream';
+}
+
+function serveStaticFile(filePath, res) {
+  try {
+    const stat = statSync(filePath);
+    if (!stat.isFile()) return false;
+    const ext = extname(filePath).toLowerCase();
+    const mime = getMime(filePath);
+    const maxAge = ['.js', '.css', '.woff', '.woff2', '.png', '.jpg', '.webp', '.svg'].includes(ext)
+      ? 'public, max-age=31536000, immutable'
+      : 'no-cache';
+    res.statusCode = 200;
+    res.setHeader('Content-Type', mime);
+    res.setHeader('Cache-Control', maxAge);
+    createReadStream(filePath).pipe(res);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function handleRequest(req, res, rawIndexHtml, serveAsset) {
+  const url = new URL(req.url, `http://localhost:${PORT}`);
+  let pathname = url.pathname;
+  if (BASE_PATH && pathname.startsWith(BASE_PATH)) {
+    pathname = pathname.slice(BASE_PATH.length) || '/';
+  }
+  if (!pathname.startsWith('/')) pathname = '/' + pathname;
+
+  const segments = pathname.split('/').filter(Boolean);
+  const langFromPath = segments[0] && VALID_LANGS.includes(segments[0]) ? segments[0] : null;
+  const lang = langFromPath ?? 'en';
+  if (langFromPath) {
+    pathname = '/' + segments.slice(1).join('/') || '/';
+  }
+
+  if (pathname === '/sitemap.xml') {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+    res.setHeader('Cache-Control', 'no-store');
+    res.end(_smXml());
+    return true;
+  }
+
   const lastSegment = pathname.split('/').pop() || '';
   const dotIdx = lastSegment.lastIndexOf('.');
-  if (dotIdx !== -1) {
-    const ext = lastSegment.slice(dotIdx + 1).toLowerCase();
-    if (ext !== 'html') return false;
+  const isAsset = dotIdx !== -1 && lastSegment.slice(dotIdx + 1).toLowerCase() !== 'html';
+
+  if (isAsset) {
+    return serveAsset(pathname, res);
   }
+
+  const html = injectMeta(rawIndexHtml, pathname, lang);
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  res.setHeader('Cache-Control', 'no-store');
+  res.end(html);
   return true;
 }
 
-
 async function main() {
-  const vite = await createViteServer({
-    configFile: resolve(__dirname, 'vite.config.ts'),
-    server: { middlewareMode: true },
-    appType: 'spa',
-  });
+  const distIndexPath = resolve(__dirname, 'dist/public/index.html');
+  const isProd = existsSync(distIndexPath);
 
-  const rawIndexHtml = readFileSync(resolve(__dirname, 'index.html'), 'utf-8');
+  if (isProd) {
+    console.log('[mojo-poker] Production mode — serving from dist/public/');
+    const distDir = resolve(__dirname, 'dist/public');
+    const rawIndexHtml = readFileSync(distIndexPath, 'utf-8');
 
-  const server = http.createServer(async (req, res) => {
-    try {
-      const url = new URL(req.url, `http://localhost:${PORT}`);
-      let pathname = url.pathname;
-      if (BASE_PATH && pathname.startsWith(BASE_PATH)) {
-        pathname = pathname.slice(BASE_PATH.length) || '/';
-      }
-      if (!pathname.startsWith('/')) pathname = '/' + pathname;
-
-      // Extract language from path prefix: /ru/about → lang=ru, pathname=/about
-      const segments = pathname.split('/').filter(Boolean);
-      const langFromPath = segments[0] && VALID_LANGS.includes(segments[0]) ? segments[0] : null;
-      const lang = langFromPath ?? 'en';
-      if (langFromPath) {
-        pathname = '/' + segments.slice(1).join('/') || '/';
-      }
-
-      if (pathname === '/sitemap.xml') {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/xml; charset=utf-8');
-        res.setHeader('Cache-Control', 'no-store');
-        res.end(_smXml());
-        return;
-      }
-
-      if (isPageRequest(pathname)) {
-        const transformed = await vite.transformIndexHtml(req.url, rawIndexHtml);
-        const html = injectMeta(transformed, pathname, lang);
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'text/html; charset=utf-8');
-        res.end(html);
-      } else {
-        vite.middlewares(req, res, () => {
+    const server = http.createServer((req, res) => {
+      try {
+        const handled = handleRequest(req, res, rawIndexHtml, (assetPath, r) => {
+          return serveStaticFile(resolve(distDir, assetPath.replace(/^\//, '')), r);
+        });
+        if (!handled) {
           res.statusCode = 404;
           res.end('Not found');
-        });
+        }
+      } catch (err) {
+        console.error('SSR error:', err);
+        res.statusCode = 500;
+        res.end(err.message);
       }
-    } catch (err) {
-      console.error('SSR error:', err);
-      vite.ssrFixStacktrace(err);
-      res.statusCode = 500;
-      res.end(err.message);
-    }
-  });
+    });
 
-  server.listen(PORT, '0.0.0.0', () => {
-    console.log(`[mojo-poker] SSR server on port ${PORT} (base: ${BASE_PATH || '/'})`);
-  });
+    server.listen(PORT, '0.0.0.0', () => {
+      console.log(`[mojo-poker] SSR server on port ${PORT} (base: ${BASE_PATH || '/'})`);
+    });
+  } else {
+    console.log('[mojo-poker] Dev mode — using Vite middleware');
+    const vite = await createViteServer({
+      configFile: resolve(__dirname, 'vite.config.ts'),
+      server: { middlewareMode: true },
+      appType: 'spa',
+    });
+
+    const rawSourceHtml = readFileSync(resolve(__dirname, 'index.html'), 'utf-8');
+
+    const server = http.createServer(async (req, res) => {
+      try {
+        const url = new URL(req.url, `http://localhost:${PORT}`);
+        let pathname = url.pathname;
+        if (BASE_PATH && pathname.startsWith(BASE_PATH)) {
+          pathname = pathname.slice(BASE_PATH.length) || '/';
+        }
+        if (!pathname.startsWith('/')) pathname = '/' + pathname;
+
+        const segments = pathname.split('/').filter(Boolean);
+        const langFromPath = segments[0] && VALID_LANGS.includes(segments[0]) ? segments[0] : null;
+        const lang = langFromPath ?? 'en';
+        if (langFromPath) {
+          pathname = '/' + segments.slice(1).join('/') || '/';
+        }
+
+        if (pathname === '/sitemap.xml') {
+          res.statusCode = 200;
+          res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+          res.setHeader('Cache-Control', 'no-store');
+          res.end(_smXml());
+          return;
+        }
+
+        const lastSegment = pathname.split('/').pop() || '';
+        const dotIdx = lastSegment.lastIndexOf('.');
+        const isAsset = dotIdx !== -1 && lastSegment.slice(dotIdx + 1).toLowerCase() !== 'html';
+
+        if (isAsset || pathname.startsWith('/@') || pathname.startsWith('/__') || pathname.startsWith('/src/') || pathname.startsWith('/node_modules/')) {
+          vite.middlewares(req, res, () => {
+            res.statusCode = 404;
+            res.end('Not found');
+          });
+        } else {
+          const transformed = await vite.transformIndexHtml(req.url, rawSourceHtml);
+          const html = injectMeta(transformed, pathname, lang);
+          res.statusCode = 200;
+          res.setHeader('Content-Type', 'text/html; charset=utf-8');
+          res.setHeader('Cache-Control', 'no-store');
+          res.end(html);
+        }
+      } catch (err) {
+        console.error('SSR error:', err);
+        vite.ssrFixStacktrace(err);
+        res.statusCode = 500;
+        res.end(err.message);
+      }
+    });
+
+    server.listen(PORT, '0.0.0.0', () => {
+      console.log(`[mojo-poker] SSR server on port ${PORT} (base: ${BASE_PATH || '/'})`);
+    });
+  }
 }
 
 main().catch(console.error);
