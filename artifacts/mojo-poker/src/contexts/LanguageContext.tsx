@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useLayoutEffect } from 'react';
 import { translations, Language, isRTL } from '@/lib/translations';
 
 const VALID_LANGS: Language[] = ['en', 'ru', 'es', 'de', 'fr', 'it', 'pt', 'ar', 'hi', 'fa', 'tr', 'az', 'zh', 'ja'];
@@ -59,8 +59,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     window.location.href = buildLangUrl(lang);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     applyDocumentDir(language);
+  }, [language]);
+
+  useEffect(() => {
     const handlePop = () => {
       const newLang = getLangFromPath();
       setLanguageState(newLang);

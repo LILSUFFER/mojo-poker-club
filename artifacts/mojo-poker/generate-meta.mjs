@@ -5,6 +5,8 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, 'dist/public');
 
+const RTL_LANGS = new Set(['ar', 'fa']);
+
 const META = {
   '/': {
     ru: { title: 'MOJO Poker Club — покерный клуб GGClub, Massiv Poker Union', description: 'Официальный покерный клуб в сети GGClub и Massiv Poker Union. Рейкбек до 55%, фишки 1к1, 698+ игроков онлайн, столы 24/7. Реферальный код 3383-3619.', keywords: 'GGClub, ClubGG, покер клуб, Massiv Poker Union, MOJO Poker, покер онлайн, рейкбек покер' },
@@ -262,7 +264,10 @@ function injectMeta(html, pathname, lang) {
   const stripped = stripExistingMeta(html);
   const metaHtml  = buildMetaHtml(pathname, lang);
   const htmlLang = HREFLANG[lang] || 'en';
-  const htmlWithLang = stripped.replace(/<html([^>]*)lang="[^"]*"/, `<html$1lang="${htmlLang}"`);
+  const dir = RTL_LANGS.has(lang) ? 'rtl' : 'ltr';
+  const htmlWithLang = stripped
+    .replace(/<html([^>]*)lang="[^"]*"([^>]*)dir="[^"]*"/, `<html$1lang="${htmlLang}"$2dir="${dir}"`)
+    .replace(/<html([^>]*)lang="[^"]*"(?![^>]*dir=)/, `<html$1lang="${htmlLang}" dir="${dir}"`);
   return htmlWithLang.replace('</head>', metaHtml + '\n  </head>');
 }
 

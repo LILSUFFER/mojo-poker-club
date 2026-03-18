@@ -137,7 +137,7 @@ export function Navbar() {
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px', height: 60, display: 'flex', alignItems: 'center' }}>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 0, flex: 1 }}>
-          <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, textDecoration: 'none', marginRight: 36 }}>
+          <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, textDecoration: 'none', marginRight: 36, direction: 'ltr' }}>
             <img src="/images/mojo-logo.svg" alt="MOJO Poker Club" style={{ height: 28, width: 'auto', display: 'block' }} />
             <div style={{ width: 1, height: 32, background: 'rgba(255,255,255,0.12)', flexShrink: 0 }} />
             <img
@@ -278,7 +278,7 @@ export function Navbar() {
               flexShrink: 0,
             }}>
               <Link href="/" onClick={() => setOpen(false)}
-                style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none', flex: 1 }}>
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none', flex: 1, direction: 'ltr' }}>
                 <img src="/images/mojo-logo.svg" alt="MOJO" style={{ height: 24, width: 'auto', display: 'block' }} />
                 <div style={{ width: 1, height: 26, background: 'rgba(255,255,255,0.12)', flexShrink: 0 }} />
                 <img src="/images/massiv-union-logo-nobg.png" alt="Massiv Union" style={{ height: 30, width: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.6 }} />
