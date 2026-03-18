@@ -47,7 +47,7 @@ export function Footer() {
     {
       heading: t('footer.contactHeading'),
       links: [
-        { label: t('footer.managerLink'), href: 'https://t.me/Mojo_Adm', external: true },
+        { label: t('footer.managerLink'), href: '/support', external: false },
       ],
     },
   ];

@@ -36,7 +36,7 @@ export function Home() {
           name: 'MOJO Poker Club',
           url: 'https://mojopokerclub.com',
           description: 'Official poker club on GGClub / Massiv Poker Union network',
-          contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', url: 'https://t.me/Mojo_Adm' },
+          contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', url: 'https://mojopokerclub.com/support' },
         }}
       />
       <Navbar />

@@ -431,9 +431,8 @@ export function JoinGuide() {
                 {/* Telegram extra */}
                 {step.extra === 'telegram' && (
                   <a
-                    href="https://t.me/Mojo_Adm"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/support"
+                   
                     style={{
                       display: 'inline-flex', alignItems: 'center', gap: 10, marginBottom: 24,
                       padding: '13px 22px', borderRadius: 4, textDecoration: 'none',
@@ -522,9 +521,8 @@ export function JoinGuide() {
                   {t('pages.joinGuide.chipsDesc')}
                 </p>
                 <a
-                  href="https://t.me/Mojo_Adm"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/support"
+                 
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: 9,
                     padding: '11px 20px', borderRadius: 4, textDecoration: 'none',

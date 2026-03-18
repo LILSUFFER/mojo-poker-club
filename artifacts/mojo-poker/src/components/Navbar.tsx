@@ -238,13 +238,13 @@ export function Navbar() {
             {t('nav.download')}
           </Link>
 
-          <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer"
+          <Link href="/support"
             style={{ display: 'inline-flex', alignItems: 'center', padding: '7px 16px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.85)', fontSize: 13, fontWeight: 600, textDecoration: 'none', transition: 'all 0.15s', whiteSpace: 'nowrap' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.4)'; (e.currentTarget as HTMLElement).style.color = 'white'; }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.18)'; (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.85)'; }}
           >
             {t('nav.contact')}
-          </a>
+          </Link>
         </div>
 
         {/* Mobile burger */}
@@ -342,10 +342,10 @@ export function Navbar() {
                 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '15px', borderRadius: 8, background: 'hsl(4 80% 45%)', color: 'white', fontSize: 16, fontWeight: 600, textDecoration: 'none' }}>
                 <Download size={16} /> {t('nav.download')}
               </Link>
-              <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
+              <Link href="/support" onClick={() => setOpen(false)}
                 style={{ padding: '15px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.2)', color: 'white', fontSize: 16, fontWeight: 600, textDecoration: 'none', textAlign: 'center' }}>
                 {t('nav.contact')}
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
