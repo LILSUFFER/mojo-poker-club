@@ -257,36 +257,26 @@ function injectMeta(html, pathname, lang) {
 }
 
 // ─────────────────────────────────────────────
-// Dynamic sitemap generator (no filesystem dependency)
+// Sitemap index generator (dev fallback — production uses static files)
 // ─────────────────────────────────────────────
 const SITE_URL = 'https://mojopokerclub.com';
-const SITEMAP_PAGES = [
-  { path: '/',               changefreq: 'daily',   priority: '1.0' },
-  { path: '/clubs/massiv',   changefreq: 'weekly',  priority: '1.0' },
-  { path: '/clubs/mojo',     changefreq: 'weekly',  priority: '1.0' },
-  { path: '/games',          changefreq: 'weekly',  priority: '1.0' },
-  { path: '/join',           changefreq: 'monthly', priority: '1.0' },
-  { path: '/create-account', changefreq: 'monthly', priority: '1.0' },
-  { path: '/download',       changefreq: 'monthly', priority: '1.0' },
-  { path: '/install',        changefreq: 'monthly', priority: '1.0' },
-  { path: '/about',          changefreq: 'monthly', priority: '1.0' },
+const SUB_SITEMAPS = [
+  'sitemap-pages.xml',
+  'sitemap-clubs.xml',
+  'sitemap-games.xml',
+  'sitemap-join.xml',
+  'sitemap-create-account.xml',
+  'sitemap-download.xml',
+  'sitemap-install.xml',
+  'sitemap-about.xml',
 ];
 
-function generateSitemap() {
+function generateSitemapIndex() {
   const today = new Date().toISOString().slice(0, 10);
-  const urlBlocks = [];
-  for (const page of SITEMAP_PAGES) {
-    for (const lang of VALID_LANGS) {
-      const loc = `${SITE_URL}${page.path}?lang=${lang}`;
-      const hreflangs = VALID_LANGS.map(l =>
-        `    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE_URL}${page.path}?lang=${l}"/>`
-      ).join('\n');
-      urlBlocks.push(
-        `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${page.changefreq}</changefreq>\n    <priority>${page.priority}</priority>\n${hreflangs}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}${page.path}"/>\n  </url>`
-      );
-    }
-  }
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n\n${urlBlocks.join('\n\n')}\n\n</urlset>`;
+  const entries = SUB_SITEMAPS.map(file =>
+    `  <sitemap>\n    <loc>${SITE_URL}/${file}</loc>\n    <lastmod>${today}</lastmod>\n  </sitemap>`
+  ).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</sitemapindex>`;
 }
 
 // Determine if a request is for an HTML page (not an asset/vite special route)
@@ -325,13 +315,13 @@ async function main() {
       }
       if (!pathname.startsWith('/')) pathname = '/' + pathname;
 
-      // Serve sitemap.xml dynamically — no filesystem dependency, works in all envs
+      // Serve sitemap index dynamically in dev — production uses static files from dist/public/
       if (pathname === '/sitemap.xml') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/xml');
         res.setHeader('X-Content-Type-Options', 'nosniff');
         res.setHeader('Cache-Control', 'no-store');
-        res.end(generateSitemap());
+        res.end(generateSitemapIndex());
         return;
       }
 
