@@ -16,53 +16,77 @@ function langUrl(lang, path) {
   return `${SITE_URL}/${lang}${page}`;
 }
 
-const PAGES = [
-  { path: '/',               changefreq: 'daily',   priority: '1.0' },
-  { path: '/clubs/massiv',   changefreq: 'weekly',  priority: '0.9' },
-  { path: '/clubs/mojo',     changefreq: 'weekly',  priority: '0.9' },
-  { path: '/games',          changefreq: 'weekly',  priority: '0.8' },
-  { path: '/about',          changefreq: 'monthly', priority: '0.8' },
-  { path: '/join',           changefreq: 'monthly', priority: '0.7' },
-  { path: '/create-account', changefreq: 'monthly', priority: '0.7' },
-  { path: '/download',       changefreq: 'monthly', priority: '0.7' },
-  { path: '/install',        changefreq: 'monthly', priority: '0.7' },
-];
-
-// One canonical URL per page (English root), hreflang for all language variants
-function buildUrl({ path, changefreq, priority }) {
+function buildUrlEntry(path, changefreq, priority) {
   const canonical = `${SITE_URL}${path}`;
   const hreflangs = LANGS.map(l =>
     `    <xhtml:link rel="alternate" hreflang="${l}" href="${langUrl(l, path)}"/>`
   ).join('\n');
-  const xdefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${canonical}"/>`;
-
   return `  <url>
     <loc>${canonical}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
 ${hreflangs}
-${xdefault}
+    <xhtml:link rel="alternate" hreflang="x-default" href="${canonical}"/>
   </url>`;
 }
 
-const xml = `<?xml version="1.0" encoding="UTF-8"?>
+function writeSub(filename, entries) {
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${PAGES.map(buildUrl).join('\n')}
+${entries.join('\n')}
 </urlset>`;
-
-writeFileSync(resolve(publicDir, 'sitemap.xml'), xml, 'utf8');
-console.log(`[generate-sitemap] ✓ sitemap.xml (${PAGES.length} canonical URLs, ${LANGS.length} hreflang each)`);
-
-// Remove old sub-sitemap files if they exist
-import { existsSync, unlinkSync } from 'fs';
-const OLD = [
-  'sitemap-pages.xml','sitemap-clubs.xml','sitemap-games.xml',
-  'sitemap-join.xml','sitemap-create-account.xml','sitemap-download.xml',
-  'sitemap-install.xml','sitemap-about.xml',
-];
-for (const f of OLD) {
-  const p = resolve(publicDir, f);
-  if (existsSync(p)) { unlinkSync(p); console.log(`[generate-sitemap] removed ${f}`); }
+  writeFileSync(resolve(publicDir, filename), xml, 'utf8');
+  console.log(`[generate-sitemap] ✓ ${filename}`);
 }
+
+// Sub-sitemaps — one per section
+writeSub('sitemap-pages.xml', [
+  buildUrlEntry('/', 'daily', '1.0'),
+]);
+writeSub('sitemap-clubs.xml', [
+  buildUrlEntry('/clubs/massiv', 'weekly', '0.9'),
+  buildUrlEntry('/clubs/mojo', 'weekly', '0.9'),
+]);
+writeSub('sitemap-games.xml', [
+  buildUrlEntry('/games', 'weekly', '0.8'),
+]);
+writeSub('sitemap-about.xml', [
+  buildUrlEntry('/about', 'monthly', '0.8'),
+]);
+writeSub('sitemap-join.xml', [
+  buildUrlEntry('/join', 'monthly', '0.7'),
+]);
+writeSub('sitemap-create-account.xml', [
+  buildUrlEntry('/create-account', 'monthly', '0.7'),
+]);
+writeSub('sitemap-download.xml', [
+  buildUrlEntry('/download', 'monthly', '0.7'),
+]);
+writeSub('sitemap-install.xml', [
+  buildUrlEntry('/install', 'monthly', '0.7'),
+]);
+
+// Sitemap index — lists all sub-sitemaps
+const SUB_FILES = [
+  'sitemap-pages.xml',
+  'sitemap-clubs.xml',
+  'sitemap-games.xml',
+  'sitemap-about.xml',
+  'sitemap-join.xml',
+  'sitemap-create-account.xml',
+  'sitemap-download.xml',
+  'sitemap-install.xml',
+];
+
+const index = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${SUB_FILES.map(f => `  <sitemap>
+    <loc>${SITE_URL}/${f}</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>`).join('\n')}
+</sitemapindex>`;
+
+writeFileSync(resolve(publicDir, 'sitemap.xml'), index, 'utf8');
+console.log(`[generate-sitemap] ✓ sitemap.xml (index → ${SUB_FILES.length} sub-sitemaps)`);

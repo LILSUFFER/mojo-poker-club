@@ -257,21 +257,33 @@ function injectMeta(html, pathname, lang) {
 }
 
 // ─────────────────────────────────────────────
-// Sitemap generator (dev fallback — production uses static file from dist/public/)
+// Sitemap generator (dev fallback — production uses static files from dist/public/)
 // ─────────────────────────────────────────────
 const SITE_URL = 'https://mojopokerclub.com';
 const SITEMAP_LANGS = ['en','ru','es','de','fr','it','pt','ar','hi','fa','tr','az','zh','ja'];
-const SEO_PAGES = [
-  { path: '/',               changefreq: 'daily',   priority: '1.0' },
-  { path: '/clubs/massiv',   changefreq: 'weekly',  priority: '0.9' },
-  { path: '/clubs/mojo',     changefreq: 'weekly',  priority: '0.9' },
-  { path: '/games',          changefreq: 'weekly',  priority: '0.8' },
-  { path: '/about',          changefreq: 'monthly', priority: '0.8' },
-  { path: '/join',           changefreq: 'monthly', priority: '0.7' },
-  { path: '/create-account', changefreq: 'monthly', priority: '0.7' },
-  { path: '/download',       changefreq: 'monthly', priority: '0.7' },
-  { path: '/install',        changefreq: 'monthly', priority: '0.7' },
+
+const SUB_SITEMAPS = [
+  'sitemap-pages.xml',
+  'sitemap-clubs.xml',
+  'sitemap-games.xml',
+  'sitemap-about.xml',
+  'sitemap-join.xml',
+  'sitemap-create-account.xml',
+  'sitemap-download.xml',
+  'sitemap-install.xml',
 ];
+
+const SUB_PAGES = {
+  'sitemap-pages.xml':          [{ path: '/',               changefreq: 'daily',   priority: '1.0' }],
+  'sitemap-clubs.xml':          [{ path: '/clubs/massiv',   changefreq: 'weekly',  priority: '0.9' },
+                                  { path: '/clubs/mojo',    changefreq: 'weekly',  priority: '0.9' }],
+  'sitemap-games.xml':          [{ path: '/games',          changefreq: 'weekly',  priority: '0.8' }],
+  'sitemap-about.xml':          [{ path: '/about',          changefreq: 'monthly', priority: '0.8' }],
+  'sitemap-join.xml':           [{ path: '/join',           changefreq: 'monthly', priority: '0.7' }],
+  'sitemap-create-account.xml': [{ path: '/create-account', changefreq: 'monthly', priority: '0.7' }],
+  'sitemap-download.xml':       [{ path: '/download',       changefreq: 'monthly', priority: '0.7' }],
+  'sitemap-install.xml':        [{ path: '/install',        changefreq: 'monthly', priority: '0.7' }],
+};
 
 function sitemapLangUrl(lang, path) {
   if (lang === 'en') return `${SITE_URL}${path}`;
@@ -279,9 +291,18 @@ function sitemapLangUrl(lang, path) {
   return `${SITE_URL}/${lang}${page}`;
 }
 
-function generateSitemap() {
+function generateSitemapIndex() {
   const today = new Date().toISOString().slice(0, 10);
-  const entries = SEO_PAGES.map(({ path, changefreq, priority }) => {
+  const entries = SUB_SITEMAPS.map(f =>
+    `  <sitemap>\n    <loc>${SITE_URL}/${f}</loc>\n    <lastmod>${today}</lastmod>\n  </sitemap>`
+  ).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</sitemapindex>`;
+}
+
+function generateSubSitemap(filename) {
+  const today = new Date().toISOString().slice(0, 10);
+  const pages = SUB_PAGES[filename] || [];
+  const entries = pages.map(({ path, changefreq, priority }) => {
     const canonical = `${SITE_URL}${path}`;
     const hreflangs = SITEMAP_LANGS.map(l =>
       `    <xhtml:link rel="alternate" hreflang="${l}" href="${sitemapLangUrl(l, path)}"/>`
@@ -333,13 +354,22 @@ async function main() {
         pathname = '/' + segments.slice(1).join('/') || '/';
       }
 
-      // Serve sitemap index dynamically in dev — production uses static files from dist/public/
+      // Serve sitemaps dynamically in dev — production uses static files from dist/public/
       if (pathname === '/sitemap.xml') {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/xml');
         res.setHeader('X-Content-Type-Options', 'nosniff');
         res.setHeader('Cache-Control', 'no-store');
-        res.end(generateSitemap());
+        res.end(generateSitemapIndex());
+        return;
+      }
+      const subMatch = pathname.match(/^\/(sitemap-[a-z-]+\.xml)$/);
+      if (subMatch) {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/xml');
+        res.setHeader('X-Content-Type-Options', 'nosniff');
+        res.setHeader('Cache-Control', 'no-store');
+        res.end(generateSubSitemap(subMatch[1]));
         return;
       }
 
