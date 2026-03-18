@@ -3,7 +3,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const DIST = resolve(__dirname, 'dist/public');
+const DIST = resolve(__dirname, 'dist/release');
 
 const META = {
   '/': {
@@ -293,4 +293,4 @@ for (const [route, langs] of Object.entries(META)) {
   }
 }
 
-console.log(`[generate-meta] Generated ${count} HTML files in dist/public/`);
+console.log(`[generate-meta] Generated ${count} HTML files in dist/release/`);
