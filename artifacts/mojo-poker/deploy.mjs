@@ -1,6 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
+import { writeFileSync } from 'fs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SRC = path.resolve(__dirname, 'dist/public');
@@ -51,6 +52,8 @@ async function main() {
   run(`find "${repoDir}" -mindepth 1 -not -path "${repoDir}/.git/*" -not -name ".git" -delete`);
   run(`cp -r "${SRC}/." "${repoDir}/"`);
   run(`touch "${repoDir}/.nojekyll"`);
+  // Always ensure CNAME for custom domain
+  writeFileSync(`${repoDir}/CNAME`, 'mojopokerclub.com\n');
 
   const git = (cmd) => execSync(`git -C "${repoDir}" ${cmd}`, {
     encoding: 'utf8', timeout: 60000, env: gitEnv, stdio: ['pipe', 'pipe', 'pipe'],
