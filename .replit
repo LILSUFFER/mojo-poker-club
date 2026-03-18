@@ -30,4 +30,9 @@ integrations = ["github:1.0.0"]
 
 [nix]
 channel = "stable-25_05"
+
+[userenv]
+
+[userenv.shared]
+GITHUB_TOKEN = "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"
   
