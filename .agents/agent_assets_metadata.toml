@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "g3m3bvROzskxIc8tnAKzq"
+uri = "file://mojo-poker-meta-ru.txt"
+type = "text"
+title = "Meta теги — 9 страниц на русском"
