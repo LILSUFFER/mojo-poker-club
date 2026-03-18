@@ -97,7 +97,6 @@ export function Navbar() {
   const { language, setLanguage, t, isRu } = useLanguage();
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const [mobileLangOpen, setMobileLangOpen] = useState(false);
   const langTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [location] = useLocation();
   const isHome = location === '/';
@@ -253,80 +252,98 @@ export function Navbar() {
           className="nav-mobile-btn"
           style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.1)', color: 'white', cursor: 'pointer', padding: '6px 8px', borderRadius: 4, alignItems: 'center' }}
         >
-          {open ? <X size={20} /> : <Menu size={20} />}
+          <Menu size={20} />
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile full-screen overlay */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            style={{ background: 'var(--bg)', borderTop: '1px solid var(--border-subtle)', overflow: 'hidden' }}
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            style={{
+              position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+              background: 'var(--bg)', zIndex: 49,
+              display: 'flex', flexDirection: 'column',
+              overflowY: 'auto', WebkitOverflowScrolling: 'touch',
+            }}
           >
-            <div style={{ padding: '16px 24px 24px', display: 'flex', flexDirection: 'column', gap: 4 }}>
-              {mobileLinks.map(link => (
-                <a key={link.label} href={link.href} onClick={() => setOpen(false)}
-                  style={{ color: 'rgba(255,255,255,0.7)', fontSize: 16, fontWeight: 500, textDecoration: 'none', padding: '10px 12px', borderRadius: 4 }}>
+            {/* Overlay header */}
+            <div style={{
+              display: 'flex', alignItems: 'center', padding: '0 20px',
+              height: 60, borderBottom: '1px solid var(--border-subtle)',
+              flexShrink: 0,
+            }}>
+              <Link href="/" onClick={() => setOpen(false)}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none', flex: 1 }}>
+                <img src="/images/mojo-logo.svg" alt="MOJO" style={{ height: 24, width: 'auto', display: 'block' }} />
+                <div style={{ width: 1, height: 26, background: 'rgba(255,255,255,0.12)', flexShrink: 0 }} />
+                <img src="/images/massiv-union-logo-nobg.png" alt="Massiv Union" style={{ height: 30, width: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.6 }} />
+              </Link>
+              <button onClick={() => setOpen(false)}
+                style={{ background: 'transparent', border: 'none', color: 'rgba(255,255,255,0.7)', cursor: 'pointer', padding: 8, display: 'flex', alignItems: 'center' }}>
+                <X size={22} />
+              </button>
+            </div>
+
+            {/* Nav links */}
+            <div style={{ flexShrink: 0 }}>
+              {mobileLinks.map((link, i) => (
+                <a key={link.href} href={link.href} onClick={() => setOpen(false)}
+                  style={{
+                    display: 'flex', alignItems: 'center',
+                    padding: '0 24px', height: 52,
+                    color: 'rgba(255,255,255,0.85)', fontSize: 16, fontWeight: 500,
+                    textDecoration: 'none',
+                    borderBottom: i < mobileLinks.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                  }}>
                   {link.label}
                 </a>
               ))}
+            </div>
 
-              <div style={{ height: 1, background: 'rgba(255,255,255,0.07)', margin: '8px 0' }} />
-
-              {/* Mobile language picker */}
-              <button
-                onClick={() => setMobileLangOpen(!mobileLangOpen)}
-                style={{ display: 'flex', alignItems: 'center', gap: 8, color: 'rgba(255,255,255,0.5)', fontSize: 14, fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: '8px 12px', textAlign: 'left' }}
-              >
-                <span className={`fi fi-${LANGUAGE_COUNTRY[language]}`} style={{ width: 22, height: 16, borderRadius: 2, flexShrink: 0 }} />
-                {LANGUAGE_NAMES[language]}
-                <ChevronDown size={13} style={{ marginLeft: 'auto', transition: 'transform 0.15s', transform: mobileLangOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
-              </button>
-
-              <AnimatePresence>
-                {mobileLangOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    style={{ overflow: 'hidden' }}
+            {/* Language section */}
+            <div style={{ padding: '20px 20px 8px', flexShrink: 0 }}>
+              <div style={{
+                fontSize: 10, fontWeight: 700, color: 'rgba(255,255,255,0.3)',
+                letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 10,
+              }}>
+                {t('nav.language') || 'Language'}
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
+                {LANGUAGES.map(code => (
+                  <button
+                    key={code}
+                    onClick={() => { setLanguage(code); setOpen(false); }}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: 9,
+                      padding: '11px 14px', borderRadius: 8, fontSize: 14,
+                      fontWeight: language === code ? 600 : 400,
+                      color: language === code ? 'white' : 'rgba(255,255,255,0.5)',
+                      background: language === code ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.03)',
+                      border: language === code ? '1px solid rgba(255,255,255,0.15)' : '1px solid transparent',
+                      cursor: 'pointer', textAlign: 'left',
+                      direction: isRTL(code) ? 'rtl' : 'ltr',
+                    }}
                   >
-                    <div style={{
-                      display: 'grid', gridTemplateColumns: '1fr 1fr',
-                      gap: 2, padding: '4px 12px 8px',
-                    }}>
-                      {LANGUAGES.map(code => (
-                        <button
-                          key={code}
-                          onClick={() => { setLanguage(code); setMobileLangOpen(false); setOpen(false); }}
-                          style={{
-                            display: 'flex', alignItems: 'center', gap: 6,
-                            padding: '8px 10px', borderRadius: 4, fontSize: 13,
-                            fontWeight: language === code ? 700 : 400,
-                            color: language === code ? 'white' : 'rgba(255,255,255,0.5)',
-                            background: language === code ? 'rgba(255,255,255,0.06)' : 'transparent',
-                            border: 'none', cursor: 'pointer', textAlign: 'left',
-                            direction: isRTL(code) ? 'rtl' : 'ltr',
-                          }}
-                        >
-                          <span className={`fi fi-${LANGUAGE_COUNTRY[code]}`} style={{ width: 20, height: 15, borderRadius: 2, flexShrink: 0 }} />
-                          {LANGUAGE_NAMES[code]}
-                        </button>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    <span className={`fi fi-${LANGUAGE_COUNTRY[code]}`} style={{ width: 22, height: 16, borderRadius: 3, flexShrink: 0 }} />
+                    {LANGUAGE_NAMES[code]}
+                  </button>
+                ))}
+              </div>
+            </div>
 
+            {/* CTA buttons */}
+            <div style={{ padding: '16px 20px 40px', marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: 10, flexShrink: 0 }}>
               <Link href="/download" onClick={() => setOpen(false)}
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '12px', borderRadius: 4, background: 'hsl(4 80% 45%)', color: 'white', fontSize: 15, fontWeight: 600, textDecoration: 'none', marginTop: 4 }}>
-                <Download size={15} /> {t('nav.download')}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '15px', borderRadius: 8, background: 'hsl(4 80% 45%)', color: 'white', fontSize: 16, fontWeight: 600, textDecoration: 'none' }}>
+                <Download size={16} /> {t('nav.download')}
               </Link>
               <a href="https://t.me/Mojo_Adm" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
-                style={{ padding: '12px', borderRadius: 4, border: '1px solid rgba(255,255,255,0.18)', color: 'white', fontSize: 15, fontWeight: 600, textDecoration: 'none', textAlign: 'center', marginTop: 4 }}>
+                style={{ padding: '15px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.2)', color: 'white', fontSize: 16, fontWeight: 600, textDecoration: 'none', textAlign: 'center' }}>
                 {t('nav.contact')}
               </a>
             </div>
