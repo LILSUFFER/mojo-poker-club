@@ -256,37 +256,19 @@ function injectMeta(html, pathname, lang) {
   return htmlWithLang.replace('</head>', metaHtml + '\n  </head>');
 }
 
-// ─── Sitemap (dev only — production served from dist/public/ as static files) ───
+// ─── Sitemap handler (dev only) ───
 const _SM_BASE  = 'https://mojopokerclub.com';
-const _SM_LANGS = ['en','ru','es','de','fr','it','pt','ar','hi','fa','tr','az','zh','ja'];
-const _SM_TODAY = () => new Date().toISOString().slice(0, 10);
+const _SM_LANGS = ['en','ru','de','es','fr','it','pt','tr','kk','uz','zh','ja'];
 const _SM_PAGES = [
-  { path: '/',               changefreq: 'weekly',  priority: '1.0' },
-  { path: '/clubs/massiv',   changefreq: 'weekly',  priority: '0.8' },
-  { path: '/clubs/mojo',     changefreq: 'weekly',  priority: '0.8' },
-  { path: '/games',          changefreq: 'weekly',  priority: '0.8' },
-  { path: '/about',          changefreq: 'monthly', priority: '0.7' },
-  { path: '/join',           changefreq: 'monthly', priority: '0.6' },
-  { path: '/create-account', changefreq: 'monthly', priority: '0.6' },
-  { path: '/download',       changefreq: 'monthly', priority: '0.6' },
-  { path: '/install',        changefreq: 'monthly', priority: '0.6' },
+  { path: '/',             changefreq: 'weekly',  priority: '1.0' },
+  { path: '/clubs/massiv', changefreq: 'weekly',  priority: '0.8' },
+  { path: '/clubs/mojo',   changefreq: 'weekly',  priority: '0.8' },
+  { path: '/games',        changefreq: 'weekly',  priority: '0.8' },
+  { path: '/about',        changefreq: 'monthly', priority: '0.5' },
 ];
 
-// /sitemap.xml — sitemapindex only
-function _smIndex() {
-  const t = _SM_TODAY();
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>${_SM_BASE}/sitemap-main.xml</loc>
-    <lastmod>${t}</lastmod>
-  </sitemap>
-</sitemapindex>`;
-}
-
-// /sitemap-main.xml — urlset with all pages + hreflang
-function _smMain() {
-  const t = _SM_TODAY();
+function _smXml() {
+  const today = new Date().toISOString().slice(0, 10);
   const urls = _SM_PAGES.map(({ path, changefreq, priority }) => {
     const loc  = path === '/' ? `${_SM_BASE}/` : `${_SM_BASE}${path}/`;
     const alts = _SM_LANGS.map(l => {
@@ -296,17 +278,19 @@ function _smMain() {
     }).join('\n');
     return `  <url>
     <loc>${loc}</loc>
-    <lastmod>${t}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
+
 ${alts}
     <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />
   </url>`;
   }).join('\n\n');
   return `<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
 ${urls}
 
@@ -359,7 +343,7 @@ async function main() {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/xml; charset=utf-8');
         res.setHeader('Cache-Control', 'no-store');
-        res.end(_smMain());
+        res.end(_smXml());
         return;
       }
 
