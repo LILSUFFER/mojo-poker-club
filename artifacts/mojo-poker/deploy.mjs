@@ -9,8 +9,8 @@ const OWNER = 'mojopokerclub';
 const REPO = 'mojopokerclub.github.io';
 
 function getGitHubToken() {
-  const token = process.env.GITHUB_TOKEN;
-  if (!token) throw new Error('GITHUB_TOKEN env var not set');
+  const token = process.env.GITHUB_PAT || process.env.GITHUB_TOKEN;
+  if (!token) throw new Error('GITHUB_PAT secret not set — add it in Replit Secrets');
   return token;
 }
 
