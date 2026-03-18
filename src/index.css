@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: 'Space Grotesk', sans-serif;
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-input: hsl(var(--input));
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+}
+
+:root {
+  /* Plozilla-style dark theme — blue-tinted navy */
+  --background: 220 15% 5%;
+  --foreground: 220 5% 88%;
+  --card: 220 12% 8%;
+  --card-foreground: 220 5% 88%;
+  --popover: 220 12% 9%;
+  --popover-foreground: 220 5% 88%;
+  --primary: 220 5% 62%;
+  --primary-foreground: 220 15% 5%;
+  --secondary: 220 8% 13%;
+  --secondary-foreground: 220 5% 88%;
+  --muted: 220 8% 15%;
+  --muted-foreground: 220 5% 55%;
+  --accent: 220 5% 62%;
+  --accent-foreground: 220 15% 5%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 96%;
+  --border: 220 5% 14%;
+  --input: 220 8% 16%;
+  --ring: 220 5% 62%;
+  --radius: 0.625rem;
+
+  /* Plozilla elevation system */
+  --button-outline: rgba(255,255,255, .1);
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+
+  /* Convenient color aliases */
+  --bg: hsl(220 15% 5%);
+  --bg-2: hsl(220 13% 7%);
+  --bg-card: hsl(220 12% 8%);
+  --border-color: rgba(255,255,255,0.1);
+  --border-subtle: rgba(255,255,255,0.07);
+  --accent-color: hsl(220 5% 62%);
+  --accent-hover: hsl(220 5% 50%);
+  --text: hsl(220 5% 88%);
+  --text-muted: hsl(220 5% 55%);
+  --text-faint: hsl(220 5% 35%);
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text);
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+  p { margin: 0; }
+  a { text-decoration: none; }
+}
+
+/* Responsive nav */
+.nav-desktop { display: none; }
+.nav-mobile-btn { display: flex; }
+@media (min-width: 768px) {
+  .nav-desktop { display: flex; }
+  .nav-mobile-btn { display: none !important; }
+}
+
+@layer utilities {
+  .btn-red {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 4px;
+    background: hsl(4 80% 45%);
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s;
+    text-decoration: none;
+  }
+  .btn-red:hover {
+    background: hsl(4 80% 38%);
+  }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    border: 1px solid rgba(255,255,255,0.18);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+  }
+  .btn-outline:hover {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.35);
+  }
+}
+
+/* ─── Device mockup dark overrides ─────────────────────────────────────────
+   Replace the silver/white frame colours from devices.css with dark greys
+   so the frames blend with the site's dark background.
+──────────────────────────────────────────────────────────────────────────── */
+
+/* iPhone X — frame inset shadow (silver ring → dark grey ring) */
+.device-iphone-x .device-frame {
+  box-shadow: inset 0 0 2px 2px #383838, inset 0 0 0 7px #2a2a2a !important;
+}
+
+/* iPhone X — side buttons & power bar */
+.device-iphone-x .device-btns,
+.device-iphone-x .device-btns::after,
+.device-iphone-x .device-btns::before,
+.device-iphone-x .device-power {
+  background: #383838 !important;
+}
+
+/* MacBook Pro — lid frame inset shadow */
+.device-macbook-pro .device-frame {
+  box-shadow: inset 0 0 0 2px #383838 !important;
+}
+
+/* MacBook Pro — bottom base/trackpad (the brightest part) */
+.device-macbook-pro .device-power {
+  background: #1e1e1e !important;
+  border-color: #333 !important;
+  box-shadow: inset 0 -2px 8px 0 #111 !important;
+}
+.device-macbook-pro .device-power::after {
+  background: #252525 !important;
+  box-shadow: inset 0 0 4px 2px #1a1a1a !important;
+}
+.device-macbook-pro .device-power::before {
+  box-shadow: -300px 0 #181818, 300px 0 #181818 !important;
+}

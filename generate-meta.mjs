@@ -1,0 +1,296 @@
+import { readFileSync, writeFileSync, mkdirSync } from 'fs';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const DIST = resolve(__dirname, 'dist/public');
+
+const META = {
+  '/': {
+    ru: { title: 'MOJO Poker Club — покерный клуб GGClub, Massiv Poker Union', description: 'Официальный покерный клуб в сети GGClub и Massiv Poker Union. Рейкбек до 55%, фишки 1к1, 698+ игроков онлайн, столы 24/7. Реферальный код 3383-3619.', keywords: 'GGClub, ClubGG, покер клуб, Massiv Poker Union, MOJO Poker, покер онлайн, рейкбек покер' },
+    en: { title: 'MOJO Poker Club — GGClub Poker, Massiv Poker Union', description: 'Official poker club on GGClub and Massiv Poker Union network. Up to 55% rakeback, 1:1 chips, 698+ online players, 24/7 tables. Referral code 3383-3619.', keywords: 'GGClub poker club, ClubGG, Massiv Poker Union, MOJO Poker, online poker club, rakeback poker' },
+    es: { title: 'MOJO Poker Club — GGClub Póker, Massiv Poker Union', description: 'Club de póker oficial en GGClub y Massiv Poker Union. Hasta 55% de rakeback, fichas 1:1, más de 698 jugadores en línea, mesas 24/7. Código de referido 3383-3619.' },
+    de: { title: 'MOJO Poker Club — GGClub Poker, Massiv Poker Union', description: 'Offizieller Pokerclub im GGClub- und Massiv-Poker-Union-Netzwerk. Bis zu 55% Rakeback, 1:1 Chips, 698+ Spieler online, 24/7 Tische. Referral-Code 3383-3619.' },
+    fr: { title: 'MOJO Poker Club — GGClub Poker, Massiv Poker Union', description: "Club de poker officiel sur GGClub et Massiv Poker Union. Jusqu'à 55% de rakeback, jetons 1:1, 698+ joueurs en ligne, tables 24/7. Code de parrainage 3383-3619." },
+    it: { title: 'MOJO Poker Club — GGClub Poker, Massiv Poker Union', description: 'Club di poker ufficiale su GGClub e Massiv Poker Union. Fino al 55% di rakeback, chip 1:1, 698+ giocatori online, tavoli 24/7. Codice referral 3383-3619.' },
+    pt: { title: 'MOJO Poker Club — GGClub Pôquer, Massiv Poker Union', description: 'Clube de pôquer oficial no GGClub e Massiv Poker Union. Até 55% de rakeback, fichas 1:1, mais de 698 jogadores online, mesas 24/7. Código de referência 3383-3619.' },
+    ar: { title: 'MOJO Poker Club — بوكر GGClub، Massiv Poker Union', description: 'نادي بوكر رسمي على شبكة GGClub وMassiv Poker Union. حتى 55% ريك باك، رقائق 1:1، أكثر من 698 لاعبًا متصلاً، طاولات 24/7. رمز الإحالة 3383-3619.' },
+    hi: { title: 'MOJO Poker Club — GGClub पोकर, Massiv Poker Union', description: 'GGClub और Massiv Poker Union नेटवर्क पर आधिकारिक पोकर क्लब। 55% तक रेकबैक, 1:1 चिप्स, 698+ ऑनलाइन खिलाड़ी, 24/7 टेबल। रेफरल कोड 3383-3619।' },
+    fa: { title: 'MOJO Poker Club — پوکر GGClub، Massiv Poker Union', description: 'باشگاه پوکر رسمی در شبکه GGClub و Massiv Poker Union. تا 55% ریک‌بک، تراشه 1:1، بیش از 698 بازیکن آنلاین، میزهای 24/7. کد معرف 3383-3619.' },
+    tr: { title: 'MOJO Poker Club — GGClub Poker, Massiv Poker Union', description: "GGClub ve Massiv Poker Union ağındaki resmi poker kulübü. %55'e kadar rakeback, 1:1 chip, 698+ çevrimiçi oyuncu, 24/7 masalar. Referans kodu 3383-3619." },
+    az: { title: 'MOJO Poker Club — GGClub Poker, Massiv Poker Union', description: 'GGClub və Massiv Poker Union şəbəkəsindəki rəsmi poker klubu. 55%-ə qədər rakeback, 1:1 çips, 698+ onlayn oyunçu, 24/7 masalar. Referral kodu 3383-3619.' },
+    zh: { title: 'MOJO Poker Club — GGClub 扑克，Massiv Poker Union', description: 'GGClub 和 Massiv Poker Union 网络的官方扑克俱乐部。高达55%返水，1:1筹码，698+在线玩家，24/7桌台。推荐码 3383-3619。' },
+    ja: { title: 'MOJO Poker Club — GGClub ポーカー、Massiv Poker Union', description: 'GGClubとMassiv Poker Unionネットワークの公式ポーカークラブ。最大55%レーキバック、1:1チップ、698人以上オンライン、24/7テーブル。紹介コード 3383-3619。' },
+  },
+  '/about': {
+    ru: { title: 'О нас — MOJO Poker Club', description: 'MOJO Poker Club — официальный агент в сети GGClub и Massiv Poker Union. Рейкбек, поддержка, выгодные условия для покеристов. Контакт: @Mojo_Adm.', keywords: 'MOJO Poker Club о нас, GGClub агент, Massiv Poker Union агент, @Mojo_Adm' },
+    en: { title: 'About Us — MOJO Poker Club', description: 'MOJO Poker Club — official agent on GGClub and Massiv Poker Union network. Rakeback, support, best conditions for poker players. Contact: @Mojo_Adm.', keywords: 'MOJO Poker Club about, GGClub agent, Massiv Poker Union agent, Telegram Mojo_Adm' },
+    es: { title: 'Sobre Nosotros — MOJO Poker Club', description: 'MOJO Poker Club — agente oficial en GGClub y Massiv Poker Union. Rakeback, soporte, las mejores condiciones para jugadores de póker. Contacto: @Mojo_Adm.' },
+    de: { title: 'Über uns — MOJO Poker Club', description: 'MOJO Poker Club — offizieller Agent im GGClub- und Massiv-Poker-Union-Netzwerk. Rakeback, Support, beste Bedingungen für Pokerspieler. Kontakt: @Mojo_Adm.' },
+    fr: { title: 'À propos — MOJO Poker Club', description: "MOJO Poker Club — agent officiel sur GGClub et Massiv Poker Union. Rakeback, assistance, meilleures conditions pour les joueurs de poker. Contact : @Mojo_Adm." },
+    it: { title: 'Chi siamo — MOJO Poker Club', description: 'MOJO Poker Club — agente ufficiale su GGClub e Massiv Poker Union. Rakeback, supporto, le migliori condizioni per i giocatori di poker. Contatto: @Mojo_Adm.' },
+    pt: { title: 'Sobre Nós — MOJO Poker Club', description: 'MOJO Poker Club — agente oficial no GGClub e Massiv Poker Union. Rakeback, suporte, melhores condições para jogadores de pôquer. Contato: @Mojo_Adm.' },
+    ar: { title: 'معلومات عنا — MOJO Poker Club', description: 'MOJO Poker Club — وكيل رسمي على GGClub وMassiv Poker Union. ريك باك، دعم، أفضل الشروط للاعبي البوكر. التواصل: @Mojo_Adm.' },
+    hi: { title: 'हमारे बारे में — MOJO Poker Club', description: 'MOJO Poker Club — GGClub और Massiv Poker Union नेटवर्क पर आधिकारिक एजेंट। रेकबैक, सपोर्ट, पोकर खिलाड़ियों के लिए सर्वोत्तम शर्तें। संपर्क: @Mojo_Adm।' },
+    fa: { title: 'درباره ما — MOJO Poker Club', description: 'MOJO Poker Club — نماینده رسمی در شبکه GGClub و Massiv Poker Union. ریک‌بک، پشتیبانی، بهترین شرایط برای بازیکنان پوکر. تماس: @Mojo_Adm.' },
+    tr: { title: 'Hakkımızda — MOJO Poker Club', description: 'MOJO Poker Club — GGClub ve Massiv Poker Union ağında resmi acente. Rakeback, destek, poker oyuncuları için en iyi koşullar. İletişim: @Mojo_Adm.' },
+    az: { title: 'Haqqımızda — MOJO Poker Club', description: 'MOJO Poker Club — GGClub və Massiv Poker Union şəbəkəsindəki rəsmi agent. Rakeback, dəstək, poker oyunçuları üçün ən yaxşı şərtlər. Əlaqə: @Mojo_Adm.' },
+    zh: { title: '关于我们 — MOJO Poker Club', description: 'MOJO Poker Club — GGClub 和 Massiv Poker Union 网络的官方代理。返水、支持、为扑克玩家提供最佳条件。联系方式：@Mojo_Adm。' },
+    ja: { title: '私たちについて — MOJO Poker Club', description: 'MOJO Poker Club — GGClubとMassiv Poker Unionネットワークの公式エージェント。レーキバック、サポート、ポーカープレイヤーへの最高の条件。連絡先：@Mojo_Adm。' },
+  },
+  '/download': {
+    ru: { title: 'Скачать ClubGG', description: 'Скачайте приложение ClubGG для Android, iOS или Windows. Два шага — и вы готовы к игре в клубе MOJO.', keywords: 'скачать ClubGG, ClubGG Android, ClubGG iOS, ClubGG Windows' },
+    en: { title: 'Download ClubGG', description: 'Download the ClubGG app for Android, iOS or Windows. Two steps and you are ready to play at MOJO Poker Club.', keywords: 'download ClubGG, ClubGG Android, ClubGG iOS, ClubGG Windows, club poker app' },
+    es: { title: 'Descargar ClubGG', description: 'Descarga la app ClubGG para Android, iOS o Windows. Dos pasos y estarás listo para jugar en MOJO Poker Club.' },
+    de: { title: 'ClubGG herunterladen', description: 'Lade die ClubGG-App für Android, iOS oder Windows herunter. Zwei Schritte und du bist bereit, im MOJO Poker Club zu spielen.' },
+    fr: { title: 'Télécharger ClubGG', description: "Téléchargez l'application ClubGG pour Android, iOS ou Windows. Deux étapes et vous êtes prêt à jouer au MOJO Poker Club." },
+    it: { title: 'Scarica ClubGG', description: "Scarica l'app ClubGG per Android, iOS o Windows. Due passaggi e sei pronto a giocare al MOJO Poker Club." },
+    pt: { title: 'Baixar ClubGG', description: 'Baixe o aplicativo ClubGG para Android, iOS ou Windows. Dois passos e você estará pronto para jogar no MOJO Poker Club.' },
+    ar: { title: 'تحميل ClubGG', description: 'نزّل تطبيق ClubGG لنظام Android أو iOS أو Windows. خطوتان وستكون جاهزاً للعب في MOJO Poker Club.' },
+    hi: { title: 'ClubGG डाउनलोड करें', description: 'Android, iOS या Windows के लिए ClubGG ऐप डाउनलोड करें। दो कदम और आप MOJO Poker Club में खेलने के लिए तैयार हैं।' },
+    fa: { title: 'دانلود ClubGG', description: 'اپلیکیشن ClubGG را برای Android، iOS یا Windows دانلود کنید. دو مرحله و آماده بازی در MOJO Poker Club هستید.' },
+    tr: { title: 'ClubGG İndir', description: "Android, iOS veya Windows için ClubGG uygulamasını indirin. İki adım ve MOJO Poker Club'da oynamaya hazırsınız." },
+    az: { title: 'ClubGG Yüklə', description: 'Android, iOS və ya Windows üçün ClubGG tətbiqini yükləyin. İki addım və MOJO Poker Club-da oynamağa hazırsınız.' },
+    zh: { title: '下载 ClubGG', description: '下载适用于 Android、iOS 或 Windows 的 ClubGG 应用。两个步骤，您就可以在 MOJO Poker Club 开始游戏。' },
+    ja: { title: 'ClubGGをダウンロード', description: 'Android、iOS、またはWindows用のClubGGアプリをダウンロードしてください。2ステップでMOJO Poker Clubでのプレイが始められます。' },
+  },
+  '/install': {
+    ru: { title: 'Как установить ClubGG — инструкция MOJO', description: 'Пошаговая инструкция по установке приложения ClubGG на Android, iPhone и Windows. Скачать APK, App Store или EXE — всё в одном месте.', keywords: 'установить ClubGG, ClubGG APK, скачать GGClub, ClubGG iPhone' },
+    en: { title: 'How to Install ClubGG — MOJO Guide', description: 'Step-by-step guide to installing the ClubGG app on Android, iPhone and Windows. Download APK, App Store or EXE — all in one place.', keywords: 'install ClubGG, ClubGG APK, download GGClub, ClubGG iPhone' },
+    es: { title: 'Cómo instalar ClubGG — Guía MOJO', description: 'Guía paso a paso para instalar la app ClubGG en Android, iPhone y Windows. Descargar APK, App Store o EXE — todo en un solo lugar.' },
+    de: { title: 'ClubGG installieren — MOJO-Anleitung', description: 'Schritt-für-Schritt-Anleitung zur Installation der ClubGG-App auf Android, iPhone und Windows. APK, App Store oder EXE herunterladen — alles an einem Ort.' },
+    fr: { title: 'Comment installer ClubGG — Guide MOJO', description: "Guide étape par étape pour installer l'application ClubGG sur Android, iPhone et Windows. Télécharger APK, App Store ou EXE — tout en un seul endroit." },
+    it: { title: 'Come installare ClubGG — Guida MOJO', description: "Guida passo passo per installare l'app ClubGG su Android, iPhone e Windows. Scarica APK, App Store o EXE — tutto in un unico posto." },
+    pt: { title: 'Como instalar o ClubGG — Guia MOJO', description: 'Guia passo a passo para instalar o aplicativo ClubGG no Android, iPhone e Windows. Baixar APK, App Store ou EXE — tudo em um só lugar.' },
+    ar: { title: 'كيفية تثبيت ClubGG — دليل MOJO', description: 'دليل خطوة بخطوة لتثبيت تطبيق ClubGG على Android وiPhone وWindows. تنزيل APK أو App Store أو EXE — كل شيء في مكان واحد.' },
+    hi: { title: 'ClubGG कैसे इंस्टॉल करें — MOJO गाइड', description: 'Android, iPhone और Windows पर ClubGG ऐप इंस्टॉल करने के लिए चरण-दर-चरण गाइड। APK, App Store या EXE डाउनलोड करें — सब एक जगह।' },
+    fa: { title: 'نحوه نصب ClubGG — راهنمای MOJO', description: 'راهنمای گام به گام نصب اپلیکیشن ClubGG در Android، iPhone و Windows. دانلود APK، App Store یا EXE — همه در یک مکان.' },
+    tr: { title: 'ClubGG Nasıl Kurulur — MOJO Rehberi', description: "Android, iPhone ve Windows'ta ClubGG uygulamasını yüklemek için adım adım kılavuz. APK, App Store veya EXE indirin — hepsi tek bir yerde." },
+    az: { title: 'ClubGG necə qurulur — MOJO Bələdçisi', description: 'Android, iPhone və Windows-da ClubGG tətbiqini qurmaq üçün addım-addım bələdçi. APK, App Store və ya EXE yükləyin — hamısı bir yerdə.' },
+    zh: { title: '如何安装 ClubGG — MOJO 指南', description: '逐步安装 ClubGG 应用的指南，适用于 Android、iPhone 和 Windows。下载 APK、App Store 或 EXE — 一切尽在一处。' },
+    ja: { title: 'ClubGGのインストール方法 — MOJOガイド', description: 'Android、iPhone、WindowsでClubGGアプリをインストールするためのステップバイステップガイド。APK、App Store、またはEXEをダウンロード — すべて一か所で。' },
+  },
+  '/join': {
+    ru: { title: 'Как вступить в покер клуб GGClub — инструкция MOJO', description: 'Пошаговая инструкция как вступить в MOJO Poker Club на GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Реферальный код 3383-3619.', keywords: 'как вступить в GGClub, ClubGG инструкция, Massiv Poker Union регистрация, MOJO Poker вступить' },
+    en: { title: 'How to Join MOJO Poker Club on GGClub — Step by Step Guide', description: 'Step-by-step guide to join MOJO Poker Club on GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Referral code 3383-3619.', keywords: 'how to join GGClub, ClubGG guide, Massiv Poker Union sign up, MOJO Poker join' },
+    es: { title: 'Cómo unirse a MOJO Poker Club en GGClub — Guía Paso a Paso', description: 'Guía paso a paso para unirse a MOJO Poker Club en GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Código de referido 3383-3619.' },
+    de: { title: 'MOJO Poker Club auf GGClub beitreten — Schritt-für-Schritt', description: 'Schritt-für-Schritt-Anleitung zum Beitreten von MOJO Poker Club auf GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Referral-Code 3383-3619.' },
+    fr: { title: 'Comment rejoindre MOJO Poker Club sur GGClub — Guide Étape par Étape', description: 'Guide étape par étape pour rejoindre MOJO Poker Club sur GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Code de parrainage 3383-3619.' },
+    it: { title: 'Come unirsi a MOJO Poker Club su GGClub — Guida Passo Passo', description: 'Guida passo passo per unirsi a MOJO Poker Club su GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Codice referral 3383-3619.' },
+    pt: { title: 'Como entrar no MOJO Poker Club no GGClub — Guia Passo a Passo', description: 'Guia passo a passo para entrar no MOJO Poker Club no GGClub (ClubGG). Massiv Poker Union ID 799798, MOJO ID 356323. Código de referência 3383-3619.' },
+    ar: { title: 'كيفية الانضمام إلى MOJO Poker Club على GGClub — دليل خطوة بخطوة', description: 'دليل خطوة بخطوة للانضمام إلى MOJO Poker Club على GGClub (ClubGG). Massiv Poker Union ID 799798، MOJO ID 356323. رمز الإحالة 3383-3619.' },
+    hi: { title: 'GGClub पर MOJO Poker Club में कैसे शामिल हों — चरण-दर-चरण गाइड', description: 'GGClub (ClubGG) पर MOJO Poker Club में शामिल होने के लिए चरण-दर-चरण गाइड। Massiv Poker Union ID 799798, MOJO ID 356323। रेफरल कोड 3383-3619।' },
+    fa: { title: 'نحوه پیوستن به MOJO Poker Club در GGClub — راهنمای گام به گام', description: 'راهنمای گام به گام پیوستن به MOJO Poker Club در GGClub (ClubGG). شناسه Massiv Poker Union 799798، شناسه MOJO 356323. کد معرف 3383-3619.' },
+    tr: { title: "GGClub'da MOJO Poker Club'a Nasıl Katılınır — Adım Adım Rehber", description: "GGClub (ClubGG)'da MOJO Poker Club'a katılmak için adım adım kılavuz. Massiv Poker Union ID 799798, MOJO ID 356323. Referans kodu 3383-3619." },
+    az: { title: 'GGClub-da MOJO Poker Club-a Necə Qoşulunur — Addım-addım Bələdçi', description: 'GGClub (ClubGG)-da MOJO Poker Club-a qoşulmaq üçün addım-addım bələdçi. Massiv Poker Union ID 799798, MOJO ID 356323. Referral kodu 3383-3619.' },
+    zh: { title: '如何加入 GGClub 上的 MOJO Poker Club — 逐步指南', description: '逐步指南，了解如何在 GGClub (ClubGG) 上加入 MOJO Poker Club。Massiv Poker Union ID 799798，MOJO ID 356323。推荐码 3383-3619。' },
+    ja: { title: 'GGClubでMOJO Poker Clubに参加する方法 — ステップバイステップガイド', description: 'GGClub (ClubGG) でMOJO Poker Clubに参加するためのステップバイステップガイド。Massiv Poker Union ID 799798、MOJO ID 356323。紹介コード 3383-3619。' },
+  },
+  '/create-account': {
+    ru: { title: 'Как создать аккаунт в GGClub (ClubGG) — инструкция', description: 'Пошаговая инструкция по регистрации аккаунта в GGClub для Massiv Poker Union и MOJO. Как выбрать нужный флаг ГЕО, использовать VPN и реферальный код.', keywords: 'создать аккаунт GGClub, регистрация ClubGG, Massiv Poker Union аккаунт, VPN для GGClub' },
+    en: { title: 'How to Create a GGClub Account — Registration Guide', description: 'Step-by-step guide to registering a GGClub account for Massiv Poker Union and MOJO. How to select the correct GEO flag, use VPN and referral code.', keywords: 'create GGClub account, ClubGG registration, GGClub sign up, Massiv Poker Union account, VPN for GGClub' },
+    es: { title: 'Cómo crear una cuenta GGClub — Guía de Registro', description: 'Guía paso a paso para registrar una cuenta GGClub para Massiv Poker Union y MOJO. Cómo seleccionar la bandera GEO correcta, usar VPN y código de referido.' },
+    de: { title: 'GGClub-Konto erstellen — Registrierungsanleitung', description: 'Schritt-für-Schritt-Anleitung zur Registrierung eines GGClub-Kontos für Massiv Poker Union und MOJO. Richtige GEO-Flagge, VPN und Referral-Code.' },
+    fr: { title: "Comment créer un compte GGClub — Guide d'inscription", description: "Guide étape par étape pour enregistrer un compte GGClub pour Massiv Poker Union et MOJO. Comment sélectionner le bon drapeau GEO, utiliser un VPN et un code de parrainage." },
+    it: { title: 'Come creare un account GGClub — Guida alla Registrazione', description: 'Guida passo passo per registrare un account GGClub per Massiv Poker Union e MOJO. Come selezionare la bandiera GEO corretta, utilizzare VPN e codice referral.' },
+    pt: { title: 'Como criar uma conta GGClub — Guia de Registro', description: 'Guia passo a passo para registrar uma conta GGClub para Massiv Poker Union e MOJO. Como selecionar a bandeira GEO correta, usar VPN e código de referência.' },
+    ar: { title: 'كيفية إنشاء حساب GGClub — دليل التسجيل', description: 'دليل خطوة بخطوة لتسجيل حساب GGClub لـ Massiv Poker Union وMOJO. كيفية اختيار علم GEO الصحيح، واستخدام VPN ورمز الإحالة.' },
+    hi: { title: 'GGClub अकाउंट कैसे बनाएं — रजिस्ट्रेशन गाइड', description: 'Massiv Poker Union और MOJO के लिए GGClub अकाउंट रजिस्टर करने की चरण-दर-चरण गाइड। सही GEO फ्लैग, VPN और रेफरल कोड।' },
+    fa: { title: 'نحوه ایجاد حساب GGClub — راهنمای ثبت‌نام', description: 'راهنمای گام به گام ثبت‌نام حساب GGClub برای Massiv Poker Union و MOJO. نحوه انتخاب پرچم GEO صحیح، استفاده از VPN و کد معرف.' },
+    tr: { title: 'GGClub Hesabı Nasıl Oluşturulur — Kayıt Rehberi', description: 'Massiv Poker Union ve MOJO için GGClub hesabı kaydetmek için adım adım kılavuz. Doğru GEO bayrağı, VPN ve referans kodu.' },
+    az: { title: 'GGClub Hesabı Necə Yaradılır — Qeydiyyat Bələdçisi', description: 'Massiv Poker Union və MOJO üçün GGClub hesabı qeyd etmək üçün addım-addım bələdçi. Düzgün GEO bayrağı, VPN və referral kodu.' },
+    zh: { title: '如何创建 GGClub 账户 — 注册指南', description: '为 Massiv Poker Union 和 MOJO 注册 GGClub 账户的逐步指南。如何选择正确的 GEO 旗帜，使用 VPN 和推荐码。' },
+    ja: { title: 'GGClubアカウントの作成方法 — 登録ガイド', description: 'Massiv Poker UnionとMOJOのためのGGClubアカウント登録のステップバイステップガイド。正しいGEOフラグ、VPNと紹介コードの使い方。' },
+  },
+  '/clubs/massiv': {
+    ru: { title: 'MOJO: Massiv Poker Union — покер клуб GGClub', description: 'Massiv Poker Union на GGClub — один из крупнейших покерных союзов. Рейкбек 50%, фишки 1к1, 698+ игроков онлайн, 255+ столов 24/7. ID клуба 799798.', keywords: 'Massiv Poker Union, GGClub покер, ClubGG покер клуб, рейкбек покер' },
+    en: { title: 'MOJO: Massiv Poker Union — GGClub Poker Club', description: 'Massiv Poker Union on GGClub — one of the largest poker unions. 50% rakeback, 1:1 chips, 698+ players online, 255+ tables 24/7. Club ID 799798.', keywords: 'Massiv Poker Union, GGClub poker, ClubGG poker club, rakeback poker' },
+    es: { title: 'MOJO: Massiv Poker Union — Club de Póker GGClub', description: 'Massiv Poker Union en GGClub — una de las mayores uniones de póker. 50% de rakeback, fichas 1:1, 698+ jugadores en línea, 255+ mesas 24/7. ID del club 799798.' },
+    de: { title: 'MOJO: Massiv Poker Union — GGClub Pokerclub', description: 'Massiv Poker Union auf GGClub — eine der größten Pokerunionen. 50% Rakeback, 1:1 Chips, 698+ Spieler online, 255+ Tische 24/7. Club-ID 799798.' },
+    fr: { title: 'MOJO: Massiv Poker Union — Club de Poker GGClub', description: "Massiv Poker Union sur GGClub — l'une des plus grandes unions de poker. 50% de rakeback, jetons 1:1, 698+ joueurs en ligne, 255+ tables 24/7. ID du club 799798." },
+    it: { title: 'MOJO: Massiv Poker Union — Club Poker GGClub', description: 'Massiv Poker Union su GGClub — una delle più grandi unioni di poker. 50% di rakeback, chip 1:1, 698+ giocatori online, 255+ tavoli 24/7. ID club 799798.' },
+    pt: { title: 'MOJO: Massiv Poker Union — Clube de Pôquer GGClub', description: 'Massiv Poker Union no GGClub — uma das maiores uniões de pôquer. 50% de rakeback, fichas 1:1, 698+ jogadores online, 255+ mesas 24/7. ID do clube 799798.' },
+    ar: { title: 'MOJO: Massiv Poker Union — نادي بوكر GGClub', description: 'Massiv Poker Union على GGClub — إحدى أكبر اتحادات البوكر. 50% ريك باك، رقائق 1:1، 698+ لاعب متصل، 255+ طاولة 24/7. رقم النادي 799798.' },
+    hi: { title: 'MOJO: Massiv Poker Union — GGClub पोकर क्लब', description: 'GGClub पर Massiv Poker Union — सबसे बड़े पोकर संघों में से एक। 50% रेकबैक, 1:1 चिप्स, 698+ ऑनलाइन खिलाड़ी, 255+ टेबल 24/7। क्लब ID 799798।' },
+    fa: { title: 'MOJO: Massiv Poker Union — باشگاه پوکر GGClub', description: 'Massiv Poker Union در GGClub — یکی از بزرگترین اتحادیه‌های پوکر. 50% ریک‌بک، تراشه 1:1، 698+ بازیکن آنلاین، 255+ میز 24/7. شناسه باشگاه 799798.' },
+    tr: { title: 'MOJO: Massiv Poker Union — GGClub Poker Kulübü', description: "GGClub'daki Massiv Poker Union — en büyük poker birliklerinden biri. %50 rakeback, 1:1 chip, 698+ çevrimiçi oyuncu, 255+ masa 24/7. Kulüp ID 799798." },
+    az: { title: 'MOJO: Massiv Poker Union — GGClub Poker Klubu', description: 'GGClub-da Massiv Poker Union — ən böyük poker ittifaqlarından biri. 50% rakeback, 1:1 çips, 698+ onlayn oyunçu, 255+ masa 24/7. Klub ID 799798.' },
+    zh: { title: 'MOJO: Massiv Poker Union — GGClub 扑克俱乐部', description: 'GGClub 上的 Massiv Poker Union — 最大的扑克联盟之一。50%返水，1:1筹码，698+在线玩家，255+桌台 24/7。俱乐部 ID 799798。' },
+    ja: { title: 'MOJO: Massiv Poker Union — GGClub ポーカークラブ', description: 'GGClub上のMassiv Poker Union — 最大のポーカーユニオンの1つ。50%レーキバック、1:1チップ、698人以上オンライン、255以上のテーブル24/7。クラブID 799798。' },
+  },
+  '/clubs/mojo': {
+    ru: { title: 'MOJO Poker Club — приватный клуб на GGClub', description: 'MOJO — приватный покерный клуб на GGClub. Рейкбек 55%, фишки 1к1, эксклюзивные столы. ID клуба 356323. Реферальный код 3383-3619.', keywords: 'MOJO Poker Club, GGClub приватный клуб, покер рейкбек 55%' },
+    en: { title: 'MOJO Poker Club — Private Club on GGClub', description: 'MOJO — private poker club on GGClub. 55% rakeback, 1:1 chips, exclusive tables. Club ID 356323. Referral code 3383-3619.', keywords: 'MOJO Poker Club, GGClub private club, poker rakeback 55%' },
+    es: { title: 'MOJO Poker Club — Club Privado en GGClub', description: 'MOJO — club de póker privado en GGClub. 55% de rakeback, fichas 1:1, mesas exclusivas. ID del club 356323. Código de referido 3383-3619.' },
+    de: { title: 'MOJO Poker Club — Privater Club auf GGClub', description: 'MOJO — privater Pokerclub auf GGClub. 55% Rakeback, 1:1 Chips, exklusive Tische. Club-ID 356323. Referral-Code 3383-3619.' },
+    fr: { title: 'MOJO Poker Club — Club Privé sur GGClub', description: 'MOJO — club de poker privé sur GGClub. 55% de rakeback, jetons 1:1, tables exclusives. ID du club 356323. Code de parrainage 3383-3619.' },
+    it: { title: 'MOJO Poker Club — Club Privato su GGClub', description: 'MOJO — club di poker privato su GGClub. 55% di rakeback, chip 1:1, tavoli esclusivi. ID club 356323. Codice referral 3383-3619.' },
+    pt: { title: 'MOJO Poker Club — Clube Privado no GGClub', description: 'MOJO — clube de pôquer privado no GGClub. 55% de rakeback, fichas 1:1, mesas exclusivas. ID do clube 356323. Código de referência 3383-3619.' },
+    ar: { title: 'MOJO Poker Club — النادي الخاص على GGClub', description: 'MOJO — نادي بوكر خاص على GGClub. 55% ريك باك، رقائق 1:1، طاولات حصرية. رقم النادي 356323. رمز الإحالة 3383-3619.' },
+    hi: { title: 'MOJO Poker Club — GGClub पर प्राइवेट क्लब', description: 'MOJO — GGClub पर प्राइवेट पोकर क्लब। 55% रेकबैक, 1:1 चिप्स, एक्सक्लूसिव टेबल। क्लब ID 356323। रेफरल कोड 3383-3619।' },
+    fa: { title: 'MOJO Poker Club — باشگاه خصوصی در GGClub', description: 'MOJO — باشگاه پوکر خصوصی در GGClub. 55% ریک‌بک، تراشه 1:1، میزهای اختصاصی. شناسه باشگاه 356323. کد معرف 3383-3619.' },
+    tr: { title: "MOJO Poker Club — GGClub'da Özel Kulüp", description: "MOJO — GGClub'da özel poker kulübü. %55 rakeback, 1:1 chip, özel masalar. Kulüp ID 356323. Referans kodu 3383-3619." },
+    az: { title: 'MOJO Poker Club — GGClub-da Xüsusi Klub', description: 'MOJO — GGClub-da xüsusi poker klubu. 55% rakeback, 1:1 çips, eksklüziv masalar. Klub ID 356323. Referral kodu 3383-3619.' },
+    zh: { title: 'MOJO Poker Club — GGClub 上的私人俱乐部', description: 'MOJO — GGClub 上的私人扑克俱乐部。55%返水，1:1筹码，专属桌台。俱乐部 ID 356323。推荐码 3383-3619。' },
+    ja: { title: 'MOJO Poker Club — GGClubのプライベートクラブ', description: 'MOJO — GGClub上のプライベートポーカークラブ。55%レーキバック、1:1チップ、専用テーブル。クラブID 356323。紹介コード 3383-3619。' },
+  },
+  '/games': {
+    ru: { title: 'Игры и форматы — MOJO Poker Club', description: 'Доступные форматы игр, лимиты и рейк в MOJO Poker Club. NLH, PLO4/5/6, Short Deck, Hi-Lo, MTT, Sit-N-Gos. GGClub и Massiv Poker Union.' },
+    en: { title: 'Games & Formats — MOJO Poker Club', description: 'Available game formats, limits and rake table at MOJO Poker Club. NLH, PLO4/5/6, Short Deck, Hi-Lo, MTT, Sit-N-Gos. GGClub and Massiv Poker Union.' },
+    es: { title: 'Juegos y Formatos — MOJO Poker Club', description: 'Formatos de juego disponibles, límites y tabla de rake en MOJO Poker Club. NLH, PLO4/5/6, Short Deck, Hi-Lo, MTT, Sit-N-Gos.' },
+    de: { title: 'Spiele & Formate — MOJO Poker Club', description: 'Verfügbare Spielformate, Limits und Rake-Tabelle im MOJO Poker Club. NLH, PLO4/5/6, Short Deck, Hi-Lo, MTT, Sit-N-Gos.' },
+    fr: { title: 'Jeux & Formats — MOJO Poker Club', description: 'Formats de jeu disponibles, limites et table de rake au MOJO Poker Club. NLH, PLO4/5/6, Short Deck, Hi-Lo, MTT, Sit-N-Gos.' },
+    it: { title: 'Giochi & Formati — MOJO Poker Club', description: 'Formati di gioco disponibili, limiti e tabella di rake al MOJO Poker Club. NLH, PLO4/5/6, Short Deck, Hi-Lo, MTT, Sit-N-Gos.' },
+    pt: { title: 'Jogos & Formatos — MOJO Poker Club', description: 'Formatos de jogo disponíveis, limites e tabela de rake no MOJO Poker Club. NLH, PLO4/5/6, Short Deck, Hi-Lo, MTT, Sit-N-Gos.' },
+    ar: { title: 'الألعاب والتنسيقات — MOJO Poker Club', description: 'تنسيقات الألعاب المتاحة والحدود وجدول الريك في MOJO Poker Club. NLH وPLO4/5/6 وShort Deck وHi-Lo وMTT وSit-N-Gos.' },
+    hi: { title: 'गेम्स और फॉर्मेट — MOJO Poker Club', description: 'MOJO Poker Club में उपलब्ध गेम फॉर्मेट, लिमिट और रेक टेबल। NLH, PLO4/5/6, Short Deck, Hi-Lo, MTT, Sit-N-Gos।' },
+    fa: { title: 'بازی‌ها و قالب‌ها — MOJO Poker Club', description: 'قالب‌های بازی موجود، محدودیت‌ها و جدول ریک در MOJO Poker Club. NLH، PLO4/5/6، Short Deck، Hi-Lo، MTT، Sit-N-Gos.' },
+    tr: { title: 'Oyunlar & Formatlar — MOJO Poker Club', description: "MOJO Poker Club'da mevcut oyun formatları, limitler ve rake tablosu. NLH, PLO4/5/6, Short Deck, Hi-Lo, MTT, Sit-N-Gos." },
+    az: { title: 'Oyunlar & Formatlar — MOJO Poker Club', description: 'MOJO Poker Club-da mövcud oyun formatları, limitlər və rake cədvəli. NLH, PLO4/5/6, Short Deck, Hi-Lo, MTT, Sit-N-Gos.' },
+    zh: { title: '扑克游戏与格式 — MOJO Poker Club', description: 'MOJO Poker Club 可用的游戏格式、限注和佣金表。NLH、PLO4/5/6、Short Deck、Hi-Lo、MTT、Sit-N-Gos。GGClub 和 Massiv Poker Union。' },
+    ja: { title: 'ゲーム＆フォーマット — MOJO Poker Club', description: 'MOJO Poker Clubで利用可能なゲームフォーマット、リミット、レーキテーブル。NLH、PLO4/5/6、Short Deck、Hi-Lo、MTT、Sit-N-Gos。' },
+  },
+  '/rakeback': {
+    ru: { title: 'Рейкбек в MOJO Poker Club — условия и расчёт', description: 'Рейкбек до 55% в MOJO Poker Club на GGClub и Massiv Poker Union. Ежедневные выплаты, фишки 1к1, прозрачные условия. Реферальный код 3383-3619.' },
+    en: { title: 'Rakeback at MOJO Poker Club — Terms & Calculation', description: 'Up to 55% rakeback at MOJO Poker Club on GGClub and Massiv Poker Union. Daily payouts, 1:1 chips, transparent terms. Referral code 3383-3619.' },
+    es: { title: 'Rakeback en MOJO Poker Club — Términos y Cálculo', description: 'Hasta 55% de rakeback en MOJO Poker Club en GGClub y Massiv Poker Union. Pagos diarios, fichas 1:1, condiciones transparentes. Código de referido 3383-3619.' },
+    de: { title: 'Rakeback bei MOJO Poker Club — Bedingungen & Berechnung', description: 'Bis zu 55% Rakeback bei MOJO Poker Club auf GGClub und Massiv Poker Union. Tägliche Auszahlungen, 1:1 Chips, transparente Bedingungen. Referral-Code 3383-3619.' },
+    fr: { title: 'Rakeback au MOJO Poker Club — Conditions & Calcul', description: "Jusqu'à 55% de rakeback au MOJO Poker Club sur GGClub et Massiv Poker Union. Paiements quotidiens, jetons 1:1, conditions transparentes. Code de parrainage 3383-3619." },
+    it: { title: 'Rakeback al MOJO Poker Club — Termini & Calcolo', description: 'Fino al 55% di rakeback al MOJO Poker Club su GGClub e Massiv Poker Union. Pagamenti giornalieri, chip 1:1, termini trasparenti. Codice referral 3383-3619.' },
+    pt: { title: 'Rakeback no MOJO Poker Club — Termos & Cálculo', description: 'Até 55% de rakeback no MOJO Poker Club no GGClub e Massiv Poker Union. Pagamentos diários, fichas 1:1, termos transparentes. Código de referência 3383-3619.' },
+    ar: { title: 'ريك باك في MOJO Poker Club — الشروط والحساب', description: 'حتى 55% ريك باك في MOJO Poker Club على GGClub وMassiv Poker Union. مدفوعات يومية، رقائق 1:1، شروط شفافة. رمز الإحالة 3383-3619.' },
+    hi: { title: 'MOJO Poker Club में रेकबैक — शर्तें और गणना', description: 'GGClub और Massiv Poker Union पर MOJO Poker Club में 55% तक रेकबैक। दैनिक भुगतान, 1:1 चिप्स, पारदर्शी शर्तें। रेफरल कोड 3383-3619।' },
+    fa: { title: 'ریک‌بک در MOJO Poker Club — شرایط و محاسبه', description: 'تا 55% ریک‌بک در MOJO Poker Club در GGClub و Massiv Poker Union. پرداخت‌های روزانه، تراشه 1:1، شرایط شفاف. کد معرف 3383-3619.' },
+    tr: { title: "MOJO Poker Club'da Rakeback — Şartlar ve Hesaplama", description: "GGClub ve Massiv Poker Union'da MOJO Poker Club'da %55'e kadar rakeback. Günlük ödemeler, 1:1 chip, şeffaf koşullar. Referans kodu 3383-3619." },
+    az: { title: 'MOJO Poker Club-da Rakeback — Şərtlər və Hesablama', description: 'GGClub və Massiv Poker Union-da MOJO Poker Club-da 55%-ə qədər rakeback. Gündəlik ödənişlər, 1:1 çips, şəffaf şərtlər. Referral kodu 3383-3619.' },
+    zh: { title: 'MOJO Poker Club 返水 — 条款和计算', description: 'MOJO Poker Club 在 GGClub 和 Massiv Poker Union 上高达55%返水。每日支付，1:1筹码，透明条款。推荐码 3383-3619。' },
+    ja: { title: 'MOJO Poker Clubのレーキバック — 条件と計算', description: 'GGClubとMassiv Poker UnionのMOJO Poker Clubで最大55%レーキバック。毎日支払い、1:1チップ、透明な条件。紹介コード 3383-3619。' },
+  },
+  '/reviews': {
+    ru: { title: 'Отзывы игроков — MOJO Poker Club', description: 'Реальные отзывы игроков MOJO Poker Club на GGClub и Massiv Poker Union. Рейкбек, поддержка и игровой опыт.' },
+    en: { title: 'Player Reviews — MOJO Poker Club', description: 'Real reviews from MOJO Poker Club players on GGClub and Massiv Poker Union. Rakeback, support, and gaming experience shared.' },
+    es: { title: 'Reseñas de Jugadores — MOJO Poker Club', description: 'Reseñas reales de jugadores de MOJO Poker Club en GGClub y Massiv Poker Union. Rakeback, soporte y experiencia de juego.' },
+    de: { title: 'Spielerbewertungen — MOJO Poker Club', description: 'Echte Bewertungen von MOJO Poker Club-Spielern auf GGClub und Massiv Poker Union. Rakeback, Support und Spielerfahrung.' },
+    fr: { title: 'Avis des Joueurs — MOJO Poker Club', description: "Vrais avis des joueurs de MOJO Poker Club sur GGClub et Massiv Poker Union. Rakeback, support et expérience de jeu." },
+    it: { title: 'Recensioni dei Giocatori — MOJO Poker Club', description: 'Recensioni reali dei giocatori di MOJO Poker Club su GGClub e Massiv Poker Union. Rakeback, supporto ed esperienza di gioco.' },
+    pt: { title: 'Avaliações de Jogadores — MOJO Poker Club', description: 'Avaliações reais de jogadores do MOJO Poker Club no GGClub e Massiv Poker Union. Rakeback, suporte e experiência de jogo.' },
+    ar: { title: 'مراجعات اللاعبين — MOJO Poker Club', description: 'مراجعات حقيقية من لاعبي MOJO Poker Club على GGClub وMassiv Poker Union. ريك باك، دعم وتجربة اللعب.' },
+    hi: { title: 'खिलाड़ी समीक्षाएं — MOJO Poker Club', description: 'GGClub और Massiv Poker Union पर MOJO Poker Club के खिलाड़ियों की वास्तविक समीक्षाएं। रेकबैक, सपोर्ट और गेमिंग अनुभव।' },
+    fa: { title: 'نظرات بازیکنان — MOJO Poker Club', description: 'نظرات واقعی از بازیکنان MOJO Poker Club در GGClub و Massiv Poker Union. ریک‌بک، پشتیبانی و تجربه بازی.' },
+    tr: { title: 'Oyuncu Yorumları — MOJO Poker Club', description: "GGClub ve Massiv Poker Union'daki MOJO Poker Club oyuncularından gerçek yorumlar. Rakeback, destek ve oyun deneyimi paylaşımları." },
+    az: { title: 'Oyunçu Rəyləri — MOJO Poker Club', description: 'GGClub və Massiv Poker Union-dakı MOJO Poker Club oyunçularından real rəylər. Rakeback, dəstək və oyun təcrübəsi paylaşımları.' },
+    zh: { title: '玩家评价 — MOJO Poker Club', description: 'MOJO Poker Club 玩家在 GGClub 和 Massiv Poker Union 上的真实评价。返水、支持和游戏体验分享。' },
+    ja: { title: 'プレイヤーレビュー — MOJO Poker Club', description: 'GGClubとMassiv Poker UnionのMOJO Poker Clubプレイヤーからの本物のレビュー。レーキバック、サポート、ゲーム体験の共有。' },
+  },
+  '/faq': {
+    ru: { title: 'FAQ — Частые вопросы о MOJO Poker Club', description: 'Ответы на частые вопросы о MOJO Poker Club: рейкбек, регистрация на GGClub, ID клубов, поддержка. Massiv Poker Union и MOJO ID 356323.' },
+    en: { title: 'FAQ — Frequently Asked Questions about MOJO Poker Club', description: 'Answers to frequently asked questions about MOJO Poker Club: rakeback, GGClub registration, club IDs, support. Massiv Poker Union and MOJO ID 356323.' },
+    es: { title: 'FAQ — Preguntas Frecuentes sobre MOJO Poker Club', description: 'Respuestas a preguntas frecuentes sobre MOJO Poker Club: rakeback, registro en GGClub, IDs de clubs, soporte. Massiv Poker Union y MOJO ID 356323.' },
+    de: { title: 'FAQ — Häufig gestellte Fragen zum MOJO Poker Club', description: 'Antworten auf häufig gestellte Fragen zum MOJO Poker Club: Rakeback, GGClub-Registrierung, Club-IDs, Support. Massiv Poker Union und MOJO ID 356323.' },
+    fr: { title: 'FAQ — Questions Fréquentes sur MOJO Poker Club', description: 'Réponses aux questions fréquentes sur MOJO Poker Club : rakeback, inscription GGClub, IDs de clubs, support. Massiv Poker Union et MOJO ID 356323.' },
+    it: { title: 'FAQ — Domande Frequenti su MOJO Poker Club', description: 'Risposte alle domande frequenti su MOJO Poker Club: rakeback, registrazione GGClub, ID club, supporto. Massiv Poker Union e MOJO ID 356323.' },
+    pt: { title: 'FAQ — Perguntas Frequentes sobre MOJO Poker Club', description: 'Respostas às perguntas frequentes sobre MOJO Poker Club: rakeback, registro no GGClub, IDs de clubes, suporte. Massiv Poker Union e MOJO ID 356323.' },
+    ar: { title: 'الأسئلة الشائعة — أسئلة متكررة حول MOJO Poker Club', description: 'إجابات على الأسئلة المتكررة حول MOJO Poker Club: ريك باك، تسجيل GGClub، معرفات النادي، الدعم. Massiv Poker Union وMOJO ID 356323.' },
+    hi: { title: 'FAQ — MOJO Poker Club के बारे में अक्सर पूछे जाने वाले प्रश्न', description: 'MOJO Poker Club के बारे में अक्सर पूछे जाने वाले प्रश्नों के उत्तर: रेकबैक, GGClub रजिस्ट्रेशन, क्लब ID, सपोर्ट। Massiv Poker Union और MOJO ID 356323।' },
+    fa: { title: 'سوالات متداول — سوالات رایج درباره MOJO Poker Club', description: 'پاسخ به سوالات رایج درباره MOJO Poker Club: ریک‌بک، ثبت‌نام GGClub، شناسه‌های باشگاه، پشتیبانی. Massiv Poker Union و MOJO ID 356323.' },
+    tr: { title: 'SSS — MOJO Poker Club Hakkında Sık Sorulan Sorular', description: "MOJO Poker Club hakkında sık sorulan soruların yanıtları: rakeback, GGClub kaydı, kulüp ID'leri, destek. Massiv Poker Union ve MOJO ID 356323." },
+    az: { title: 'TSS — MOJO Poker Club haqqında Tez-tez Verilən Suallar', description: 'MOJO Poker Club haqqında tez-tez verilən suallara cavablar: rakeback, GGClub qeydiyyatı, klub ID-ləri, dəstək. Massiv Poker Union və MOJO ID 356323.' },
+    zh: { title: '常见问题 — 关于 MOJO Poker Club 的常见问题', description: '关于 MOJO Poker Club 常见问题的解答：返水、GGClub 注册、俱乐部 ID、支持。Massiv Poker Union 和 MOJO ID 356323。' },
+    ja: { title: 'FAQ — MOJO Poker Clubに関するよくある質問', description: 'MOJO Poker Clubに関するよくある質問への回答：レーキバック、GGClub登録、クラブID、サポート。Massiv Poker UnionとMOJO ID 356323。' },
+  },
+};
+
+const BASE_URL = 'https://mojopokerclub.com';
+const OG_IMAGE = `${BASE_URL}/opengraph.jpg`;
+const VALID_LANGS = ['en', 'ru', 'es', 'de', 'fr', 'it', 'pt', 'ar', 'hi', 'fa', 'tr', 'az', 'zh', 'ja'];
+const HREFLANG  = { en:'en', ru:'ru', es:'es', de:'de', fr:'fr', it:'it', pt:'pt', ar:'ar', hi:'hi', fa:'fa', tr:'tr', az:'az', zh:'zh-CN', ja:'ja' };
+const OG_LOCALE = { en:'en_US', ru:'ru_RU', es:'es_ES', de:'de_DE', fr:'fr_FR', it:'it_IT', pt:'pt_BR', ar:'ar_SA', hi:'hi_IN', fa:'fa_IR', tr:'tr_TR', az:'az_AZ', zh:'zh_CN', ja:'ja_JP' };
+
+function stripExistingMeta(html) {
+  return html
+    .replace(/<title>[\s\S]*?<\/title>/gi, '')
+    .replace(/<meta\s+name="description"[^>]*>/gi, '')
+    .replace(/<meta\s+name="keywords"[^>]*>/gi, '')
+    .replace(/<meta\s+name="robots"[^>]*>/gi, '')
+    .replace(/<meta\s+name="author"[^>]*>/gi, '')
+    .replace(/<link\s+rel="canonical"[^>]*>/gi, '')
+    .replace(/<link\s+rel="alternate"[^>]*hreflang[^>]*>/gi, '')
+    .replace(/<meta\s+property="og:[^>]*>/gi, '')
+    .replace(/<meta\s+name="twitter:[^>]*>/gi, '')
+    .replace(/<script\s+type="application\/ld\+json">[\s\S]*?<\/script>/gi, '');
+}
+
+function buildMetaHtml(pathname, lang) {
+  const routeMeta = META[pathname] || META['/'];
+  const m = routeMeta[lang] || routeMeta['en'];
+  const ogLocale = OG_LOCALE[lang] || 'en_US';
+  const htmlLang = HREFLANG[lang] || 'en';
+  const slug = pathname === '/' ? '/' : pathname.replace(/\/+$/, '') + '/';
+  const canonicalUrl = lang === 'en'
+    ? `${BASE_URL}${slug}`
+    : `${BASE_URL}/${lang}${slug}`;
+  const hreflangTags = VALID_LANGS.map(code => {
+    const u = code === 'en' ? `${BASE_URL}${slug}` : `${BASE_URL}/${code}${slug}`;
+    return `  <link rel="alternate" hreflang="${HREFLANG[code]}" href="${u}" />`;
+  }).join('\n');
+
+  return `
+  <title>${m.title}</title>
+  <meta name="description" content="${m.description}" />
+  ${m.keywords ? `<meta name="keywords" content="${m.keywords}" />` : ''}
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="${canonicalUrl}" />
+${hreflangTags}
+  <link rel="alternate" hreflang="x-default" href="${BASE_URL}${slug}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="MOJO Poker Club" />
+  <meta property="og:title" content="${m.title}" />
+  <meta property="og:description" content="${m.description}" />
+  <meta property="og:url" content="${canonicalUrl}" />
+  <meta property="og:image" content="${OG_IMAGE}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="${ogLocale}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${m.title}" />
+  <meta name="twitter:description" content="${m.description}" />
+  <meta name="twitter:image" content="${OG_IMAGE}" />
+  <!-- htmlLang:${htmlLang} -->`;
+}
+
+function injectMeta(html, pathname, lang) {
+  const stripped = stripExistingMeta(html);
+  const metaHtml  = buildMetaHtml(pathname, lang);
+  const htmlLang = HREFLANG[lang] || 'en';
+  const htmlWithLang = stripped.replace(/<html([^>]*)lang="[^"]*"/, `<html$1lang="${htmlLang}"`);
+  return htmlWithLang.replace('</head>', metaHtml + '\n  </head>');
+}
+
+const baseHtml = readFileSync(resolve(DIST, 'index.html'), 'utf-8');
+let count = 0;
+
+for (const [route, langs] of Object.entries(META)) {
+  for (const lang of VALID_LANGS) {
+    let outDir;
+    if (lang === 'en') {
+      outDir = route === '/' ? DIST : resolve(DIST, ...route.split('/').filter(Boolean));
+    } else {
+      outDir = route === '/'
+        ? resolve(DIST, lang)
+        : resolve(DIST, lang, ...route.split('/').filter(Boolean));
+    }
+
+    // Skip root English file — Vite output already has the inline meta detection script
+    if (lang === 'en' && route === '/') {
+      count++;
+      continue;
+    }
+
+    const html = injectMeta(baseHtml, route, lang);
+    mkdirSync(outDir, { recursive: true });
+    writeFileSync(resolve(outDir, 'index.html'), html, 'utf-8');
+    count++;
+  }
+}
+
+console.log(`[generate-meta] Generated ${count} HTML files in dist/public/`);

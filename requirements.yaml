@@ -1,0 +1,23 @@
+packages:
+  "framer-motion": "For smooth, premium reveal animations essential for a luxury casino feel"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility to safely merge Tailwind classes"
+
+images:
+  - path: "artifacts/mojo-poker/public/images/hero-bg.png"
+    description: "Dark, moody, luxury casino atmosphere, cinematic lighting, out of focus poker table in the background, deep charcoal and subtle gold light leaks, highly realistic, 8k"
+    aspect_ratio: "16:9"
+  - path: "artifacts/mojo-poker/public/images/mojo-logo.png"
+    description: "Premium luxury minimalist emblem logo for 'MOJO' Poker Club, metallic gold foil stamping effect on a pure pitch black background, sleek and elegant"
+    aspect_ratio: "1:1"
+  - path: "artifacts/mojo-poker/public/images/massiv-logo.png"
+    description: "Premium luxury minimalist crest or shield logo for 'Massiv Poker Union', metallic gold foil on pitch black background, regal and imposing"
+    aspect_ratio: "1:1"
+  - path: "artifacts/mojo-poker/public/images/games-bg.png"
+    description: "Abstract dark luxury background, subtle geometric patterns, deep black and charcoal with very faint gold glowing dust particles"
+    aspect_ratio: "16:9"
+
+notes:
+  - Single page marketing site with smooth scrolling sections.
+  - No backend required. Pure frontend presentation.
+  - State-based translation system (EN/RU).
