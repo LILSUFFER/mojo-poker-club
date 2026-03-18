@@ -1,0 +1,12 @@
+[build]
+    command = "pnpm --filter @workspace/mojo-poker run build"
+    publish = "artifacts/mojo-poker/dist/public"
+
+  [build.environment]
+    NODE_VERSION = "20"
+
+  [[redirects]]
+    from = "/*"
+    to = "/index.html"
+    status = 200
+  
