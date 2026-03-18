@@ -27,6 +27,14 @@ export function getLangFromPath(): Language {
   return LANGS_SET.has(first) ? (first as Language) : 'en';
 }
 
+function getInitialLang(): Language {
+  if (typeof window === 'undefined') return 'en';
+  const ssrLang = (window as any).__MOJO_LANG__;
+  delete (window as any).__MOJO_LANG__;
+  if (ssrLang && LANGS_SET.has(ssrLang)) return ssrLang as Language;
+  return getLangFromPath();
+}
+
 function getPageSegments(): string[] {
   const base = getViteBase();
   const path = window.location.pathname;
@@ -48,7 +56,7 @@ function applyDocumentDir(lang: Language) {
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>(getLangFromPath);
+  const [language, setLanguageState] = useState<Language>(getInitialLang);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);

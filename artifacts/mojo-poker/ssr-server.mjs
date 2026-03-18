@@ -259,7 +259,8 @@ function injectMeta(html, pathname, lang) {
   const metaHtml  = buildMetaHtml(pathname, lang);
   const htmlLang = HREFLANG[lang] || 'en';
   const htmlWithLang = stripped.replace(/<html([^>]*)lang="[^"]*"/, `<html$1lang="${htmlLang}"`);
-  return htmlWithLang.replace('</head>', metaHtml + '\n  </head>');
+  const langScript = `<script>window.__MOJO_LANG__=${JSON.stringify(lang)}</script>`;
+  return htmlWithLang.replace('</head>', langScript + '\n' + metaHtml + '\n  </head>');
 }
 
 // ─── Sitemap handler (dev only) ───
