@@ -260,24 +260,30 @@ function injectMeta(html, pathname, lang) {
 // Sitemap generator (dev fallback — production uses static file from dist/public/)
 // ─────────────────────────────────────────────
 const SITE_URL = 'https://mojopokerclub.com';
-const SITEMAP_PAGES = [
-  'https://mojopokerclub.com/',
-  'https://mojopokerclub.com/about',
-  'https://mojopokerclub.com/clubs/massiv',
-  'https://mojopokerclub.com/clubs/mojo',
-  'https://mojopokerclub.com/games',
-  'https://mojopokerclub.com/join',
-  'https://mojopokerclub.com/create-account',
-  'https://mojopokerclub.com/download',
-  'https://mojopokerclub.com/install',
+const SM_LANGS = ['en','ru','es','de','fr','it','pt','ar','hi','fa','tr','az','zh','ja'];
+const SM_PAGES = [
+  { path: '/',             changefreq: 'weekly',  priority: '1.0' },
+  { path: '/clubs/massiv', changefreq: 'weekly',  priority: '0.8' },
+  { path: '/clubs/mojo',   changefreq: 'weekly',  priority: '0.8' },
+  { path: '/games',        changefreq: 'weekly',  priority: '0.8' },
+  { path: '/about',        changefreq: 'monthly', priority: '0.5' },
 ];
+
+function smAltUrl(lang, path) {
+  const slug = path === '/' ? '/' : path + '/';
+  return lang === 'en' ? `${SITE_URL}${slug}` : `${SITE_URL}/${lang}${slug}`;
+}
 
 function generateSitemap() {
   const today = new Date().toISOString().slice(0, 10);
-  const urls = SITEMAP_PAGES.map(loc =>
-    `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`
-  ).join('\n');
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>`;
+  const entries = SM_PAGES.map(({ path, changefreq, priority }) => {
+    const loc = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}/`;
+    const alts = SM_LANGS.map(l =>
+      `    <xhtml:link rel="alternate" hreflang="${l}" href="${smAltUrl(l, path)}" />`
+    ).join('\n');
+    return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n${alts}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />\n  </url>`;
+  });
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset\n  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n  xmlns:xhtml="http://www.w3.org/1999/xhtml">\n\n${entries.join('\n\n')}\n\n</urlset>`;
 }
 
 // Determine if a request is for an HTML page (not an asset/vite special route)
