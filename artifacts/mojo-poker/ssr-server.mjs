@@ -216,13 +216,19 @@ function stripExistingMeta(html) {
 function buildMetaHtml(pathname, lang) {
   const routeMeta = META[pathname] || META['/'];
   const m = routeMeta[lang] || routeMeta['en'];
-  const canonicalUrl = `${BASE_URL}${pathname}?lang=${lang}`;
   const ogLocale = OG_LOCALE[lang] || 'en_US';
   const htmlLang = HREFLANG[lang] || 'en';
 
-  const hreflangTags = VALID_LANGS.map(code =>
-    `  <link rel="alternate" hreflang="${HREFLANG[code]}" href="${BASE_URL}${pathname}?lang=${code}" />`
-  ).join('\n');
+  // Path-based URLs: English = /path/, others = /ru/path/
+  const slug = pathname === '/' ? '/' : pathname + '/';
+  const canonicalUrl = lang === 'en'
+    ? `${BASE_URL}${slug}`
+    : `${BASE_URL}/${lang}${slug}`;
+
+  const hreflangTags = VALID_LANGS.map(code => {
+    const u = code === 'en' ? `${BASE_URL}${slug}` : `${BASE_URL}/${code}${slug}`;
+    return `  <link rel="alternate" hreflang="${HREFLANG[code]}" href="${u}" />`;
+  }).join('\n');
 
   return `
   <title>${m.title}</title>
@@ -231,7 +237,7 @@ function buildMetaHtml(pathname, lang) {
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="${canonicalUrl}" />
 ${hreflangTags}
-  <link rel="alternate" hreflang="x-default" href="${BASE_URL}${pathname}?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="${BASE_URL}${slug}" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="MOJO Poker Club" />
   <meta property="og:title" content="${m.title}" />
