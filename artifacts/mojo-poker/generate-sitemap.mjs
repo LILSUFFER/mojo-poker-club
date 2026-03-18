@@ -10,11 +10,15 @@ const BASE  = 'https://mojopokerclub.com';
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const PAGES = [
-  { path: '/',             changefreq: 'weekly',  priority: '1.0' },
-  { path: '/clubs/massiv', changefreq: 'weekly',  priority: '0.8' },
-  { path: '/clubs/mojo',   changefreq: 'weekly',  priority: '0.8' },
-  { path: '/games',        changefreq: 'weekly',  priority: '0.8' },
-  { path: '/about',        changefreq: 'monthly', priority: '0.5' },
+  { path: '/',               changefreq: 'weekly',  priority: '1.0' },
+  { path: '/clubs/massiv',   changefreq: 'weekly',  priority: '0.8' },
+  { path: '/clubs/mojo',     changefreq: 'weekly',  priority: '0.8' },
+  { path: '/games',          changefreq: 'weekly',  priority: '0.8' },
+  { path: '/about',          changefreq: 'monthly', priority: '0.7' },
+  { path: '/join',           changefreq: 'monthly', priority: '0.6' },
+  { path: '/create-account', changefreq: 'monthly', priority: '0.6' },
+  { path: '/download',       changefreq: 'monthly', priority: '0.6' },
+  { path: '/install',        changefreq: 'monthly', priority: '0.6' },
 ];
 
 const urls = PAGES.map(({ path, changefreq, priority }) => {
