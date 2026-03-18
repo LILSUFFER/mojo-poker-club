@@ -263,11 +263,11 @@ const _SM_PAGES = [
   { path: '/clubs/massiv',   changefreq: 'weekly',  priority: '0.8' },
   { path: '/clubs/mojo',     changefreq: 'weekly',  priority: '0.8' },
   { path: '/games',          changefreq: 'weekly',  priority: '0.8' },
-  { path: '/about',          changefreq: 'monthly', priority: '0.7' },
-  { path: '/join',           changefreq: 'monthly', priority: '0.6' },
-  { path: '/create-account', changefreq: 'monthly', priority: '0.6' },
-  { path: '/download',       changefreq: 'monthly', priority: '0.6' },
-  { path: '/install',        changefreq: 'monthly', priority: '0.6' },
+  { path: '/about',          changefreq: 'monthly', priority: '0.8' },
+  { path: '/join',           changefreq: 'monthly', priority: '0.8' },
+  { path: '/create-account', changefreq: 'monthly', priority: '0.8' },
+  { path: '/download',       changefreq: 'monthly', priority: '0.8' },
+  { path: '/install',        changefreq: 'monthly', priority: '0.8' },
 ];
 
 function _smXml() {
