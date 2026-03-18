@@ -257,26 +257,34 @@ function injectMeta(html, pathname, lang) {
 }
 
 // ─────────────────────────────────────────────
-// Sitemap index generator (dev fallback — production uses static files)
+// Sitemap generator (dev fallback — production uses static file from dist/public/)
 // ─────────────────────────────────────────────
 const SITE_URL = 'https://mojopokerclub.com';
-const SUB_SITEMAPS = [
-  'sitemap-pages.xml',
-  'sitemap-clubs.xml',
-  'sitemap-games.xml',
-  'sitemap-join.xml',
-  'sitemap-create-account.xml',
-  'sitemap-download.xml',
-  'sitemap-install.xml',
-  'sitemap-about.xml',
+const SITEMAP_LANGS = ['en','ru','es','de','fr','it','pt','ar','hi','fa','tr','az','zh','ja'];
+const SEO_PAGES = [
+  { path: '/',             changefreq: 'daily',   priority: '1.0' },
+  { path: '/clubs/massiv', changefreq: 'weekly',  priority: '0.9' },
+  { path: '/clubs/mojo',   changefreq: 'weekly',  priority: '0.9' },
+  { path: '/games',        changefreq: 'weekly',  priority: '0.8' },
+  { path: '/about',        changefreq: 'monthly', priority: '0.7' },
 ];
 
-function generateSitemapIndex() {
+function sitemapLangUrl(lang, path) {
+  if (lang === 'en') return `${SITE_URL}${path}`;
+  const page = path === '/' ? '' : path;
+  return `${SITE_URL}/${lang}${page}`;
+}
+
+function generateSitemap() {
   const today = new Date().toISOString().slice(0, 10);
-  const entries = SUB_SITEMAPS.map(file =>
-    `  <sitemap>\n    <loc>${SITE_URL}/${file}</loc>\n    <lastmod>${today}</lastmod>\n  </sitemap>`
-  ).join('\n');
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</sitemapindex>`;
+  const entries = SEO_PAGES.map(({ path, changefreq, priority }) => {
+    const canonical = `${SITE_URL}${path}`;
+    const hreflangs = SITEMAP_LANGS.map(l =>
+      `    <xhtml:link rel="alternate" hreflang="${l}" href="${sitemapLangUrl(l, path)}"/>`
+    ).join('\n');
+    return `  <url>\n    <loc>${canonical}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n${hreflangs}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${canonical}"/>\n  </url>`;
+  });
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>`;
 }
 
 // Determine if a request is for an HTML page (not an asset/vite special route)
@@ -327,7 +335,7 @@ async function main() {
         res.setHeader('Content-Type', 'application/xml');
         res.setHeader('X-Content-Type-Options', 'nosniff');
         res.setHeader('Cache-Control', 'no-store');
-        res.end(generateSitemapIndex());
+        res.end(generateSitemap());
         return;
       }
 
