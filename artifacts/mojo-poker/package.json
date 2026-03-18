@@ -7,7 +7,7 @@
     "dev": "node ssr-server.mjs",
     "dev:vite": "vite --config vite.config.ts --host 0.0.0.0",
     "build": "node generate-sitemap.mjs && vite build --config vite.config.ts && node generate-meta.mjs",
-    "deploy": "node deploy-netlify.mjs",
+    "deploy": "node deploy.mjs",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
