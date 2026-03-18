@@ -381,12 +381,12 @@ function handleRequest(req, res, rawIndexHtml, serveAsset) {
 }
 
 async function main() {
-  const distIndexPath = resolve(__dirname, 'dist/spa/index.html');
+  const distIndexPath = resolve(__dirname, 'dist/public/index.html');
   const isProd = existsSync(distIndexPath);
 
   if (isProd) {
-    console.log('[mojo-poker] Production mode — serving from dist/spa/');
-    const distDir = resolve(__dirname, 'dist/spa');
+    console.log('[mojo-poker] Production mode — serving from dist/public/');
+    const distDir = resolve(__dirname, 'dist/public');
     const rawIndexHtml = readFileSync(distIndexPath, 'utf-8');
 
     const server = http.createServer((req, res) => {
