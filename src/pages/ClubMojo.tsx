@@ -67,20 +67,20 @@ export function ClubMojo() {
       <SEO
         canonical="/clubs/mojo"
         langs={{
-          ru: { title: "MOJO Poker Club — приватный клуб на GGClub", description: "MOJO — приватный покерный клуб на GGClub. Рейкбек 55%, фишки 1к1, эксклюзивные столы. ID клуба 356323. Реферальный код 3383-3619.", keywords: "MOJO Poker Club, GGClub приватный клуб, покер рейкбек 55%" },
-          en: { title: "MOJO Poker Club — Private Club on GGClub", description: "MOJO — exclusive private poker club on GGClub. 55% rakeback, 1:1 chips, VIP tables. Club ID 356323. Referral code 3383-3619.", keywords: "MOJO Poker Club, GGClub private club, poker rakeback 55%" },
-          es: { title: "MOJO Poker Club — Club Privado en GGClub", description: "MOJO — club de póker privado exclusivo en GGClub. 55% de rakeback, fichas 1:1, mesas VIP. ID del club 356323. Código de referido 3383-3619." },
-          de: { title: "MOJO Poker Club — Privater Club auf GGClub", description: "MOJO — exklusiver privater Pokerclub auf GGClub. 55% Rakeback, 1:1 Chips, VIP-Tische. Club-ID 356323. Referral-Code 3383-3619." },
-          fr: { title: "MOJO Poker Club — Club Privé sur GGClub", description: "MOJO — club de poker privé exclusif sur GGClub. 55% de rakeback, jetons 1:1, tables VIP. ID du club 356323. Code de parrainage 3383-3619." },
-          it: { title: "MOJO Poker Club — Club Privato su GGClub", description: "MOJO — club di poker privato esclusivo su GGClub. 55% di rakeback, chip 1:1, tavoli VIP. ID club 356323. Codice referral 3383-3619." },
-          pt: { title: "MOJO Poker Club — Clube Privado no GGClub", description: "MOJO — clube de pôquer privado exclusivo no GGClub. 55% de rakeback, fichas 1:1, mesas VIP. ID do clube 356323. Código de referência 3383-3619." },
-          ar: { title: "MOJO Poker Club — نادي خاص على GGClub", description: "MOJO — نادي بوكر خاص حصري على GGClub. 55% ريك باك، رقائق 1:1، طاولات VIP. رقم النادي 356323. رمز الإحالة 3383-3619." },
-          hi: { title: "MOJO Poker Club — GGClub पर प्राइवेट क्लब", description: "MOJO — GGClub पर एक्सक्लूसिव प्राइवेट पोकर क्लब। 55% रेकबैक, 1:1 चिप्स, VIP टेबल। क्लब ID 356323। रेफरल कोड 3383-3619।" },
-          fa: { title: "MOJO Poker Club — باشگاه خصوصی در GGClub", description: "MOJO — باشگاه پوکر خصوصی انحصاری در GGClub. 55% ریک‌بک، تراشه 1:1، میزهای VIP. شناسه باشگاه 356323. کد معرف 3383-3619." },
+          ru: { title: "MOJO Poker Club — приватный клуб на GGClub", description: "MOJO — приватный покерный клуб на GGClub. Рейкбек 50%, фишки 1к1, эксклюзивные столы. ID клуба 356323. Реферальный код 3383-3619.", keywords: "MOJO Poker Club, GGClub приватный клуб, покер рейкбек 50%" },
+          en: { title: "MOJO Poker Club — Private Club on GGClub", description: "MOJO — exclusive private poker club on GGClub. 50% rakeback, 1:1 chips, VIP tables. Club ID 356323. Referral code 3383-3619.", keywords: "MOJO Poker Club, GGClub private club, poker rakeback 50%" },
+          es: { title: "MOJO Poker Club — Club Privado en GGClub", description: "MOJO — club de póker privado exclusivo en GGClub. 50% de rakeback, fichas 1:1, mesas VIP. ID del club 356323. Código de referido 3383-3619." },
+          de: { title: "MOJO Poker Club — Privater Club auf GGClub", description: "MOJO — exklusiver privater Pokerclub auf GGClub. 50% Rakeback, 1:1 Chips, VIP-Tische. Club-ID 356323. Referral-Code 3383-3619." },
+          fr: { title: "MOJO Poker Club — Club Privé sur GGClub", description: "MOJO — club de poker privé exclusif sur GGClub. 50% de rakeback, jetons 1:1, tables VIP. ID du club 356323. Code de parrainage 3383-3619." },
+          it: { title: "MOJO Poker Club — Club Privato su GGClub", description: "MOJO — club di poker privato esclusivo su GGClub. 50% di rakeback, chip 1:1, tavoli VIP. ID club 356323. Codice referral 3383-3619." },
+          pt: { title: "MOJO Poker Club — Clube Privado no GGClub", description: "MOJO — clube de pôquer privado exclusivo no GGClub. 50% de rakeback, fichas 1:1, mesas VIP. ID do clube 356323. Código de referência 3383-3619." },
+          ar: { title: "MOJO Poker Club — نادي خاص على GGClub", description: "MOJO — نادي بوكر خاص حصري على GGClub. 50% ريك باك، رقائق 1:1، طاولات VIP. رقم النادي 356323. رمز الإحالة 3383-3619." },
+          hi: { title: "MOJO Poker Club — GGClub पर प्राइवेट क्लब", description: "MOJO — GGClub पर एक्सक्लूसिव प्राइवेट पोकर क्लब। 50% रेकबैक, 1:1 चिप्स, VIP टेबल। क्लब ID 356323। रेफरल कोड 3383-3619।" },
+          fa: { title: "MOJO Poker Club — باشگاه خصوصی در GGClub", description: "MOJO — باشگاه پوکر خصوصی انحصاری در GGClub. 50% ریک‌بک، تراشه 1:1، میزهای VIP. شناسه باشگاه 356323. کد معرف 3383-3619." },
           tr: { title: "MOJO Poker Club — GGClub'da Özel Kulüp", description: "MOJO — GGClub'da özel ve özel poker kulübü. %55 rakeback, 1:1 chip, VIP masalar. Kulüp ID 356323. Referans kodu 3383-3619." },
-          az: { title: "MOJO Poker Club — GGClub-da Özəl Klub", description: "MOJO — GGClub-da eksklüziv özəl poker klubu. 55% rakeback, 1:1 çips, VIP masalar. Klub ID 356323. Referral kodu 3383-3619." },
-          zh: { title: "MOJO Poker Club — GGClub 私人俱乐部", description: "MOJO — GGClub 上的独家私人扑克俱乐部。55%返水，1:1筹码，VIP桌台。俱乐部 ID 356323。推荐码 3383-3619。" },
-          ja: { title: "MOJO Poker Club — GGClubのプライベートクラブ", description: "MOJO — GGClubの限定プライベートポーカークラブ。55%レーキバック、1:1チップ、VIPテーブル。クラブID 356323。紹介コード 3383-3619。" },
+          az: { title: "MOJO Poker Club — GGClub-da Özəl Klub", description: "MOJO — GGClub-da eksklüziv özəl poker klubu. 50% rakeback, 1:1 çips, VIP masalar. Klub ID 356323. Referral kodu 3383-3619." },
+          zh: { title: "MOJO Poker Club — GGClub 私人俱乐部", description: "MOJO — GGClub 上的独家私人扑克俱乐部。50%返水，1:1筹码，VIP桌台。俱乐部 ID 356323。推荐码 3383-3619。" },
+          ja: { title: "MOJO Poker Club — GGClubのプライベートクラブ", description: "MOJO — GGClubの限定プライベートポーカークラブ。50%レーキバック、1:1チップ、VIPテーブル。クラブID 356323。紹介コード 3383-3619。" },
         }}
       />
       <Navbar />

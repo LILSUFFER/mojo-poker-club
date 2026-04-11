@@ -33,7 +33,7 @@ const clubs = [
     name: 'MOJO',
     tagKey: 'pages.privateClub' as const,
     id: '356323',
-    rb: '55%',
+    rb: '50%',
     onlineNum: '62+',
     tablesNum: '58+',
     descKey: 'pages.mojo.pageSubtitle' as const,

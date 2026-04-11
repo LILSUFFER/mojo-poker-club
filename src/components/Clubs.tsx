@@ -24,7 +24,7 @@ const clubs = [
     logoBg: '#1a1a1a',
     label: 'MOJO',
     descKey: 'pages.mojo.pageSubtitle' as const,
-    rb: '55%',
+    rb: '50%',
     chip: '1к1',
     online: '62+',
     tables: '58+',
